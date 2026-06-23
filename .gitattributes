@@ -1,0 +1,36 @@
+# Normalize line endings: git stores LF, checks out native
+* text=auto
+
+# Unity text assets (force LF, never treat as binary for merges)
+*.cs        text diff=csharp
+*.meta      text eol=lf
+*.unity     text eol=lf
+*.asset     text eol=lf
+*.prefab    text eol=lf
+*.mat       text eol=lf
+*.anim      text eol=lf
+*.controller text eol=lf
+*.json      text eol=lf
+*.md        text
+*.shader    text
+*.txt       text
+
+# Binary assets (no line-ending conversion, no diff/merge)
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.psd       binary
+*.tga       binary
+*.ttf       binary
+*.otf       binary
+*.fbx       binary
+*.fbx       binary
+*.wav       binary
+*.mp3       binary
+*.ogg       binary
+*.aif       binary
+*.dll       binary
+*.so        binary
+*.pdf       binary
+*.unitypackage binary

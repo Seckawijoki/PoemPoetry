@@ -1,0 +1,20 @@
+{
+    "name": "PoemPoetry.UI",
+    "rootNamespace": "PoemPoetry.UI",
+    "references": [
+        "PoemPoetry.Core",
+        "PoemPoetry.Services",
+        "PoemPoetry.Data",
+        "Unity.TextMeshPro",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

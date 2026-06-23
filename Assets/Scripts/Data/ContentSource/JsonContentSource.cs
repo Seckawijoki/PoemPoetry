@@ -1,0 +1,56 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace PoemPoetry.Data
+{
+    /// <summary>
+    /// Loads shipped content from JSON via an <see cref="IRawTextLoader"/>. Platform-agnostic:
+    /// the loader handles where bytes come from (File.IO on desktop/editor/iOS, UnityWebRequest
+    /// on Android). Parsing is identical everywhere.
+    /// </summary>
+    public sealed class JsonContentSource : IContentSource
+    {
+        public const string PoemsPath = "PoemData/poems.json";
+        public const string QuestionsPath = "PoemData/questions.json";
+        public const string CharPinyinPath = "PoemData/char_pinyin.json";
+        public const string RhymeGroupsPath = "PoemData/rhyme_groups.json";
+
+        private readonly IRawTextLoader _loader;
+
+        public JsonContentSource(IRawTextLoader loader) { _loader = loader; }
+
+        public async Task<IReadOnlyList<Poem>> LoadPoemsAsync()
+        {
+            var json = await _loader.ReadTextAsync(PoemsPath);
+            var file = PoemJson.Deserialize<PoemFile>(json);
+            return (IReadOnlyList<Poem>)(file?.Poems) ?? new List<Poem>();
+        }
+
+        public async Task<IReadOnlyList<Question>> LoadQuestionsAsync()
+        {
+            if (!_loader.Exists(QuestionsPath)) return new List<Question>();
+            var json = await _loader.ReadTextAsync(QuestionsPath);
+            var file = PoemJson.Deserialize<QuestionFile>(json);
+            return (IReadOnlyList<Question>)(file?.Questions) ?? new List<Question>();
+        }
+
+        public async Task<IReadOnlyDictionary<string, IReadOnlyList<string>>> LoadCharPinyinAsync()
+        {
+            var json = await _loader.ReadTextAsync(CharPinyinPath);
+            var file = PoemJson.Deserialize<CharPinyinFile>(json);
+            var result = new Dictionary<string, IReadOnlyList<string>>();
+            if (file?.Entries != null)
+                foreach (var kv in file.Entries)
+                    result[kv.Key] = kv.Value;
+            return result;
+        }
+
+        public async Task<IReadOnlyDictionary<string, string>> LoadRhymeGroupsAsync()
+        {
+            var json = await _loader.ReadTextAsync(RhymeGroupsPath);
+            var file = PoemJson.Deserialize<RhymeGroupFile>(json);
+            return (IReadOnlyDictionary<string, string>)(file?.Groups)
+                   ?? new Dictionary<string, string>();
+        }
+    }
+}
