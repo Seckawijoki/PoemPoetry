@@ -216,10 +216,27 @@ namespace PoemPoetry.UI
         /// Standard screen chrome: Paper background, centered title, a flexible body panel, and
         /// an optional top-left Back button. Returns the body transform to populate.
         /// </summary>
+        /// <summary>
+        /// Top inset (in canvas reference units) needed to clear a notch / status bar, derived
+        /// from <see cref="Screen.safeArea"/>. 0 on devices/editor without a top cutout.
+        /// </summary>
+        public static float SafeTopInset(GameObject reference)
+        {
+            var sa = Screen.safeArea;
+            float topPx = Screen.height - sa.yMax;
+            if (topPx <= 0.5f) return 0f;
+            var canvas = reference != null ? reference.GetComponentInParent<Canvas>() : null;
+            float scale = canvas != null && canvas.scaleFactor > 0f ? canvas.scaleFactor : 1f;
+            return topPx / scale;
+        }
+
         public static RectTransform ScreenRoot(GameObject screenGo, string title, System.Action onBack)
         {
             var bg = screenGo.GetComponent<Image>() ?? screenGo.AddComponent<Image>();
             bg.color = Paper;
+
+            // Push the header below the notch / status bar on cutout phones.
+            float safeTop = SafeTopInset(screenGo);
 
             if (onBack != null)
             {
@@ -229,7 +246,7 @@ namespace PoemPoetry.UI
                 rt.anchorMin = new Vector2(0, 1);
                 rt.anchorMax = new Vector2(0, 1);
                 rt.pivot = new Vector2(0, 1);
-                rt.anchoredPosition = new Vector2(24, -24);
+                rt.anchoredPosition = new Vector2(24, -(24 + safeTop));
                 rt.sizeDelta = new Vector2(160, 76);
                 bgo.GetComponent<Image>().color = CardAlt;
                 var lbl = Text("L", bgo.transform, "返回", 34, TextAlignmentOptions.Center, Ink);
@@ -243,7 +260,7 @@ namespace PoemPoetry.UI
             titleText.enableAutoSizing = true;
             titleText.fontSizeMin = 26;
             titleText.fontSizeMax = 52;
-            AnchorTop(titleText.gameObject, height: 96, topOffset: 26, sideMargin: 200);
+            AnchorTop(titleText.gameObject, height: 96, topOffset: 26 + safeTop, sideMargin: 200);
 
             // Body fills everything below the title band.
             var body = Panel("Body", screenGo.transform);
@@ -251,7 +268,7 @@ namespace PoemPoetry.UI
             brt.anchorMin = new Vector2(0, 0);
             brt.anchorMax = new Vector2(1, 1);
             brt.offsetMin = new Vector2(0, 0);
-            brt.offsetMax = new Vector2(0, -140);
+            brt.offsetMax = new Vector2(0, -(140 + safeTop));
             return brt;
         }
     }

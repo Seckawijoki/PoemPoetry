@@ -9,12 +9,15 @@ namespace PoemPoetry.Services
     {
         private readonly List<Poem> _poems;
         private readonly List<Question> _questions;
+        private readonly List<WordClozeQuestion> _wordCloze;
         private readonly Dictionary<string, Poem> _byId = new Dictionary<string, Poem>();
 
-        public ContentService(IReadOnlyList<Poem> poems, IReadOnlyList<Question> questions)
+        public ContentService(IReadOnlyList<Poem> poems, IReadOnlyList<Question> questions,
+            IReadOnlyList<WordClozeQuestion> wordCloze = null)
         {
             _poems = new List<Poem>(poems ?? new List<Poem>());
             _questions = new List<Question>(questions ?? new List<Question>());
+            _wordCloze = new List<WordClozeQuestion>(wordCloze ?? new List<WordClozeQuestion>());
             foreach (var p in _poems)
                 if (!string.IsNullOrEmpty(p.Id)) _byId[p.Id] = p;
         }
@@ -23,23 +26,47 @@ namespace PoemPoetry.Services
         {
             var poems = await source.LoadPoemsAsync();
             var questions = await source.LoadQuestionsAsync();
-            return new ContentService(poems, questions);
+            var wordCloze = await source.LoadWordClozeQuestionsAsync();
+            return new ContentService(poems, questions, wordCloze);
         }
 
         public IReadOnlyList<Poem> Poems => _poems;
         public IReadOnlyList<Question> Questions => _questions;
         public int QuestionCount => _questions.Count;
+        public IReadOnlyList<WordClozeQuestion> WordClozeQuestions => _wordCloze;
+        public int WordClozeCount => _wordCloze.Count;
 
         public Poem GetPoem(string id) =>
             !string.IsNullOrEmpty(id) && _byId.TryGetValue(id, out var p) ? p : null;
 
-        /// <summary>Distinct dynasties present, for the main-menu filter.</summary>
+        // Canonical chronological order of dynasties, earliest first. Anything not listed
+        // sorts after these, keeping its first-seen position.
+        private static readonly string[] DynastyOrder =
+        {
+            "先秦", "秦", "汉", "魏", "晋", "魏晋", "南北朝", "隋", "唐",
+            "五代", "宋", "辽", "金", "元", "明", "清", "近现代", "现代", "当代",
+        };
+
+        private static int DynastyRank(string d)
+        {
+            int i = System.Array.IndexOf(DynastyOrder, d);
+            return i < 0 ? int.MaxValue : i;
+        }
+
+        /// <summary>Distinct dynasties present, chronologically ordered, for the main-menu filter.</summary>
         public List<string> GetDynasties()
         {
             var set = new HashSet<string>();
-            var list = new List<string>();
+            var firstSeen = new List<string>();
             foreach (var p in _poems)
-                if (!string.IsNullOrEmpty(p.Dynasty) && set.Add(p.Dynasty)) list.Add(p.Dynasty);
+                if (!string.IsNullOrEmpty(p.Dynasty) && set.Add(p.Dynasty)) firstSeen.Add(p.Dynasty);
+            var list = new List<string>(firstSeen);
+            list.Sort((a, b) =>
+            {
+                int ra = DynastyRank(a), rb = DynastyRank(b);
+                // Tiebreak on original first-seen order so unranked dynasties stay stable.
+                return ra != rb ? ra.CompareTo(rb) : firstSeen.IndexOf(a).CompareTo(firstSeen.IndexOf(b));
+            });
             return list;
         }
 
@@ -178,6 +205,55 @@ namespace PoemPoetry.Services
             var result = new List<Question>();
             foreach (var id in ids)
                 if (byQId.TryGetValue(id, out var q)) result.Add(q);
+            return result;
+        }
+
+        // ---- 逐词填空 (wordcloze) pools — same dynasty/type/difficulty filters as the line questions ----
+
+        /// <summary>Per-line difficulty tiers present among the wordcloze bank, ascending.</summary>
+        public List<int> GetWordClozeDifficultyTiers()
+        {
+            var set = new HashSet<int>();
+            foreach (var q in _wordCloze) set.Add(q.Difficulty);
+            var list = new List<int>(set);
+            list.Sort();
+            return list;
+        }
+
+        /// <summary>Wordcloze questions matching the settings' filters.</summary>
+        public List<WordClozeQuestion> GetWordClozePool(ChallengeSettings settings)
+        {
+            var pool = new List<WordClozeQuestion>();
+            foreach (var q in _wordCloze)
+                if (WordClozeMatches(q, settings)) pool.Add(q);
+            return pool;
+        }
+
+        public int CountWordClozePool(ChallengeSettings settings)
+        {
+            int n = 0;
+            foreach (var q in _wordCloze)
+                if (WordClozeMatches(q, settings)) n++;
+            return n;
+        }
+
+        private bool WordClozeMatches(WordClozeQuestion q, ChallengeSettings settings)
+        {
+            var poem = GetPoem(q.PoemId);
+            if (poem == null) return false;
+            if (!DynastyOk(poem, settings) || !TypeOk(poem, settings)) return false;
+            return settings == null || settings.Difficulties == null || settings.Difficulties.Count == 0
+                   || settings.Difficulties.Contains(q.Difficulty);
+        }
+
+        /// <summary>Look up specific wordcloze questions by id (used by 错题本 review sessions).</summary>
+        public List<WordClozeQuestion> GetWordClozeByIds(IEnumerable<string> ids)
+        {
+            var byId = new Dictionary<string, WordClozeQuestion>();
+            foreach (var q in _wordCloze) byId[q.Id] = q;
+            var result = new List<WordClozeQuestion>();
+            foreach (var id in ids)
+                if (byId.TryGetValue(id, out var q)) result.Add(q);
             return result;
         }
     }

@@ -89,15 +89,20 @@ internal static class Program
         var bootSource = new JsonContentSource(new FileRawTextLoader(saDir));
         var rhyme = await RhymeService.LoadAsync(bootSource);
 
-        // Annotate each poem (two passes: rhyme-group context disambiguates 多音字).
+        // Annotate each poem (two passes: rhyme-group + 平水韵 context disambiguates 多音字).
         foreach (var poem in seed.Poems)
         {
             foreach (var line in poem.Lines) rhyme.Annotate(line);
             var groups = new HashSet<string>();
+            var pingshui = new HashSet<string>();
             foreach (var line in poem.Lines)
-                if (line.IsRhymeLine && !string.IsNullOrEmpty(line.RhymeGroup)) groups.Add(line.RhymeGroup);
+                if (line.IsRhymeLine)
+                {
+                    if (!string.IsNullOrEmpty(line.RhymeGroup)) groups.Add(line.RhymeGroup);
+                    if (!string.IsNullOrEmpty(line.PingshuiRhyme)) pingshui.Add(line.PingshuiRhyme);
+                }
             foreach (var line in poem.Lines)
-                if (line.IsRhymeLine) rhyme.Annotate(line, groups);
+                if (line.IsRhymeLine) rhyme.Annotate(line, groups, pingshui);
         }
 
         // Spot-check annotations.
@@ -109,6 +114,11 @@ internal static class Program
         CheckEq(zaofa.Lines[0].CharCount, 7, "早发白帝城 line is 7 chars");
         CheckEq(zaofa.Lines[0].RhymeGroup, "8", "朝辞白帝彩云间 -> group 8");
         CheckEq(zaofa.Lines[1].RhymeGroup, "8", "千里江陵一日还 -> group 8 (还=huán in context)");
+        // 平水韵 (Part B): finer than 新韵 — 光/乡 both 下平七阳; 间/还 both 上平十五删 (多音 间 disambiguated to 删).
+        CheckEq(jingyesi.Lines[0].PingshuiRhyme, "P22阳", "床前明月光 -> 平水韵 七阳");
+        CheckEq(jingyesi.Lines[3].PingshuiRhyme, "P22阳", "低头思故乡 -> 平水韵 七阳 (同韵部)");
+        CheckEq(zaofa.Lines[1].PingshuiRhyme, "P15删", "千里江陵一日还 -> 平水韵 十五删");
+        CheckEq(zaofa.Lines[0].PingshuiRhyme, "P15删", "朝辞白帝彩云间 -> 十五删 (间 多音, context 消歧)");
         var xiangsi = FindPoem(seed, "tang-wangwei-xiangsi");
         CheckEq(xiangsi.Lines[1].RhymeGroup, "13", "春来发几枝 -> group 13");
 
@@ -144,16 +154,116 @@ internal static class Program
         }
         Check(allGood, "all distractors: 3 each, same 字数, same 韵组, different poem, distinct");
 
+        // Distractor-quality measures driven by the new Score signals (Part B 平水韵 + Part C 词牌/体裁).
+        // Build a (poemId|text) -> line index for source-line lookup of each distractor.
+        int psBoth = 0, psSame = 0;     // 平水韵: among distractors whose source+correct both carry 平水韵
+        int ciTotal = 0, ciSameType = 0; // 体裁: distractors of 词 questions that also come from 词
+        foreach (var q in questions)
+        {
+            var poem = FindPoem(seed, q.PoemId);
+            var correct = poem.Lines[q.BlankLineIndex];
+            foreach (var d in q.Distractors)
+            {
+                var src = FindPoem(seed, d.SourcePoemId);
+                PoemLine srcLine = null;
+                if (src != null) srcLine = src.Lines.Find(l => l.Text == d.Text);
+                if (srcLine != null && !string.IsNullOrEmpty(srcLine.PingshuiRhyme)
+                    && !string.IsNullOrEmpty(correct.PingshuiRhyme))
+                {
+                    psBoth++;
+                    if (srcLine.PingshuiRhyme == correct.PingshuiRhyme) psSame++;
+                }
+                if (poem.Type == "词") { ciTotal++; if (src != null && src.Type == "词") ciSameType++; }
+            }
+        }
+        double psRate = psBoth > 0 ? (double)psSame / psBoth : 0;
+        double ciRate = ciTotal > 0 ? (double)ciSameType / ciTotal : 0;
+        Console.WriteLine($"  平水韵同韵部干扰项占比: {psSame}/{psBoth} = {psRate:P0}; 词题同体裁干扰项占比: {ciSameType}/{ciTotal} = {ciRate:P0}");
+        Check(psBoth > 0 && psRate > 0.30, $"平水韵打分生效：多数同新韵干扰项也同平水韵 ({psRate:P0})");
+
         // Write shipped content.
         Write(Path.Combine(dataDir, "poems.json"), new PoemFile { Poems = seed.Poems });
         Write(Path.Combine(dataDir, "questions.json"), new QuestionFile { Questions = questions });
         Console.WriteLine("  wrote poems.json / questions.json / rhyme_groups.json to StreamingAssets");
+
+        // ---- 2b. 逐词填空 (残句调控): enrich word bank, generate tile-cloze questions ----
+        Section("WordCloze pipeline (enrich bank + generate + write)");
+        var charPinyin = await bootSource.LoadCharPinyinAsync();
+        var tone = new ToneService(charPinyin);
+
+        var catFile = PoemJson.Deserialize<SemanticCategoryFile>(
+            File.ReadAllText(Path.Combine(dataDir, "semantic_categories.json"), Encoding.UTF8));
+        Check(catFile != null && catFile.Categories.Count >= 5, $"semantic categories loaded ({catFile?.Categories.Count})");
+
+        var bankSeed = PoemJson.Deserialize<WordBankFile>(
+            File.ReadAllText(Path.Combine(root, @"Tools\SampleContent\word_bank_seed.json"), Encoding.UTF8));
+        Check(bankSeed != null && bankSeed.Words.Count >= 40, $"word bank seed loaded ({bankSeed?.Words.Count} words)");
+
+        // Enrich each word: per-char primary pinyin, 平仄 string, and source lines from the corpus.
+        foreach (var w in bankSeed.Words)
+        {
+            w.CharCount = new System.Globalization.StringInfo(w.Text).LengthInTextElements;
+            w.Tone = tone.ToneString(w.Text);
+            w.Pinyin = new List<string>();
+            foreach (var ch in SplitToChars(w.Text))
+                w.Pinyin.Add(charPinyin.TryGetValue(ch, out var rs) && rs.Count > 0 ? rs[0] : "");
+            w.Sources = new List<string>();
+            foreach (var p in seed.Poems)
+                foreach (var line in p.Lines)
+                    if (line.Text.Contains(w.Text) && w.Sources.Count < 8) w.Sources.Add(line.Text);
+        }
+        Write(Path.Combine(dataDir, "word_bank.json"), bankSeed);
+
+        var wcGen = new WordClozeGenerator(seed.Poems, bankSeed.Words, catFile.Categories, tone,
+            new SystemRandomSource(20260624));
+        var wcQuestions = new List<WordClozeQuestion>();
+        int wcSkippedLines = 0;
+        foreach (var poem in seed.Poems)
+        {
+            var before = wcQuestions.Count;
+            wcQuestions.AddRange(wcGen.GenerateForPoem(poem));
+            // count lines that yielded nothing (no blankable word) for visibility
+            wcSkippedLines += poem.Lines.Count - (wcQuestions.Count - before);
+        }
+        Check(wcQuestions.Count >= 50, $"wordcloze bank generated ({wcQuestions.Count} questions, {wcSkippedLines} lines skipped)");
+
+        // Validate every generated wordcloze question.
+        bool wcGood = true;
+        foreach (var q in wcQuestions)
+        {
+            var poem = FindPoem(seed, q.PoemId);
+            int lineLen = new System.Globalization.StringInfo(poem.Lines[q.BlankLineIndex].Text).LengthInTextElements;
+            if (q.Blanks.Count < 1) wcGood = false;
+            int prevEnd = -1;
+            var answerSeq = new List<string>();
+            foreach (var b in q.Blanks)
+            {
+                if (b.Count < 2 || b.Count > 3) wcGood = false;                    // 2~3-char words only
+                if (b.Start < 0 || b.Start + b.Count > lineLen) wcGood = false;   // in-bounds
+                if (b.Start <= prevEnd) wcGood = false;                            // non-overlapping, ascending
+                prevEnd = b.Start + b.Count - 1;
+                if (b.AnswerChars.Count != b.Count) wcGood = false;
+                answerSeq.AddRange(b.AnswerChars);
+            }
+            // pool contains every answer char (multiset), and all tiles distinct chars
+            var poolCount = new Dictionary<string, int>();
+            foreach (var t in q.TilePool) { poolCount.TryGetValue(t, out var n); poolCount[t] = n + 1; }
+            foreach (var a in answerSeq) { if (!poolCount.TryGetValue(a, out var n) || n < 1) wcGood = false; }
+            if (q.TilePool.Count <= answerSeq.Count) wcGood = false;               // has distractors
+            if (q.TilePool.Count % 2 != 0) wcGood = false;                         // even → clean 2×N grid
+        }
+        Check(wcGood, "all wordcloze: 2~3-char blanks in-bounds & non-overlapping, even pool covers answers + has distractors");
+        Write(Path.Combine(dataDir, "word_questions.json"), new WordClozeQuestionFile { Questions = wcQuestions });
+        Console.WriteLine("  wrote word_bank.json / word_questions.json to StreamingAssets");
 
         // ---- 3. End-to-end content load through the real shipped files ----
         Section("Content load (JsonContentSource over shipped files)");
         var content = await ContentService.LoadAsync(bootSource);
         Check(content.Poems.Count >= 60, $"loaded the expanded library ({content.Poems.Count} poems)");
         Check(content.QuestionCount >= 21, $"loaded questions ({content.QuestionCount})");
+        Check(content.WordClozeCount >= 50, $"loaded wordcloze questions ({content.WordClozeCount})");
+        Check(content.GetWordClozePool(new ChallengeSettings()).Count == content.WordClozeCount,
+            "unfiltered wordcloze pool == full bank");
         Check(content.GetPoem("tang-libai-jingyesi") != null, "GetPoem resolves by id");
         var rhyme2 = await RhymeService.LoadAsync(bootSource);
         CheckEq(rhyme2.GroupForChar("间"), "8", "reloaded rhyme: 间 -> 8");
@@ -206,8 +316,8 @@ internal static class Program
         // in-memory difficulty override
         var ovPoem = content.Poems[0].Id;
         int ovOrig = content.GetPoem(ovPoem).Difficulty;
-        content.SetDifficulty(ovPoem, 4);
-        CheckEq(content.GetPoem(ovPoem).Difficulty, 4, "SetDifficulty updates tier in memory");
+        content.SetDifficulty(ovPoem, 3);
+        CheckEq(content.GetPoem(ovPoem).Difficulty, 3, "SetDifficulty updates tier in memory");
         content.ApplyDifficultyOverrides(new Dictionary<string, int> { { ovPoem, ovOrig } });
         CheckEq(content.GetPoem(ovPoem).Difficulty, ovOrig, "ApplyDifficultyOverrides restores tier");
 
@@ -216,8 +326,8 @@ internal static class Program
         CheckEq(DifficultyRules.LineDifficulty(1, true), 1, "tier1 名句 -> 1");
         CheckEq(DifficultyRules.LineDifficulty(1, false), 2, "tier1 其余 -> 2");
         CheckEq(DifficultyRules.LineDifficulty(2, true), 2, "tier2 名句 -> 2");
-        CheckEq(DifficultyRules.LineDifficulty(2, false), 4, "tier2 其余 -> 4");
-        CheckEq(DifficultyRules.LineDifficulty(4, false), 4, "tier4 -> 4");
+        CheckEq(DifficultyRules.LineDifficulty(2, false), 3, "tier2 其余 -> 3");
+        CheckEq(DifficultyRules.LineDifficulty(3, false), 3, "tier3 -> 3");
         var synth = new Poem { Difficulty = 1, Lines = { new PoemLine { Famous = true }, new PoemLine { Famous = false } } };
         CheckEq(DifficultyRules.LineDifficulty(synth, 0), 1, "synthetic famous line -> 1");
         CheckEq(DifficultyRules.LineDifficulty(synth, 1), 2, "synthetic other line -> 2");
@@ -225,6 +335,11 @@ internal static class Program
         var gp = new Poem { Lines = { new PoemLine { Group = 5 }, new PoemLine() } };
         CheckEq(DifficultyRules.EffectiveGroup(gp, 0), 5, "explicit group respected");
         CheckEq(DifficultyRules.EffectiveGroup(gp, 1), 0, "auto group = index/2");
+        // explicit per-line difficulty override
+        var ovp = new Poem { Difficulty = 1, Lines = { new PoemLine { Famous = false }, new PoemLine { Famous = true, Diff = 3 } } };
+        CheckEq(DifficultyRules.LineDifficulty(ovp, 0), 2, "no override -> derived (档1 其余 = 2)");
+        CheckEq(DifficultyRules.LineDifficulty(ovp, 1), 3, "explicit override -> 3 (ignores 名句)");
+        CheckEq(DifficultyRules.AvgDifficulty(ovp), 3, "avg (2+3)/2 -> 3 with override");
         CheckEq(quiz.TimeLimitSeconds(quiz.Prepare(content.Questions[0])) >= 6, true, "time limit >= 6s");
         var session = quiz.BuildSession(pool, new ChallengeSettings { QuestionCount = 5 });
         CheckEq(session.Total, 5, "session has 5 questions");

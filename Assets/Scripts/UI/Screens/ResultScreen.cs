@@ -47,13 +47,23 @@ namespace PoemPoetry.UI
             UiKit.Pref(again.gameObject, minH: 110);
             againLbl.color = Color.white;
             var s = record.Settings ?? new ChallengeSettings();
-            again.onClick.AddListener(() => Nav.Replace<QuizScreen>(new QuizStartArgs
-            {
-                QuestionCount = s.QuestionCount,
-                Difficulties = s.Difficulties ?? new System.Collections.Generic.List<int>(),
-                Dynasties = s.Dynasties ?? new System.Collections.Generic.List<string>(),
-                Mode = "challenge",
-            }));
+            if (record.Mode == "wordcloze")
+                again.onClick.AddListener(() => Nav.Replace<WordClozeScreen>(new WordClozeStartArgs
+                {
+                    QuestionCount = s.QuestionCount,
+                    Difficulties = s.Difficulties ?? new System.Collections.Generic.List<int>(),
+                    Dynasties = s.Dynasties ?? new System.Collections.Generic.List<string>(),
+                    Types = s.Types ?? new System.Collections.Generic.List<string>(),
+                    Mode = "wordcloze",
+                }));
+            else
+                again.onClick.AddListener(() => Nav.Replace<QuizScreen>(new QuizStartArgs
+                {
+                    QuestionCount = s.QuestionCount,
+                    Difficulties = s.Difficulties ?? new System.Collections.Generic.List<int>(),
+                    Dynasties = s.Dynasties ?? new System.Collections.Generic.List<string>(),
+                    Mode = "challenge",
+                }));
             var home = UiKit.Button("Home", btnRow.transform, "返回", out _, UiKit.CardAlt, 38);
             UiKit.Pref(home.gameObject, minH: 110);
             home.onClick.AddListener(() => Nav.Pop());

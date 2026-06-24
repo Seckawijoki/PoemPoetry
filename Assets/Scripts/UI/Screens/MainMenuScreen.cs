@@ -27,6 +27,11 @@ namespace PoemPoetry.UI
             UiKit.Pref(slide.gameObject, minH: 220);
             slide.onClick.AddListener(() => Nav.Push<SlideConfigScreen>());
 
+            var cloze = UiKit.Button("Cloze", body, "逐词填空", out var clozeLbl, UiKit.Accent, 56);
+            clozeLbl.color = Color.white;
+            UiKit.Pref(cloze.gameObject, minH: 220);
+            cloze.onClick.AddListener(() => Nav.Push<WordClozeConfigScreen>());
+
             UiKit.Panel("Gap", body); // small spacer via flexible
             UiKit.Flexible(UiKit.Panel("Flex", body), 1f);
 

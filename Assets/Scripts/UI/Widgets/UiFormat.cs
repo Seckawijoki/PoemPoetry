@@ -21,6 +21,7 @@ namespace PoemPoetry.UI
             {
                 case "wrongbook": return "错题复习";
                 case "slide": return "拼诗句";
+                case "wordcloze": return "逐词填空";
                 default: return "挑战";
             }
         }

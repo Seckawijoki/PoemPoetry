@@ -12,6 +12,7 @@ namespace PoemPoetry.UI
         private int _cols = 9;
         private int _rows = 9;
         private bool _overlap = false;
+        private bool _famousOnly = false;
 
         private static readonly (int level, string label)[] Levels =
         {
@@ -36,6 +37,8 @@ namespace PoemPoetry.UI
         private readonly List<TextMeshProUGUI> _sizeLbls = new List<TextMeshProUGUI>();
         private Button _overlapBtn;
         private TextMeshProUGUI _overlapLbl;
+        private Button _famousBtn;
+        private TextMeshProUGUI _famousLbl;
         private readonly HashSet<int> _selDiff = new HashSet<int>();
         private readonly HashSet<string> _selDyn = new HashSet<string>();
 
@@ -59,6 +62,12 @@ namespace PoemPoetry.UI
             UiKit.Pref(_overlapBtn.gameObject, minH: 96);
             _overlapBtn.onClick.AddListener(() => { _overlap = !_overlap; RefreshOverlap(); });
             RefreshOverlap();
+
+            Section(scroll, "名句");
+            _famousBtn = UiKit.Button("Famous", scroll, "", out _famousLbl, UiKit.Card, 32);
+            UiKit.Pref(_famousBtn.gameObject, minH: 96);
+            _famousBtn.onClick.AddListener(() => { _famousOnly = !_famousOnly; RefreshFamous(); });
+            RefreshFamous();
 
             Section(scroll, "朝代（不选 = 全部）");
             AddChips(scroll, Services.Content.GetDynasties(), d => d, _selDyn);
@@ -84,6 +93,7 @@ namespace PoemPoetry.UI
             if (s.LastSlideCols >= 4) _cols = s.LastSlideCols;
             if (s.LastSlideRows >= 4) _rows = s.LastSlideRows;
             _overlap = s.LastSlideOverlap;
+            _famousOnly = s.LastSlideFamousOnly;
             _selDiff.Clear();
             if (s.LastSlideDifficulties != null) foreach (var t in s.LastSlideDifficulties) _selDiff.Add(t);
             _selDyn.Clear();
@@ -98,14 +108,14 @@ namespace PoemPoetry.UI
             if (s != null)
             {
                 s.LastSlideLevel = _level; s.LastSlideCols = _cols; s.LastSlideRows = _rows;
-                s.LastSlideOverlap = _overlap;
+                s.LastSlideOverlap = _overlap; s.LastSlideFamousOnly = _famousOnly;
                 s.LastSlideDifficulties = diffs; s.LastSlideDynasties = dyns;
                 _ = Services.Settings.SaveAsync();
             }
             Nav.Push<SlidePuzzleScreen>(new SlideStartArgs
             {
                 DirectionLevel = _level, GridCols = _cols, GridRows = _rows, AllowOverlap = _overlap,
-                Difficulties = diffs, Dynasties = dyns,
+                FamousOnly = _famousOnly, Difficulties = diffs, Dynasties = dyns,
             });
         }
 
@@ -201,6 +211,12 @@ namespace PoemPoetry.UI
         {
             _overlapLbl.text = _overlap ? "允许重叠字：开" : "允许重叠字：关";
             UiKit.SetChipSelected(_overlapBtn, _overlapLbl, _overlap);
+        }
+
+        private void RefreshFamous()
+        {
+            _famousLbl.text = _famousOnly ? "仅名句：开" : "仅名句：关";
+            UiKit.SetChipSelected(_famousBtn, _famousLbl, _famousOnly);
         }
     }
 }

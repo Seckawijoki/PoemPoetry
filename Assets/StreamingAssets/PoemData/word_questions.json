@@ -1,0 +1,6181 @@
+{
+  "schemaVersion": 1,
+  "questions": [
+    {
+      "id": "wc-tang-libai-jingyesi-0",
+      "poemId": "tang-libai-jingyesi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "夜",
+        "月",
+        "子",
+        "午",
+        "河",
+        "鹃",
+        "春",
+        "明",
+        "杜",
+        "昼"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-libai-jingyesi-2",
+      "poemId": "tang-libai-jingyesi",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "明",
+        "暮",
+        "月",
+        "昼",
+        "子",
+        "佳",
+        "乡",
+        "夜",
+        "白",
+        "青"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-libai-jingyesi-3",
+      "poemId": "tang-libai-jingyesi",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "佳",
+        "风",
+        "波",
+        "故",
+        "夜",
+        "草",
+        "月",
+        "寺",
+        "蝴",
+        "乡"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-dengguanquelou-0",
+      "poemId": "tang-wangzhihuan-dengguanquelou",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "日"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "素",
+        "白",
+        "金",
+        "夜",
+        "缁",
+        "月",
+        "日",
+        "绯",
+        "暮"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-dengguanquelou-1",
+      "poemId": "tang-wangzhihuan-dengguanquelou",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "河"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "金",
+        "黄",
+        "银",
+        "绯",
+        "塘",
+        "堤",
+        "河",
+        "白",
+        "渊",
+        "山"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangwei-xiangsi-0",
+      "poemId": "tang-wangwei-xiangsi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "红",
+            "豆"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "烟",
+        "黄",
+        "寒",
+        "残",
+        "素",
+        "红",
+        "豆",
+        "黑",
+        "河",
+        "白"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-liuzongyuan-jiangxue-2",
+      "poemId": "tang-liuzongyuan-jiangxue",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "舟"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "孤",
+        "四",
+        "独",
+        "银",
+        "舟",
+        "风",
+        "船",
+        "九",
+        "河",
+        "双"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-liuzongyuan-jiangxue-3",
+      "poemId": "tang-liuzongyuan-jiangxue",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "寒",
+            "江"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "沼",
+        "野",
+        "船",
+        "川",
+        "康",
+        "云",
+        "明",
+        "江",
+        "堤",
+        "寒"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-liangzhouci-0",
+      "poemId": "tang-wangzhihuan-liangzhouci",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "云"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "缁",
+        "朱",
+        "霓",
+        "皓",
+        "雷",
+        "云",
+        "白",
+        "岚",
+        "玄",
+        "天"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-liangzhouci-1",
+      "poemId": "tang-wangzhihuan-liangzhouci",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "年",
+        "孤",
+        "城",
+        "兆",
+        "杏",
+        "十",
+        "半",
+        "独",
+        "花",
+        "兄"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-liangzhouci-2",
+      "poemId": "tang-wangzhihuan-liangzhouci",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "杨",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "草",
+        "葵",
+        "松",
+        "萝",
+        "柳",
+        "莲",
+        "叶",
+        "杨",
+        "桂",
+        "桐"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangzhihuan-liangzhouci-3",
+      "poemId": "tang-wangzhihuan-liangzhouci",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "载",
+        "风",
+        "霓",
+        "霞",
+        "岁",
+        "朝",
+        "春",
+        "云",
+        "丑",
+        "晖"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangchangling-chusai-0",
+      "poemId": "tang-wangchangling-chusai",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "园",
+        "天",
+        "明",
+        "午",
+        "鹃",
+        "夜",
+        "晓",
+        "月",
+        "花"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-zhangji-fengqiaoyebo-2",
+      "poemId": "tang-zhangji-fengqiaoyebo",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 3,
+          "answerChars": [
+            "寒",
+            "山",
+            "寺"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "岭",
+        "鹂",
+        "秋",
+        "花",
+        "海",
+        "山",
+        "柳",
+        "寒",
+        "锦",
+        "夜",
+        "泉",
+        "沧",
+        "矶",
+        "寺",
+        "谷",
+        "天"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-zhangji-fengqiaoyebo-3",
+      "poemId": "tang-zhangji-fengqiaoyebo",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "客",
+            "船"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "船",
+        "蝶",
+        "落",
+        "柳",
+        "黄",
+        "客",
+        "寒",
+        "江",
+        "子",
+        "草"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-libai-wanglushanpubu-0",
+      "poemId": "tang-libai-wanglushanpubu",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "紫",
+            "烟"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "雷",
+        "紫",
+        "烟",
+        "素",
+        "风",
+        "青",
+        "粉",
+        "云",
+        "晖",
+        "翠"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-libai-wanglushanpubu-3",
+      "poemId": "tang-libai-wanglushanpubu",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "银",
+            "河"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "青",
+        "银",
+        "堤",
+        "赤",
+        "绛",
+        "丹",
+        "河",
+        "峦",
+        "岗",
+        "原"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangwei-luzhai-2",
+      "poemId": "tang-wangwei-luzhai",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "深",
+            "林"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "深",
+        "夕",
+        "西",
+        "南",
+        "青",
+        "林",
+        "桃",
+        "红",
+        "内",
+        "近"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangwei-luzhai-3",
+      "poemId": "tang-wangwei-luzhai",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "苔"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "葭",
+        "皓",
+        "苔",
+        "橘",
+        "金",
+        "青",
+        "黛",
+        "红",
+        "蕙",
+        "棠"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-han-caocao-duangexing-3",
+      "poemId": "han-caocao-duangexing",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "杜",
+            "康"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "春",
+        "寒",
+        "康",
+        "游",
+        "秋",
+        "山",
+        "黄",
+        "孤",
+        "杜",
+        "蝶"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-han-caocao-guancanghai-1",
+      "poemId": "han-caocao-guancanghai",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "沧",
+            "海"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "海",
+        "烟",
+        "潭",
+        "山",
+        "花",
+        "水",
+        "沧",
+        "河",
+        "岸",
+        "黄"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-luobinwang-yonge-2",
+      "poemId": "tang-luobinwang-yonge",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "绿",
+            "水"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "绯",
+        "河",
+        "绿",
+        "粉",
+        "丹",
+        "海",
+        "岸",
+        "水",
+        "壑",
+        "彩"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-luobinwang-yonge-3",
+      "poemId": "tang-luobinwang-yonge",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "清",
+            "波"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "波",
+        "花",
+        "青",
+        "孤",
+        "园",
+        "清",
+        "杜",
+        "明",
+        "沧",
+        "游"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-jueju-lianghuangli-0",
+      "poemId": "tang-dufu-jueju-lianghuangli",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "翠",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "绯",
+        "叶",
+        "柳",
+        "皓",
+        "翠",
+        "赤",
+        "粉",
+        "荷",
+        "草",
+        "兰"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-jueju-lianghuangli-1",
+      "poemId": "tang-dufu-jueju-lianghuangli",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "鹭"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "朱",
+        "苍",
+        "雁",
+        "丹",
+        "燕",
+        "白",
+        "马",
+        "粉",
+        "鹭",
+        "鹊"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangwei-jiuyuejiuriyishandongxiongdi-1",
+      "poemId": "tang-wangwei-jiuyuejiuriyishandongxiongdi",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "佳",
+            "节"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "佳",
+        "洲",
+        "豆",
+        "黄",
+        "花",
+        "窗",
+        "船",
+        "夕",
+        "苔",
+        "节"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-wangwei-jiuyuejiuriyishandongxiongdi-2",
+      "poemId": "tang-wangwei-jiuyuejiuriyishandongxiongdi",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "兄",
+            "弟"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "弟",
+        "河",
+        "孤",
+        "波",
+        "兄",
+        "城",
+        "山",
+        "官",
+        "沧",
+        "晴"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-libai-zengwanglun-2",
+      "poemId": "tang-libai-zengwanglun",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "桐",
+        "桃",
+        "蓬",
+        "槐",
+        "花",
+        "桂",
+        "橘",
+        "葵",
+        "苔",
+        "竹"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-mengjiao-youziyin-0",
+      "poemId": "tang-mengjiao-youziyin",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "慈",
+            "母"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "康",
+        "江",
+        "烟",
+        "慈",
+        "母",
+        "明",
+        "弟",
+        "年",
+        "豆",
+        "家"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-mengjiao-youziyin-1",
+      "poemId": "tang-mengjiao-youziyin",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "游",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "夜",
+        "子",
+        "慈",
+        "游",
+        "蝴",
+        "孤",
+        "午",
+        "晚",
+        "月",
+        "寒"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-chunyexiyu-7",
+      "poemId": "tang-dufu-chunyexiyu",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 3,
+          "answerChars": [
+            "锦",
+            "官",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "雪",
+        "日",
+        "官",
+        "桃",
+        "弟",
+        "柳",
+        "黄",
+        "锦",
+        "落",
+        "舟",
+        "秋",
+        "城",
+        "杜",
+        "苔",
+        "红",
+        "水"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-jueju-chiri-1",
+      "poemId": "tang-dufu-jueju-chiri",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "冬",
+        "春",
+        "辰",
+        "霓",
+        "曜",
+        "风",
+        "更",
+        "霜",
+        "星",
+        "晡"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-jueju-chiri-2",
+      "poemId": "tang-dufu-jueju-chiri",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "燕",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "暮",
+        "雁",
+        "子",
+        "鸟",
+        "马",
+        "晚",
+        "午",
+        "夜",
+        "鹭",
+        "燕"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dufu-jueju-chiri-3",
+      "poemId": "tang-dufu-jueju-chiri",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "鸳",
+            "鸯"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鱼",
+        "蝉",
+        "鸯",
+        "鹃",
+        "豹",
+        "鸥",
+        "鸡",
+        "羊",
+        "鸳",
+        "莺"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dumu-shanxing-0",
+      "poemId": "tang-dumu-shanxing",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "寒",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "杏",
+        "峡",
+        "寒",
+        "壑",
+        "池",
+        "黄",
+        "风",
+        "崖",
+        "山",
+        "年"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dumu-shanxing-1",
+      "poemId": "tang-dumu-shanxing",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "云"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "霓",
+        "银",
+        "粉",
+        "曜",
+        "皓",
+        "阴",
+        "云",
+        "白",
+        "碧",
+        "烟"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dumu-qingming-2",
+      "poemId": "tang-dumu-qingming",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "酒",
+            "家"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "蝴",
+        "酒",
+        "月",
+        "紫",
+        "雨",
+        "楼",
+        "家",
+        "山",
+        "子",
+        "柳"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-dumu-qingming-3",
+      "poemId": "tang-dumu-qingming",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "杏",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "蕙",
+        "棠",
+        "枫",
+        "杏",
+        "蓬",
+        "藤",
+        "花",
+        "萝",
+        "葭",
+        "薇"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-baijuyi-fudeguyuancaosongbie-3",
+      "poemId": "tang-baijuyi-fudeguyuancaosongbie",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "昏",
+        "旦",
+        "春",
+        "岚",
+        "晡",
+        "岁",
+        "天",
+        "霞",
+        "晖",
+        "风"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-0",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "鹤"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鹤",
+        "紫",
+        "黄",
+        "凤",
+        "鹂",
+        "龙",
+        "碧",
+        "素",
+        "豹",
+        "绛"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-1",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 3,
+          "answerChars": [
+            "黄",
+            "鹤",
+            "楼"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "花",
+        "蝉",
+        "蚁",
+        "红",
+        "黄",
+        "楼",
+        "缁",
+        "山",
+        "银",
+        "节",
+        "虎",
+        "城",
+        "玄",
+        "犬",
+        "鹤",
+        "粉"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-2",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "鹤"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鹤",
+        "丹",
+        "麟",
+        "虫",
+        "鸳",
+        "金",
+        "素",
+        "黄",
+        "犬",
+        "黛"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-3",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "云"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "曜",
+        "霄",
+        "雾",
+        "白",
+        "黑",
+        "云",
+        "银",
+        "苍",
+        "风",
+        "翠"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-4",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "晴",
+            "川"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "鹉",
+        "川",
+        "晴",
+        "山",
+        "沼",
+        "泉",
+        "矶",
+        "城",
+        "河",
+        "鸳",
+        "银",
+        "塘"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-cuihao-huanghelou-5",
+      "poemId": "tang-cuihao-huanghelou",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "芳",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        },
+        {
+          "start": 4,
+          "count": 3,
+          "answerChars": [
+            "鹦",
+            "鹉",
+            "洲"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "杏",
+        "康",
+        "家",
+        "杜",
+        "洲",
+        "棠",
+        "官",
+        "草",
+        "鸯",
+        "荷",
+        "河",
+        "芳",
+        "沼",
+        "天",
+        "柳",
+        "壑",
+        "山",
+        "慈",
+        "银",
+        "鹦",
+        "紫",
+        "年",
+        "塘",
+        "青",
+        "秋",
+        "叶",
+        "蝶",
+        "杨",
+        "鹉",
+        "川"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-dufu-chunwang-1",
+      "poemId": "tang-dufu-chunwang",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 1,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "辰",
+        "叶",
+        "棠",
+        "草",
+        "暝",
+        "宵",
+        "柳",
+        "春",
+        "稻",
+        "载"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-lishangyin-jinse-2",
+      "poemId": "tang-lishangyin-jinse",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "蝴",
+            "蝶"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鹅",
+        "蝴",
+        "园",
+        "深",
+        "蝶",
+        "黄",
+        "鹃",
+        "人",
+        "麟",
+        "鼠"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-lishangyin-jinse-3",
+      "poemId": "tang-lishangyin-jinse",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "杜",
+            "鹃"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "麟",
+        "青",
+        "鼠",
+        "人",
+        "鱼",
+        "鹅",
+        "江",
+        "杜",
+        "鹃",
+        "孤"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-lishangyin-jinse-4",
+      "poemId": "tang-lishangyin-jinse",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "沧",
+            "海"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "花",
+        "峦",
+        "岸",
+        "寒",
+        "水",
+        "沧",
+        "杜",
+        "渚",
+        "人",
+        "海"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-weiyingwu-chuzhouxijian-1",
+      "poemId": "tang-weiyingwu-chuzhouxijian",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "鹂"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鸦",
+        "绯",
+        "鹃",
+        "翠",
+        "黑",
+        "紫",
+        "黄",
+        "鹂",
+        "鱼",
+        "鹿",
+        "金",
+        "鸥"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-weiyingwu-chuzhouxijian-2",
+      "poemId": "tang-weiyingwu-chuzhouxijian",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "潮"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "昏",
+        "春",
+        "暝",
+        "花",
+        "母",
+        "潮",
+        "夕",
+        "岁",
+        "窗",
+        "载"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-liuyuxi-wuyixiang-1",
+      "poemId": "tang-liuyuxi-wuyixiang",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "阳",
+        "明",
+        "乡",
+        "风",
+        "残",
+        "雷",
+        "烟",
+        "春",
+        "云",
+        "夕",
+        "霜",
+        "天"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-dumu-boqinhuai-1",
+      "poemId": "tang-dumu-boqinhuai",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "酒",
+            "家"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "子",
+        "孤",
+        "故",
+        "潮",
+        "鸟",
+        "黄",
+        "酒",
+        "月",
+        "家",
+        "白"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-lishangyin-yeyujibei-1",
+      "poemId": "tang-lishangyin-yeyujibei",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "池"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "秋",
+        "时",
+        "峦",
+        "载",
+        "池",
+        "沼",
+        "滩",
+        "塘",
+        "岁",
+        "丑"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-lishangyin-yeyujibei-2",
+      "poemId": "tang-lishangyin-yeyujibei",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "西",
+            "窗"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "寒",
+        "窗",
+        "涯",
+        "家",
+        "北",
+        "黄",
+        "西",
+        "高",
+        "红",
+        "低"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangwei-zhuliguan-2",
+      "poemId": "tang-wangwei-zhuliguan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "深",
+            "林"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "晴",
+        "蝶",
+        "北",
+        "近",
+        "深",
+        "春",
+        "林",
+        "内",
+        "中",
+        "黄"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangwei-zhuliguan-3",
+      "poemId": "tang-wangwei-zhuliguan",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "日",
+        "月",
+        "子",
+        "晓",
+        "晴",
+        "鹦",
+        "明",
+        "林",
+        "秋"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangwei-songyuanershianxi-3",
+      "poemId": "tang-wangwei-songyuanershianxi",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "雪",
+        "柳",
+        "寒",
+        "故",
+        "月",
+        "雁",
+        "阳",
+        "弟",
+        "人",
+        "山"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangwei-shanzhongsongbie-2",
+      "poemId": "tang-wangwei-shanzhongsongbie",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "年"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "蓼",
+        "船",
+        "昏",
+        "暝",
+        "宵",
+        "载",
+        "春",
+        "曛",
+        "叶",
+        "秋",
+        "草",
+        "枫",
+        "冬",
+        "晨",
+        "萍",
+        "园",
+        "年",
+        "明",
+        "河",
+        "更",
+        "夏",
+        "夕",
+        "烟",
+        "柳"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-libai-yuxiayin-3",
+      "poemId": "tang-libai-yuxiayin",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "旦",
+        "夏",
+        "夜",
+        "晚",
+        "子",
+        "辰",
+        "宵",
+        "晓",
+        "秋",
+        "月",
+        "午",
+        "丑"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-sushi-shuidiaogetou-mingyuejishiyou-0",
+      "poemId": "song-sushi-shuidiaogetou-mingyuejishiyou",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "子",
+        "明",
+        "鹦",
+        "午",
+        "暮",
+        "春",
+        "月",
+        "慈",
+        "家",
+        "晚"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-sushi-shuidiaogetou-mingyuejishiyou-1",
+      "poemId": "song-sushi-shuidiaogetou-mingyuejishiyou",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "绛",
+        "风",
+        "电",
+        "天",
+        "虹",
+        "青",
+        "翠",
+        "粉",
+        "雷",
+        "白"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-xinqiji-xijiangyue-yexinghuangshadao-0",
+      "poemId": "song-xinqiji-xijiangyue-yexinghuangshadao",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "晓",
+        "桃",
+        "鹃",
+        "子",
+        "夜",
+        "明",
+        "洲",
+        "霜",
+        "昼",
+        "月"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-song-liuyong-yulinling-hanchanqiqie-15",
+      "poemId": "song-liuyong-yulinling-hanchanqiqie",
+      "blankLineIndex": 15,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "杨",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "荷",
+        "杨",
+        "菊",
+        "茅",
+        "柳",
+        "草",
+        "藤",
+        "莲",
+        "芦",
+        "叶"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-liuyong-yulinling-hanchanqiqie-16",
+      "poemId": "song-liuyong-yulinling-hanchanqiqie",
+      "blankLineIndex": 16,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "残",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "晓",
+        "山",
+        "日",
+        "家",
+        "月",
+        "花",
+        "子",
+        "秋",
+        "残",
+        "暮"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-yanshu-huanxisha-yiquxinciyibeijiu-2",
+      "poemId": "song-yanshu-huanxisha-yiquxinciyibeijiu",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "蝴",
+        "雾",
+        "云",
+        "明",
+        "霜",
+        "夕",
+        "晖",
+        "春",
+        "阳",
+        "城",
+        "寒",
+        "星"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-fanzhongyan-yujiaao-saixiaqiulai-4",
+      "poemId": "song-fanzhongyan-yujiaao-saixiaqiulai",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "孤",
+        "重",
+        "慈",
+        "川",
+        "千",
+        "城",
+        "寻",
+        "鹤",
+        "兆",
+        "河",
+        "四",
+        "阳"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-liyu-yumeiren-chunhuaqiuyue-0",
+      "poemId": "song-liyu-yumeiren-chunhuaqiuyue",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "秋",
+        "年",
+        "载",
+        "月",
+        "朝",
+        "午",
+        "日",
+        "旦",
+        "子",
+        "夜"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-song-yanshu-huanxisha-yixiangniandiaomeixiang-4",
+      "poemId": "song-yanshu-huanxisha-yixiangniandiaomeixiang",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "茅",
+        "月",
+        "客",
+        "雪",
+        "萍",
+        "花",
+        "棣",
+        "夜",
+        "落",
+        "荷",
+        "雁",
+        "杏"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-wonganshi-bochuanguazhou-2",
+      "poemId": "song-wonganshi-bochuanguazhou",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "江",
+        "高",
+        "中",
+        "北",
+        "渚",
+        "低",
+        "南",
+        "汀",
+        "原",
+        "川"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-wonganshi-bochuanguazhou-3",
+      "poemId": "song-wonganshi-bochuanguazhou",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "杜",
+        "昼",
+        "春",
+        "夜",
+        "花",
+        "明",
+        "日",
+        "月",
+        "暮",
+        "鸯"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-yuan-mazhiyuan-tianjingsha-qiusi-3",
+      "poemId": "yuan-mazhiyuan-tianjingsha-qiusi",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霞",
+        "阳",
+        "河",
+        "杜",
+        "星",
+        "夕",
+        "云",
+        "花",
+        "烟",
+        "深",
+        "天",
+        "电"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-ming-yangshen-linjiangxian-gungunchangjiang-3",
+      "poemId": "ming-yangshen-linjiangxian-gungunchangjiang",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "潭",
+        "河",
+        "峡",
+        "陵",
+        "绛",
+        "金",
+        "素",
+        "黛",
+        "山",
+        "碧",
+        "青",
+        "矶"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-ming-yangshen-linjiangxian-gungunchangjiang-4",
+      "poemId": "ming-yangshen-linjiangxian-gungunchangjiang",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "虹",
+        "电",
+        "雷",
+        "鸳",
+        "青",
+        "慈",
+        "归",
+        "夕",
+        "星",
+        "阳",
+        "红",
+        "阴"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-qing-zhengxie-zhushi-0",
+      "poemId": "qing-zhengxie-zhushi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "山",
+        "白",
+        "岩",
+        "岗",
+        "青",
+        "峡",
+        "粉",
+        "川",
+        "黑",
+        "赤"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-qing-nalanxingde-changxiangsi-7",
+      "poemId": "qing-nalanxingde-changxiangsi",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "园"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "风",
+        "江",
+        "锦",
+        "柳",
+        "青",
+        "南",
+        "草",
+        "酒",
+        "云",
+        "鹭",
+        "故",
+        "园"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-zhangbi-jiren-3",
+      "poemId": "tang-zhangbi-jiren",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "落",
+        "雪",
+        "竹",
+        "菊",
+        "花",
+        "燕",
+        "绿",
+        "禾",
+        "日",
+        "萍",
+        "兰",
+        "酒"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-cuidaorong-xijujishi-1",
+      "poemId": "tang-cuidaorong-xijujishi",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霄",
+        "春",
+        "烟",
+        "载",
+        "时",
+        "霜",
+        "晨",
+        "秋",
+        "曜",
+        "风",
+        "宵",
+        "晖"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-rongyu-yijiabiehushangting-0",
+      "poemId": "tang-rongyu-yijiabiehushangting",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霞",
+        "晡",
+        "风",
+        "载",
+        "春",
+        "曛",
+        "阳",
+        "时",
+        "更",
+        "阴",
+        "晖",
+        "星"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-cuilu-gushaofu-2",
+      "poemId": "cuilu-gushaofu",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "夜",
+        "暮",
+        "昼",
+        "青",
+        "明",
+        "月",
+        "晴",
+        "弟",
+        "深",
+        "晓",
+        "红",
+        "子"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-siktangwen-cunju-2",
+      "poemId": "siktangwen-cunju",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "禾",
+        "荷",
+        "莲",
+        "杏",
+        "兰",
+        "椿",
+        "蕙",
+        "桐",
+        "蓼",
+        "桃",
+        "花",
+        "竹"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-huangfuran-chunsi-3",
+      "poemId": "huangfuran-chunsi",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "江",
+        "杏",
+        "子",
+        "日",
+        "明",
+        "山",
+        "晓",
+        "秋",
+        "暮",
+        "昼",
+        "洲",
+        "月"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-ouyangxiu-langtaosha-bajiuzhuduijun-8",
+      "poemId": "song-ouyangxiu-langtaosha-bajiuzhuduijun",
+      "blankLineIndex": 8,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "年"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "载",
+        "川",
+        "秋",
+        "明",
+        "旦",
+        "鹃",
+        "清",
+        "寒",
+        "宵",
+        "年",
+        "夕",
+        "丑"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-zhoubangyan-sufanmanting-fengloujiangzhi-7",
+      "poemId": "song-zhoubangyan-sufanmanting-fengloujiangzhi",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "深",
+        "落",
+        "乡",
+        "黄",
+        "故",
+        "草",
+        "绿",
+        "杏",
+        "子",
+        "水",
+        "青",
+        "杜"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-jiangkui-anxiang-jiushiyuese-6",
+      "poemId": "song-jiangkui-anxiang-jiushiyuese",
+      "blankLineIndex": 6,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "阳",
+        "天",
+        "曛",
+        "昏",
+        "星",
+        "雾",
+        "夏",
+        "晖",
+        "年",
+        "风",
+        "春",
+        "暝"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-jiangkui-yangzhouman-huaizuoming-3",
+      "poemId": "song-jiangkui-yangzhouman-huaizuoming",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 1,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "春",
+        "丑",
+        "冬",
+        "电",
+        "晡",
+        "雷",
+        "阳",
+        "风",
+        "曜",
+        "天",
+        "更",
+        "载"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-yanjidao-linjiangxian-menghouloutai-3",
+      "poemId": "song-yanjidao-linjiangxian-menghouloutai",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "花",
+        "蕙",
+        "蓬",
+        "落",
+        "槐",
+        "雨",
+        "酒",
+        "燕",
+        "月",
+        "萝"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-song-yanjidao-linjiangxian-menghouloutai-8",
+      "poemId": "song-yanjidao-linjiangxian-menghouloutai",
+      "blankLineIndex": 8,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "月",
+        "残",
+        "子",
+        "明",
+        "红",
+        "银",
+        "鹦",
+        "晓",
+        "杏",
+        "夜",
+        "昼",
+        "晚"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-yanjidao-zhegutian-caisexianjin-2",
+      "poemId": "song-yanjidao-zhegutian-caisexianjin",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "杨",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "葭",
+        "蓼",
+        "梅",
+        "叶",
+        "桐",
+        "柳",
+        "草",
+        "杨",
+        "萍",
+        "兰",
+        "竹",
+        "椿"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-yanjidao-zhegutian-caisexianjin-3",
+      "poemId": "song-yanjidao-zhegutian-caisexianjin",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "薇",
+        "榆",
+        "桐",
+        "桃",
+        "梅",
+        "藤",
+        "茅",
+        "莲",
+        "荷",
+        "花",
+        "竹",
+        "枫"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-ouyangxiu-diechianhua-tingyuanshenshen-1",
+      "poemId": "song-ouyangxiu-diechianhua-tingyuanshenshen",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "杨",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "蕙",
+        "蕉",
+        "薇",
+        "蓬",
+        "花",
+        "草",
+        "杨",
+        "叶",
+        "棣",
+        "兰",
+        "柳",
+        "茅"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-ming-gaoqi-xunhuyinjun-2",
+      "poemId": "ming-gaoqi-xunhuyinjun",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "阴",
+        "曛",
+        "丑",
+        "宵",
+        "春",
+        "霄",
+        "冬",
+        "霜",
+        "旦",
+        "天",
+        "晖",
+        "风"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-ming-gaoqi-meihua-qiyi-1",
+      "poemId": "ming-gaoqi-meihua-qiyi",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "畔",
+        "东",
+        "江",
+        "西",
+        "中",
+        "南",
+        "汀",
+        "野",
+        "高",
+        "岭",
+        "峡",
+        "沼"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-ming-tangyin-taohuawange-0",
+      "poemId": "ming-tangyin-taohuawange",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "禾",
+        "槐",
+        "杨",
+        "花",
+        "兰",
+        "桃",
+        "桂",
+        "竹",
+        "杏",
+        "枫"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-ming-tangyin-taohuawange-1",
+      "poemId": "ming-tangyin-taohuawange",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "花",
+        "椿",
+        "萝",
+        "蕉",
+        "葭",
+        "薇",
+        "棠",
+        "桃",
+        "苔",
+        "棣"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-ming-tangyin-taohuawange-2",
+      "poemId": "ming-tangyin-taohuawange",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "杏",
+        "棣",
+        "桃",
+        "桂",
+        "花",
+        "蓼",
+        "蓬",
+        "莲",
+        "禾",
+        "菊",
+        "芦",
+        "杨"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-ming-tangyin-taohuawange-3",
+      "poemId": "ming-tangyin-taohuawange",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "葭",
+        "花",
+        "薇",
+        "蕙",
+        "茅",
+        "蓼",
+        "禾",
+        "杨",
+        "榆",
+        "杏",
+        "桃",
+        "葵"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-qing-nalanxingde-mulanhua-nigujuejueci-2",
+      "poemId": "qing-nalanxingde-mulanhua-nigujuejueci",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "清",
+        "水",
+        "江",
+        "海",
+        "人",
+        "鸟",
+        "故",
+        "寺",
+        "苔",
+        "雁",
+        "春",
+        "花"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-qing-nalanxingde-mulanhua-nigujuejueci-3",
+      "poemId": "qing-nalanxingde-mulanhua-nigujuejueci",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "河",
+        "翠",
+        "落",
+        "深",
+        "人",
+        "鹭",
+        "鹂",
+        "客",
+        "晴",
+        "故",
+        "燕",
+        "月"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-qing-yuanmei-tai-0",
+      "poemId": "qing-yuanmei-tai",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "日"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "日",
+        "暮",
+        "素",
+        "月",
+        "白",
+        "午",
+        "绛",
+        "皓",
+        "缁",
+        "赤",
+        "晓"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-dumu-jinguyuan-3",
+      "poemId": "dumu-jinguyuan",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "棣",
+        "客",
+        "荷",
+        "苔",
+        "绿",
+        "棠",
+        "葵",
+        "故",
+        "雁",
+        "鸟",
+        "落",
+        "花"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-yuanhaowen-maipi-0",
+      "poemId": "yuanhaowen-maipi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "故",
+        "佳",
+        "雁",
+        "花",
+        "青",
+        "海",
+        "黄",
+        "月",
+        "夜",
+        "残",
+        "人",
+        "柳"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-zhangjiuling-wangyuehuaiyuan-0",
+      "poemId": "tang-zhangjiuling-wangyuehuaiyuan",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "日",
+        "月",
+        "午",
+        "紫",
+        "昼",
+        "山",
+        "春",
+        "豆",
+        "明",
+        "暮"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-zhangjiuling-ganyu-lanye-3",
+      "poemId": "tang-zhangjiuling-ganyu-lanye",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "佳",
+            "节"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "乡",
+        "佳",
+        "残",
+        "杏",
+        "城",
+        "山",
+        "康",
+        "人",
+        "节",
+        "秋",
+        "春",
+        "风"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wentingyun-shangshanzaoxing-1",
+      "poemId": "tang-wentingyun-shangshanzaoxing",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "酒",
+        "康",
+        "柳",
+        "日",
+        "园",
+        "红",
+        "花",
+        "故",
+        "银",
+        "月",
+        "乡",
+        "雪"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wangwei-shizhisaishang-3",
+      "poemId": "tang-wangwei-shizhisaishang",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "归",
+            "雁"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "阳",
+        "雁",
+        "鹭",
+        "燕",
+        "楼",
+        "马",
+        "归",
+        "豆",
+        "香",
+        "鹊",
+        "沧",
+        "鸟"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wangwei-shanjuqiuming-2",
+      "poemId": "tang-wangwei-shanjuqiuming",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "寒",
+        "暮",
+        "明",
+        "夜",
+        "天",
+        "官",
+        "晚",
+        "昼",
+        "楼",
+        "月"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-wangtianmenshan-2",
+      "poemId": "tang-libai-wangtianmenshan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "红",
+        "谷",
+        "山",
+        "翠",
+        "青",
+        "崖",
+        "渊",
+        "金",
+        "苍",
+        "涧"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-huanghelousongmenghaoran-0",
+      "poemId": "tang-libai-huanghelousongmenghaoran",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        },
+        {
+          "start": 4,
+          "count": 3,
+          "answerChars": [
+            "黄",
+            "鹤",
+            "楼"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "秋",
+        "洲",
+        "蚁",
+        "金",
+        "兄",
+        "鹤",
+        "雁",
+        "雨",
+        "草",
+        "阳",
+        "莺",
+        "白",
+        "故",
+        "楼",
+        "绛",
+        "杜",
+        "鹃",
+        "鸡",
+        "深",
+        "春",
+        "朱",
+        "牛",
+        "虫",
+        "绯",
+        "子",
+        "日",
+        "窗",
+        "归",
+        "人",
+        "黄"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-dufu-wenguanjunshouhenan-4",
+      "poemId": "tang-dufu-wenguanjunshouhenan",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "日"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "赤",
+        "夜",
+        "银",
+        "丹",
+        "日",
+        "暮",
+        "红",
+        "月",
+        "昼",
+        "白",
+        "紫",
+        "子"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-menghaoran-guogurenzhuang-0",
+      "poemId": "tang-menghaoran-guogurenzhuang",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "柳",
+        "故",
+        "草",
+        "寒",
+        "酒",
+        "锦",
+        "归",
+        "人",
+        "雨",
+        "春",
+        "云",
+        "紫"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-menghaoran-guogurenzhuang-3",
+      "poemId": "tang-menghaoran-guogurenzhuang",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "青",
+        "黑",
+        "素",
+        "滩",
+        "渊",
+        "岗",
+        "山",
+        "绛",
+        "黄",
+        "岭"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-gaoshi-biedongda-0",
+      "poemId": "tang-gaoshi-biedongda",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "日"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "月",
+        "苍",
+        "皓",
+        "夜",
+        "银",
+        "昼",
+        "日",
+        "白",
+        "晚",
+        "午",
+        "丹",
+        "粉"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-hezhizhang-yongliu-3",
+      "poemId": "tang-hezhizhang-yongliu",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "风",
+        "电",
+        "春",
+        "虹",
+        "云",
+        "时",
+        "晨",
+        "昏",
+        "更",
+        "阴"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-song-wonganshi-yuanri-1",
+      "poemId": "song-wonganshi-yuanri",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "阴",
+        "夏",
+        "风",
+        "春",
+        "时",
+        "虹",
+        "雾",
+        "朝",
+        "曜",
+        "秋"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-baijuyi-yijiangnan-0",
+      "poemId": "tang-baijuyi-yijiangnan",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "涯",
+        "江",
+        "汀",
+        "南",
+        "内",
+        "泉",
+        "池",
+        "旁",
+        "塘",
+        "中"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-tang-baijuyi-yijiangnan-4",
+      "poemId": "tang-baijuyi-yijiangnan",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "江",
+        "南",
+        "右",
+        "岩",
+        "滩",
+        "西",
+        "前",
+        "中",
+        "塘",
+        "洲"
+      ],
+      "difficulty": 0
+    },
+    {
+      "id": "wc-song-sushi-jiangchengzi-yimaozhengyue-14",
+      "poemId": "song-sushi-jiangchengzi-yimaozhengyue",
+      "blankLineIndex": 14,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "夜",
+        "孤",
+        "炉",
+        "月",
+        "明",
+        "年",
+        "晓",
+        "昼",
+        "日",
+        "寒",
+        "人",
+        "晚"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-sushi-dingfengbo-molingchuanlin-5",
+      "poemId": "song-sushi-dingfengbo-molingchuanlin",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霄",
+        "雷",
+        "载",
+        "曛",
+        "丑",
+        "春",
+        "风",
+        "辰",
+        "阴",
+        "晖",
+        "曜",
+        "秋"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-fanzhongyan-sumuzhe-biyuntian-5",
+      "poemId": "song-fanzhongyan-sumuzhe-biyuntian",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "芳",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "草",
+        "芳",
+        "春",
+        "兰",
+        "青",
+        "慈",
+        "黄",
+        "葵",
+        "橘",
+        "叶",
+        "鹤",
+        "柳"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-fanzhongyan-sumuzhe-biyuntian-11",
+      "poemId": "song-fanzhongyan-sumuzhe-biyuntian",
+      "blankLineIndex": 11,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "子",
+        "月",
+        "夜",
+        "晓",
+        "明",
+        "船",
+        "日",
+        "江",
+        "晚",
+        "潮",
+        "黄",
+        "天"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-yanshu-dielianhua-jianjuchouyan-2",
+      "poemId": "song-yanshu-dielianhua-jianjuchouyan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "燕",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "雁",
+        "鹊",
+        "鹭",
+        "马",
+        "月",
+        "昼",
+        "暮",
+        "夜",
+        "燕",
+        "子",
+        "鸟",
+        "晓"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-yanshu-dielianhua-jianjuchouyan-3",
+      "poemId": "song-yanshu-dielianhua-jianjuchouyan",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "佳",
+        "炉",
+        "深",
+        "暮",
+        "黄",
+        "晚",
+        "午",
+        "日",
+        "江",
+        "月",
+        "明",
+        "晓"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-libai-shudaonan-2",
+      "poemId": "tang-libai-shudaonan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 7,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "雾",
+        "天",
+        "霓",
+        "青",
+        "岚",
+        "翠",
+        "粉",
+        "紫",
+        "晖",
+        "红",
+        "虹",
+        "朱"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-shudaonan-13",
+      "poemId": "tang-libai-shudaonan",
+      "blankLineIndex": 13,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "鹤"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "赤",
+        "红",
+        "鹤",
+        "虎",
+        "鸿",
+        "黄",
+        "素",
+        "青",
+        "蜂",
+        "龙",
+        "粉",
+        "鸦"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-shudaonan-25",
+      "poemId": "tang-libai-shudaonan",
+      "blankLineIndex": 25,
+      "blanks": [
+        {
+          "start": 7,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "霜",
+        "天",
+        "黛",
+        "玄",
+        "霄",
+        "星",
+        "黑",
+        "粉",
+        "翠",
+        "雾",
+        "雷",
+        "青"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-shudaonan-44",
+      "poemId": "tang-libai-shudaonan",
+      "blankLineIndex": 44,
+      "blanks": [
+        {
+          "start": 7,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "丹",
+        "岚",
+        "赤",
+        "霜",
+        "玄",
+        "碧",
+        "烟",
+        "天",
+        "虹",
+        "绯",
+        "阳",
+        "青"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-zhangruoxu-chunjianghuayueye-1",
+      "poemId": "tang-zhangruoxu-chunjianghuayueye",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "官",
+        "午",
+        "明",
+        "月",
+        "河",
+        "子",
+        "日",
+        "晓",
+        "山",
+        "暮",
+        "春",
+        "鹃"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-zhangruoxu-chunjianghuayueye-16",
+      "poemId": "tang-zhangruoxu-chunjianghuayueye",
+      "blankLineIndex": 16,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "白",
+            "云"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "雷",
+        "青",
+        "皓",
+        "霓",
+        "星",
+        "白",
+        "粉",
+        "阴",
+        "金",
+        "云",
+        "缁",
+        "电"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-zhangruoxu-chunjianghuayueye-19",
+      "poemId": "tang-zhangruoxu-chunjianghuayueye",
+      "blankLineIndex": 19,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "晚",
+        "子",
+        "夜",
+        "月",
+        "明",
+        "香",
+        "佳",
+        "花",
+        "残",
+        "午",
+        "苔"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-zhangruoxu-chunjianghuayueye-28",
+      "poemId": "tang-zhangruoxu-chunjianghuayueye",
+      "blankLineIndex": 28,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "蕉",
+        "棣",
+        "夜",
+        "日",
+        "寺",
+        "燕",
+        "蓬",
+        "落",
+        "茅",
+        "莲",
+        "花",
+        "鸟"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-libai-qiangjinjiu-0",
+      "poemId": "tang-libai-qiangjinjiu",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "河"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "朱",
+        "黛",
+        "黄",
+        "河",
+        "素",
+        "峦",
+        "原",
+        "紫",
+        "矶",
+        "谷"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-baijuyi-changhenge-60",
+      "poemId": "tang-baijuyi-changhenge",
+      "blankLineIndex": 60,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "曛",
+        "年",
+        "风",
+        "岁",
+        "丑",
+        "云",
+        "烟",
+        "虹",
+        "辰",
+        "霜",
+        "雷",
+        "春"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-baijuyi-changhenge-70",
+      "poemId": "tang-baijuyi-changhenge",
+      "blankLineIndex": 70,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "鸳",
+            "鸯"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "龙",
+        "蚁",
+        "鸯",
+        "犬",
+        "鸳",
+        "猿",
+        "莺",
+        "鸦",
+        "鸠",
+        "羊",
+        "蛟",
+        "鱼"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-baijuyi-pipaxing-37",
+      "poemId": "tang-baijuyi-pipaxing",
+      "blankLineIndex": 37,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "秋",
+        "暮",
+        "丑",
+        "月",
+        "晓",
+        "冬",
+        "子",
+        "午",
+        "旦",
+        "晚",
+        "更",
+        "夏"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-baijuyi-pipaxing-50",
+      "poemId": "tang-baijuyi-pipaxing",
+      "blankLineIndex": 50,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "年"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "寒",
+        "年",
+        "丑",
+        "杏",
+        "楼",
+        "桃",
+        "暝",
+        "秋",
+        "旦",
+        "鹤",
+        "明",
+        "春"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-baijuyi-pipaxing-51",
+      "poemId": "tang-baijuyi-pipaxing",
+      "blankLineIndex": 51,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "丑",
+        "时",
+        "暝",
+        "电",
+        "虹",
+        "暮",
+        "日",
+        "曛",
+        "月",
+        "风",
+        "岚",
+        "冬",
+        "宵",
+        "昏",
+        "昼",
+        "晚",
+        "岁",
+        "更",
+        "星",
+        "午",
+        "烟",
+        "秋",
+        "晨",
+        "春"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-baijuyi-pipaxing-73",
+      "poemId": "tang-baijuyi-pipaxing",
+      "blankLineIndex": 73,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "杜",
+            "鹃"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "豆",
+        "苔",
+        "螺",
+        "犬",
+        "杜",
+        "翠",
+        "川",
+        "鹃",
+        "莺",
+        "鸠",
+        "鸯",
+        "母"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-baijuyi-pipaxing-74",
+      "poemId": "tang-baijuyi-pipaxing",
+      "blankLineIndex": 74,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "秋",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "冬",
+        "夜",
+        "晨",
+        "暮",
+        "月",
+        "晓",
+        "旦",
+        "丑",
+        "夏",
+        "晚",
+        "午",
+        "秋"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-libai-xinglunan-yi-4",
+      "poemId": "tang-libai-xinglunan-yi",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "河"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "涧",
+        "渊",
+        "缁",
+        "紫",
+        "川",
+        "泉",
+        "丹",
+        "河",
+        "岗",
+        "黄",
+        "朱",
+        "赤"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-xinglunan-yi-13",
+      "poemId": "tang-libai-xinglunan-yi",
+      "blankLineIndex": 13,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "沧",
+            "海"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "沧",
+        "岗",
+        "岭",
+        "海",
+        "水",
+        "岸",
+        "杜",
+        "江",
+        "秋",
+        "鹉"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-mengyoutianlao-21",
+      "poemId": "tang-libai-mengyoutianlao",
+      "blankLineIndex": 21,
+      "blanks": [
+        {
+          "start": 1,
+          "count": 2,
+          "answerChars": [
+            "深",
+            "林"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "孤",
+        "人",
+        "西",
+        "弟",
+        "畔",
+        "东",
+        "深",
+        "林",
+        "杨",
+        "鹂",
+        "北",
+        "中"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-wudai-liyu-langtaosha-lianwaiyu-8",
+      "poemId": "wudai-liyu-langtaosha-lianwaiyu",
+      "blankLineIndex": 8,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "苔",
+        "槐",
+        "葵",
+        "柳",
+        "客",
+        "落",
+        "棣",
+        "燕",
+        "海",
+        "花"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-wudai-weizhuang-pusaman-renren-0",
+      "poemId": "wudai-weizhuang-pusaman-renren",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "陵",
+        "汀",
+        "旁",
+        "江",
+        "野",
+        "池",
+        "高",
+        "渚",
+        "西",
+        "南",
+        "右",
+        "低"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-wudai-weizhuang-pusaman-renren-1",
+      "poemId": "wudai-weizhuang-pusaman-renren",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "低",
+        "畔",
+        "内",
+        "前",
+        "渚",
+        "中",
+        "堤",
+        "泉",
+        "南",
+        "池",
+        "江",
+        "渊"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-wangwan-cibeigushanxia-0",
+      "poemId": "tang-wangwan-cibeigushanxia",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "粉",
+        "池",
+        "青",
+        "山",
+        "岩",
+        "谷",
+        "翠",
+        "丹",
+        "川",
+        "金",
+        "白",
+        "峦"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wangwan-cibeigushanxia-1",
+      "poemId": "tang-wangwan-cibeigushanxia",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "绿",
+            "水"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "翠",
+        "红",
+        "渊",
+        "彩",
+        "金",
+        "水",
+        "海",
+        "溪",
+        "黛",
+        "岩",
+        "岸",
+        "绿"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wangwan-cibeigushanxia-7",
+      "poemId": "tang-wangwan-cibeigushanxia",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "归",
+            "雁"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "雁",
+        "鹭",
+        "鸳",
+        "蝴",
+        "鹊",
+        "鹂",
+        "马",
+        "归",
+        "燕",
+        "洲",
+        "寒",
+        "鸟"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-yuexiaduzhuo-2",
+      "poemId": "tang-libai-yuexiaduzhuo",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "昼",
+        "晚",
+        "池",
+        "银",
+        "暮",
+        "佳",
+        "西",
+        "明",
+        "春",
+        "日",
+        "午",
+        "月"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-songyouren-0",
+      "poemId": "tang-libai-songyouren",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "池",
+        "金",
+        "堤",
+        "白",
+        "山",
+        "渊",
+        "滩",
+        "皓",
+        "青",
+        "缁"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-songyouren-4",
+      "poemId": "tang-libai-songyouren",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "游",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "晓",
+        "月",
+        "晚",
+        "豆",
+        "清",
+        "黄",
+        "夜",
+        "游",
+        "子",
+        "春"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-songyouren-5",
+      "poemId": "tang-libai-songyouren",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "人"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "锦",
+        "草",
+        "雪",
+        "绿",
+        "烟",
+        "故",
+        "人",
+        "秋",
+        "江",
+        "苔"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dufu-shuxiang-1",
+      "poemId": "tang-dufu-shuxiang",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 3,
+          "answerChars": [
+            "锦",
+            "官",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "林",
+        "鹭",
+        "兄",
+        "落",
+        "城",
+        "归",
+        "夜",
+        "香",
+        "春",
+        "苔",
+        "酒",
+        "锦",
+        "雨",
+        "青",
+        "山",
+        "蝶",
+        "官",
+        "楼"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-dufu-shuxiang-3",
+      "poemId": "tang-dufu-shuxiang",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "黄",
+            "鹂"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "猿",
+        "粉",
+        "牛",
+        "鹿",
+        "素",
+        "蛟",
+        "鹂",
+        "玄",
+        "黄",
+        "丹"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dufu-kezhi-5",
+      "poemId": "tang-dufu-kezhi",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 1,
+          "count": 2,
+          "answerChars": [
+            "酒",
+            "家"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "落",
+        "海",
+        "草",
+        "洲",
+        "柳",
+        "春",
+        "人",
+        "归",
+        "银",
+        "家",
+        "日",
+        "酒"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-lishangyin-change-3",
+      "poemId": "tang-lishangyin-change",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "绯",
+        "星",
+        "电",
+        "碧",
+        "青",
+        "天",
+        "缁",
+        "阳",
+        "粉",
+        "曜"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dumu-jiyangzhouhanchuo-0",
+      "poemId": "tang-dumu-jiyangzhouhanchuo",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "河",
+        "山",
+        "岭",
+        "银",
+        "缁",
+        "粉",
+        "陵",
+        "崖",
+        "岩",
+        "红",
+        "青",
+        "黄"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-dumu-jiyangzhouhanchuo-1",
+      "poemId": "tang-dumu-jiyangzhouhanchuo",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "塘",
+        "涧",
+        "南",
+        "江",
+        "中",
+        "川",
+        "崖",
+        "旁",
+        "洲",
+        "涯",
+        "右",
+        "高"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-dumu-jiyangzhouhanchuo-2",
+      "poemId": "tang-dumu-jiyangzhouhanchuo",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "明",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "暮",
+        "晚",
+        "黄",
+        "昼",
+        "日",
+        "西",
+        "白",
+        "舟",
+        "苔",
+        "明",
+        "月",
+        "子"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-lishangyin-leyouyuan-2",
+      "poemId": "tang-lishangyin-leyouyuan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "园",
+        "阳",
+        "霄",
+        "岚",
+        "电",
+        "芳",
+        "夕",
+        "天",
+        "洲",
+        "紫"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-censhen-baixuege-2",
+      "poemId": "tang-censhen-baixuege",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霞",
+        "更",
+        "虹",
+        "风",
+        "霄",
+        "晖",
+        "旦",
+        "秋",
+        "阴",
+        "春",
+        "昏",
+        "朝"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-gaoshi-yangexing-13",
+      "poemId": "tang-gaoshi-yangexing",
+      "blankLineIndex": 13,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "城",
+        "七",
+        "佳",
+        "六",
+        "兆",
+        "寒",
+        "半",
+        "孤",
+        "重",
+        "杨",
+        "翠",
+        "南"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-xinqiji-shuilongyin-jiankang-7",
+      "poemId": "song-xinqiji-shuilongyin-jiankang",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "游",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "波",
+        "谷",
+        "原",
+        "涧",
+        "东",
+        "山",
+        "涯",
+        "江",
+        "月",
+        "游",
+        "南",
+        "暮",
+        "春",
+        "昼",
+        "子",
+        "晚",
+        "节",
+        "高",
+        "日",
+        "中",
+        "野",
+        "近",
+        "岩",
+        "芳"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-liqingzhao-zuihuayin-bowu-2",
+      "poemId": "song-liqingzhao-zuihuayin-bowu",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "佳",
+            "节"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "红",
+        "蝶",
+        "白",
+        "节",
+        "佳",
+        "山",
+        "孤",
+        "青",
+        "楼",
+        "西",
+        "杜",
+        "川"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-qinguan-tasuoxing-chenzhou-4",
+      "poemId": "song-qinguan-tasuoxing-chenzhou",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "杜",
+            "鹃"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鸥",
+        "山",
+        "蚁",
+        "杜",
+        "鹃",
+        "麟",
+        "鸾",
+        "寒",
+        "秋",
+        "江",
+        "鸠",
+        "残"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-luyou-chaitoufeng-hongsu-11",
+      "poemId": "song-luyou-chaitoufeng-hongsu",
+      "blankLineIndex": 11,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "葭",
+        "茅",
+        "蓼",
+        "花",
+        "梅",
+        "榆",
+        "桃",
+        "菊",
+        "蓬",
+        "桐",
+        "荷",
+        "枫"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-wudai-weizhuang-pusaman-honglou-2",
+      "poemId": "wudai-weizhuang-pusaman-honglou",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "残",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "暮",
+        "云",
+        "官",
+        "昼",
+        "残",
+        "日",
+        "秋",
+        "月",
+        "夜",
+        "兄",
+        "晚",
+        "杏"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-wudai-niuxiji-shengzhazi-chunshan-2",
+      "poemId": "wudai-niuxiji-shengzhazi-chunshan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "残",
+            "月"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "节",
+        "夜",
+        "游",
+        "春",
+        "云",
+        "月",
+        "晚",
+        "残",
+        "日",
+        "晓",
+        "暮",
+        "鹉"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-wudai-niuxiji-shengzhazi-chunshan-8",
+      "poemId": "wudai-niuxiji-shengzhazi-chunshan",
+      "blankLineIndex": 8,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "芳",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "西",
+        "桂",
+        "叶",
+        "草",
+        "江",
+        "秋",
+        "柳",
+        "池",
+        "花",
+        "芳",
+        "山",
+        "薇"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-wudai-liyu-qingpingyue-bielai-6",
+      "poemId": "wudai-liyu-qingpingyue-bielai",
+      "blankLineIndex": 6,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "叶",
+        "旦",
+        "朝",
+        "更",
+        "春",
+        "棠",
+        "草",
+        "柳",
+        "芦",
+        "曛"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-wudai-lijing-tanpohuanxisha-shoujuan-2",
+      "poemId": "wudai-lijing-tanpohuanxisha-shoujuan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "花",
+        "雪",
+        "禾",
+        "杨",
+        "槐",
+        "枫",
+        "落",
+        "藤",
+        "故",
+        "海",
+        "客",
+        "雁"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-wangwei-zashi-junzi-0",
+      "poemId": "tang-wangwei-zashi-junzi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "草",
+        "游",
+        "青",
+        "乡",
+        "月",
+        "故",
+        "雁",
+        "霜",
+        "鹤",
+        "柳"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangwei-zashi-junzi-1",
+      "poemId": "tang-wangwei-zashi-junzi",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "乡",
+        "清",
+        "草",
+        "雪",
+        "山",
+        "绿",
+        "寒",
+        "鸟",
+        "洲",
+        "故"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-libai-dujingmensongbie-6",
+      "poemId": "tang-libai-dujingmensongbie",
+      "blankLineIndex": 6,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "城",
+        "月",
+        "故",
+        "雪",
+        "雁",
+        "河",
+        "乡",
+        "芳",
+        "海",
+        "归",
+        "池",
+        "柳"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-libai-qingpingdiao-yi-1",
+      "poemId": "tang-libai-qingpingdiao-yi",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "曜",
+        "晡",
+        "岚",
+        "宵",
+        "秋",
+        "春",
+        "阴",
+        "风",
+        "雾",
+        "阳",
+        "更",
+        "暝"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-libai-xuanzhouxietiaolou-7",
+      "poemId": "tang-libai-xuanzhouxietiaolou",
+      "blankLineIndex": 7,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "天"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "烟",
+        "青",
+        "晖",
+        "苍",
+        "霞",
+        "朱",
+        "天",
+        "绛",
+        "星",
+        "玄",
+        "红",
+        "曜"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-dufu-dengyueyanglou-5",
+      "poemId": "tang-dufu-dengyueyanglou",
+      "blankLineIndex": 5,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "舟"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "舟",
+        "一",
+        "春",
+        "孤",
+        "九",
+        "百",
+        "千",
+        "鸯",
+        "川",
+        "明",
+        "二",
+        "游"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-dufu-jiangnanfengliguinian-2",
+      "poemId": "tang-dufu-jiangnanfengliguinian",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "江",
+            "南"
+          ],
+          "pos": "n",
+          "semantic": "方位"
+        }
+      ],
+      "tilePool": [
+        "野",
+        "渊",
+        "西",
+        "岭",
+        "滩",
+        "低",
+        "南",
+        "畔",
+        "旁",
+        "江"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dufu-jiangnanfengliguinian-3",
+      "poemId": "tang-dufu-jiangnanfengliguinian",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "落",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "子",
+        "橘",
+        "月",
+        "柳",
+        "落",
+        "葵",
+        "寺",
+        "花",
+        "杨",
+        "禾"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-dufu-yueyeyishedi-3",
+      "poemId": "tang-dufu-yueyeyishedi",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "家",
+        "柳",
+        "海",
+        "明",
+        "雨",
+        "翠",
+        "水",
+        "乡",
+        "江",
+        "鸳",
+        "月",
+        "故"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-wangchangling-guiyuan-2",
+      "poemId": "tang-wangchangling-guiyuan",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 4,
+          "count": 2,
+          "answerChars": [
+            "杨",
+            "柳"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "蕉",
+        "柳",
+        "草",
+        "叶",
+        "蕙",
+        "杨",
+        "兰",
+        "薇",
+        "竹",
+        "稻"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-wangchangling-congjunxing-qinghai-1",
+      "poemId": "tang-wangchangling-congjunxing-qinghai",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "孤",
+            "城"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "城",
+        "百",
+        "一",
+        "重",
+        "风",
+        "寒",
+        "兆",
+        "八",
+        "红",
+        "青",
+        "孤",
+        "弟"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-liuchangqing-songlingche-2",
+      "poemId": "tang-liuchangqing-songlingche",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 3,
+          "count": 2,
+          "answerChars": [
+            "夕",
+            "阳"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "霞",
+        "夕",
+        "明",
+        "阳",
+        "香",
+        "烟",
+        "曜",
+        "窗",
+        "江",
+        "春",
+        "霄",
+        "霓"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-tang-liuchangqing-songlingche-3",
+      "poemId": "tang-liuchangqing-songlingche",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "翠",
+        "青",
+        "银",
+        "赤",
+        "山",
+        "玄",
+        "池",
+        "滩",
+        "汀",
+        "黑",
+        "陵",
+        "涧"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-tang-censhen-fengrujingshi-0",
+      "poemId": "tang-censhen-fengrujingshi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "园"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "柳",
+        "园",
+        "月",
+        "花",
+        "草",
+        "香",
+        "故",
+        "夜",
+        "白",
+        "杜"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihu-tidouchengnanzhuang-1",
+      "poemId": "tang-cuihu-tidouchengnanzhuang",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "桃",
+            "花"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "桃",
+        "梅",
+        "藤",
+        "蓬",
+        "稻",
+        "花",
+        "槐",
+        "葭",
+        "枫",
+        "棠"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-cuihu-tidouchengnanzhuang-3",
+      "poemId": "tang-cuihu-tidouchengnanzhuang",
+      "blankLineIndex": 3,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "春",
+            "风"
+          ],
+          "pos": "n",
+          "semantic": "时间"
+        }
+      ],
+      "tilePool": [
+        "冬",
+        "昏",
+        "风",
+        "烟",
+        "秋",
+        "曜",
+        "岁",
+        "春",
+        "云",
+        "阳"
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wc-tang-yuanzhen-lisi-0",
+      "poemId": "tang-yuanzhen-lisi",
+      "blankLineIndex": 0,
+      "blanks": [
+        {
+          "start": 2,
+          "count": 2,
+          "answerChars": [
+            "沧",
+            "海"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "汀",
+        "沧",
+        "黄",
+        "水",
+        "翠",
+        "江",
+        "烟",
+        "海",
+        "岸",
+        "乡",
+        "泉",
+        "晴"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-sushi-dielianhua-chunjing-1",
+      "poemId": "song-sushi-dielianhua-chunjing",
+      "blankLineIndex": 1,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "燕",
+            "子"
+          ],
+          "pos": "n",
+          "semantic": "动物"
+        }
+      ],
+      "tilePool": [
+        "鸟",
+        "晓",
+        "鹭",
+        "雁",
+        "晚",
+        "子",
+        "昼",
+        "暮",
+        "月",
+        "马",
+        "鹊",
+        "燕"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-sushi-dielianhua-chunjing-2",
+      "poemId": "song-sushi-dielianhua-chunjing",
+      "blankLineIndex": 2,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "绿",
+            "水"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "汀",
+        "黛",
+        "海",
+        "峦",
+        "绯",
+        "岗",
+        "岸",
+        "绿",
+        "粉",
+        "皓",
+        "水",
+        "彩"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-sushi-dielianhua-chunjing-4",
+      "poemId": "song-sushi-dielianhua-chunjing",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 5,
+          "count": 2,
+          "answerChars": [
+            "芳",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "稻",
+        "秋",
+        "江",
+        "草",
+        "慈",
+        "芳",
+        "清",
+        "叶",
+        "松",
+        "橘",
+        "柳",
+        "花"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-xinqiji-pusaman-zaokou-4",
+      "poemId": "song-xinqiji-pusaman-zaokou",
+      "blankLineIndex": 4,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "青",
+            "山"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "银",
+        "紫",
+        "山",
+        "黄",
+        "池",
+        "翠",
+        "泉",
+        "青",
+        "崖",
+        "黑",
+        "岭",
+        "洲"
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wc-song-liuyong-bashengganzhou-duixiao-11",
+      "poemId": "song-liuyong-bashengganzhou-duixiao",
+      "blankLineIndex": 11,
+      "blanks": [
+        {
+          "start": 1,
+          "count": 2,
+          "answerChars": [
+            "故",
+            "乡"
+          ],
+          "pos": "n",
+          "semantic": "通用"
+        }
+      ],
+      "tilePool": [
+        "故",
+        "日",
+        "子",
+        "深",
+        "锦",
+        "洲",
+        "草",
+        "柳",
+        "乡",
+        "寒",
+        "黄",
+        "城"
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wc-song-wonganshi-guizhixiang-jinling-19",
+      "poemId": "song-wonganshi-guizhixiang-jinling",
+      "blankLineIndex": 19,
+      "blanks": [
+        {
+          "start": 0,
+          "count": 2,
+          "answerChars": [
+            "芳",
+            "草"
+          ],
+          "pos": "n",
+          "semantic": "植物"
+        }
+      ],
+      "tilePool": [
+        "草",
+        "芳",
+        "萍",
+        "红",
+        "萝",
+        "寒",
+        "河",
+        "葵",
+        "黄",
+        "桃",
+        "叶",
+        "柳"
+      ],
+      "difficulty": 3
+    }
+  ]
+}

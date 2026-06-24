@@ -49,6 +49,9 @@ namespace PoemPoetry.UI
         private bool _practice;
         private GameObject _resultOverlay;
 
+        private float _backArmedUntil = -1f;   // 第一次按返回后给的二次确认窗口
+        private TextMeshProUGUI _backHint;
+
         private Color PathColor => _practice ? RevealColor : UiKit.CardAlt;
 
         protected override void OnShow(object args)
@@ -81,10 +84,14 @@ namespace PoemPoetry.UI
             back.GetComponent<Image>().color = UiKit.CardAlt;
             var bl = UiKit.Text("L", back.transform, "返回", 32, TextAlignmentOptions.Center, UiKit.Ink);
             UiKit.StretchFull(bl.gameObject, 6);
-            back.GetComponent<Button>().onClick.AddListener(() => Nav.Pop());
+            back.GetComponent<Button>().onClick.AddListener(OnBackPressed);
 
             var title = UiKit.Text("Title", transform, _replay ? "找诗回看" : "滑动找诗", 50, TextAlignmentOptions.Center, UiKit.Accent);
             UiKit.AnchorTop(title.gameObject, 84, 24, 200);
+
+            _backHint = UiKit.Text("BackHint", transform, "再按一次返回退出", 28, TextAlignmentOptions.Center, UiKit.Accent);
+            UiKit.AnchorTop(_backHint.gameObject, 40, 220, 30);
+            _backHint.gameObject.SetActive(false);
 
             _timerText = UiKit.Text("Timer", transform, "", 38, TextAlignmentOptions.Center, UiKit.Ink);
             UiKit.AnchorTop(_timerText.gameObject, 56, 118, 30);
@@ -138,7 +145,14 @@ namespace PoemPoetry.UI
             {
                 var p = poems[_rng.Next(poems.Count)];
                 if (p.Lines.Count == 0) continue;
-                var l = p.Lines[_rng.Next(p.Lines.Count)];
+                PoemLine l;
+                if (_args.FamousOnly)
+                {
+                    var fam = p.Lines.FindAll(x => x.Famous);
+                    if (fam.Count == 0) continue;
+                    l = fam[_rng.Next(fam.Count)];
+                }
+                else l = p.Lines[_rng.Next(p.Lines.Count)];
                 if (l.CharCount < 2 || l.CharCount > maxLine) continue;
                 if (!used.Add(l.Text)) continue;
                 if (_game.TryPlace(l.Text, SplitChars(l.Text), p.Title, p.Id)) placed++;
@@ -167,6 +181,7 @@ namespace PoemPoetry.UI
             {
                 if (dyn.Count > 0 && !dyn.Contains(p.Dynasty)) continue;
                 if (diff.Count > 0 && !diff.Contains(p.Difficulty)) continue;
+                if (_args.FamousOnly && !p.Lines.Exists(x => x.Famous)) continue;
                 result.Add(p);
             }
             if (result.Count == 0)
@@ -297,8 +312,19 @@ namespace PoemPoetry.UI
         private string LevelHint() =>
             _level == 1 ? "横竖" : _level == 2 ? "横竖斜" : _level == 3 ? "横竖蛇形" : "全向蛇形";
 
+        // First tap arms a 2s window and warns; a second tap within it actually leaves.
+        private void OnBackPressed()
+        {
+            if (Time.unscaledTime <= _backArmedUntil) { Nav.Pop(); return; }
+            _backArmedUntil = Time.unscaledTime + 2f;
+            if (_backHint != null) _backHint.gameObject.SetActive(true);
+            if (AudioManager.Instance != null) AudioManager.Instance.PlayWrong();
+        }
+
         private void Update()
         {
+            if (_backHint != null && _backHint.gameObject.activeSelf && Time.unscaledTime > _backArmedUntil)
+                _backHint.gameObject.SetActive(false);
             if (!_running) return;
             float remain = _endTime - Time.unscaledTime;
             if (remain <= 0f) { _timerText.text = "时间 0:00"; EndGame(); return; }

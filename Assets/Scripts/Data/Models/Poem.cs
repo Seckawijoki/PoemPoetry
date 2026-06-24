@@ -39,6 +39,7 @@ namespace PoemPoetry.Data
         public string LastChar;          // 韵脚字
         public string RhymeFinal;        // pinyin final of LastChar, e.g. "iang"
         public string RhymeGroup;        // coarse 新韵 bucket id, e.g. "13"
+        public string PingshuiRhyme;     // 平水韵 韵部 id of LastChar (finer than 新韵), "" if unknown
         public string Tone;              // 平仄 pattern, "" if unknown
         public bool IsRhymeLine;         // participates in the poem's rhyme
         public string PosPattern;        // dash-joined coarse POS tags, "" if unlabeled
@@ -48,5 +49,9 @@ namespace PoemPoetry.Data
         // when blanking this line). -1 = unset → auto-grouped by couplet (index/2) at load.
         public int Group = -1;
         public bool Famous;              // 名句 marker → lower per-line difficulty within the poem
+
+        // Explicit per-line difficulty override (set in the editor). -1 = derive from the poem's
+        // tier + 名句 via DifficultyRules; >=0 = use this value directly (ignores tier/名句).
+        public int Diff = -1;
     }
 }

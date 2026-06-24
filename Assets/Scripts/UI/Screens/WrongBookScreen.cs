@@ -55,10 +55,18 @@ namespace PoemPoetry.UI
         private async void StartReview()
         {
             var due = await Services.WrongBook.GetDueAsync();
-            var ids = new List<string>();
-            foreach (var e in due) ids.Add(e.QuestionId);
-            if (ids.Count == 0) return;
-            Nav.Push<QuizScreen>(new QuizStartArgs { Mode = "wrongbook", QuestionCount = ids.Count, QuestionIds = ids });
+            // 逐词填空 (wc-) and line-quiz (q-) errors use different screens; review one kind per session.
+            var quizIds = new List<string>();
+            var clozeIds = new List<string>();
+            foreach (var e in due)
+            {
+                if (e.QuestionId != null && e.QuestionId.StartsWith("wc-")) clozeIds.Add(e.QuestionId);
+                else quizIds.Add(e.QuestionId);
+            }
+            if (quizIds.Count > 0)
+                Nav.Push<QuizScreen>(new QuizStartArgs { Mode = "wrongbook", QuestionCount = quizIds.Count, QuestionIds = quizIds });
+            else if (clozeIds.Count > 0)
+                Nav.Push<WordClozeScreen>(new WordClozeStartArgs { Mode = "wrongbook", QuestionCount = clozeIds.Count, QuestionIds = clozeIds });
         }
     }
 }

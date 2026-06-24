@@ -13,6 +13,8 @@
 *.sln
 *.userprefs
 
+chinese-poetry
+
 # Test harness build artifacts (dev-only, off-engine)
 /Tools/TestHarness/harness.exe
 /Tools/TestHarness/Newtonsoft.Json.dll

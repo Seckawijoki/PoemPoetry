@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>诗词研修 - 唐诗宋词</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#fef9ea",
+                        "on-tertiary-fixed-variant": "#4b463b",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#3f3b30",
+                        "secondary": "#625e50",
+                        "surface-variant": "#e7e2d4",
+                        "secondary-fixed": "#e8e2d0",
+                        "inverse-primary": "#ffb3ae",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#410005",
+                        "on-primary-container": "#ffb3ae",
+                        "on-tertiary-container": "#cdc6b6",
+                        "surface-container-low": "#f8f3e4",
+                        "outline-variant": "#dec0bd",
+                        "on-background": "#1d1c13",
+                        "surface-container-highest": "#e7e2d4",
+                        "secondary-container": "#e8e2d0",
+                        "on-surface": "#1d1c13",
+                        "primary": "#761519",
+                        "on-primary-fixed-variant": "#862122",
+                        "surface-tint": "#a63937",
+                        "on-tertiary-fixed": "#1e1b12",
+                        "inverse-surface": "#323127",
+                        "surface-container-high": "#ede8d9",
+                        "inverse-on-surface": "#f6f1e2",
+                        "secondary-fixed-dim": "#ccc6b5",
+                        "tertiary-container": "#575246",
+                        "primary-container": "#962d2d",
+                        "on-secondary-container": "#686456",
+                        "tertiary-fixed": "#e9e2d2",
+                        "surface-bright": "#fef9ea",
+                        "outline": "#8a716f",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#cdc6b6",
+                        "surface-dim": "#dedacb",
+                        "on-surface-variant": "#574240",
+                        "primary-fixed-dim": "#ffb3ae",
+                        "surface": "#fef9ea",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdad7",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f3eedf",
+                        "on-secondary-fixed": "#1e1c11",
+                        "on-secondary-fixed-variant": "#4a473a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "2rem",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "gutter-grid": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Noto Serif SC", "serif"],
+                        "headline-lg": ["Noto Serif SC", "serif"],
+                        "body-lg": ["Noto Serif SC", "serif"],
+                        "label-sm": ["Source Sans 3", "sans-serif"],
+                        "body-md": ["Noto Serif SC", "serif"],
+                        "display-lg": ["Noto Serif SC", "serif"],
+                        "title-md": ["Noto Serif SC", "serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "44px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .shanshui-border {
+            border: 0.5px solid rgba(112, 107, 94, 0.2);
+        }
+
+        .ink-bleed-hover:active {
+            box-shadow: 0 0 15px rgba(118, 21, 25, 0.3);
+            transform: scale(0.98);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+        }
+
+        .decorative-corner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+            border-top: 1px solid #8a716f;
+            border-left: 1px solid #8a716f;
+        }
+        
+        .decorative-corner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            border-bottom: 1px solid #8a716f;
+            border-right: 1px solid #8a716f;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col text-on-background">
+<!-- Top Navigation Anchor (Shared Component Style Mapping) -->
+<header class="w-full top-0 border-b border-on-surface/10 flex justify-between items-center px-margin-page h-16 bg-background">
+<button class="active:opacity-70 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest">诗词研修</h1>
+<button class="active:opacity-70 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">close</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center px-margin-page py-stack-lg max-w-lg mx-auto w-full">
+<!-- Title & Subtitle Section -->
+<section class="text-center mb-stack-lg relative w-full">
+<div class="inline-block relative px-8 py-4">
+<div class="absolute inset-0 decorative-corner opacity-40"></div>
+<h2 class="font-display-lg text-display-lg text-primary-container mb-2">唐诗宋词</h2>
+<p class="text-secondary font-body-md tracking-[0.2em] opacity-80">中国古典诗词 · 填空与找诗</p>
+</div>
+</section>
+<!-- Primary Action Buttons (Bento-inspired Stack) -->
+<section class="w-full space-y-gutter-grid mb-stack-lg">
+<!-- 答题 -->
+<button class="w-full h-32 bg-primary-container text-on-primary font-headline-lg flex items-center justify-center transition-all ink-bleed-hover relative group overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+<span class="tracking-[0.5em] relative z-10">答题</span>
+<div class="absolute right-4 opacity-10 font-display-lg text-6xl">吟</div>
+</button>
+<!-- 滑动找诗 -->
+<button class="w-full h-32 bg-primary-container text-on-primary font-headline-lg flex items-center justify-center transition-all ink-bleed-hover relative group overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+<span class="tracking-[0.5em] relative z-10">滑动找诗</span>
+<div class="absolute right-4 opacity-10 font-display-lg text-6xl">寻</div>
+</button>
+<!-- 逐词填空 -->
+<button class="w-full h-32 bg-primary-container text-on-primary font-headline-lg flex items-center justify-center transition-all ink-bleed-hover relative group overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-1 bg-primary transform -translate-x-full group-hover:translate-x-0 transition-transform"></div>
+<span class="tracking-[0.5em] relative z-10">逐词填空</span>
+<div class="absolute right-4 opacity-10 font-display-lg text-6xl">填</div>
+</button>
+</section>
+<!-- Secondary Navigation (Grid Style) -->
+<section class="w-full grid grid-cols-1 gap-4 mb-stack-lg">
+<button class="w-full py-4 bg-surface-container-low shanshui-border text-secondary font-title-md hover:bg-surface-variant/50 transition-colors flex items-center justify-center group">
+<span class="material-symbols-outlined mr-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">history</span>
+                历史记录
+            </button>
+<button class="w-full py-4 bg-surface-container-low shanshui-border text-secondary font-title-md hover:bg-surface-variant/50 transition-colors flex items-center justify-center group">
+<span class="material-symbols-outlined mr-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">bookmark</span>
+                收藏夹
+            </button>
+<button class="w-full py-4 bg-surface-container-low shanshui-border text-secondary font-title-md hover:bg-surface-variant/50 transition-colors flex items-center justify-center group relative">
+<span class="material-symbols-outlined mr-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">edit_square</span>
+                错题本 <span class="ml-2 text-primary font-bold">(12 待复习)</span>
+</button>
+<button class="w-full py-4 bg-surface-container-low shanshui-border text-secondary font-title-md hover:bg-surface-variant/50 transition-colors flex items-center justify-center group">
+<span class="material-symbols-outlined mr-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity">settings</span>
+                设置
+            </button>
+</section>
+<!-- Aesthetic Motif -->
+<div class="mt-auto opacity-20 py-8">
+<img class="w-32 h-auto mx-auto grayscale" data-alt="A delicate minimalist ink wash painting of a single bamboo branch against a light parchment background, traditional Chinese literati style with subtle ink bleed and lots of negative space, elegant and serene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAennJI1Ivvzwyw-7bNbqwenjMXKvvIjkknQUFNG1cAsXbRR_hlfv0KRvXXnLOOL3v99tZRyAc3o3DpOWTf_1JTPFrAisb8DZ1luAzkNHgUMULNv3yhiDjeFJeavU0JtTc1Wl_nTWqUQ6WSh3H2aqjRppAkxrbDTyz7JVVVL-XDyACtC9ivzpMHqOv7p8_Ague5Dfck880-Pn_UvgRQrpnr1qkXflXJui3nGJ0u1_LWNATWy_g8qdKJ5EpH4DGE1p3IVpnG-fTFKQ"/>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Shared Component Execution) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface-container-low border-t border-on-surface/10">
+<!-- Active: 学堂 (Assuming current view is the learning hub) -->
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-95 duration-200 transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm">学堂</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container active:scale-95 duration-200 transition-colors" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-label-sm text-label-sm">诗藏</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container active:scale-95 duration-200 transition-colors" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-sm text-label-sm">研习</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-container active:scale-95 duration-200 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">吾身</span>
+</a>
+</nav>
+<!-- Visual Polish: Subtle Grain Layer -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+<script>
+        // Micro-interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Subtle haptic or visual feedback logic can go here
+            });
+        });
+        
+        // Ambient Scroll Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const title = document.querySelector('h2');
+            if(title) {
+                title.style.transform = `translateY(${scrolled * 0.1}px)`;
+                title.style.opacity = 1 - (scrolled / 300);
+            }
+        });
+    </script>
+</body></html>

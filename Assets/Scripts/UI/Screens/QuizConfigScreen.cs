@@ -27,7 +27,7 @@ namespace PoemPoetry.UI
                 case 0: return "0·入门";   // 家喻户晓、小学学过
                 case 1: return "1·名句";   // 含名句
                 case 2: return "2·进阶";   // 不含名句
-                case 4: return "4·终极";
+                case 3: return "3·终极";
                 default: return "难度" + t;
             }
         }

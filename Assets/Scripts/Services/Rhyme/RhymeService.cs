@@ -19,20 +19,24 @@ namespace PoemPoetry.Services
 
         private readonly IReadOnlyDictionary<string, IReadOnlyList<string>> _charPinyin;
         private readonly IReadOnlyDictionary<string, string> _rhymeGroups;
+        private readonly IReadOnlyDictionary<string, IReadOnlyList<string>> _pingshui;
 
         public RhymeService(
             IReadOnlyDictionary<string, IReadOnlyList<string>> charPinyin,
-            IReadOnlyDictionary<string, string> rhymeGroups = null)
+            IReadOnlyDictionary<string, string> rhymeGroups = null,
+            IReadOnlyDictionary<string, IReadOnlyList<string>> pingshui = null)
         {
             _charPinyin = charPinyin ?? new Dictionary<string, IReadOnlyList<string>>();
             _rhymeGroups = rhymeGroups;
+            _pingshui = pingshui;
         }
 
         public static async Task<RhymeService> LoadAsync(IContentSource source)
         {
             var cp = await source.LoadCharPinyinAsync();
             var rg = await source.LoadRhymeGroupsAsync();
-            return new RhymeService(cp, rg);
+            var ps = await source.LoadPingshuiRhymeAsync();
+            return new RhymeService(cp, rg, ps);
         }
 
         public bool HasChar(string ch) => _charPinyin.ContainsKey(ch);
@@ -71,8 +75,22 @@ namespace PoemPoetry.Services
         public string GroupForChar(string ch, ISet<string> contextGroups = null) =>
             GroupForFinal(FinalForChar(ch, contextGroups));
 
-        /// <summary>Fills CharCount / LastChar / RhymeFinal / RhymeGroup on a line.</summary>
-        public void Annotate(PoemLine line, ISet<string> contextGroups = null)
+        /// <summary>
+        /// 平水韵 韵部 of a character (finer than 新韵). For 多音字 spanning several 韵部, prefers the one
+        /// in <paramref name="contextPingshui"/> (the poem's other 韵脚 韵部). "" if no table or no entry.
+        /// </summary>
+        public string PingshuiForChar(string ch, ISet<string> contextPingshui = null)
+        {
+            if (_pingshui == null || string.IsNullOrEmpty(ch)) return "";
+            if (!_pingshui.TryGetValue(ch, out var parts) || parts == null || parts.Count == 0) return "";
+            if (parts.Count == 1 || contextPingshui == null || contextPingshui.Count == 0) return parts[0];
+            foreach (var p in parts)
+                if (contextPingshui.Contains(p)) return p;
+            return parts[0];
+        }
+
+        /// <summary>Fills CharCount / LastChar / RhymeFinal / RhymeGroup / PingshuiRhyme on a line.</summary>
+        public void Annotate(PoemLine line, ISet<string> contextGroups = null, ISet<string> contextPingshui = null)
         {
             var stripped = StripPunct(line.Text);
             var elements = new StringInfo(stripped);
@@ -83,6 +101,7 @@ namespace PoemPoetry.Services
                 line.LastChar = last;
                 line.RhymeFinal = FinalForChar(last, contextGroups);
                 line.RhymeGroup = GroupForFinal(line.RhymeFinal);
+                line.PingshuiRhyme = PingshuiForChar(last, contextPingshui);
             }
         }
 

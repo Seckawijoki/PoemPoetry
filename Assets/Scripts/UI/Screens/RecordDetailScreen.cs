@@ -29,6 +29,11 @@ namespace PoemPoetry.UI
                 var next = UiKit.Button("Next", navRow.transform, "下一组", out _, UiKit.CardAlt, 30);
                 UiKit.Pref(next.gameObject, minH: 78);
                 next.onClick.AddListener(() => Jump(a.Siblings, (a.Index + 1) % n));
+
+                // Left/right swipe flips to next/prev record.
+                var swipe = gameObject.AddComponent<SwipeNav>();
+                swipe.OnSwipeLeft = () => Jump(a.Siblings, (a.Index + 1) % n);
+                swipe.OnSwipeRight = () => Jump(a.Siblings, (a.Index - 1 + n) % n);
             }
 
             Load(body, id);

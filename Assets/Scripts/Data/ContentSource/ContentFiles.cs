@@ -29,4 +29,11 @@ namespace PoemPoetry.Data
         public int SchemaVersion = 1;
         public Dictionary<string, string> Groups = new Dictionary<string, string>();
     }
+
+    /// <summary>Root object of pingshui_rhyme.json: 字 → 平水韵 韵部 id[] (多音字 may span several 韵部).</summary>
+    public class PingshuiRhymeFile
+    {
+        public int SchemaVersion = 1;
+        public Dictionary<string, List<string>> Entries = new Dictionary<string, List<string>>();
+    }
 }

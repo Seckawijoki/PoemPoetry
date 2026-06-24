@@ -12,10 +12,16 @@ namespace PoemPoetry.Data
         Task<IReadOnlyList<Poem>> LoadPoemsAsync();
         Task<IReadOnlyList<Question>> LoadQuestionsAsync();
 
+        /// <summary>逐词填空 (残句调控) question bank; empty if the file isn't shipped.</summary>
+        Task<IReadOnlyList<WordClozeQuestion>> LoadWordClozeQuestionsAsync();
+
         /// <summary>char → pinyin readings (多音字 has multiple). Used by RhymeService / editor tools.</summary>
         Task<IReadOnlyDictionary<string, IReadOnlyList<string>>> LoadCharPinyinAsync();
 
         /// <summary>pinyin final → coarse 新韵 group id.</summary>
         Task<IReadOnlyDictionary<string, string>> LoadRhymeGroupsAsync();
+
+        /// <summary>char → 平水韵 韵部 id[] (多音字 may span several); empty if the file isn't shipped.</summary>
+        Task<IReadOnlyDictionary<string, IReadOnlyList<string>>> LoadPingshuiRhymeAsync();
     }
 }

@@ -22,7 +22,9 @@ namespace PoemPoetry.UI
                 return;
             }
 
-            var metaStr = $"{poem.Dynasty} · {poem.Author}" + (string.IsNullOrEmpty(poem.Cipai) ? "" : $" · {poem.Cipai}");
+            // The title already embeds the cipai for 词 (e.g. "忆秦娥·娄山关"), so only append it when it isn't already shown.
+            var showCipai = !string.IsNullOrEmpty(poem.Cipai) && (poem.Title == null || !poem.Title.Contains(poem.Cipai));
+            var metaStr = $"{poem.Dynasty} · {poem.Author}" + (showCipai ? $" · {poem.Cipai}" : "");
             var meta = UiKit.Text("Meta", body, metaStr, 32, TextAlignmentOptions.Center, UiKit.Muted);
             UiKit.MinHeight(meta.gameObject, 50);
 
@@ -42,6 +44,11 @@ namespace PoemPoetry.UI
                 var next = UiKit.Button("Next", navRow.transform, "下一首", out _, UiKit.CardAlt, 30);
                 UiKit.Pref(next.gameObject, minH: 78);
                 next.onClick.AddListener(() => Open(a.Siblings, (a.Index + 1) % n));
+
+                // Left/right swipe flips to next/prev poem.
+                var swipe = gameObject.AddComponent<SwipeNav>();
+                swipe.OnSwipeLeft = () => Open(a.Siblings, (a.Index + 1) % n);
+                swipe.OnSwipeRight = () => Open(a.Siblings, (a.Index - 1 + n) % n);
             }
 
             var favBtn = UiKit.Button("Fav", body, "收藏", out var favLbl, UiKit.CardAlt, 32);
@@ -60,7 +67,7 @@ namespace PoemPoetry.UI
             UiKit.Pref(diffRow, minH: 70).flexibleHeight = 0f;
             var diffHg = UiKit.HorizontalGroup(diffRow, spacing: 10);
             diffHg.childForceExpandHeight = false;
-            int[] tiers = { 0, 1, 2, 4 };
+            int[] tiers = { 0, 1, 2, 3 };
             var diffBtns = new List<Button>();
             var diffLbls = new List<TextMeshProUGUI>();
             foreach (var t in tiers)
@@ -82,10 +89,20 @@ namespace PoemPoetry.UI
 
             var scroll = UiKit.ScrollList("Body", body, out _);
 
+            // Lines sharing a Group form one 句号 sentence: render them on a single row separated by a space.
             var sb = new StringBuilder();
-            foreach (var line in poem.Lines) sb.Append(line.Text).Append('\n');
-            var poemText = UiKit.Text("Poem", scroll, sb.ToString().TrimEnd(), 46, TextAlignmentOptions.Center, UiKit.Ink);
-            UiKit.Pref(poemText.gameObject, minH: 64 * Mathf.Max(1, poem.Lines.Count));
+            int prevGroup = int.MinValue;
+            foreach (var line in poem.Lines)
+            {
+                bool sameGroup = line.Group >= 0 && line.Group == prevGroup;
+                if (sb.Length > 0) sb.Append(sameGroup ? "　" : "\n");
+                sb.Append(line.Text);
+                prevGroup = line.Group;
+            }
+            var poemText = UiKit.Text("Poem", scroll, sb.ToString(), 46, TextAlignmentOptions.Center, UiKit.Ink);
+            // Size to the text's real height so following sections (译文/赏析) never overlap it.
+            float poemH = poemText.GetPreferredValues(sb.ToString(), 100000f, 0f).y;
+            UiKit.Pref(poemText.gameObject, minH: poemH);
 
             if (a?.ResultContext != null && !a.ResultContext.IsCorrect)
             {

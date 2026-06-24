@@ -39,6 +39,7 @@ namespace PoemPoetry.Data
         public int LastSlideCols = 9;
         public int LastSlideRows = 9;
         public bool LastSlideOverlap = false;
+        public bool LastSlideFamousOnly = false;
         public List<int> LastSlideDifficulties = new List<int>();
         public List<string> LastSlideDynasties = new List<string>();
     }

@@ -3,12 +3,12 @@ using PoemPoetry.Data;
 namespace PoemPoetry.Services
 {
     /// <summary>
-    /// Per-line difficulty derivation. A poem carries a tier (0/1/2/4); each line's difficulty is
+    /// Per-line difficulty derivation. A poem carries a tier (0/1/2/3); each line's difficulty is
     /// derived from that tier and whether the line is a 名句 (famous). Pure / UnityEngine-free.
     ///   tier 0 → every line 0
     ///   tier 1 → 名句 1, others 2
-    ///   tier 2 → 名句 2, others 4
-    ///   tier 4 → every line 4
+    ///   tier 2 → 名句 2, others 3
+    ///   tier 3 → every line 3
     /// The whole poem's "average difficulty" is the mean of its line difficulties.
     /// </summary>
     public static class DifficultyRules
@@ -19,8 +19,8 @@ namespace PoemPoetry.Services
             {
                 case 0: return 0;
                 case 1: return famous ? 1 : 2;
-                case 2: return famous ? 2 : 4;
-                case 4: return 4;
+                case 2: return famous ? 2 : 3;
+                case 3: return 3;
                 default: return poemTier;
             }
         }
@@ -28,7 +28,9 @@ namespace PoemPoetry.Services
         public static int LineDifficulty(Poem p, int lineIndex)
         {
             if (p == null || lineIndex < 0 || lineIndex >= p.Lines.Count) return 0;
-            return LineDifficulty(p.Difficulty, p.Lines[lineIndex].Famous);
+            var line = p.Lines[lineIndex];
+            if (line.Diff >= 0) return line.Diff;   // explicit per-line override wins
+            return LineDifficulty(p.Difficulty, line.Famous);
         }
 
         /// <summary>Mean of line difficulties, rounded; 0 for an empty poem.</summary>

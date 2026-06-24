@@ -65,10 +65,15 @@ namespace PoemPoetry.Editor
                 {
                     foreach (var line in poem.Lines) rhyme.Annotate(line);
                     var groups = new HashSet<string>();
+                    var pingshui = new HashSet<string>();
                     foreach (var line in poem.Lines)
-                        if (line.IsRhymeLine && !string.IsNullOrEmpty(line.RhymeGroup)) groups.Add(line.RhymeGroup);
+                        if (line.IsRhymeLine)
+                        {
+                            if (!string.IsNullOrEmpty(line.RhymeGroup)) groups.Add(line.RhymeGroup);
+                            if (!string.IsNullOrEmpty(line.PingshuiRhyme)) pingshui.Add(line.PingshuiRhyme);
+                        }
                     foreach (var line in poem.Lines)
-                        if (line.IsRhymeLine) rhyme.Annotate(line, groups);
+                        if (line.IsRhymeLine) rhyme.Annotate(line, groups, pingshui);
                 }
 
                 var gen = new QuestionGenerator(seed.Poems, new SystemRandomSource(20260622));

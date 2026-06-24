@@ -20,6 +20,8 @@ namespace PoemPoetry.Services
         {
             public string PoemId;
             public PoemLine Line;
+            public string Type;   // 诗 / 词 / 曲 — for 同体裁 distractor preference
+            public string Cipai;  // 词牌名 ("" for 诗/曲) — for 同词牌 distractor preference
         }
 
         private readonly IRandomSource _rng;
@@ -33,7 +35,7 @@ namespace PoemPoetry.Services
                 if (p.Lines == null) continue;
                 foreach (var line in p.Lines)
                 {
-                    var cl = new CorpusLine { PoemId = p.Id, Line = line };
+                    var cl = new CorpusLine { PoemId = p.Id, Line = line, Type = p.Type, Cipai = p.Cipai };
                     var key = Key(line.CharCount, line.RhymeGroup);
                     if (!_index.TryGetValue(key, out var list))
                     {
@@ -48,7 +50,8 @@ namespace PoemPoetry.Services
         private static string Key(int charCount, string group) => charCount + "|" + (group ?? "");
 
         /// <summary>Pick up to <paramref name="count"/> distractor options for a target line.</summary>
-        public List<QuestionOption> SelectDistractors(string poemId, PoemLine target, int count = 3)
+        public List<QuestionOption> SelectDistractors(string poemId, PoemLine target, int count = 3,
+            string targetType = null, string targetCipai = null)
         {
             var result = new List<QuestionOption>();
             if (target == null || target.CharCount <= 0 || string.IsNullOrEmpty(target.RhymeGroup))
@@ -69,7 +72,7 @@ namespace PoemPoetry.Services
 
             // Shuffle for variety, then stable-sort by descending suitability score.
             ShuffleUtil.ShuffleInPlace(unique, _rng);
-            unique.Sort((a, b) => Score(b.Line, target).CompareTo(Score(a.Line, target)));
+            unique.Sort((a, b) => Score(b, target, targetType, targetCipai).CompareTo(Score(a, target, targetType, targetCipai)));
 
             // Greedy pick with diversity: avoid two distractors that overlap heavily.
             var picked = new List<CorpusLine>();
@@ -108,7 +111,7 @@ namespace PoemPoetry.Services
             var target = poem.Lines[blankLineIndex];
             if (string.IsNullOrEmpty(target.RhymeGroup)) return null; // rhyme uncomputable -> skip
 
-            var distractors = SelectDistractors(poem.Id, target, distractorCount);
+            var distractors = SelectDistractors(poem.Id, target, distractorCount, poem.Type, poem.Cipai);
             if (distractors.Count < distractorCount) return null;
 
             return new Question
@@ -147,12 +150,23 @@ namespace PoemPoetry.Services
             return System.Math.Min(5, System.Math.Max(1, d));
         }
 
-        private static int Score(PoemLine cand, PoemLine target)
+        private static int Score(CorpusLine cand, PoemLine target, string targetType, string targetCipai)
         {
             int s = 0;
-            if (!string.IsNullOrEmpty(cand.RhymeFinal) && cand.RhymeFinal == target.RhymeFinal) s += 3;
-            if (!string.IsNullOrEmpty(cand.PosPattern) && cand.PosPattern == target.PosPattern) s += 2;
-            var overlap = CharOverlap(cand.Text, target.Text);
+            var c = cand.Line;
+            // 韵脚细分 (#2): 同平水韵韵部最权威 (+4, 跳过 RhymeFinal 避免双计)；平水韵未知时回退到同拼音韵母 (+3)。
+            if (!string.IsNullOrEmpty(c.PingshuiRhyme) && !string.IsNullOrEmpty(target.PingshuiRhyme))
+            {
+                if (c.PingshuiRhyme == target.PingshuiRhyme) s += 4;
+            }
+            else if (!string.IsNullOrEmpty(c.RhymeFinal) && c.RhymeFinal == target.RhymeFinal) s += 3;
+            if (!string.IsNullOrEmpty(c.PosPattern) && c.PosPattern == target.PosPattern) s += 2;
+
+            // 体裁/词牌偏好 (#4): 同词牌最相配，否则同体裁略加分。小语料下自动退化为现有行为。
+            if (!string.IsNullOrEmpty(targetCipai) && !string.IsNullOrEmpty(cand.Cipai) && cand.Cipai == targetCipai) s += 3;
+            else if (!string.IsNullOrEmpty(targetType) && cand.Type == targetType) s += 1;
+
+            var overlap = CharOverlap(c.Text, target.Text);
             if (overlap > 0.6) s -= 2;
             else if (overlap > 0.4) s -= 1;
             return s;
