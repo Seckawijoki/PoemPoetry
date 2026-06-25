@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>测评结果 - 墨香诗韵</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#962d2d",
+                    "primary": "#761519",
+                    "tertiary-container": "#575246",
+                    "secondary-fixed-dim": "#ccc6b5",
+                    "on-surface": "#1d1c13",
+                    "primary-fixed": "#ffdad7",
+                    "on-secondary-fixed": "#1e1c11",
+                    "background": "#fef9ea",
+                    "on-primary-fixed-variant": "#862122",
+                    "tertiary-fixed-dim": "#cdc6b6",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e8e2d0",
+                    "surface-container-low": "#f8f3e4",
+                    "inverse-surface": "#323127",
+                    "surface-tint": "#a63937",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f6f1e2",
+                    "on-error": "#ffffff",
+                    "surface": "#fef9ea",
+                    "on-primary-fixed": "#410005",
+                    "tertiary": "#3f3b30",
+                    "surface-dim": "#dedacb",
+                    "on-primary-container": "#ffb3ae",
+                    "inverse-primary": "#ffb3ae",
+                    "on-surface-variant": "#574240",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e7e2d4",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "secondary-container": "#e8e2d0",
+                    "on-error-container": "#93000a",
+                    "outline": "#8a716f",
+                    "on-background": "#1d1c13",
+                    "surface-container-high": "#ede8d9",
+                    "surface-container": "#f3eedf",
+                    "on-tertiary-fixed-variant": "#4b463b",
+                    "surface-container-highest": "#e7e2d4",
+                    "secondary": "#625e50",
+                    "tertiary-fixed": "#e9e2d2",
+                    "on-tertiary-fixed": "#1e1b12",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#4a473a",
+                    "outline-variant": "#dec0bd",
+                    "surface-bright": "#fef9ea",
+                    "on-tertiary-container": "#cdc6b6",
+                    "on-secondary-container": "#686456"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-lg": "3rem",
+                    "gutter-grid": "1.5rem",
+                    "margin-page": "2rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Noto Serif"],
+                    "title-md": ["Noto Serif"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-lg": ["Noto Serif"],
+                    "body-md": ["Noto Serif"],
+                    "label-sm": ["\"Source Sans 3\""],
+                    "display-lg": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ink-bleed-active {
+            box-shadow: 0 0 4px #962d2d;
+        }
+        .parchment-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        body {
+            background-color: #fef9ea;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for scholarly feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #fef9ea; }
+        ::-webkit-scrollbar-thumb { background: #dec0bd; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex flex-col parchment-texture">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline/20 bg-surface/90 backdrop-blur-sm h-16 flex justify-between items-center px-margin-page max-w-screen-xl mx-auto">
+<button class="hover:bg-surface-variant/50 transition-colors p-2 rounded-full active:opacity-70">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-primary text-title-md font-title-md">墨香诗韵</h1>
+<button class="hover:bg-surface-variant/50 transition-colors p-2 rounded-full active:opacity-70">
+<span class="material-symbols-outlined text-primary">settings</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-8 px-margin-page max-w-screen-md mx-auto w-full">
+<!-- Score Hero Section -->
+<section class="text-center mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<div class="relative inline-block mb-2">
+<div class="absolute -inset-4 border border-primary/20 opacity-30 transform rotate-45 pointer-events-none"></div>
+<div class="absolute -inset-2 border border-primary/10 opacity-20 transform -rotate-12 pointer-events-none"></div>
+<h2 class="font-display-lg text-[72px] leading-none text-primary-container tracking-tighter">100%</h2>
+</div>
+<p class="font-display-lg text-primary text-headline-lg-mobile mt-1 italic" style='font-family: "Noto Serif", serif;'>妙笔生花</p>
+<!-- Stats Row -->
+<div class="flex justify-center gap-8 mt-4 border-y border-outline/10 py-4">
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">用时</p>
+<p class="font-title-md text-primary">02:45</p>
+</div>
+<div class="w-px h-8 bg-outline/20 self-center"></div>
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">最高连胜</p>
+<p class="font-title-md text-primary">12 🔥</p>
+</div>
+<div class="w-px h-8 bg-outline/20 self-center"></div>
+<div class="text-center">
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest mb-1">排名</p>
+<p class="font-title-md text-primary">前 1%</p>
+</div>
+</div>
+</section>
+<!-- Review List Section -->
+<section class="space-y-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+                    题目回顾
+                </h3>
+<span class="font-label-sm text-on-surface-variant">已答 10 题</span>
+</div>
+<!-- Bento-style Review Cards -->
+<div class="grid grid-cols-1 gap-3">
+<!-- Card 1 -->
+<div class="bg-surface-container-low border border-outline/10 p-4 flex justify-between items-start transition-all hover:bg-surface-container-high">
+<div class="flex-grow pr-4">
+<div class="flex items-center gap-3 mb-1">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<h4 class="font-title-md text-on-surface">静夜思</h4>
+<span class="text-on-surface-variant text-body-md">· 李白</span>
+</div>
+<p class="font-body-lg text-primary italic leading-relaxed">“床前明月光，疑是地上霜。”</p>
+<p class="font-label-sm text-on-secondary-container mt-1 opacity-60">正确识别韵脚：霜</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-low border border-outline/10 p-4 flex justify-between items-start transition-all hover:bg-surface-container-high">
+<div class="flex-grow pr-4">
+<div class="flex items-center gap-3 mb-1">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<h4 class="font-title-md text-on-surface">春晓</h4>
+<span class="text-on-surface-variant text-body-md">· 孟浩然</span>
+</div>
+<p class="font-body-lg text-primary italic leading-relaxed">“夜来风雨声，花落知多少。”</p>
+<p class="font-label-sm text-on-secondary-container mt-1 opacity-60">在四位诗人中准确识别作者</p>
+</div>
+<button class="p-2 text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-low border border-outline/10 p-4 flex justify-between items-start transition-all hover:bg-surface-container-high">
+<div class="flex-grow pr-4">
+<div class="flex items-center gap-3 mb-1">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<h4 class="font-title-md text-on-surface">水调歌头</h4>
+<span class="text-on-surface-variant text-body-md">· 苏轼</span>
+</div>
+<p class="font-body-lg text-primary italic leading-relaxed">“但愿人长久，千里共婵娟。”</p>
+<p class="font-label-sm text-on-secondary-container mt-1 opacity-60">完整匹配经典结句</p>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Action Footer -->
+<div class="mt-8 flex flex-col gap-3">
+<button class="w-full bg-primary-container text-[#F5F0E1] py-4 font-title-md text-title-md shadow-lg active:opacity-70 transition-all hover:brightness-110 flex items-center justify-center gap-2"><span class="material-symbols-outlined">refresh</span>再来一局</button>
+<button class="w-full bg-secondary-container text-primary py-4 font-title-md text-title-md border border-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"><span class="material-symbols-outlined">home</span>返回主页</button>
+</div>
+</main>
+<!-- Micro-interaction Script -->
+<script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('.material-symbols-outlined');
+                if (icon && icon.textContent === 'bookmark') {
+                    const isFilled = icon.style.fontVariationSettings && icon.style.fontVariationSettings.includes("'FILL' 1");
+                    icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+                    if (!isFilled) {
+                        this.classList.add('text-primary');
+                        this.classList.remove('text-on-surface-variant');
+                    } else {
+                        this.classList.remove('text-primary');
+                        this.classList.add('text-on-surface-variant');
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>

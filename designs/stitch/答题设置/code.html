@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>墨香诗韵 - 诗词设置</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#962d2d",
+                        "primary": "#761519",
+                        "tertiary-container": "#575246",
+                        "secondary-fixed-dim": "#ccc6b5",
+                        "on-surface": "#1d1c13",
+                        "primary-fixed": "#ffdad7",
+                        "on-secondary-fixed": "#1e1c11",
+                        "background": "#fef9ea",
+                        "on-primary-fixed-variant": "#862122",
+                        "tertiary-fixed-dim": "#cdc6b6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e8e2d0",
+                        "surface-container-low": "#f8f3e4",
+                        "inverse-surface": "#323127",
+                        "surface-tint": "#a63937",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f6f1e2",
+                        "on-error": "#ffffff",
+                        "surface": "#fef9ea",
+                        "on-primary-fixed": "#410005",
+                        "tertiary": "#3f3b30",
+                        "surface-dim": "#dedacb",
+                        "on-primary-container": "#ffb3ae",
+                        "inverse-primary": "#ffb3ae",
+                        "on-surface-variant": "#574240",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2d4",
+                        "primary-fixed-dim": "#ffb3ae",
+                        "secondary-container": "#e8e2d0",
+                        "on-error-container": "#93000a",
+                        "outline": "#8a716f",
+                        "on-background": "#1d1c13",
+                        "surface-container-high": "#ede8d9",
+                        "surface-container": "#f3eedf",
+                        "on-tertiary-fixed-variant": "#4b463b",
+                        "surface-container-highest": "#e7e2d4",
+                        "secondary": "#625e50",
+                        "tertiary-fixed": "#e9e2d2",
+                        "on-tertiary-fixed": "#1e1b12",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#4a473a",
+                        "outline-variant": "#dec0bd",
+                        "surface-bright": "#fef9ea",
+                        "on-tertiary-container": "#cdc6b6",
+                        "on-secondary-container": "#686456"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "3rem",
+                        "gutter-grid": "1.5rem",
+                        "margin-page": "2rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Noto Serif SC"],
+                        "title-md": ["Noto Serif SC"],
+                        "headline-lg": ["Noto Serif SC"],
+                        "body-lg": ["Noto Serif SC"],
+                        "body-md": ["Noto Serif SC"],
+                        "label-sm": ["Source Sans 3"],
+                        "display-lg": ["Noto Serif SC"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            color: #1d1c13;
+            font-family: 'Noto Serif SC', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .paper-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .traditional-border {
+            border: 1px solid rgba(138, 113, 111, 0.3);
+            position: relative;
+        }
+        .traditional-border::before, .traditional-border::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #761519;
+        }
+        .traditional-border::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+        .traditional-border::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .active-chip {
+            background-color: #962d2d !important;
+            color: #ffffff !important;
+            border-color: #761519 !important;
+        }
+    </style>
+</head>
+<body class="paper-texture min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 border-b border-outline/20 bg-surface flex justify-between items-center px-margin-page h-16 w-full max-w-screen-xl mx-auto z-40 sticky">
+<button class="hover:bg-surface-variant/50 transition-colors p-2 active:opacity-70">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary">墨香诗韵</h1>
+<button class="hover:bg-surface-variant/50 transition-colors p-2 active:opacity-70">
+<span class="material-symbols-outlined text-primary">settings</span>
+</button>
+</header>
+<main class="flex-1 max-w-screen-md mx-auto w-full px-margin-page py-stack-lg">
+<div class="mb-stack-lg text-center">
+<h2 class="font-display-lg text-display-lg text-primary mb-2">开卷有益</h2>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-70 italic">— 诗词考核设置 —</p>
+</div>
+<div class="bg-surface-container-low traditional-border p-6 md:p-8 mb-stack-lg space-y-10">
+<!-- Number of Questions -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-1 h-6 bg-primary"></span>
+<h3 class="font-title-md text-title-md text-on-surface">题量选择</h3>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<button class="q-count font-body-md text-body-md py-3 border border-outline/30 bg-surface hover:bg-surface-variant/30 transition-all text-center" onclick="selectSingle(this, 'q-count')">5 题</button>
+<button class="q-count active-chip font-body-md text-body-md py-3 border border-outline/30 bg-surface hover:bg-surface-variant/30 transition-all text-center" onclick="selectSingle(this, 'q-count')">10 题</button>
+<button class="q-count font-body-md text-body-md py-3 border border-outline/30 bg-surface hover:bg-surface-variant/30 transition-all text-center" onclick="selectSingle(this, 'q-count')">20 题</button>
+</div>
+</section>
+<!-- Dynasty Selection (Multi-select) -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-1 h-6 bg-primary"></span>
+<h3 class="font-title-md text-title-md text-on-surface">朝代筛选</h3>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="active-chip px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">先秦</button>
+<button class="px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">两汉</button>
+<button class="px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">魏晋南北朝</button>
+<button class="active-chip px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">唐代</button>
+<button class="active-chip px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">宋代</button>
+<button class="px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">元明清</button>
+<button class="px-4 py-2 border border-outline/30 bg-surface font-label-sm text-label-sm uppercase tracking-wider transition-all" onclick="toggleChip(this)">现当代</button>
+</div>
+</section>
+<!-- Genre Selection -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-1 h-6 bg-primary"></span>
+<h3 class="font-title-md text-title-md text-on-surface">体裁范畴</h3>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<button class="active-chip py-3 border border-outline/30 bg-surface font-body-md text-body-md transition-all text-center" onclick="toggleChip(this)">诗</button>
+<button class="py-3 border border-outline/30 bg-surface font-body-md text-body-md transition-all text-center" onclick="toggleChip(this)">词</button>
+<button class="py-3 border border-outline/30 bg-surface font-body-md text-body-md transition-all text-center" onclick="toggleChip(this)">曲</button>
+</div>
+</section>
+<!-- Difficulty Level -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="w-1 h-6 bg-primary"></span>
+<h3 class="font-title-md text-title-md text-on-surface">难易程度</h3>
+</div>
+<div class="relative pt-6 pb-2 px-2">
+<input class="w-full h-1 bg-outline/20 appearance-none cursor-pointer accent-primary" id="diffRange" max="3" min="1" oninput="updateDifficultyLabel(this.value)" step="1" type="range" value="2"/>
+<div class="flex justify-between mt-4 font-label-sm text-label-sm text-on-surface-variant">
+<span class="">初学乍练</span>
+<span class="">略有小成</span>
+<span class="">炉火纯青</span>
+</div>
+</div>
+<div class="mt-4 p-3 bg-primary/5 text-center font-body-md text-primary italic border-l-2 border-primary" id="difficultyStatus">
+                    当前难度：略有小成
+                </div>
+</section>
+</div>
+<div class="flex flex-col items-center gap-stack-md pb-16">
+<button class="w-full max-w-xs bg-primary-container text-background py-4 font-headline-lg-mobile text-headline-lg-mobile tracking-[0.2em] shadow-lg active:scale-95 transition-transform">
+                开始考核
+            </button>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">静心凝神，方能落笔有神</p>
+</div>
+</main>
+<!-- Decoration -->
+<div class="fixed left-4 bottom-24 pointer-events-none opacity-20 hidden lg:block">
+<div class="w-24 h-64 border-l border-t border-primary/40 flex items-center justify-center writing-vertical-rl text-primary font-display-lg" style="writing-mode: vertical-rl;">
+            博学而笃志
+        </div>
+</div>
+<div class="fixed right-4 bottom-24 pointer-events-none opacity-20 hidden lg:block">
+<div class="w-24 h-64 border-r border-t border-primary/40 flex items-center justify-center writing-vertical-rl text-primary font-display-lg" style="writing-mode: vertical-rl;">
+            切问而近思
+        </div>
+</div>
+<script>
+        function selectSingle(element, groupClass) {
+            const group = document.querySelectorAll('.' + groupClass);
+            group.forEach(el => el.classList.remove('active-chip'));
+            element.classList.add('active-chip');
+        }
+
+        function toggleChip(element) {
+            element.classList.toggle('active-chip');
+        }
+
+        function updateDifficultyLabel(val) {
+            const status = document.getElementById('difficultyStatus');
+            const labels = ["初学乍练", "略有小成", "炉火纯青"];
+            status.innerText = "当前难度：" + labels[val - 1];
+        }
+    </script>
+</body></html>

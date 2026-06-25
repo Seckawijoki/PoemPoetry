@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>墨香诗韵 - 滑动找诗</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#962d2d",
+                        "primary": "#761519",
+                        "tertiary-container": "#575246",
+                        "secondary-fixed-dim": "#ccc6b5",
+                        "on-surface": "#1d1c13",
+                        "primary-fixed": "#ffdad7",
+                        "on-secondary-fixed": "#1e1c11",
+                        "background": "#fef9ea",
+                        "on-primary-fixed-variant": "#862122",
+                        "tertiary-fixed-dim": "#cdc6b6",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e8e2d0",
+                        "surface-container-low": "#f8f3e4",
+                        "inverse-surface": "#323127",
+                        "surface-tint": "#a63937",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f6f1e2",
+                        "on-error": "#ffffff",
+                        "surface": "#fef9ea",
+                        "on-primary-fixed": "#410005",
+                        "tertiary": "#3f3b30",
+                        "surface-dim": "#dedacb",
+                        "on-primary-container": "#ffb3ae",
+                        "inverse-primary": "#ffb3ae",
+                        "on-surface-variant": "#574240",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2d4",
+                        "primary-fixed-dim": "#ffb3ae",
+                        "secondary-container": "#e8e2d0",
+                        "on-error-container": "#93000a",
+                        "outline": "#8a716f",
+                        "on-background": "#1d1c13",
+                        "surface-container-high": "#ede8d9",
+                        "surface-container": "#f3eedf",
+                        "on-tertiary-fixed-variant": "#4b463b",
+                        "surface-container-highest": "#e7e2d4",
+                        "secondary": "#625e50",
+                        "tertiary-fixed": "#e9e2d2",
+                        "on-tertiary-fixed": "#1e1b12",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#4a473a",
+                        "outline-variant": "#dec0bd",
+                        "surface-bright": "#fef9ea",
+                        "on-tertiary-container": "#cdc6b6",
+                        "on-secondary-container": "#686456"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "3rem",
+                        "gutter-grid": "1.5rem",
+                        "margin-page": "2rem"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Noto Serif SC"],
+                        "title-md": ["Noto Serif SC"],
+                        "headline-lg": ["Noto Serif SC"],
+                        "body-lg": ["Noto Serif SC"],
+                        "body-md": ["Noto Serif SC"],
+                        "label-sm": ["\"Source Sans 3\""],
+                        "display-lg": ["Noto Serif SC"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            color: #1d1c13;
+            overflow-x: hidden;
+            font-family: 'Noto Serif SC', serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ink-bleed-active {
+            box-shadow: inset 0 0 12px rgba(118, 21, 25, 0.2);
+            border-color: #761519 !important;
+            background-color: #ffdad7 !important;
+        }
+        .grid-char-box {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0.5px solid rgba(138, 113, 111, 0.2);
+            font-size: 1.1rem;
+            color: #3f3b30;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        .grid-container-deco {
+            position: relative;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+        .grid-container-deco::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1px solid rgba(118, 21, 25, 0.15);
+            pointer-events: none;
+        }
+        .grid-container-deco::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 1px solid rgba(118, 21, 25, 0.05);
+            pointer-events: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(118, 21, 25, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center safe-area-inset-top">
+<!-- Header -->
+<header class="w-full h-20 flex justify-between items-center px-6 max-w-screen-xl mx-auto z-50">
+<div class="flex items-center gap-4">
+<button class="active:opacity-70 transition-opacity p-2 rounded-full hover:bg-primary/5">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-primary tracking-widest text-2xl">墨香诗韵</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:opacity-70 transition-opacity p-2 rounded-full hover:bg-primary/5">
+<span class="material-symbols-outlined text-primary text-2xl">settings</span>
+</button>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md px-4 flex flex-col items-center justify-between gap-6 py-4 overflow-hidden">
+<!-- Main Grid Container -->
+<div class="flex-1 flex items-center justify-center w-full">
+<div class="grid-container-deco bg-surface-container-lowest p-2 border border-outline/10">
+<div class="grid grid-cols-10 grid-rows-12 bg-white" id="game-grid" style="aspect-ratio: 10/12; width: calc(100vw - 48px); max-width: 360px;"><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="0">来</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="1">鸟</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="2">惊</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="3">月</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="4">处</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="5">处</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="6">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="7">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="8">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="9">溅</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="10">在</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="11">深</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="12">月</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="13">木</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="14">风</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="15">城</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="16">时</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="17">地</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="18">地</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="19">明</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="20">春</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="21">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="22">感</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="23">别</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="24">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="25">破</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="26">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="27">床</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="28">是</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="29">床</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="30">夜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="31">光</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="32">明</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="33">月</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="34">溅</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="35">故</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="36">夜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="37">处</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="38">霜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="39">不</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="40">地</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="41">深</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="42">床</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="43">月</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="44">晓</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="45">夜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="46">思</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="47">处</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="48">处</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="49">山</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="50">风</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="51">声</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="52">地</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="53">夜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="54">别</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="55">故</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="56">感</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="57">春</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="58">风</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="59">闻</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="60">啼</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="61">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="62">不</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="63">疑</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="64">山</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="65">不</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="66">望</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="67">故</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="68">床</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="69">时</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="70">声</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="71">溅</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="72">地</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="73">举</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="74">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="75">心</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="76">时</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="77">夜</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="78">山</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="79">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="80">思</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="81">惊</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="82">鸟</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="83">落</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="84">来</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="85">在</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="86">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="87">是</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="88">晓</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="89">乡</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="90">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="91">月</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="92">春</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="93">春</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="94">山</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="95">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="96">觉</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="97">啼</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="98">头</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="99">明</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="100">少</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="101">不</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="102">城</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="103">上</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="104">国</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="105">光</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="106">惊</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="107">在</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="108">花</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="109">少</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="110">雨</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="111">恨</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="112">多</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="113">乡</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="114">头</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="115">思</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="116">光</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="117">低</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="118">声</div><div class="grid-char-box cursor-pointer hover:bg-primary/5" data-index="119">感</div></div>
+</div>
+</div>
+<!-- Controls Section -->
+<div class="w-full flex flex-col gap-4 pb-8">
+<div class="flex w-full px-2">
+
+<button class="flex-1 py-4 bg-primary text-white font-semibold text-lg rounded-sm hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-primary/20" id="reset-btn">
+                    重置
+                </button>
+</div>
+<p class="text-center text-on-surface-variant/60 text-sm tracking-widest font-body-md">
+                滑动方块 寻找诗篇
+            </p>
+</div>
+</main>
+<script>
+        const charPool = "床前明月光疑是地上霜举头望明月低头思故乡春眠不觉晓处处闻啼鸟夜来风雨声花落知多少国破山河在城春草木深感时花溅泪恨别鸟惊心";
+        const gridElement = document.getElementById('game-grid');
+        const rows = 12;
+        const cols = 10;
+        let isSelecting = false;
+        let selectedCells = [];
+
+        function initGrid() {
+            gridElement.innerHTML = '';
+            for (let i = 0; i < rows * cols; i++) {
+                const char = charPool[Math.floor(Math.random() * charPool.length)];
+                const cell = document.createElement('div');
+                cell.className = "grid-char-box cursor-pointer hover:bg-primary/5";
+                cell.innerText = char;
+                cell.dataset.index = i;
+                
+                // Mouse Events
+                cell.addEventListener('mousedown', () => startSelection(cell));
+                cell.addEventListener('mouseenter', () => handleHover(cell));
+                cell.addEventListener('mouseup', endSelection);
+                
+                // Mobile Touch Support
+                cell.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    startSelection(cell);
+                }, { passive: false });
+                
+                cell.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+                    if (target && target.classList.contains('grid-char-box')) {
+                        handleHover(target);
+                    }
+                }, { passive: false });
+
+                cell.addEventListener('touchend', endSelection);
+                
+                gridElement.appendChild(cell);
+            }
+        }
+
+        function startSelection(cell) {
+            isSelecting = true;
+            selectedCells = [cell];
+            cell.classList.add('ink-bleed-active');
+        }
+
+        function handleHover(cell) {
+            if (isSelecting && !selectedCells.includes(cell)) {
+                selectedCells.push(cell);
+                cell.classList.add('ink-bleed-active');
+            }
+        }
+
+        function endSelection() {
+            if (!isSelecting) return;
+            isSelecting = false;
+            
+            const selectedText = selectedCells.map(c => c.innerText).join('');
+            if (selectedText.length >= 2) {
+                selectedCells.forEach(c => {
+                   c.classList.remove('ink-bleed-active');
+                   c.classList.add('bg-primary', 'text-white', 'border-transparent');
+                });
+            } else {
+                selectedCells.forEach(c => c.classList.remove('ink-bleed-active'));
+            }
+            selectedCells = [];
+        }
+
+        // Catch end of selection outside grid
+        window.addEventListener('mouseup', () => {
+            if (isSelecting) endSelection();
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', initGrid);
+        document.getElementById('hint-btn').addEventListener('click', () => {
+            const cells = document.querySelectorAll('.grid-char-box');
+            const randomCell = cells[Math.floor(Math.random() * cells.length)];
+            randomCell.classList.add('animate-pulse', 'ring-2', 'ring-primary');
+            setTimeout(() => {
+                randomCell.classList.remove('animate-pulse', 'ring-2', 'ring-primary');
+            }, 1000);
+        });
+
+        initGrid();
+    </script>
+
+
+</body></html>

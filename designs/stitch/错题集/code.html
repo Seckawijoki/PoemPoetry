@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>墨香诗韵 - 错题本</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#e8e2d0",
+                        "primary": "#761519",
+                        "outline": "#8a716f",
+                        "background": "#fef9ea",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#574240",
+                        "inverse-surface": "#323127",
+                        "surface-variant": "#e7e2d4",
+                        "on-primary-container": "#ffb3ae",
+                        "inverse-on-surface": "#f6f1e2",
+                        "surface-container-low": "#f8f3e4",
+                        "tertiary-fixed": "#e9e2d2",
+                        "surface-bright": "#fef9ea",
+                        "inverse-primary": "#ffb3ae",
+                        "primary-fixed-dim": "#ffb3ae",
+                        "surface-container": "#f3eedf",
+                        "surface-container-high": "#ede8d9",
+                        "primary-fixed": "#ffdad7",
+                        "on-secondary-fixed": "#1e1c11",
+                        "on-surface": "#1d1c13",
+                        "secondary": "#625e50",
+                        "on-background": "#1d1c13",
+                        "on-tertiary-container": "#cdc6b6",
+                        "surface-dim": "#dedacb",
+                        "on-tertiary-fixed": "#1e1b12",
+                        "secondary-fixed": "#e8e2d0",
+                        "on-secondary-container": "#686456",
+                        "secondary-fixed-dim": "#ccc6b5",
+                        "surface-container-highest": "#e7e2d4",
+                        "primary-container": "#962d2d",
+                        "tertiary-container": "#575246",
+                        "on-primary-fixed": "#410005",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#4b463b",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#dec0bd",
+                        "tertiary-fixed-dim": "#cdc6b6",
+                        "tertiary": "#3f3b30",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#a63937",
+                        "on-secondary-fixed-variant": "#4a473a",
+                        "surface": "#fef9ea",
+                        "on-primary-fixed-variant": "#862122"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-page": "2rem",
+                        "stack-lg": "3rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1.5rem",
+                        "gutter-grid": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Noto Serif SC"],
+                        "label-sm": ["Source Sans 3"],
+                        "headline-lg": ["Noto Serif SC"],
+                        "body-md": ["Noto Serif SC"],
+                        "headline-lg-mobile": ["Noto Serif SC"],
+                        "body-lg": ["Noto Serif SC"],
+                        "display-lg": ["Noto Serif SC"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            /* Subtle paper texture using a CSS-only technique */
+            background-image: 
+                radial-gradient(#00000005 1px, transparent 0),
+                radial-gradient(#00000005 1px, transparent 0);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .xuan-card {
+            background-color: #ffffff;
+            box-shadow: none;
+            border: 1px solid rgba(138, 113, 111, 0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .xuan-card::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 0.5px solid rgba(118, 21, 25, 0.05);
+            pointer-events: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* Underline input style mimic */
+        .decoration-line {
+            height: 1px;
+            background-color: rgba(118, 21, 25, 0.2);
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        /* Decorative corners */
+        .corner-motif {
+            width: 8px;
+            height: 8px;
+            border-color: #761519;
+            position: absolute;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen text-on-surface">
+<!-- Top AppBar -->
+<header class="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b border-outline/10">
+<div class="flex items-center justify-between px-margin-page py-4 max-w-2xl mx-auto">
+<button class="flex items-center justify-center w-10 h-10 hover:bg-secondary-container/50 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest">错题本</h1>
+<button class="font-title-md text-primary px-2 hover:opacity-70 transition-opacity">
+                管理
+            </button>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-margin-page py-stack-md">
+<!-- Call to Action Section -->
+<div class="mb-stack-lg text-center">
+<button class="w-full bg-primary-container text-white py-4 px-6 text-title-md font-title-md flex items-center justify-center space-x-2 active:scale-[0.98] transition-transform">
+<span>开始复习</span>
+<span class="opacity-90 font-normal">（14 题到期）</span>
+</button>
+<p class="mt-stack-sm text-on-surface-variant font-label-sm text-center opacity-70">
+                根据艾宾浩斯遗忘曲线提醒复习
+            </p>
+</div>
+<!-- Poem List -->
+<div class="space-y-gutter-grid">
+<!-- Card 1 -->
+<div class="xuan-card p-stack-md group cursor-pointer hover:border-primary/30">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-primary">《出塞》</h3>
+<span class="text-on-surface-variant font-body-md">王昌龄</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 leading-relaxed line-clamp-1 italic">
+                    秦时明月汉时关，万里长征人未还。
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex space-x-4">
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="inventory_2">inventory_2</span>
+                            盒 1/3
+                        </span>
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="history">history</span>
+                            已复习 1 次
+                        </span>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="xuan-card p-stack-md group cursor-pointer hover:border-primary/30">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-primary">《凉州词》</h3>
+<span class="text-on-surface-variant font-body-md">王之涣</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 leading-relaxed line-clamp-1 italic">
+                    黄河远上白云间，一片孤城万仞山。
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex space-x-4">
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="inventory_2">inventory_2</span>
+                            盒 1/3
+                        </span>
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="history">history</span>
+                            已复习 2 次
+                        </span>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="xuan-card p-stack-md group cursor-pointer hover:border-primary/30">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-primary">《声声慢·寻寻觅觅》</h3>
+<span class="text-on-surface-variant font-body-md">李清照</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 leading-relaxed line-clamp-1 italic">
+                    寻寻觅觅，冷冷清清，凄凄惨惨戚戚。
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex space-x-4">
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="inventory_2">inventory_2</span>
+                            盒 2/3
+                        </span>
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="history">history</span>
+                            已复习 3 次
+                        </span>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="xuan-card p-stack-md group cursor-pointer hover:border-primary/30">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-primary">《秋夜寄邱员外》</h3>
+<span class="text-on-surface-variant font-body-md">韦应物</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 leading-relaxed line-clamp-1 italic">
+                    怀君属秋夜，散步咏凉天。
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex space-x-4">
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="inventory_2">inventory_2</span>
+                            盒 1/3
+                        </span>
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="history">history</span>
+                            已复习 1 次
+                        </span>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="xuan-card p-stack-md group cursor-pointer hover:border-primary/30">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-primary">《月夜》</h3>
+<span class="text-on-surface-variant font-body-md">刘方平</span>
+</div>
+<p class="text-on-surface-variant font-body-md mb-4 leading-relaxed line-clamp-1 italic">
+                    更深月色半人家，北斗阑干南斗斜。
+                </p>
+<div class="flex items-center justify-between">
+<div class="flex space-x-4">
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="inventory_2">inventory_2</span>
+                            盒 1/3
+                        </span>
+<span class="flex items-center text-label-sm text-on-surface-variant/60">
+<span class="material-symbols-outlined text-[16px] mr-1" data-icon="history">history</span>
+                            已复习 1 次
+                        </span>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Bottom Decoration -->
+<div class="flex flex-col items-center justify-center py-stack-lg space-y-4 opacity-30">
+<div class="w-24 h-[1px] bg-outline/40"></div>
+<p class="font-body-md text-label-sm tracking-widest text-on-surface-variant">己所不欲 勿施于人</p>
+<div class="w-24 h-[1px] bg-outline/40"></div>
+</div>
+</main>
+<!-- Floating Action Button for Adding New (Contextual) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white flex items-center justify-center shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.xuan-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.classList.add('bg-surface-container-low');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.classList.remove('bg-surface-container-low');
+            });
+        });
+    </script>
+</body></html>

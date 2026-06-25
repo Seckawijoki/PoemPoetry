@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>墨香诗韵 - 首页</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-container": "#962d2d",
+                "primary": "#761519",
+                "tertiary-container": "#575246",
+                "secondary-fixed-dim": "#ccc6b5",
+                "on-surface": "#1d1c13",
+                "primary-fixed": "#ffdad7",
+                "on-secondary-fixed": "#1e1c11",
+                "background": "#fef9ea",
+                "on-primary-fixed-variant": "#862122",
+                "tertiary-fixed-dim": "#cdc6b6",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#e8e2d0",
+                "surface-container-low": "#f8f3e4",
+                "inverse-surface": "#323127",
+                "surface-tint": "#a63937",
+                "on-secondary": "#ffffff",
+                "inverse-on-surface": "#f6f1e2",
+                "on-error": "#ffffff",
+                "surface": "#fef9ea",
+                "on-primary-fixed": "#410005",
+                "tertiary": "#3f3b30",
+                "surface-dim": "#dedacb",
+                "on-primary-container": "#ffb3ae",
+                "inverse-primary": "#ffb3ae",
+                "on-surface-variant": "#574240",
+                "error": "#ba1a1a",
+                "surface-variant": "#e7e2d4",
+                "primary-fixed-dim": "#ffb3ae",
+                "secondary-container": "#e8e2d0",
+                "on-error-container": "#93000a",
+                "outline": "#8a716f",
+                "on-background": "#1d1c13",
+                "surface-container-high": "#ede8d9",
+                "surface-container": "#f3eedf",
+                "on-tertiary-fixed-variant": "#4b463b",
+                "surface-container-highest": "#e7e2d4",
+                "secondary": "#625e50",
+                "tertiary-fixed": "#e9e2d2",
+                "on-tertiary-fixed": "#1e1b12",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed-variant": "#4a473a",
+                "outline-variant": "#dec0bd",
+                "surface-bright": "#fef9ea",
+                "on-tertiary-container": "#cdc6b6",
+                "on-secondary-container": "#686456"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "stack-md": "1.5rem",
+                "stack-sm": "0.5rem",
+                "stack-lg": "3rem",
+                "gutter-grid": "1.5rem",
+                "margin-page": "1.25rem"
+            },
+            "fontFamily": {
+                "headline-lg-mobile": ["Noto Serif"],
+                "title-md": ["Noto Serif"],
+                "headline-lg": ["Noto Serif"],
+                "body-lg": ["Noto Serif"],
+                "body-md": ["Noto Serif"],
+                "label-sm": ["\"Source Sans 3\""],
+                "display-lg": ["Noto Serif"]
+            },
+            "fontSize": {
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .paper-texture {
+        background-color: #fef9ea;
+        background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+      }
+      
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+
+      .cinnabar-border {
+        border: 1px solid rgba(150, 45, 45, 0.2);
+      }
+
+      .calligraphy-card {
+        transition: all 0.3s ease;
+      }
+      
+      .calligraphy-card:hover {
+        background-color: #f3eedf;
+        transform: translateY(-2px);
+      }
+
+      .vertical-text {
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+      }
+
+      .ink-bleed {
+        transition: box-shadow 0.3s ease;
+      }
+      .ink-bleed:active {
+        box-shadow: 0 0 12px rgba(118, 21, 25, 0.2);
+      }
+    </style>
+</head>
+<body class="paper-texture min-h-screen text-on-surface font-body-md overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline/10 h-14 flex justify-between items-center px-4 max-w-screen-xl mx-auto left-0 right-0">
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-variant/50 transition-colors active:opacity-70">
+        menu
+    </button>
+<h1 class="font-display-lg text-primary select-none" style="font-size: 20px; line-height: 1; letter-spacing: 0.1em;">墨香诗韵</h1>
+<button class="material-symbols-outlined text-primary p-2 hover:bg-surface-variant/50 transition-colors active:opacity-70">
+        settings
+    </button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-16 pb-24 px-margin-page max-w-screen-xl mx-auto flex flex-col gap-6">
+<!-- Welcome Section -->
+<section class="text-center">
+<p class="font-label-sm text-primary mb-1 opacity-70">壬寅年 仲秋</p>
+<h2 class="font-headline-lg-mobile text-primary tracking-[0.2em]">静心研墨，共赏雅韵</h2>
+<div class="w-8 h-0.5 bg-primary mx-auto mt-2 opacity-20"></div>
+</section>
+<!-- Main Game Modes - Redesigned for compact height -->
+<section class="grid grid-cols-1 gap-3">
+<!-- Mode 1: Answer Questions -->
+<div class="calligraphy-card relative bg-surface-container-low border border-outline/10 p-4 flex items-stretch min-h-[120px] cursor-pointer ink-bleed group rounded-lg overflow-hidden">
+<div class="vertical-text font-display-lg text-primary text-xl tracking-[0.3em] flex items-center border-r border-primary/10 pr-4 mr-4">
+                诗词问答
+            </div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="font-body-md text-on-surface-variant mb-1 text-sm">Answer Questions</p>
+<div class="flex items-center text-primary font-bold text-sm">
+<span class="">开始挑战</span>
+<span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 flex items-center px-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">quiz</span>
+</div>
+</div>
+<!-- Mode 2: Slide to Find Poetry -->
+<div class="calligraphy-card relative bg-surface-container-high border border-outline/10 p-4 flex items-stretch min-h-[120px] cursor-pointer ink-bleed group rounded-lg overflow-hidden">
+<div class="vertical-text font-display-lg text-primary text-xl tracking-[0.3em] flex items-center border-r border-primary/10 pr-4 mr-4">
+                划线寻踪
+            </div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="font-body-md text-on-surface-variant mb-1 text-sm">Slide to Find Poetry</p>
+<div class="flex items-center text-primary font-bold text-sm">
+<span class="">步入词林</span>
+<span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 flex items-center px-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">gesture</span>
+</div>
+</div>
+<!-- Mode 3: Fill in the Blanks -->
+<div class="calligraphy-card relative bg-surface-container-highest border border-outline/10 p-4 flex items-stretch min-h-[120px] cursor-pointer ink-bleed group rounded-lg overflow-hidden">
+<div class="vertical-text font-display-lg text-primary text-xl tracking-[0.3em] flex items-center border-r border-primary/10 pr-4 mr-4">
+                墨意填空
+            </div>
+<div class="flex-1 flex flex-col justify-center">
+<p class="font-body-md text-on-surface-variant mb-1 text-sm">Fill in the Blanks</p>
+<div class="flex items-center text-primary font-bold text-sm">
+<span class="">落笔成章</span>
+<span class="material-symbols-outlined text-lg ml-1">arrow_forward</span>
+</div>
+</div>
+<div class="absolute right-0 top-0 bottom-0 flex items-center px-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl">edit_note</span>
+</div>
+</div>
+</section>
+<!-- Quick Access Section - Compact grid -->
+<section class="max-w-3xl mx-auto w-full">
+<div class="grid grid-cols-2 gap-3">
+<!-- History -->
+<button class="flex items-center gap-3 p-3 bg-surface-container border border-outline/5 hover:bg-primary-container hover:text-on-primary-container transition-all group rounded-lg">
+<span class="material-symbols-outlined text-xl text-primary group-hover:text-on-primary-container">history</span>
+<div class="text-left">
+<span class="block font-body-md text-sm leading-tight">历练记录</span>
+<span class="block font-label-sm text-[9px] uppercase opacity-60">History</span>
+</div>
+</button>
+<!-- Favorites -->
+<button class="flex items-center gap-3 p-3 bg-surface-container border border-outline/5 hover:bg-primary-container hover:text-on-primary-container transition-all group rounded-lg">
+<span class="material-symbols-outlined text-xl text-primary group-hover:text-on-primary-container">bookmark</span>
+<div class="text-left">
+<span class="block font-body-md text-sm leading-tight">雅集收藏</span>
+<span class="block font-label-sm text-[9px] uppercase opacity-60">Favorites</span>
+</div>
+</button>
+<!-- Mistakes -->
+<button class="flex items-center gap-3 p-3 bg-surface-container border border-outline/5 hover:bg-primary-container hover:text-on-primary-container transition-all group rounded-lg">
+<span class="material-symbols-outlined text-xl text-primary group-hover:text-on-primary-container">auto_fix_high</span>
+<div class="text-left">
+<span class="block font-body-md text-sm leading-tight">纠偏补缺</span>
+<span class="block font-label-sm text-[9px] uppercase opacity-60">Mistakes</span>
+</div>
+</button>
+<!-- Settings -->
+<button class="flex items-center gap-3 p-3 bg-surface-container border border-outline/5 hover:bg-primary-container hover:text-on-primary-container transition-all group rounded-lg">
+<span class="material-symbols-outlined text-xl text-primary group-hover:text-on-primary-container">tune</span>
+<div class="text-left">
+<span class="block font-body-md text-sm leading-tight">笔墨设置</span>
+<span class="block font-label-sm text-[9px] uppercase opacity-60">Settings</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Featured Daily Quote -->
+<section class="mt-2 text-center opacity-70">
+<p class="font-body-md italic leading-relaxed text-sm">
+            “海内存知己，天涯若比邻。”<br>
+<span class="text-xs">— 王勃《送杜少府之任蜀州》</span>
+</p>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+
+<!-- Decorative Corner Elements - Scaled down -->
+<div class="fixed top-0 left-0 pointer-events-none opacity-10 z-0">
+<svg fill="none" height="60" viewBox="0 0 100 100" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0V40M0 0H40M0 0L20 20" stroke="#761519" stroke-width="2"></path>
+</svg>
+</div>
+<div class="fixed bottom-16 right-0 pointer-events-none opacity-10 transform rotate-180 z-0">
+<svg fill="none" height="60" viewBox="0 0 100 100" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0V40M0 0H40M0 0L20 20" stroke="#761519" stroke-width="2"></path>
+</svg>
+</div>
+<script>
+    // Micro-interaction for cards
+    document.querySelectorAll('.calligraphy-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const icon = card.querySelector('.material-symbols-outlined:last-child');
+            if(icon) icon.style.transform = 'scale(1.1) rotate(-5deg)';
+        });
+        card.addEventListener('mouseleave', () => {
+            const icon = card.querySelector('.material-symbols-outlined:last-child');
+            if(icon) icon.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+</script>
+
+
+</body></html>

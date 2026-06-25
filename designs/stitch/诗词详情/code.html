@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>墨香诗韵 - 诗词详情</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#e9e2d2",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#ede8d9",
+                    "on-surface-variant": "#574240",
+                    "on-primary-fixed": "#410005",
+                    "inverse-primary": "#ffb3ae",
+                    "surface-container": "#f3eedf",
+                    "on-tertiary-fixed-variant": "#4b463b",
+                    "inverse-surface": "#323127",
+                    "surface-container-low": "#f8f3e4",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "background": "#fef9ea",
+                    "surface-tint": "#a63937",
+                    "surface-dim": "#dedacb",
+                    "on-tertiary-container": "#cdc6b6",
+                    "surface-bright": "#fef9ea",
+                    "secondary-container": "#e8e2d0",
+                    "secondary": "#625e50",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#575246",
+                    "on-secondary-fixed": "#1e1c11",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#cdc6b6",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#3f3b30",
+                    "surface-container-highest": "#e7e2d4",
+                    "on-primary-container": "#ffb3ae",
+                    "error": "#ba1a1a",
+                    "surface": "#fef9ea",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1d1c13",
+                    "secondary-fixed": "#e8e2d0",
+                    "outline-variant": "#dec0bd",
+                    "inverse-on-surface": "#f6f1e2",
+                    "on-secondary-fixed-variant": "#4a473a",
+                    "on-tertiary-fixed": "#1e1b12",
+                    "primary-container": "#962d2d",
+                    "secondary-fixed-dim": "#ccc6b5",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#862122",
+                    "primary-fixed": "#ffdad7",
+                    "on-surface": "#1d1c13",
+                    "surface-variant": "#e7e2d4",
+                    "primary": "#761519",
+                    "outline": "#8a716f",
+                    "on-secondary-container": "#686456"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "0.5rem",
+                    "margin-page": "2rem",
+                    "stack-lg": "3rem",
+                    "gutter-grid": "1.5rem",
+                    "stack-md": "1.5rem"
+            },
+            "fontFamily": {
+                    "body-md": ["Noto Serif SC"],
+                    "title-md": ["Noto Serif SC"],
+                    "label-sm": ["Source Sans 3"],
+                    "headline-lg-mobile": ["Noto Serif SC"],
+                    "body-lg": ["Noto Serif SC"],
+                    "headline-lg": ["Noto Serif SC"],
+                    "display-lg": ["Noto Serif SC"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .paper-texture {
+            background-color: #fef9ea;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .border-cinnabar {
+            border-color: #962d2d;
+        }
+
+        .line-decoration {
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #8a716f 20%, #8a716f 80%, transparent);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-padding {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        /* Custom scrollbar for scholarly feel */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fef9ea;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dec0bd;
+        }
+    </style>
+</head>
+<body class="paper-texture text-on-surface min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 border-b border-outline-variant/20 bg-background/95 backdrop-blur-sm">
+<div class="flex justify-between items-center w-full px-margin-page max-w-7xl mx-auto h-16">
+<button class="text-primary hover:text-primary-container transition-colors duration-300 active:scale-95">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-widest">醉花阴</h1>
+<button class="text-primary hover:text-primary-container transition-colors duration-300 active:scale-95">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center py-stack-lg max-w-3xl mx-auto w-full px-margin-page">
+<!-- Author Section -->
+<div class="flex flex-col items-center mb-stack-lg animate-fade-in" style="opacity: 1; transform: translateY(0px); transition: opacity 0.8s, transform 0.8s;">
+<div class="flex items-center space-x-4">
+<span class="w-8 h-[1px] bg-outline-variant/40"></span>
+<span class="font-title-md text-title-md text-on-surface-variant tracking-[0.2em]">〔宋〕李清照</span>
+<span class="w-8 h-[1px] bg-outline-variant/40"></span>
+</div>
+</div>
+<!-- Main Poem Body -->
+<article class="relative flex flex-col items-center w-full mb-16">
+<!-- Decorative Corners -->
+<div class="absolute -top-4 -left-4 w-6 h-6 border-t border-l border-primary/30"></div>
+<div class="absolute -top-4 -right-4 w-6 h-6 border-t border-right border-primary/30"></div>
+<div class="flex flex-col md:flex-row-reverse items-center md:items-start justify-center gap-8 md:gap-16 py-8 px-4">
+<!-- Illustration from JSON -->
+
+<!-- Text Content -->
+<div class="text-center md:text-left space-y-6 md:space-y-8">
+<p class="font-headline-lg text-headline-lg md:text-[36px] text-on-surface leading-[2] tracking-[0.15em]">薄雾浓云愁永昼，<br>瑞脑消金兽。<br>佳节又重阳，<br>玉枕纱厨，<br>半夜凉初透。</p>
+<p class="font-headline-lg text-headline-lg md:text-[36px] text-on-surface leading-[2] tracking-[0.15em]">东篱把酒黄昏后，<br>有暗香盈袖。<br>莫道不消魂，<br>帘卷西风，<br>人比黄花瘦。</p>
+</div>
+</div>
+<div class="absolute -bottom-4 -left-4 w-6 h-6 border-b border-l border-primary/30"></div>
+<div class="absolute -bottom-4 -right-4 w-6 h-6 border-b border-r border-primary/30"></div>
+</article>
+<!-- Translation & Analysis Section -->
+<section class="w-full space-y-12 mb-stack-lg">
+<!-- Translation -->
+<div class="bg-surface-container-low border border-outline-variant/10 p-8 md:p-10 relative">
+<div class="flex items-center mb-6">
+<span class="bg-primary-container text-on-primary text-[14px] px-3 py-1 font-bold">【译文】</span>
+</div>
+<div class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed text-justify space-y-4">
+<p class="">薄雾弥漫，浓云飘渺，整日愁云惨淡。瑞脑香在金兽香炉中静静地燃烧，香烟缭绕。又到了九九重阳佳节，卧在玉枕纱帐之中，半夜凉意开始渗透进来。</p>
+<p class="">在东篱边饮酒直到黄昏以后，清幽的菊花香气充满了衣袖。莫要说不令人销魂，当西风卷起帘幕，帘内的人儿比起那如玉的黄花还要瘦损。</p>
+</div>
+</div>
+<!-- Notes/Context -->
+<div class="border-l-4 border-primary/40 pl-6 py-2">
+<h3 class="font-title-md text-title-md text-primary mb-4">【赏析】</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+                    此词是李清照前期的怀人之作。通过描写重阳节的孤寂生活，表达了她对丈夫赵明诚的深切怀念。全词情景交融，结构严谨，特别是结句“人比黄花瘦”，更是传诵千古的名句，形象地刻画了相思之苦。
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Actions -->
+<footer class="sticky bottom-0 bg-background/95 backdrop-blur-md border-t border-outline-variant/10 py-6 px-margin-page">
+<div class="max-w-3xl mx-auto flex justify-between items-center">
+<!-- Favorite Button (Stateful logic via JS below) -->
+<button class="flex-1 flex items-center justify-center space-x-2 py-3 mr-4 bg-secondary-container hover:bg-tertiary-fixed transition-all duration-300 group" id="collectBtn">
+<span class="material-symbols-outlined text-primary group-active:scale-125 transition-transform" id="collectIcon">favorite</span>
+<span class="font-title-md text-primary" id="collectText">收藏作品</span>
+</button>
+<button class="shrink-0 w-12 h-12 flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</footer>
+<script>
+        // Interactive Favorites Toggle
+        const collectBtn = document.getElementById('collectBtn');
+        const collectIcon = document.getElementById('collectIcon');
+        const collectText = document.getElementById('collectText');
+        let isCollected = false;
+
+        collectBtn.addEventListener('click', () => {
+            isCollected = !isCollected;
+            if (isCollected) {
+                collectIcon.style.fontVariationSettings = "'FILL' 1";
+                collectText.textContent = '已收藏';
+                collectBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+                collectIcon.classList.replace('text-primary', 'text-white');
+                collectText.classList.replace('text-primary', 'text-white');
+            } else {
+                collectIcon.style.fontVariationSettings = "'FILL' 0";
+                collectText.textContent = '收藏作品';
+                collectBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+                collectIcon.classList.replace('text-white', 'text-primary');
+                collectText.classList.replace('text-white', 'text-primary');
+            }
+        });
+
+        // Simple Fade-in micro-interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                el.style.transition = `opacity 0.8s ease ${index * 0.2}s, transform 0.8s ease ${index * 0.2}s`;
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+
+
+</body></html>

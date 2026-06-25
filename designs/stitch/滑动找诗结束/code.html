@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>墨香诗韵 - 挑战结果</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&amp;family=Zhi+Mang+Xing&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Include Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#8a716f",
+                    "on-primary-container": "#ffb3ae",
+                    "surface-dim": "#dedacb",
+                    "on-secondary-fixed-variant": "#4a473a",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e7e2d4",
+                    "secondary-fixed": "#e8e2d0",
+                    "primary-fixed": "#ffdad7",
+                    "primary-container": "#962d2d",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#dec0bd",
+                    "secondary-container": "#e8e2d0",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "on-secondary-container": "#686456",
+                    "on-tertiary-container": "#cdc6b6",
+                    "primary": "#761519",
+                    "inverse-on-surface": "#f6f1e2",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#574240",
+                    "tertiary": "#3f3b30",
+                    "on-secondary-fixed": "#1e1c11",
+                    "surface-container-low": "#f8f3e4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#575246",
+                    "surface-bright": "#fef9ea",
+                    "tertiary-fixed": "#e9e2d2",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#1e1b12",
+                    "surface": "#fef9ea",
+                    "on-tertiary-fixed-variant": "#4b463b",
+                    "on-background": "#1d1c13",
+                    "inverse-surface": "#323127",
+                    "inverse-primary": "#ffb3ae",
+                    "on-primary-fixed": "#410005",
+                    "surface-container-high": "#ede8d9",
+                    "secondary-fixed-dim": "#ccc6b5",
+                    "surface-tint": "#a63937",
+                    "secondary": "#625e50",
+                    "tertiary-fixed-dim": "#cdc6b6",
+                    "on-surface": "#1d1c13",
+                    "on-primary-fixed-variant": "#862122",
+                    "background": "#fef9ea",
+                    "surface-container-highest": "#e7e2d4",
+                    "surface-container": "#f3eedf",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "gutter-grid": "1.5rem",
+                    "stack-lg": "3rem",
+                    "margin-page": "2rem",
+                    "stack-sm": "0.5rem"
+            },
+            "fontFamily": {
+                    "display-lg": ["Noto Serif SC"],
+                    "label-sm": ["Noto Serif SC"],
+                    "headline-lg-mobile": ["Noto Serif SC"],
+                    "headline-lg": ["Noto Serif SC"],
+                    "title-md": ["Noto Serif SC"],
+                    "body-lg": ["Noto Serif SC"],
+                    "body-md": ["Noto Serif SC"],
+                    "calligraphy": ["Zhi Mang Xing"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #fef9ea;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            color: #1d1c13;
+        }
+
+        .writing-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .ink-border {
+            border: 1px solid rgba(112, 107, 94, 0.2);
+            position: relative;
+        }
+
+        .ink-border::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 0.5px solid rgba(112, 107, 94, 0.1);
+            pointer-events: none;
+        }
+
+        .cinnabar-glow {
+            box-shadow: 0 0 15px rgba(150, 45, 45, 0.1);
+        }
+
+        .decorative-corner {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-color: #761519;
+        }
+
+        .corner-tl { top: 12px; left: 12px; border-top: 1px solid; border-left: 1px solid; }
+        .corner-tr { top: 12px; right: 12px; border-top: 1px solid; border-right: 1px solid; }
+        .corner-bl { bottom: 12px; left: 12px; border-bottom: 1px solid; border-left: 1px solid; }
+        .corner-br { bottom: 12px; right: 12px; border-bottom: 1px solid; border-right: 1px solid; }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #761519;
+        }
+    </style>
+<style>
+    body {
+      min-height: 100dvh;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen items-center overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b border-outline-variant/20 flex items-center justify-between px-margin-page h-14 z-50">
+<button class="text-primary hover:bg-surface-variant/50 transition-colors duration-200 p-2">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-title-md text-title-md text-primary dark:text-primary-fixed-dim">挑战结果</h1>
+<div class="w-10"></div> <!-- Placeholder for symmetry -->
+</header>
+<main class="flex-1 w-full max-w-[768px] px-margin-page py-stack-md flex flex-col items-center">
+<!-- Result Header -->
+<section class="text-center mb-6 relative py-4 px-8 w-full">
+<div class="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none">
+<span class="text-[80px] font-calligraphy text-primary">胜</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-1 relative z-10">找到 6/6 句</h2>
+<p class="font-body-md text-body-md text-secondary tracking-[0.2em] relative z-10">妙笔生花</p>
+<div class="mt-4 flex justify-center gap-8 border-y border-outline-variant/30 py-2">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary opacity-60">用时</span>
+<span class="text-title-md font-title-md text-primary">01:52</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary opacity-60">准确率</span>
+<span class="text-title-md font-title-md text-primary">100%</span>
+</div>
+</div>
+</section>
+<!-- Poetry List Container -->
+<section class="w-full bg-surface-container-low ink-border rounded-lg p-4 cinnabar-glow mb-24 relative overflow-hidden">
+<div class="decorative-corner corner-tl opacity-40"></div>
+<div class="decorative-corner corner-tr opacity-40"></div>
+<div class="decorative-corner corner-bl opacity-40"></div>
+<div class="decorative-corner corner-br opacity-40"></div>
+<div class="custom-scroll max-h-[420px] overflow-y-auto px-2">
+<div class="space-y-4 py-2">
+<!-- Poem Entry 1 -->
+<div class="flex items-start gap-3 border-b border-outline-variant/10 pb-3">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">举头望明月</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 李白 ·《静夜思》</p>
+</div>
+</div>
+<!-- Poem Entry 2 -->
+<div class="flex items-start gap-3 border-b border-outline-variant/10 pb-3">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">花落知多少</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 孟浩然 ·《春晓》</p>
+</div>
+</div>
+<!-- Poem Entry 3 -->
+<div class="flex items-start gap-3 border-b border-outline-variant/10 pb-3">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">当春乃发生</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 杜甫 ·《春夜喜雨》</p>
+</div>
+</div>
+<!-- Poem Entry 4 -->
+<div class="flex items-start gap-3 border-b border-outline-variant/10 pb-3">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">人闲桂花落</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 王维 ·《鸟鸣涧》</p>
+</div>
+</div>
+<!-- Poem Entry 5 -->
+<div class="flex items-start gap-3 border-b border-outline-variant/10 pb-3">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">白云千载空悠悠</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 崔颢 ·《黄鹤楼》</p>
+</div>
+</div>
+<!-- Poem Entry 6 -->
+<div class="flex items-start gap-3 pb-1">
+<span class="text-primary mt-0.5">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<div class="flex-1">
+<p class="font-body-md text-body-md mb-0.5">门泊东吴万里船</p>
+<p class="font-label-sm text-label-sm text-secondary italic">—— 杜甫 ·《绝句》</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar (Fixed) -->
+<nav class="fixed bottom-0 w-full bg-surface dark:bg-surface-dim border-t border-outline-variant/20 z-50">
+<div class="flex justify-around items-center h-16 px-margin-page">
+<button class="flex-1 flex flex-col items-center justify-center text-secondary hover:bg-secondary-container transition-all duration-200 h-full group">
+<span class="material-symbols-outlined text-[22px] mb-0.5 group-active:scale-95">home</span>
+<span class="font-label-sm text-label-sm">返回</span>
+</button>
+<button class="flex-[1.5] mx-4 bg-primary text-on-primary font-title-md py-2.5 shadow-md hover:brightness-110 active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">refresh</span>
+<span>再来一局</span>
+</button>
+<button class="flex-1 flex flex-col items-center justify-center text-secondary hover:bg-secondary-container transition-all duration-200 h-full group">
+<span class="material-symbols-outlined text-[22px] mb-0.5 group-active:scale-95">share</span>
+<span class="font-label-sm text-label-sm">分享</span>
+</button>
+</div>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 w-32 h-64 pointer-events-none opacity-20 overflow-hidden">
+<div class="writing-vertical text-secondary/30 text-xl font-calligraphy p-4 leading-relaxed">
+            墨意流连<br/>笔走龙蛇
+        </div>
+</div>
+<div class="fixed bottom-20 left-4 w-10 h-10 opacity-30 pointer-events-none">
+<svg class="w-full h-full text-primary" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 5L55 45L95 50L55 55L50 95L45 55L5 50L45 45L50 5Z" stroke="currentColor" stroke-width="1"></path>
+</svg>
+</div>
+<script>
+    // Micro-interactions
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('mousedown', () => {
+            button.style.transform = 'scale(0.98)';
+        });
+        button.addEventListener('mouseup', () => {
+            button.style.transform = 'scale(1)';
+        });
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'scale(1)';
+        });
+    });
+    
+    // Dynamic entrance animation for list items
+    const entries = document.querySelectorAll('.flex.items-start');
+    entries.forEach((entry, index) => {
+        entry.style.opacity = '0';
+        entry.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+            entry.style.transition = 'all 0.4s ease-out';
+            entry.style.opacity = '1';
+            entry.style.transform = 'translateY(0)';
+        }, 100 + (index * 80));
+    });
+</script>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>诗词研修 - 飞花令</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Use the provided Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#fef9ea",
+                    "on-tertiary-fixed-variant": "#4b463b",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#3f3b30",
+                    "secondary": "#625e50",
+                    "surface-variant": "#e7e2d4",
+                    "secondary-fixed": "#e8e2d0",
+                    "inverse-primary": "#ffb3ae",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#410005",
+                    "on-primary-container": "#ffb3ae",
+                    "on-tertiary-container": "#cdc6b6",
+                    "surface-container-low": "#f8f3e4",
+                    "outline-variant": "#dec0bd",
+                    "on-background": "#1d1c13",
+                    "surface-container-highest": "#e7e2d4",
+                    "secondary-container": "#e8e2d0",
+                    "on-surface": "#1d1c13",
+                    "primary": "#761519",
+                    "on-primary-fixed-variant": "#862122",
+                    "surface-tint": "#a63937",
+                    "on-tertiary-fixed": "#1e1b12",
+                    "inverse-surface": "#323127",
+                    "surface-container-high": "#ede8d9",
+                    "inverse-on-surface": "#f6f1e2",
+                    "secondary-fixed-dim": "#ccc6b5",
+                    "tertiary-container": "#575246",
+                    "primary-container": "#962d2d",
+                    "on-secondary-container": "#686456",
+                    "tertiary-fixed": "#e9e2d2",
+                    "surface-bright": "#fef9ea",
+                    "outline": "#8a716f",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#cdc6b6",
+                    "surface-dim": "#dedacb",
+                    "on-surface-variant": "#574240",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "surface": "#fef9ea",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#ffdad7",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#f3eedf",
+                    "on-secondary-fixed": "#1e1c11",
+                    "on-secondary-fixed-variant": "#4a473a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-page": "2rem",
+                    "stack-lg": "3rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1.5rem",
+                    "gutter-grid": "1.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Noto Serif SC", "serif"],
+                    "headline-lg": ["Noto Serif SC", "serif"],
+                    "body-lg": ["Noto Serif SC", "serif"],
+                    "label-sm": ["Source Sans 3", "sans-serif"],
+                    "body-md": ["Noto Serif SC", "serif"],
+                    "display-lg": ["Noto Serif SC", "serif"],
+                    "title-md": ["Noto Serif SC", "serif"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            font-family: 'Noto Serif SC', serif;
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+
+        .shanshui-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/rice-paper-2.png");
+            background-repeat: repeat;
+        }
+
+        .line-clue::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 1px;
+            background-color: #962d2d;
+            margin: 1.5rem auto 0;
+            opacity: 0.3;
+        }
+
+        .active-ink {
+            box-shadow: 0 0 12px rgba(118, 21, 25, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .progress-bar-fill {
+            transition: width 1s linear;
+        }
+
+        .ornament-corner {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #706B5E33;
+        }
+        .top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+        .top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+        .bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="shanshui-texture min-h-screen flex flex-col text-on-background">
+<!-- Top Navigation Bar (Based on JSON TopAppBar) -->
+<header class="bg-background w-full top-0 border-b border-on-surface/10 flex justify-between items-center px-margin-page h-16 z-50">
+<button class="active:opacity-70 transition-opacity flex items-center justify-center p-2 rounded-full hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest">诗词研修</h1>
+<button class="active:opacity-70 transition-opacity flex items-center justify-center p-2 rounded-full hover:bg-surface-variant/50 transition-colors">
+<span class="material-symbols-outlined text-secondary">close</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col items-center px-6 pt-8 pb-24 max-w-lg mx-auto w-full relative">
+<!-- Game Status & Timer -->
+<div class="w-full space-y-4 mb-8">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-tighter">PROGRESS</span>
+<span class="font-title-md text-title-md text-on-surface">第 1/20 题</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-tighter">STREAK</span>
+<span class="font-title-md text-title-md text-primary">连胜 0</span>
+</div>
+</div>
+<!-- Custom Progress Bar -->
+<div class="relative w-full h-1 bg-surface-container-highest overflow-hidden">
+<div class="absolute left-0 top-0 h-full bg-primary-container progress-bar-fill w-[35%]" id="timer-bar"></div>
+</div>
+<div class="text-center">
+<span class="font-body-md text-body-md text-primary opacity-80">剩余 <span class="font-bold" id="timer-seconds">7</span> 秒</span>
+</div>
+</div>
+<!-- Question Card (The "Scroll") -->
+<div class="w-full aspect-[4/5] bg-surface-container-lowest border border-on-surface/5 relative flex flex-col items-center justify-center p-8 active-ink">
+<!-- Decorative Corners -->
+<div class="ornament-corner top-left"></div>
+<div class="ornament-corner top-right"></div>
+<div class="ornament-corner bottom-left"></div>
+<div class="ornament-corner bottom-right"></div>
+<div class="absolute top-8 text-center">
+<p class="font-body-md text-body-md text-secondary opacity-60">醉花阴 · 李清照</p>
+</div>
+<div class="text-center space-y-4 line-clue">
+<h2 class="font-display-lg text-display-lg text-on-surface tracking-widest leading-relaxed">莫道不消魂</h2>
+<h2 class="font-display-lg text-display-lg text-on-surface tracking-widest leading-relaxed">帘卷西风</h2>
+</div>
+</div>
+<!-- Answer Options -->
+<div class="w-full grid grid-cols-1 gap-3 mt-stack-lg">
+<button class="group w-full h-14 bg-secondary-fixed hover:bg-primary-container hover:text-on-primary transition-all duration-300 flex items-center justify-center px-6 relative overflow-hidden active:scale-[0.98]">
+<span class="font-body-lg text-body-lg">泪湿春衫袖</span>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center"></div>
+</button>
+<button class="group w-full h-14 bg-secondary-fixed hover:bg-primary-container hover:text-on-primary transition-all duration-300 flex items-center justify-center px-6 relative overflow-hidden active:scale-[0.98]">
+<span class="font-body-lg text-body-lg">人似黄花瘦</span>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center"></div>
+</button>
+<button class="group w-full h-14 bg-secondary-fixed hover:bg-primary-container hover:text-on-primary transition-all duration-300 flex items-center justify-center px-6 relative overflow-hidden active:scale-[0.98]">
+<span class="font-body-lg text-body-lg">花市灯如昼</span>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center"></div>
+</button>
+<button class="group w-full h-14 bg-secondary-fixed hover:bg-primary-container hover:text-on-primary transition-all duration-300 flex items-center justify-center px-6 relative overflow-hidden active:scale-[0.98]">
+<span class="font-body-lg text-body-lg">月与灯依旧</span>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-center"></div>
+</button>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Based on JSON BottomNavBar) -->
+<!-- Determined '研习' (Practice/Study) as active based on quiz context -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface-container-low border-t border-on-surface/10">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:text-primary-container transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-label-sm text-label-sm">学堂</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:text-primary-container transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-label-sm text-label-sm">诗藏</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold hover:text-primary-container transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="font-label-sm text-label-sm">研习</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:text-primary-container transition-colors active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">吾身</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the timer
+        let timeLeft = 7;
+        const timerText = document.getElementById('timer-seconds');
+        const timerBar = document.getElementById('timer-bar');
+
+        const countdown = setInterval(() => {
+            timeLeft -= 1;
+            if (timeLeft >= 0) {
+                timerText.innerText = timeLeft;
+                // Animate progress bar shrinkage
+                timerBar.style.width = (timeLeft / 20 * 100) + '%';
+            } else {
+                clearInterval(countdown);
+                // logic for timeout could go here
+            }
+        }, 1000);
+
+        // Micro-interaction for answer selection
+        const buttons = document.querySelectorAll('main button.group');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Flash effect for feedback
+                this.classList.add('brightness-110');
+                setTimeout(() => this.classList.remove('brightness-110'), 200);
+            });
+        });
+    </script>
+</body></html>

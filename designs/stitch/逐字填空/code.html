@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#962d2d",
+                    "primary": "#761519",
+                    "tertiary-container": "#575246",
+                    "secondary-fixed-dim": "#ccc6b5",
+                    "on-surface": "#1d1c13",
+                    "primary-fixed": "#ffdad7",
+                    "on-secondary-fixed": "#1e1c11",
+                    "background": "#fef9ea",
+                    "on-primary-fixed-variant": "#862122",
+                    "tertiary-fixed-dim": "#cdc6b6",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e8e2d0",
+                    "surface-container-low": "#f8f3e4",
+                    "inverse-surface": "#323127",
+                    "surface-tint": "#a63937",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f6f1e2",
+                    "on-error": "#ffffff",
+                    "surface": "#fef9ea",
+                    "on-primary-fixed": "#410005",
+                    "tertiary": "#3f3b30",
+                    "surface-dim": "#dedacb",
+                    "on-primary-container": "#ffb3ae",
+                    "inverse-primary": "#ffb3ae",
+                    "on-surface-variant": "#574240",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e7e2d4",
+                    "primary-fixed-dim": "#ffb3ae",
+                    "secondary-container": "#e8e2d0",
+                    "on-error-container": "#93000a",
+                    "outline": "#8a716f",
+                    "on-background": "#1d1c13",
+                    "surface-container-high": "#ede8d9",
+                    "surface-container": "#f3eedf",
+                    "on-tertiary-fixed-variant": "#4b463b",
+                    "surface-container-highest": "#e7e2d4",
+                    "secondary": "#625e50",
+                    "tertiary-fixed": "#e9e2d2",
+                    "on-tertiary-fixed": "#1e1b12",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#4a473a",
+                    "outline-variant": "#dec0bd",
+                    "surface-bright": "#fef9ea",
+                    "on-tertiary-container": "#cdc6b6",
+                    "on-secondary-container": "#686456"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-lg": "3rem",
+                    "gutter-grid": "1.5rem",
+                    "margin-page": "2rem"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Noto Serif SC"],
+                    "title-md": ["Noto Serif SC"],
+                    "headline-lg": ["Noto Serif SC"],
+                    "body-lg": ["Noto Serif SC"],
+                    "body-md": ["Noto Serif SC"],
+                    "label-sm": ["Source Sans 3"],
+                    "display-lg": ["Noto Serif SC"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .parchment-glow {
+            box-shadow: inset 0 0 100px rgba(118, 21, 25, 0.05);
+        }
+        .ink-bleed-active:active {
+            box-shadow: 0 0 12px rgba(150, 45, 45, 0.3);
+        }
+        .char-frame {
+            border: 1px solid rgba(138, 113, 111, 0.3);
+            aspect-ratio: 1/1;
+        }
+        .chuanhua-corner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid #962d2d;
+            border-left: 2px solid #962d2d;
+        }
+        .chuanhua-corner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid #962d2d;
+            border-right: 2px solid #962d2d;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar (Shared Component) -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline/20 sticky top-0 z-50">
+<div class="flex justify-between items-center px-margin-page h-16 w-full max-w-screen-xl mx-auto">
+<button class="material-symbols-outlined text-primary hover:bg-surface-variant/50 transition-colors p-2 rounded-full active:opacity-70 transition-opacity">
+                arrow_back
+            </button>
+<h1 class="font-title-md text-title-md text-primary">墨香诗韵</h1>
+<button class="material-symbols-outlined text-primary hover:bg-surface-variant/50 transition-colors p-2 rounded-full active:opacity-70 transition-opacity">
+                settings
+            </button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 max-w-4xl mx-auto w-full relative">
+<!-- Aesthetic Atmosphere Background Texture Layer -->
+<div class="absolute inset-0 pointer-events-none parchment-glow opacity-50"></div>
+<!-- Level Indicator -->
+<div class="mb-stack-lg text-center">
+<span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2">练习 · 第四关</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">补全诗句</h2>
+<div class="w-12 h-0.5 bg-primary mx-auto mt-4"></div>
+</div>
+<!-- Game Canvas -->
+<div class="w-full bg-surface-container-low p-8 md:p-16 relative border border-outline/10 mb-stack-lg">
+<!-- Decorative Corners -->
+<div class="chuanhua-corner absolute inset-0 pointer-events-none m-4 opacity-40"></div>
+<!-- Poem Line with Blanks -->
+<div class="flex flex-wrap justify-center gap-4 md:gap-8 items-center">
+<!-- Character 1 -->
+<div class="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center char-frame bg-surface-container-highest">
+<span class="font-display-lg text-3xl md:text-5xl text-on-surface">春</span>
+</div>
+<!-- Character 2 -->
+<div class="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center char-frame bg-surface-container-highest">
+<span class="font-display-lg text-3xl md:text-5xl text-on-surface">眠</span>
+</div>
+<!-- Blank 1 -->
+<div class="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center border-2 border-dashed border-primary/40 bg-surface/50 transition-all duration-300" id="blank-1">
+<!-- Drop zone -->
+</div>
+<!-- Character 4 -->
+<div class="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center char-frame bg-surface-container-highest">
+<span class="font-display-lg text-3xl md:text-5xl text-on-surface">觉</span>
+</div>
+<!-- Character 5 -->
+<div class="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center char-frame bg-surface-container-highest">
+<span class="font-display-lg text-3xl md:text-5xl text-on-surface">晓</span>
+</div>
+</div>
+<!-- Contextual Hint -->
+<p class="text-center mt-12 font-body-md text-on-surface-variant italic opacity-80">
+                孟浩然 · 《春晓》
+            </p>
+</div>
+<!-- Selection Tiles -->
+<div class="w-full max-w-2xl">
+<p class="font-label-sm text-label-sm text-center mb-6 tracking-widest text-secondary">请选择正确的字</p>
+<div class="grid grid-cols-4 md:grid-cols-4 gap-4 justify-items-center">
+<!-- Option 1 -->
+<button class="tile-btn w-16 h-16 md:w-20 md:h-20 bg-secondary-container border border-outline/20 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all ink-bleed-active" onclick="selectChar(this, '不')">
+<span class="font-display-lg text-2xl md:text-3xl">不</span>
+</button>
+<!-- Option 2 -->
+<button class="tile-btn w-16 h-16 md:w-20 md:h-20 bg-secondary-container border border-outline/20 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all ink-bleed-active" onclick="selectChar(this, '晓')">
+<span class="font-display-lg text-2xl md:text-3xl">晓</span>
+</button>
+<!-- Option 3 (Correct) -->
+<button class="tile-btn w-16 h-16 md:w-20 md:h-20 bg-secondary-container border border-outline/20 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all ink-bleed-active" onclick="selectChar(this, '觉')">
+<span class="font-display-lg text-2xl md:text-3xl">觉</span>
+</button>
+<!-- Option 4 -->
+<button class="tile-btn w-16 h-16 md:w-20 md:h-20 bg-secondary-container border border-outline/20 flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-all ink-bleed-active" onclick="selectChar(this, '处')">
+<span class="font-display-lg text-2xl md:text-3xl">处</span>
+</button>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-stack-lg flex gap-4">
+<button class="px-8 py-3 bg-secondary-container text-secondary font-title-md border border-outline/20 hover:bg-surface-variant transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">lightbulb</span>
+                提示
+            </button>
+<button class="px-12 py-3 bg-primary-container text-on-primary-container font-title-md opacity-50 cursor-not-allowed hover:brightness-110 transition-all flex items-center gap-2" disabled="" id="submit-btn">
+                确认提交
+            </button>
+</div>
+</main>
+<script>
+        function selectChar(btn, char) {
+            const blank = document.getElementById('blank-1');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Visual feedback on the blank
+            blank.innerHTML = `<span class="font-display-lg text-3xl md:text-5xl text-primary animate-pulse">${char}</span>`;
+            blank.classList.remove('border-dashed', 'border-primary/40');
+            blank.classList.add('border-solid', 'border-primary', 'bg-primary-fixed/30');
+
+            // Toggle active state on tiles
+            document.querySelectorAll('.tile-btn').forEach(b => {
+                b.classList.remove('ring-2', 'ring-primary', 'scale-110');
+            });
+            btn.classList.add('ring-2', 'ring-primary', 'scale-110');
+
+            // Enable submit button
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            
+            // Logic for checking (Internal simulation)
+            if (char === '不') {
+                submitBtn.onclick = () => {
+                    blank.classList.remove('animate-pulse');
+                    blank.classList.add('bg-green-100', 'border-green-600');
+                    blank.querySelector('span').classList.replace('text-primary', 'text-green-800');
+                    alert('回答正确！下一题：处处闻啼鸟');
+                };
+            } else {
+                submitBtn.onclick = () => {
+                    blank.classList.add('bg-error-container', 'border-error');
+                    alert('差一点，再试一次。');
+                };
+            }
+        }
+    </script>
+</body></html>

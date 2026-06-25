@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>墨香诗韵 - 历史记录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#e9e2d2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#ede8d9",
+                        "on-surface-variant": "#574240",
+                        "on-primary-fixed": "#410005",
+                        "inverse-primary": "#ffb3ae",
+                        "surface-container": "#f3eedf",
+                        "on-tertiary-fixed-variant": "#4b463b",
+                        "inverse-surface": "#323127",
+                        "surface-container-low": "#f8f3e4",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb3ae",
+                        "background": "#fef9ea",
+                        "surface-tint": "#a63937",
+                        "surface-dim": "#dedacb",
+                        "on-tertiary-container": "#cdc6b6",
+                        "surface-bright": "#fef9ea",
+                        "secondary-container": "#e8e2d0",
+                        "secondary": "#625e50",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#575246",
+                        "on-secondary-fixed": "#1e1c11",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#cdc6b6",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#3f3b30",
+                        "surface-container-highest": "#e7e2d4",
+                        "on-primary-container": "#ffb3ae",
+                        "error": "#ba1a1a",
+                        "surface": "#fef9ea",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1d1c13",
+                        "secondary-fixed": "#e8e2d0",
+                        "outline-variant": "#dec0bd",
+                        "inverse-on-surface": "#f6f1e2",
+                        "on-secondary-fixed-variant": "#4a473a",
+                        "on-tertiary-fixed": "#1e1b12",
+                        "primary-container": "#962d2d",
+                        "secondary-fixed-dim": "#ccc6b5",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#862122",
+                        "primary-fixed": "#ffdad7",
+                        "on-surface": "#1d1c13",
+                        "surface-variant": "#e7e2d4",
+                        "primary": "#761519",
+                        "outline": "#8a716f",
+                        "on-secondary-container": "#686456"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-sm": "0.5rem",
+                        "margin-page": "2rem",
+                        "stack-lg": "3rem",
+                        "gutter-grid": "1.5rem",
+                        "stack-md": "1.5rem"
+                    },
+                    fontFamily: {
+                        "body-md": ["Noto Serif SC"],
+                        "title-md": ["Noto Serif SC"],
+                        "label-sm": ["\"Source Sans 3\""],
+                        "headline-lg-mobile": ["Noto Serif SC"],
+                        "body-lg": ["Noto Serif SC"],
+                        "headline-lg": ["Noto Serif SC"],
+                        "display-lg": ["Noto Serif SC"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "44px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "64px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fef9ea;
+            /* Subtle rice paper texture simulation using CSS gradients */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 100%),
+                url("https://www.transparenttextures.com/patterns/natural-paper.png");
+            font-family: 'Noto Serif SC', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .paper-card {
+            background-color: #f8f3e4;
+            border: 0.5px solid rgba(138, 113, 111, 0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .paper-card::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: -4px;
+            bottom: -4px;
+            border: 0.5px solid rgba(138, 113, 111, 0.05);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .cinnabar-tag {
+            background-color: #962d2d;
+            color: #fef9ea;
+            padding: 2px 8px;
+            font-size: 12px;
+            writing-mode: horizontal-tb;
+        }
+
+        .ink-text {
+            color: #1d1c13;
+        }
+
+        .scroll-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lattice-corner {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: #8a716f;
+            opacity: 0.3;
+        }
+        .lattice-tl { top: 4px; left: 4px; border-top: 1px solid; border-left: 1px solid; }
+        .lattice-br { bottom: 4px; right: 4px; border-bottom: 1px solid; border-right: 1px solid; }
+        
+        @keyframes inkFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-ink { animation: inkFade 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    </style>
+</head>
+<body class="min-h-screen text-on-background selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full h-16 flex justify-between items-center px-4 border-b border-outline-variant/20 bg-background/95 backdrop-blur-sm">
+<button class="w-10 h-10 flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-widest font-bold">历史记录</h1>
+<button class="w-10 h-10 flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl">menu_book</span>
+</button>
+</header>
+<main class="max-w-md mx-auto px-4 py-6 space-y-4 scroll-container">
+<!-- Summary Stats Section (Visual enhancement) -->
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="paper-card p-4 flex flex-col items-center justify-center border-l-4 border-l-primary">
+<span class="text-on-surface-variant font-label-sm text-xs mb-1">本周挑战</span>
+<span class="text-primary font-bold text-2xl">28次</span>
+</div>
+<div class="paper-card p-4 flex flex-col items-center justify-center border-l-4 border-l-primary">
+<span class="text-on-surface-variant font-label-sm text-xs mb-1">平均正确率</span>
+<span class="text-primary font-bold text-2xl">92%</span>
+</div>
+</div>
+<!-- History List -->
+<div class="space-y-4 pb-20">
+<!-- Entry 1 -->
+<div class="paper-card p-4 animate-ink opacity-0" style="animation-delay: 0.1s;">
+<div class="lattice-corner lattice-tl"></div>
+<div class="lattice-corner lattice-br"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="cinnabar-tag">拼诗句</span>
+<span class="ink-text font-title-md text-title-md">静夜思</span>
+</div>
+<span class="text-on-surface-variant text-xs font-label-sm">2024年5月12日 · 14:30</span>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-2xl">83%</div>
+<div class="text-on-surface-variant text-[10px]">正确率</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">schedule</span>
+<span class="text-on-surface-variant text-xs">用时：1:12</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-primary text-xs font-bold">5连胜</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="paper-card p-4 animate-ink opacity-0" style="animation-delay: 0.2s;">
+<div class="lattice-corner lattice-tl"></div>
+<div class="lattice-corner lattice-br"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="cinnabar-tag">挑战</span>
+<span class="ink-text font-title-md text-title-md">盛唐篇章</span>
+</div>
+<span class="text-on-surface-variant text-xs font-label-sm">2024年5月12日 · 11:15</span>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-2xl">100%</div>
+<div class="text-on-surface-variant text-[10px]">正确率</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">schedule</span>
+<span class="text-on-surface-variant text-xs">用时：3:50</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-primary text-xs font-bold">12连胜</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="paper-card p-4 animate-ink opacity-0" style="animation-delay: 0.3s;">
+<div class="lattice-corner lattice-tl"></div>
+<div class="lattice-corner lattice-br"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="cinnabar-tag">逐词填空</span>
+<span class="ink-text font-title-md text-title-md">将进酒</span>
+</div>
+<span class="text-on-surface-variant text-xs font-label-sm">2024年5月11日 · 19:05</span>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-2xl">75%</div>
+<div class="text-on-surface-variant text-[10px]">正确率</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">schedule</span>
+<span class="text-on-surface-variant text-xs">用时：2:20</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">local_fire_department</span>
+<span class="text-on-surface-variant text-xs">连胜：无</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="paper-card p-4 animate-ink opacity-0" style="animation-delay: 0.4s;">
+<div class="lattice-corner lattice-tl"></div>
+<div class="lattice-corner lattice-br"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="cinnabar-tag">挑战</span>
+<span class="ink-text font-title-md text-title-md">边塞风光</span>
+</div>
+<span class="text-on-surface-variant text-xs font-label-sm">2024年5月11日 · 14:22</span>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-2xl">90%</div>
+<div class="text-on-surface-variant text-[10px]">正确率</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">schedule</span>
+<span class="text-on-surface-variant text-xs">用时：5:10</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-primary text-xs font-bold">3连胜</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
+</div>
+</div>
+<!-- Decorative element at the end -->
+<div class="flex flex-col items-center py-8 opacity-20">
+<div class="w-16 h-px bg-primary mb-2"></div>
+<span class="text-[10px] tracking-[0.5em] text-primary">已阅毕</span>
+<div class="w-16 h-px bg-primary mt-2"></div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Export/Share) -->
+<div class="fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 bg-primary-container shadow-lg flex items-center justify-center active:scale-90 transition-all hover:bg-primary">
+<span class="material-symbols-outlined text-white text-2xl">share</span>
+</button>
+</div>
+<!-- Hidden visual reference logic -->
+<div class="hidden">
+<img data-alt="A visual reference for a mobile UI history log page showing vertical list items of user activities. The design features a light-toned theme with clean typography and secondary information like timestamps and progress percentages. The layout is optimized for high-density vertical scrolling with clear item separators." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhvEmMDM5lL5Z4btSqCic_3engSUzFEeOvre0qOk0w2UYtufqyYr2VkKopFdjUIGCMe-DEkwVBru34IrBS0bsXq5KcN8UzV7FrIa_k-AQO_35qez05V5bfRGs3iVUoZYER4PP_15GVd9PsO6y1ezZcuFR_OBhAAO3hQgYEHDsNfOikyXHJP0-HZ4dQvwOwLPtO3E1Rm3v4Zndp3Pza_Povx2HCPvt4IVtC1wARh2kupUqjyUn6JhUzjxDsnw3026HpdPj9xcmq3g"/>
+</div>
+<script>
+    // Micro-interactions for scrolling
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 60) {
+            header.style.transform = 'translateY(-100%)';
+            header.style.transition = 'transform 0.3s ease';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
+
+    // Click interaction for cards
+    document.querySelectorAll('.paper-card').forEach(card => {
+        card.addEventListener('mousedown', () => {
+            card.style.transform = 'scale(0.98)';
+            card.style.backgroundColor = '#ede8d9';
+        });
+        card.addEventListener('mouseup', () => {
+            card.style.transform = 'scale(1)';
+            card.style.backgroundColor = '#f8f3e4';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+            card.style.backgroundColor = '#f8f3e4';
+        });
+    });
+</script>
+</body></html>
