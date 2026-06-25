@@ -38,7 +38,7 @@ namespace PoemPoetry.Editor
         private static string SeedPath =>
             Path.GetFullPath(Path.Combine(Application.dataPath, "../Tools/SampleContent/poems_seed.json"));
 
-        [MenuItem("唐诗宋词/难度配置")]
+        [MenuItem("PoemPoetry/难度配置")]
         public static void Open() => GetWindow<PoemDifficultyWindow>("诗词难度配置");
 
         private void OnEnable() => Load();

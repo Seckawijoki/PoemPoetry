@@ -10,7 +10,7 @@ namespace PoemPoetry.Editor
     /// <summary>One-click creation of a runnable scene (no manual prefab wiring needed).</summary>
     public static class SceneBuilder
     {
-        [MenuItem("唐诗宋词/创建启动场景")]
+        [MenuItem("PoemPoetry/创建启动场景")]
         public static void CreateBootstrapScene()
         {
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -32,7 +32,7 @@ namespace PoemPoetry.Editor
 
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(path, true) };
 
-            EditorUtility.DisplayDialog("唐诗宋词",
+            EditorUtility.DisplayDialog("PoemPoetry",
                 "已创建并打开 Assets/Scenes/Main.unity，并设为唯一构建场景。\n\n" +
                 "提示：先按《SETUP.md》设置中文 TMP 字体，再按 Play 运行。", "好");
         }

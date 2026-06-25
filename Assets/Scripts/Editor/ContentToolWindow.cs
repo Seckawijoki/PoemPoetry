@@ -23,8 +23,8 @@ namespace PoemPoetry.Editor
         private static string DataDir => Path.Combine(Application.streamingAssetsPath, "PoemData");
         private static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
 
-        [MenuItem("唐诗宋词/内容工具")]
-        public static void Open() => GetWindow<ContentToolWindow>("唐诗宋词 内容工具");
+        [MenuItem("PoemPoetry/内容工具")]
+        public static void Open() => GetWindow<ContentToolWindow>("PoemPoetry 内容工具");
 
         private void OnGUI()
         {
