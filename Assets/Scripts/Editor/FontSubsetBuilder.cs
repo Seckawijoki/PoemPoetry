@@ -38,7 +38,7 @@ namespace PoemPoetry.Editor
         // ---------------------------------------------------------------------------------------
         // ⑥ Scan: collect the unique character set the app needs.
         // ---------------------------------------------------------------------------------------
-        [MenuItem("唐诗宋词/字体/⑥ 扫描诗词字符集（生成精简集）")]
+        [MenuItem("PoemPoetry/字体/⑥ 扫描诗词字符集（生成精简集）")]
         public static void ScanCharset()
         {
             var chars = CollectCharacters();
@@ -71,7 +71,7 @@ namespace PoemPoetry.Editor
         // ---------------------------------------------------------------------------------------
         // ⑦ Export: bake a static SDF atlas from the selected font covering only the scanned chars.
         // ---------------------------------------------------------------------------------------
-        [MenuItem("唐诗宋词/字体/⑦ 用源字体导出精简SDF图集")]
+        [MenuItem("PoemPoetry/字体/⑦ 用源字体导出精简SDF图集")]
         public static void ExportTrimmedAtlas()
         {
             var font = Selection.activeObject as Font;

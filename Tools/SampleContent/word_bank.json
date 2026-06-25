@@ -48,7 +48,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "bai2",
         "ri4"
       ],
       "tone": "平仄",
@@ -66,9 +66,9 @@
       "charCount": 2,
       "pinyin": [
         "hong2",
-        ""
+        "dou4"
       ],
-      "tone": "平平",
+      "tone": "平仄",
       "semantic": "植物",
       "sources": [
         "红豆生南国"
@@ -136,7 +136,7 @@
       "charCount": 2,
       "pinyin": [
         "huang2",
-        ""
+        "li2"
       ],
       "tone": "平平",
       "semantic": "动物",
@@ -151,7 +151,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "bai2",
         "lu4"
       ],
       "tone": "平仄",
@@ -185,10 +185,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "cui4",
         "liu3"
       ],
-      "tone": "平仄",
+      "tone": "仄仄",
       "semantic": "植物",
       "sources": [
         "两个黄鹂鸣翠柳"
@@ -199,7 +199,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "tao2",
         "hua1"
       ],
       "tone": "平平",
@@ -220,10 +220,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "xing4",
         "hua1"
       ],
-      "tone": "平平",
+      "tone": "仄平",
       "semantic": "植物",
       "sources": [
         "牧童遥指杏花村"
@@ -330,7 +330,7 @@
       "charCount": 2,
       "pinyin": [
         "xiang1",
-        ""
+        "lu2"
       ],
       "tone": "平平",
       "semantic": "通用",
@@ -343,10 +343,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "zi3",
         "yan1"
       ],
-      "tone": "平平",
+      "tone": "仄平",
       "semantic": "通用",
       "sources": [
         "日照香炉生紫烟"
@@ -421,10 +421,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "du4",
         "juan1"
       ],
-      "tone": "平平",
+      "tone": "仄平",
       "semantic": "动物",
       "sources": [
         "望帝春心托杜鹃",
@@ -437,7 +437,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "hu2",
         "die2"
       ],
       "tone": "平平",
@@ -451,7 +451,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "yuan1",
         "yang1"
       ],
       "tone": "平平",
@@ -896,7 +896,7 @@
       "pos": "v",
       "charCount": 1,
       "pinyin": [
-        ""
+        "wen2"
       ],
       "tone": "平",
       "semantic": "通用",
@@ -1016,7 +1016,7 @@
       "pos": "v",
       "charCount": 1,
       "pinyin": [
-        ""
+        "ti2"
       ],
       "tone": "平",
       "semantic": "通用",
@@ -1272,9 +1272,9 @@
       "pos": "v",
       "charCount": 1,
       "pinyin": [
-        ""
+        "diao4"
       ],
-      "tone": "平",
+      "tone": "仄",
       "semantic": "通用",
       "sources": [
         "独钓寒江雪",
@@ -1310,7 +1310,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "bai2",
         "yun2"
       ],
       "tone": "平平",
@@ -1348,7 +1348,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "gu1",
         "zhou1"
       ],
       "tone": "平平",
@@ -1363,7 +1363,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "cang1",
         "hai3"
       ],
       "tone": "平仄",
@@ -1380,10 +1380,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
-        ""
+        "ci2",
+        "mu3"
       ],
-      "tone": "平平",
+      "tone": "平仄",
       "semantic": "通用",
       "sources": [
         "慈母手中线"
@@ -1411,9 +1411,9 @@
       "charCount": 2,
       "pinyin": [
         "huang2",
-        ""
+        "he4"
       ],
-      "tone": "平平",
+      "tone": "平仄",
       "semantic": "动物",
       "sources": [
         "昔人已乘黄鹤去",
@@ -1459,7 +1459,7 @@
       "charCount": 2,
       "pinyin": [
         "chun1",
-        ""
+        "chao2"
       ],
       "tone": "平平",
       "semantic": "时间",
@@ -1532,10 +1532,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "du4",
         "kang1"
       ],
-      "tone": "平平",
+      "tone": "仄平",
       "semantic": "通用",
       "sources": [
         "唯有杜康"
@@ -1562,10 +1562,10 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
-        ""
+        "xiong1",
+        "di4"
       ],
-      "tone": "平平",
+      "tone": "平仄",
       "semantic": "通用",
       "sources": [
         "遥知兄弟登高处"
@@ -1592,7 +1592,7 @@
       "charCount": 2,
       "pinyin": [
         "jiang1",
-        ""
+        "nan2"
       ],
       "tone": "平平",
       "semantic": "方位",
@@ -1612,7 +1612,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "xi1",
         "yang2"
       ],
       "tone": "平平",
@@ -1667,7 +1667,7 @@
       "pos": "n",
       "charCount": 2,
       "pinyin": [
-        "",
+        "gu1",
         "cheng2"
       ],
       "tone": "平平",
@@ -1701,10 +1701,10 @@
       "charCount": 3,
       "pinyin": [
         "huang2",
-        "",
+        "he4",
         "lou2"
       ],
-      "tone": "平平平",
+      "tone": "平仄平",
       "semantic": "通用",
       "sources": [
         "此地空余黄鹤楼",
@@ -1732,7 +1732,7 @@
       "charCount": 3,
       "pinyin": [
         "jin3",
-        "",
+        "guan1",
         "cheng2"
       ],
       "tone": "仄平平",
@@ -1747,14 +1747,1066 @@
       "pos": "n",
       "charCount": 3,
       "pinyin": [
-        "",
-        "",
+        "ying1",
+        "wu3",
         "zhou1"
       ],
-      "tone": "平平平",
+      "tone": "平仄平",
       "semantic": "通用",
       "sources": [
         "芳草萋萋鹦鹉洲"
+      ]
+    },
+    {
+      "text": "在",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "zai4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "但使龙城飞将在",
+        "在水一方",
+        "独在异乡为异客",
+        "国破山河在",
+        "妾住在横塘",
+        "只在芦花浅水边",
+        "何似在人间",
+        "那人却在"
+      ]
+    },
+    {
+      "text": "向",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "xiang4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "曲项向天歌",
+        "何事长向别时圆",
+        "恰似一江春水向东流",
+        "一向年光有限身",
+        "身向榆关那畔行",
+        "急向柴门去却关",
+        "不向东风怨未开",
+        "更向花前把一杯"
+      ]
+    },
+    {
+      "text": "对",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "dui4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "江枫渔火对愁眠",
+        "对长亭晚",
+        "两岸青山相对出",
+        "莫使金樽空对月",
+        "径须沽取对君酌",
+        "对此如何不泪垂",
+        "对此欲倒东南倾",
+        "忍能对面为盗贼"
+      ]
+    },
+    {
+      "text": "自",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "zi4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "野渡无人舟自横",
+        "独自怎生得黑",
+        "多情自古伤离别",
+        "自此改名为折柳",
+        "万类霜天竞自由",
+        "明月自来还自去",
+        "自在飞花轻似梦",
+        "自胡马窥江去后"
+      ]
+    },
+    {
+      "text": "从",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "cong2"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "笑问客从何处来",
+        "从来只有情难尽",
+        "而今迈步从头越",
+        "从头越",
+        "且共从容",
+        "从别后",
+        "即从巴峡穿巫峡",
+        "从今若许闲乘月"
+      ]
+    },
+    {
+      "text": "为",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "wei4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "白露为霜",
+        "独在异乡为异客",
+        "青鸟殷勤为探看",
+        "莫为轻阴便拟归",
+        "犹为离人照落花",
+        "何事名为情尽桥",
+        "自此改名为折柳",
+        "为谁零落为谁开"
+      ]
+    },
+    {
+      "text": "与",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "yu3"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "更与何人说",
+        "欲与天公试比高",
+        "月与灯依旧",
+        "知与谁同",
+        "不管清寒与攀摘",
+        "叹寄与路遥",
+        "锦瑟年华谁与度",
+        "几回魂梦与君同"
+      ]
+    },
+    {
+      "text": "临",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "lin2"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "东临碣石",
+        "临行密密缝",
+        "临流驻归驾",
+        "临邛道士鸿都客",
+        "临别殷勤重寄词",
+        "登临意",
+        "临晚镜",
+        "登临望故国"
+      ]
+    },
+    {
+      "text": "傍",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "bang4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "抱子在其傍",
+        "道傍过者问行人"
+      ]
+    },
+    {
+      "text": "绕",
+      "pos": "p",
+      "charCount": 1,
+      "pinyin": [
+        "rao4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "雄飞雌从绕林间",
+        "江流宛转绕芳甸",
+        "绕船月明江水寒",
+        "黄芦苦竹绕宅生",
+        "白水绕东城",
+        "云树绕堤沙",
+        "郴江幸自绕郴山",
+        "绿水人家绕"
+      ]
+    },
+    {
+      "text": "人间",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "ren2",
+        "jian1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "何似在人间",
+        "要留清白在人间",
+        "人间正道是沧桑",
+        "便胜却人间无数",
+        "天上人间会相见",
+        "天上人间"
+      ]
+    },
+    {
+      "text": "江山",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "jiang1",
+        "shan1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "迟日江山丽",
+        "江山如画",
+        "江山如此多娇",
+        "指点江山",
+        "无限江山",
+        "千古江山"
+      ]
+    },
+    {
+      "text": "人生",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "ren2",
+        "sheng1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "人生如梦",
+        "人生易老天难老",
+        "人生若只如初见",
+        "人生代代无穷已",
+        "人生得意须尽欢",
+        "自是人生长恨水长东",
+        "人生愁恨何能免",
+        "人生在世不称意"
+      ]
+    },
+    {
+      "text": "海棠",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "hai3",
+        "tang2"
+      ],
+      "tone": "仄平",
+      "semantic": "植物",
+      "sources": [
+        "却道海棠依旧"
+      ]
+    },
+    {
+      "text": "黄花",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "huang2",
+        "hua1"
+      ],
+      "tone": "平平",
+      "semantic": "植物",
+      "sources": [
+        "满地黄花堆积",
+        "战地黄花分外香",
+        "人似黄花瘦"
+      ]
+    },
+    {
+      "text": "梧桐",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "wu2",
+        "tong2"
+      ],
+      "tone": "平平",
+      "semantic": "植物",
+      "sources": [
+        "梧桐更兼细雨",
+        "寂寞梧桐深院锁清秋",
+        "秋雨梧桐叶落时"
+      ]
+    },
+    {
+      "text": "黄昏",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "huang2",
+        "hun1"
+      ],
+      "tone": "平平",
+      "semantic": "时间",
+      "sources": [
+        "到黄昏点点滴滴",
+        "人约黄昏后",
+        "渐黄昏",
+        "门掩黄昏",
+        "暗香浮动月黄昏",
+        "只是近黄昏",
+        "东篱把洒黄昏后",
+        "灯火已黄昏"
+      ]
+    },
+    {
+      "text": "东风",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "dong1",
+        "feng1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "东风无力百花残",
+        "东风夜放花千树",
+        "小楼昨夜又东风",
+        "等闲识得东风面",
+        "会被东风暗拆看",
+        "不向东风怨未开",
+        "把酒祝东风",
+        "日暮东风怨啼鸟"
+      ]
+    },
+    {
+      "text": "清风",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "qing1",
+        "feng1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "清风半夜鸣蝉"
+      ]
+    },
+    {
+      "text": "稻花",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "dao4",
+        "hua1"
+      ],
+      "tone": "仄平",
+      "semantic": "植物",
+      "sources": [
+        "稻花香里说丰年"
+      ]
+    },
+    {
+      "text": "寒蝉",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "han2",
+        "chan2"
+      ],
+      "tone": "平平",
+      "semantic": "动物",
+      "sources": [
+        "寒蝉凄切"
+      ]
+    },
+    {
+      "text": "长亭",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "chang2",
+        "ting2"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "对长亭晚",
+        "长亭路"
+      ]
+    },
+    {
+      "text": "兰舟",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "lan2",
+        "zhou1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "兰舟催发",
+        "独上兰舟"
+      ]
+    },
+    {
+      "text": "春花",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "chun1",
+        "hua1"
+      ],
+      "tone": "平平",
+      "semantic": "植物",
+      "sources": [
+        "春花秋月何时了"
+      ]
+    },
+    {
+      "text": "春水",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "chun1",
+        "shui3"
+      ],
+      "tone": "平仄",
+      "semantic": "通用",
+      "sources": [
+        "恰似一江春水向东流",
+        "春水碧于天",
+        "舍南舍北皆春水",
+        "迢迢不断如春水"
+      ]
+    },
+    {
+      "text": "长江",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "chang2",
+        "jiang1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "不尽长江滚滚来",
+        "滚滚长江东逝水",
+        "唯见长江天际流",
+        "但见长江送流水",
+        "不尽长江衮衮流",
+        "惟有长江水"
+      ]
+    },
+    {
+      "text": "流水",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "liu2",
+        "shui3"
+      ],
+      "tone": "平仄",
+      "semantic": "通用",
+      "sources": [
+        "小桥流水人家",
+        "淡烟流水画屏幽",
+        "流水无情草自春",
+        "流水十年间",
+        "但见长江送流水",
+        "幽咽泉流水下滩",
+        "古来万事东流水",
+        "流水落花春去也"
+      ]
+    },
+    {
+      "text": "老树",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "lao3",
+        "shu4"
+      ],
+      "tone": "仄仄",
+      "semantic": "植物",
+      "sources": [
+        "枯藤老树昏鸦"
+      ]
+    },
+    {
+      "text": "昏鸦",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "hun1",
+        "ya1"
+      ],
+      "tone": "平平",
+      "semantic": "动物",
+      "sources": [
+        "枯藤老树昏鸦"
+      ]
+    },
+    {
+      "text": "瘦马",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "shou4",
+        "ma3"
+      ],
+      "tone": "仄仄",
+      "semantic": "动物",
+      "sources": [
+        "古道西风瘦马"
+      ]
+    },
+    {
+      "text": "小桥",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "xiao3",
+        "qiao2"
+      ],
+      "tone": "仄平",
+      "semantic": "通用",
+      "sources": [
+        "小桥流水人家"
+      ]
+    },
+    {
+      "text": "古道",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "gu3",
+        "dao4"
+      ],
+      "tone": "仄仄",
+      "semantic": "通用",
+      "sources": [
+        "远芳侵古道",
+        "古道西风瘦马"
+      ]
+    },
+    {
+      "text": "西风",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "xi1",
+        "feng1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "古道西风瘦马",
+        "红旗漫卷西风",
+        "西风烈",
+        "昨夜西风凋碧树",
+        "西风愁起绿波间",
+        "尽西风",
+        "帘卷西风",
+        "断雁叫西风"
+      ]
+    },
+    {
+      "text": "灯火",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "deng1",
+        "huo3"
+      ],
+      "tone": "平仄",
+      "semantic": "通用",
+      "sources": [
+        "灯火阑珊处",
+        "灯火已黄昏"
+      ]
+    },
+    {
+      "text": "玉壶",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "yu4",
+        "hu2"
+      ],
+      "tone": "仄平",
+      "semantic": "通用",
+      "sources": [
+        "玉壶光转",
+        "一片冰心在玉壶"
+      ]
+    },
+    {
+      "text": "鱼龙",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "yu2",
+        "long2"
+      ],
+      "tone": "平平",
+      "semantic": "动物",
+      "sources": [
+        "一夜鱼龙舞",
+        "鱼龙潜跃水成文"
+      ]
+    },
+    {
+      "text": "往事",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "wang3",
+        "shi4"
+      ],
+      "tone": "仄仄",
+      "semantic": "通用",
+      "sources": [
+        "往事知多少",
+        "往事后期空记省",
+        "往事已成空"
+      ]
+    },
+    {
+      "text": "故国",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "gu4",
+        "guo2"
+      ],
+      "tone": "仄平",
+      "semantic": "通用",
+      "sources": [
+        "故国神游",
+        "故国不堪回首月明中",
+        "登临望故国",
+        "故国梦重归",
+        "正故国晚秋"
+      ]
+    },
+    {
+      "text": "朱颜",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "zhu1",
+        "yan2"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "只是朱颜改",
+        "使人听此凋朱颜"
+      ]
+    },
+    {
+      "text": "烟波",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "yan1",
+        "bo1"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "烟波江上使人愁",
+        "千里烟波"
+      ]
+    },
+    {
+      "text": "英雄",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "ying1",
+        "xiong2"
+      ],
+      "tone": "平平",
+      "semantic": "通用",
+      "sources": [
+        "浪花淘尽英雄",
+        "引无数英雄竞折腰",
+        "长使英雄泪满襟",
+        "英雄无觅",
+        "揾英雄泪",
+        "天下英雄谁敌手"
+      ]
+    },
+    {
+      "text": "楚天",
+      "pos": "n",
+      "charCount": 2,
+      "pinyin": [
+        "chu3",
+        "tian1"
+      ],
+      "tone": "仄平",
+      "semantic": "通用",
+      "sources": [
+        "暮霭沉沉楚天阔",
+        "楚天千里清秋"
+      ]
+    },
+    {
+      "text": "弄",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "nong4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "山光物态弄春晖",
+        "起舞弄清影",
+        "纤云弄巧",
+        "弄妆梳洗迟",
+        "羌管弄晴",
+        "云破月来花弄影",
+        "烟里丝丝弄碧",
+        "明朝散发弄扁舟"
+      ]
+    },
+    {
+      "text": "卷",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "juan3"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "卷起千堆雪",
+        "试问卷帘人",
+        "芳心犹卷怯春寒",
+        "红旗漫卷西风",
+        "水晶帘卷近秋河",
+        "漫卷诗书喜欲狂",
+        "玉户帘中卷不去",
+        "卷我屋上三重茅"
+      ]
+    },
+    {
+      "text": "记",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "ji4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "常记溪亭日暮",
+        "曾记否",
+        "长记曾携手处",
+        "记得小苹初见",
+        "望中犹记",
+        "往事后期空记省",
+        "记得绿罗裙",
+        "长记秋晴望"
+      ]
+    },
+    {
+      "text": "醉",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "zui4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "沉醉不知归路",
+        "家家扶得醉人归",
+        "今日尽君花下醉",
+        "当年拚却醉颜红",
+        "酒醉还来花下眠",
+        "相逢每醉还",
+        "醉卧沙场君莫笑",
+        "醉里挑灯看剑"
+      ]
+    },
+    {
+      "text": "惊",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "jing1"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "恨别鸟惊心",
+        "惊涛拍岸",
+        "惊起一滩鸥鹭",
+        "明月别枝惊鹊",
+        "算而今重到须惊",
+        "月出惊山鸟",
+        "弓如霹雳弦惊",
+        "惊破霓裳羽衣曲"
+      ]
+    },
+    {
+      "text": "试",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "shi4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "试问卷帘人",
+        "欲与天公试比高",
+        "试问闲愁都几许",
+        "霜刃未曾试"
+      ]
+    },
+    {
+      "text": "守",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "shou3"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "守着窗儿",
+        "所守或匪亲",
+        "去来江口守空船",
+        "为报倾城随太守"
+      ]
+    },
+    {
+      "text": "听",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "ting1"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "听取蛙声一片",
+        "莫听穿林打叶声",
+        "使人听此凋朱颜",
+        "请君为我侧耳听",
+        "听其相顾言",
+        "呕哑嘲哳难为听",
+        "如听仙乐耳暂明",
+        "听妇前致词"
+      ]
+    },
+    {
+      "text": "寻",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "xun2"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "飞入寻常百姓家",
+        "寻寻觅觅",
+        "众里寻他千百度",
+        "胜日寻芳泗水滨",
+        "寻声暗问弹者谁",
+        "丞相祠堂何处寻",
+        "寻常巷陌",
+        "桃源望断无寻处"
+      ]
+    },
+    {
+      "text": "转",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "zhuan3"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "转朱阁",
+        "玉壶光转",
+        "路转溪桥忽见",
+        "是非成败转头空",
+        "转于僮仆亲",
+        "砯崖转石万壑雷",
+        "江流宛转绕芳甸",
+        "宛转蛾眉马前死"
+      ]
+    },
+    {
+      "text": "催",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "cui1"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "兰舟催发",
+        "欲饮琵琶马上催",
+        "梨花榆火催寒食"
+      ]
+    },
+    {
+      "text": "看",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "kan1"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "遥看瀑布挂前川",
+        "晓看红湿处",
+        "青鸟殷勤为探看",
+        "执手相看泪眼",
+        "横看成岭侧成峰",
+        "会被东风暗拆看",
+        "看红装素裹",
+        "还看今朝"
+      ]
+    },
+    {
+      "text": "念",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "nian4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "念去去",
+        "满目山河空念远",
+        "念桥边红药",
+        "念此私自愧",
+        "应念岭海经年",
+        "念月榭携手",
+        "念天地之悠悠",
+        "念往昔"
+      ]
+    },
+    {
+      "text": "醒",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "xing3"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "今宵酒醒何处",
+        "酒醒帘幕低垂",
+        "酒醒只在花前坐",
+        "料峭春风吹酒醒",
+        "但愿长醉不愿醒",
+        "醒时同交欢",
+        "午醉醒来愁未醒",
+        "夜饮东坡醒复醉"
+      ]
+    },
+    {
+      "text": "说",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "shuo1"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "稻花香里说丰年",
+        "更与何人说",
+        "琵琶弦上说相思",
+        "为赋新词强说愁",
+        "欲说还休",
+        "欲说还休",
+        "说尽心中无限事",
+        "人人尽说江南好"
+      ]
+    },
+    {
+      "text": "逝",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "shi4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "滚滚长江东逝水",
+        "小舟从此逝"
+      ]
+    },
+    {
+      "text": "淘",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "tao2"
+      ],
+      "tone": "平",
+      "semantic": "通用",
+      "sources": [
+        "浪淘尽",
+        "浪花淘尽英雄",
+        "千淘万漉虽辛苦"
+      ]
+    },
+    {
+      "text": "放",
+      "pos": "v",
+      "charCount": 1,
+      "pinyin": [
+        "fang4"
+      ],
+      "tone": "仄",
+      "semantic": "通用",
+      "sources": [
+        "东风夜放花千树",
+        "咬定青山不放松",
+        "白日放歌须纵酒",
+        "沉吟放拨插弦中",
+        "且放白鹿青崖间"
       ]
     }
   ]

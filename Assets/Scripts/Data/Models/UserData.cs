@@ -42,5 +42,6 @@ namespace PoemPoetry.Data
         public bool LastSlideFamousOnly = false;
         public List<int> LastSlideDifficulties = new List<int>();
         public List<string> LastSlideDynasties = new List<string>();
+        public List<string> LastSlideTypes = new List<string>();
     }
 }

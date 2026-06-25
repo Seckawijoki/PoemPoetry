@@ -10,7 +10,9 @@ namespace PoemPoetry.Data
     public interface IContentSource
     {
         Task<IReadOnlyList<Poem>> LoadPoemsAsync();
-        Task<IReadOnlyList<Question>> LoadQuestionsAsync();
+
+        /// <summary>The full question bank (shared 干扰项簇 + lightweight questions). v2 schema.</summary>
+        Task<QuestionFile> LoadQuestionBankAsync();
 
         /// <summary>逐词填空 (残句调控) question bank; empty if the file isn't shipped.</summary>
         Task<IReadOnlyList<WordClozeQuestion>> LoadWordClozeQuestionsAsync();

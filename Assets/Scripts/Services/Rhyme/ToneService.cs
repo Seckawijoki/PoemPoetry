@@ -35,6 +35,21 @@ namespace PoemPoetry.Services
             return ClassToneDigit(LastDigit(readings[0]));
         }
 
+        /// <summary>
+        /// Coarse 律句型 of a line for distractor clustering: 起 (2nd char 平/仄, the 律 "起式") +
+        /// 收 (韵脚/末字 平/仄). Four buckets: 平起平收 / 平起仄收 / 仄起平收 / 仄起仄收. Near-平仄 lines
+        /// land in the same bucket without fragmenting into per-exact-pattern singletons. "" if empty.
+        /// </summary>
+        public string ToneType(string line)
+        {
+            var si = new StringInfo(RhymeService.StripPunct(line));
+            int n = si.LengthInTextElements;
+            if (n == 0) return "";
+            string qi = ToneOf(si.SubstringByTextElements(n >= 2 ? 1 : 0, 1)); // 起 = 第2字 (短句回退首字)
+            string shou = ToneOf(si.SubstringByTextElements(n - 1, 1));        // 收 = 末字 (韵脚)
+            return qi + "起" + shou + "收";
+        }
+
         /// <summary>Per-character 平仄 string for a word, e.g. "光阴" → "平平". Punctuation chars are skipped.</summary>
         public string ToneString(string word)
         {

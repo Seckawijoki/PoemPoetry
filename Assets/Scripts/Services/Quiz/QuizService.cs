@@ -28,6 +28,9 @@ namespace PoemPoetry.Services
     /// </summary>
     public sealed class QuizService
     {
+        /// <summary>Options shown per question: 1 correct + 3 distractors sampled from the question's pool.</summary>
+        public const int OptionsPerQuestion = 4;
+
         private readonly IRandomSource _rng;
 
         public QuizService(IRandomSource rng) { _rng = rng ?? new SystemRandomSource(); }
@@ -64,10 +67,18 @@ namespace PoemPoetry.Services
             return new QuizSession { Questions = prepared, Settings = settings };
         }
 
-        /// <summary>Shuffle a single question's four options, tracking where the correct one landed.</summary>
+        /// <summary>
+        /// Sample 3 distractors at random from the question's pool, combine with the correct answer,
+        /// and shuffle the four options, tracking where the correct one landed. Each attempt draws a
+        /// fresh subset so the same question shows varying distractors across sessions.
+        /// </summary>
         public QuizQuestion Prepare(Question q)
         {
-            var options = new List<QuestionOption>(q.AllOptions); // correct first, same references
+            var options = new List<QuestionOption> { q.Correct };
+            var distractorPool = new List<QuestionOption>(q.Distractors ?? new List<QuestionOption>());
+            ShuffleUtil.ShuffleInPlace(distractorPool, _rng);
+            int take = System.Math.Min(OptionsPerQuestion - 1, distractorPool.Count);
+            for (int i = 0; i < take; i++) options.Add(distractorPool[i]);
             ShuffleUtil.ShuffleInPlace(options, _rng);
             int idx = options.IndexOf(q.Correct);
             return new QuizQuestion { Source = q, Options = options, CorrectIndex = idx };

@@ -20,6 +20,14 @@ namespace PoemPoetry.Services
         private static readonly string[] CategoryPriority = { "颜色", "动物", "植物", "方位", "数字", "时间", "天文", "地理" };
         private const string General = "通用";
 
+        // Leading characters that make a 2-char noun read as 形容字+名词 (名词词组). 颜色 chars are
+        // added from semantic_categories at construction; this is the non-color adjective seed.
+        private static readonly string[] AdjSeed =
+        {
+            "明", "孤", "寒", "清", "远", "高", "深", "新", "空", "幽", "残", "斜", "轻", "细",
+            "暗", "曲", "长", "古", "野", "晴", "暖", "冷", "落", "归", "故", "秋", "春",
+        };
+
         private readonly IRandomSource _rng;
         private readonly ToneService _tone;
 
@@ -28,6 +36,7 @@ namespace PoemPoetry.Services
         private int _maxWordLen = 1;
 
         private readonly Dictionary<string, string> _charCategory = new Dictionary<string, string>();
+        private readonly HashSet<string> _adjFirst = new HashSet<string>();
         private readonly Dictionary<string, List<string>> _catToneChars = new Dictionary<string, List<string>>();
         private readonly Dictionary<string, List<string>> _posToneChars = new Dictionary<string, List<string>>();
         private readonly Dictionary<string, List<string>> _corpusToneChars = new Dictionary<string, List<string>>();
@@ -70,6 +79,11 @@ namespace PoemPoetry.Services
                     }
                 }
 
+            // Adjective-ish leading chars (颜色 + curated seed) → 形容字+名词 detection.
+            foreach (var a in AdjSeed) _adjFirst.Add(a);
+            if (semanticCategories != null && semanticCategories.TryGetValue("颜色", out var colorChars) && colorChars != null)
+                foreach (var ch in colorChars) if (!string.IsNullOrEmpty(ch)) _adjFirst.Add(ch);
+
             // Corpus char pool (fallback distractor source), deduped, keyed by tone.
             var seen = new HashSet<string>();
             if (poems != null)
@@ -87,20 +101,287 @@ namespace PoemPoetry.Services
         }
 
         /// <summary>
-        /// Build one question for a line; null if no blankable 2~3-char word is present.
-        /// Each answer character is one "unit" and gets its own <paramref name="perCharDistractors"/>
-        /// same-类型 + 平仄相当 distractors (so a 2-字 word's 1+1 split, or a 3-字 word's 1+1+1 split,
-        /// each part is independently confusable). The tile pool is padded to an even size so it tiles
-        /// cleanly into a 2×N grid.
+        /// Generate a varied bank for a poem. Shapes (each tagged by total 空 count so the config
+        /// screen's 挖空数 selector can filter):
+        ///   • 1 空 — one keyword in a 句 (2~3 字 word, or a single 动词/介词 char; never a 单字名词).
+        ///   • 2 空 同句 — two keywords in one 句.
+        ///   • 2 空 一联 — two 等长同 group 句 (对仗/对偶 ≈ 句号组 + 字数); same 字位 preferred (炼字对照).
+        ///   • 3 空 — 词/曲 only (默认跳过诗): two 邻 group forming 1+2 / 2+1 (单句 + 一联), one keyword each.
+        ///   • 4 空 — four consecutive 句 (两邻 group 合并), one keyword each.
+        /// Distractors are 4 per answer char; the tile pool is padded with random chars to a full grid.
         /// </summary>
-        public WordClozeQuestion Generate(Poem poem, int lineIndex, int maxBlanks, int perCharDistractors)
+        public List<WordClozeQuestion> GenerateForPoem(Poem poem)
         {
-            if (poem?.Lines == null || lineIndex < 0 || lineIndex >= poem.Lines.Count) return null;
-            var text = poem.Lines[lineIndex].Text;
-            var elems = Chars(text);
-            if (elems.Count == 0) return null;
+            var list = new List<WordClozeQuestion>();
+            if (poem?.Lines == null) return list;
+            int n = poem.Lines.Count;
+            var ids = new HashSet<string>();
 
-            // Greedy left-to-right longest-match scan for non-overlapping word occurrences.
+            var lineBlanks = new List<List<WordClozeBlank>>();
+            for (int i = 0; i < n; i++)
+            {
+                var f = FindBlanks(Chars(poem.Lines[i].Text));
+                foreach (var b in f) b.LineIndex = i;
+                lineBlanks.Add(f);
+            }
+
+            void TryAdd(WordClozeQuestion q) { if (q != null && ids.Add(q.Id)) list.Add(q); }
+            int PerChar() => 4;   // 固定每字 4 个干扰
+
+            // 1 空: best keyword per 句, plus a distinct single 动词/介词 char when present.
+            for (int i = 0; i < n; i++)
+            {
+                var ranked = RankAll(lineBlanks[i]);
+                if (ranked.Count == 0) continue;
+                var top = ranked[0];
+                TryAdd(Build(poem, new List<int> { i }, new List<WordClozeBlank> { CloneBlank(top) },
+                    PerChar(), $"wc-{poem.Id}-s1-{i}-{top.Start}"));
+                foreach (var b in ranked)
+                    if (b.Count == 1 && (b.Pos == "v" || b.Pos == "p") && b.Start != top.Start)
+                    {
+                        TryAdd(Build(poem, new List<int> { i }, new List<WordClozeBlank> { CloneBlank(b) },
+                            PerChar(), $"wc-{poem.Id}-s1-{i}-{b.Start}"));
+                        break;
+                    }
+            }
+
+            // 2 空 同句: top-2 POS-coherent keywords in one 句.
+            for (int i = 0; i < n; i++)
+            {
+                var two = PickCoherent(lineBlanks[i], 2);
+                if (two.Count < 2) continue;
+                TryAdd(Build(poem, new List<int> { i }, CloneAll(two), PerChar(), $"wc-{poem.Id}-l2-{i}"));
+            }
+
+            // 2 空 一联: 等长同 group adjacent 句, same 字位 preferred.
+            for (int i = 0; i + 1 < n; i++)
+                if (SameCouplet(poem, i, i + 1))
+                    TryAdd(BuildCouplet(poem, i, i + 1, lineBlanks, PerChar()));
+
+            // 3 空 & 4 空: 句号组对齐的窗口 (连续若干 group 的句数恰好 = 3 / 4)。这样能覆盖词的多种结构
+            // (单句+一联 1+2/2+1、三句一组 3、2+2、1+3 …)。3 空默认跳过律诗/绝句 (诗 且 4 或 8 句的近体)，
+            // 长诗 / 词 / 曲 只要句号组能凑出 3 句窗口即可出 3 空。BuildMulti 要求窗口内每句都可挖。
+            var runs = GroupRuns(poem);
+            bool jueLu = poem.Type == "诗" && (n == 4 || n == 8);
+            if (!jueLu)
+                foreach (var win in GroupWindows(runs, 3))
+                    TryAdd(BuildMulti(poem, win, lineBlanks, PerChar()));
+            foreach (var win in GroupWindows(runs, 4))
+                TryAdd(BuildMulti(poem, win, lineBlanks, PerChar()));
+            return list;
+        }
+
+        // Windows of consecutive 句号组 whose total 句数 == target (lines are consecutive, ascending).
+        // One window per starting group (the shortest span from that group reaching exactly target).
+        private static List<List<int>> GroupWindows(List<List<int>> runs, int target)
+        {
+            var wins = new List<List<int>>();
+            for (int s = 0; s < runs.Count; s++)
+            {
+                int sum = 0;
+                var lines = new List<int>();
+                for (int e = s; e < runs.Count; e++)
+                {
+                    sum += runs[e].Count;
+                    lines.AddRange(runs[e]);
+                    if (sum == target) { wins.Add(lines); break; }
+                    if (sum > target) break;
+                }
+            }
+            return wins;
+        }
+
+        // Consecutive runs of lines sharing the same 句号 group (each run = one 句号组).
+        private static List<List<int>> GroupRuns(Poem poem)
+        {
+            var runs = new List<List<int>>();
+            for (int i = 0; i < poem.Lines.Count; i++)
+            {
+                int g = DifficultyRules.EffectiveGroup(poem, i);
+                if (runs.Count == 0 || DifficultyRules.EffectiveGroup(poem, runs[runs.Count - 1][0]) != g)
+                    runs.Add(new List<int> { i });
+                else
+                    runs[runs.Count - 1].Add(i);
+            }
+            return runs;
+        }
+
+        // Two 等长 (same 字数) 句 in the same 句号 group → 对仗/对偶 candidate (粗判: group + 字数).
+        private static bool SameCouplet(Poem poem, int a, int b) =>
+            poem.Lines[a].CharCount > 0 &&
+            poem.Lines[a].CharCount == poem.Lines[b].CharCount &&
+            DifficultyRules.EffectiveGroup(poem, a) == DifficultyRules.EffectiveGroup(poem, b);
+
+        // Couplet question: prefer blanking the SAME 字位 (start+len) in both 句; else best per 句.
+        private WordClozeQuestion BuildCouplet(Poem poem, int a, int b, List<List<WordClozeBlank>> lineBlanks, int perChar)
+        {
+            var ra = RankAll(lineBlanks[a]); var rb = RankAll(lineBlanks[b]);
+            if (ra.Count == 0 || rb.Count == 0) return null;
+
+            WordClozeBlank pa = null, pb = null;
+            foreach (var x in ra)
+            {
+                foreach (var y in rb)
+                    if (y.Start == x.Start && y.Count == x.Count) { pa = x; pb = y; break; }
+                if (pa != null) break;
+            }
+            if (pa == null) { pa = ra[0]; pb = rb[0]; }
+            return Build(poem, new List<int> { a, b }, new List<WordClozeBlank> { CloneBlank(pa), CloneBlank(pb) },
+                perChar, $"wc-{poem.Id}-c2-{a}-{b}");
+        }
+
+        // Multi-line question: one keyword per 句, biased so 词性 pairs up (每2空尽量同词性). We pick a
+        // target 词性 that ≥2 句 can supply (preferring 名词 > 形名 > 动词 > 介词) and use it wherever
+        // possible; remaining 句 take their best word. For 4 句 this yields 2+2 or 2+1+1; for 3 句, 2+1.
+        private WordClozeQuestion BuildMulti(Poem poem, List<int> lines, List<List<WordClozeBlank>> lineBlanks, int perChar)
+        {
+            foreach (var li in lines) if (lineBlanks[li].Count == 0) return null;
+
+            var ranked = new List<List<WordClozeBlank>>();
+            foreach (var li in lines) ranked.Add(RankAll(lineBlanks[li]));
+
+            // Target 词性: the kind the most 句 can supply (≥2); ties prefer the lower (more wanted) kind.
+            int targetKind = -1, targetCount = 1;
+            for (int kind = 0; kind <= 3; kind++)
+            {
+                int c = 0;
+                foreach (var r in ranked) if (FirstOfKind(r, kind) != null) c++;
+                if (c >= 2 && c > targetCount) { targetCount = c; targetKind = kind; }
+            }
+
+            var blanks = new List<WordClozeBlank>();
+            foreach (var r in ranked)
+            {
+                var pick = targetKind >= 0 ? FirstOfKind(r, targetKind) : null;
+                blanks.Add(CloneBlank(pick ?? r[0]));
+            }
+            return Build(poem, lines, blanks, perChar, $"wc-{poem.Id}-m{lines.Count}-{lines[0]}");
+        }
+
+        private WordClozeBlank FirstOfKind(List<WordClozeBlank> ranked, int kind)
+        {
+            foreach (var b in ranked) if (KindRank(b) == kind) return b;
+            return null;
+        }
+
+        // Assemble a question from chosen blanks: distractors (4~5/char) + random grid padding.
+        private WordClozeQuestion Build(Poem poem, List<int> shownLines, List<WordClozeBlank> blanks, int perChar, string id)
+        {
+            if (blanks == null || blanks.Count == 0) return null;
+            blanks.Sort((x, y) => x.LineIndex != y.LineIndex ? x.LineIndex - y.LineIndex : x.Start - y.Start);
+
+            var answerChars = new List<string>();
+            foreach (var b in blanks) answerChars.AddRange(b.AnswerChars);
+            int distractorCount = answerChars.Count * System.Math.Max(1, perChar);
+            var distractors = BuildDistractors(blanks, answerChars, distractorCount);
+
+            var pool = new List<string>(answerChars);
+            pool.AddRange(distractors);
+            PadToGrid(pool);
+            ShuffleUtil.ShuffleInPlace(pool, _rng);
+
+            int maxDiff = 0;
+            foreach (var li in shownLines) maxDiff = System.Math.Max(maxDiff, DifficultyRules.LineDifficulty(poem, li));
+
+            return new WordClozeQuestion
+            {
+                Id = id,
+                PoemId = poem.Id,
+                BlankLineIndex = shownLines[0],
+                LineIndices = shownLines.Count > 1 ? new List<int>(shownLines) : new List<int>(),
+                Blanks = blanks,
+                TilePool = pool,
+                Difficulty = maxDiff,
+            };
+        }
+
+        // Tile-grid shape: at least 2 rows, at most 8 columns (phone-friendly). Shared by the generator
+        // (padding) and WordClozeScreen (layout) so the grid is always a full rectangle — no ragged row.
+        public const int MaxGridCols = 8;
+        public static int GridRows(int count) => System.Math.Max(2, (count + MaxGridCols - 1) / MaxGridCols);
+
+        // Pad the pool with random corpus chars (duplicates allowed) up to a full rows×cols rectangle.
+        private void PadToGrid(List<string> pool)
+        {
+            int m = pool.Count;
+            if (m == 0 || _corpusChars.Count == 0) return;
+            int rows = GridRows(m);
+            int cols = (m + rows - 1) / rows;
+            int target = rows * cols;
+            while (pool.Count < target) pool.Add(_corpusChars[_rng.Next(_corpusChars.Count)]);
+        }
+
+        // Rank candidates: 形容字+名词 > 名词 > 动词 > 介词; then 非通用语义; then 更长的词.
+        private List<WordClozeBlank> RankAll(List<WordClozeBlank> found)
+        {
+            var copy = new List<WordClozeBlank>(found);
+            copy.Sort((a, b) =>
+            {
+                int ka = KindRank(a), kb = KindRank(b);
+                if (ka != kb) return ka - kb;
+                int sa = a.Semantic != General ? 0 : 1, sb = b.Semantic != General ? 0 : 1;
+                if (sa != sb) return sa - sb;
+                if (a.Count != b.Count) return b.Count - a.Count;
+                return a.Start - b.Start;
+            });
+            return copy;
+        }
+
+        // Pick up to n blanks favouring POS coherence with the top candidate, non-overlapping by 字位.
+        private List<WordClozeBlank> PickCoherent(List<WordClozeBlank> found, int n)
+        {
+            var ranked = RankAll(found);
+            var picked = new List<WordClozeBlank>();
+            if (ranked.Count == 0) return picked;
+            picked.Add(ranked[0]);
+            int wantKind = KindRank(ranked[0]);
+            foreach (var b in ranked)
+            {
+                if (picked.Count >= n) break;
+                if (picked.Contains(b) || Overlaps(picked, b)) continue;
+                if (KindRank(b) == wantKind) picked.Add(b);
+            }
+            foreach (var b in ranked)
+            {
+                if (picked.Count >= n) break;
+                if (picked.Contains(b) || Overlaps(picked, b)) continue;
+                picked.Add(b);
+            }
+            return picked;
+        }
+
+        private static bool Overlaps(List<WordClozeBlank> picked, WordClozeBlank b)
+        {
+            foreach (var p in picked)
+                if (p.Start < b.Start + b.Count && b.Start < p.Start + p.Count) return true;
+            return false;
+        }
+
+        // 形容字+名词(0) < 名词(1) < 动词(2) < 介词(3) — lower sorts first (preferred).
+        private int KindRank(WordClozeBlank b)
+        {
+            if (b.Pos == "v") return 2;
+            if (b.Pos == "p") return 3;
+            if (b.Count >= 2 && b.AnswerChars.Count > 0 && _adjFirst.Contains(b.AnswerChars[0])) return 0;
+            return 1;
+        }
+
+        private static WordClozeBlank CloneBlank(WordClozeBlank b) => new WordClozeBlank
+        {
+            LineIndex = b.LineIndex, Start = b.Start, Count = b.Count,
+            AnswerChars = new List<string>(b.AnswerChars), Pos = b.Pos, Semantic = b.Semantic,
+        };
+
+        private static List<WordClozeBlank> CloneAll(List<WordClozeBlank> src)
+        {
+            var r = new List<WordClozeBlank>();
+            foreach (var b in src) r.Add(CloneBlank(b));
+            return r;
+        }
+
+        // Greedy left-to-right longest-match scan for non-overlapping 2~3-char blankable words.
+        private List<WordClozeBlank> FindBlanks(List<string> elems)
+        {
             var found = new List<WordClozeBlank>();
             for (int i = 0; i < elems.Count;)
             {
@@ -125,61 +406,9 @@ namespace PoemPoetry.Services
                 }
                 else i++;
             }
-            // Only blank 2~3-character words (single chars are too easy / ambiguous).
-            found.RemoveAll(b => b.Count < 2 || b.Count > 3);
-            if (found.Count == 0) return null;
-
-            // Rank candidates: 非通用语义 > 名词 > 更长的词; keep top maxBlanks, then order by Start.
-            found.Sort((a, b) =>
-            {
-                int sa = a.Semantic != General ? 0 : 1, sb = b.Semantic != General ? 0 : 1;
-                if (sa != sb) return sa - sb;
-                int pa = a.Pos == "n" ? 0 : 1, pb = b.Pos == "n" ? 0 : 1;
-                if (pa != pb) return pa - pb;
-                return b.Count - a.Count;
-            });
-            int take = System.Math.Min(System.Math.Max(1, maxBlanks), found.Count);
-            var blanks = found.GetRange(0, take);
-            blanks.Sort((a, b) => a.Start - b.Start);
-
-            // Tile pool = answer chars + distractors (one share per answer char). Pad to even so the
-            // pool fills a 2×N grid with no ragged hole.
-            var answerChars = new List<string>();
-            foreach (var b in blanks) answerChars.AddRange(b.AnswerChars);
-            int distractorCount = answerChars.Count * System.Math.Max(1, perCharDistractors);
-            if ((answerChars.Count + distractorCount) % 2 != 0) distractorCount++;
-            var distractors = BuildDistractors(blanks, answerChars, distractorCount);
-
-            var pool = new List<string>(answerChars);
-            pool.AddRange(distractors);
-            ShuffleUtil.ShuffleInPlace(pool, _rng);
-
-            return new WordClozeQuestion
-            {
-                Id = "wc-" + poem.Id + "-" + lineIndex,
-                PoemId = poem.Id,
-                BlankLineIndex = lineIndex,
-                Blanks = blanks,
-                TilePool = pool,
-                Difficulty = DifficultyRules.LineDifficulty(poem, lineIndex),
-            };
-        }
-
-        /// <summary>Generate one question per viable line of a poem; difficulty drives blank/tile counts.</summary>
-        public List<WordClozeQuestion> GenerateForPoem(Poem poem)
-        {
-            var list = new List<WordClozeQuestion>();
-            if (poem?.Lines == null) return list;
-            for (int i = 0; i < poem.Lines.Count; i++)
-            {
-                int diff = DifficultyRules.LineDifficulty(poem, i);
-                // Blanks are 2~3 chars each, so 1 blank is usually enough; harder lines may get 2.
-                int maxBlanks = diff <= 1 ? 1 : 2;
-                int perChar = 4 + (diff >= 2 ? 1 : 0); // 稍多: ~4-5 distractors per answer char
-                var q = Generate(poem, i, maxBlanks, perChar);
-                if (q != null) list.Add(q);
-            }
-            return list;
+            // Blank 2~3-char words (any 词性), or a single 动词/介词 char — never a 单字名词.
+            found.RemoveAll(b => !((b.Count >= 2 && b.Count <= 3) || (b.Count == 1 && (b.Pos == "v" || b.Pos == "p"))));
+            return found;
         }
 
         // Round-robin one distractor per answer char through its layered candidate queue.

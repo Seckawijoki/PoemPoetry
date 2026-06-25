@@ -42,9 +42,10 @@ internal static class Program
         try { Console.OutputEncoding = Encoding.UTF8; } catch { /* redirected console */ }
 
         string root = @"f:\UnityProjects\PoemPoetry";
-        string seedPath = Path.Combine(root, @"Tools\SampleContent\poems_seed.json");
+        string buildDataDir = Path.Combine(root, @"Tools\SampleContent"); // build-time inputs/outputs (NOT shipped)
+        string seedPath = Path.Combine(buildDataDir, "poems_seed.json");
         string saDir = Path.Combine(root, @"Assets\StreamingAssets");
-        string dataDir = Path.Combine(saDir, "PoemData");
+        string dataDir = Path.Combine(saDir, "PoemData");                 // runtime-loaded, shipped assets
         Directory.CreateDirectory(dataDir);
 
         // ---- 1. Unit tests that don't need content ----
@@ -122,81 +123,103 @@ internal static class Program
         var xiangsi = FindPoem(seed, "tang-wangwei-xiangsi");
         CheckEq(xiangsi.Lines[1].RhymeGroup, "13", "春来发几枝 -> group 13");
 
-        // Generate questions (blank only rhyme lines), deterministic seed.
+        // ToneService (平仄) — needed for 平仄型 clustering and reused by the wordcloze pipeline below.
+        var charPinyin = await bootSource.LoadCharPinyinAsync();
+        var tone = new ToneService(charPinyin);
+
+        // Generate the v2 bank: cluster every corpus line by (字数,韵组,平仄型) into a shared 干扰项池,
+        // then emit one lightweight question per blankable 韵脚句 (诗) / 任意句 (词/曲).
         var gen = new QuestionGenerator(seed.Poems, new SystemRandomSource(20260622));
-        var questions = new List<Question>();
-        foreach (var poem in seed.Poems)
-            // 诗：只挖韵脚句；词/曲：可挖任意句（含中间句）。
-            questions.AddRange(gen.GenerateForPoem(poem, 3, rhymeLinesOnly: poem.Type == "诗"));
+        var bank = gen.BuildBank(seed.Poems, tone, rhymeLinesOnlyForShi: true);
+        var questions = bank.Questions;
 
         Check(questions.Count >= 150, $"large question bank generated, got {questions.Count}");
-        Check(gen.GenerateForPoem(jingyesi, 3, true).Count >= 1, "静夜思 now generates (richer library = cross-poem distractors)");
+        Check(bank.Clusters.Count > 0, $"shared distractor clusters built ({bank.Clusters.Count})");
+        var qPoemIds = new HashSet<string>();
+        foreach (var q in questions) qPoemIds.Add(q.PoemId);
+        Check(qPoemIds.Contains(jingyesi.Id), "静夜思 generates (richer library = cross-poem distractors)");
         var jianjia = FindPoem(seed, "xianqin-shijing-jianjia");
         CheckEq(jianjia.Lines[0].CharCount, 4, "蒹葭苍苍 is 4 chars (四言)");
         CheckEq(jianjia.Lines[0].RhymeGroup, "10", "蒹葭苍苍 -> group 10");
-        Check(gen.GenerateForPoem(jianjia, 3, true).Count >= 1, "蒹葭 generates 四言 questions (cross 短歌行)");
+        Check(qPoemIds.Contains(jianjia.Id), "蒹葭 generates 四言 questions (cross 短歌行)");
 
-        // Validate every generated question's hard constraints.
+        // 韵脚覆盖率回归：char_pinyin 须覆盖所有韵脚字，否则整首诗的韵脚句拿不到 RhymeGroup → 漏题
+        // (曾因字典只有 605 字、缺 70% 语料字，漏掉 元日/忆江南/芙蓉楼/寄扬州/塞下曲/贾生 等 6 首)。
+        int rhymeNoGroup = 0, rhymeTotal = 0;
+        foreach (var poem in seed.Poems)
+            foreach (var l in poem.Lines)
+                if (l.IsRhymeLine) { rhymeTotal++; if (string.IsNullOrEmpty(l.RhymeGroup)) rhymeNoGroup++; }
+        Check(rhymeNoGroup == 0, $"每个韵脚都解析出新韵韵组 ({rhymeTotal - rhymeNoGroup}/{rhymeTotal})；字典缺字会整首漏题");
+        foreach (var title in new[] { "元日", "芙蓉楼送辛渐", "寄扬州韩绰判官", "贾生" })
+        {
+            Poem hit = null;
+            foreach (var p in seed.Poems) if ((p.Title ?? "").Contains(title)) { hit = p; break; }
+            Check(hit != null && qPoemIds.Contains(hit.Id), $"《{title}》 现在能出题（曾因缺字漏题）");
+        }
+
+        // Cluster consistency: every member shares the cluster's 字数/韵组/平仄型, deduped.
+        bool clustersOk = true;
+        int maxClusterLines = 0;
+        foreach (var c in bank.Clusters)
+        {
+            var seenC = new HashSet<string>();
+            maxClusterLines = System.Math.Max(maxClusterLines, c.Lines.Count);
+            foreach (var ln in c.Lines)
+            {
+                if (ln.CharCount != c.CharCount || ln.RhymeGroup != c.RhymeGroup) clustersOk = false;
+                if (tone.ToneType(ln.Text) != c.ToneType) clustersOk = false;
+                if (!seenC.Add(ln.Text)) clustersOk = false;
+            }
+        }
+        Check(clustersOk, "every cluster: members share 字数/韵组/平仄型, deduped");
+        Console.WriteLine($"  簇数={bank.Clusters.Count}，最大簇={maxClusterLines} 句，题/簇均摊={(double)questions.Count / bank.Clusters.Count:F1}");
+
+        // Runtime distractor validation: fill each question's pool from its cluster via ContentService.
+        var vContent = new ContentService(seed.Poems, questions, null, bank.Clusters);
+        var vRng = new SystemRandomSource(123);
         bool allGood = true;
+        int psBoth = 0, psSame = 0;     // 平水韵同韵部占比
+        int ttTotal = 0, ttSame = 0;    // 同平仄型占比
         foreach (var q in questions)
         {
+            vContent.PopulateDistractors(q, int.MaxValue, vRng);
             var poem = FindPoem(seed, q.PoemId);
             var target = poem.Lines[q.BlankLineIndex];
-            if (q.Distractors.Count != 3) allGood = false;
+            string tt = tone.ToneType(target.Text);
+            if (q.Distractors.Count < 3 || q.Distractors.Count > 20) allGood = false;  // pool size 3..20
             var seenTexts = new HashSet<string> { q.Correct.Text };
             foreach (var d in q.Distractors)
             {
                 if (d.CharCount != target.CharCount) allGood = false;      // same 字数
-                if (d.RhymeGroup != target.RhymeGroup) allGood = false;    // same/近 韵
+                if (d.RhymeGroup != target.RhymeGroup) allGood = false;    // same 韵组
                 if (d.SourcePoemId == q.PoemId) allGood = false;           // different poem
                 if (!seenTexts.Add(d.Text)) allGood = false;               // distinct, != correct
+                ttTotal++; if (tone.ToneType(d.Text) == tt) ttSame++;
+                if (!string.IsNullOrEmpty(d.Pingshui) && !string.IsNullOrEmpty(target.PingshuiRhyme))
+                { psBoth++; if (d.Pingshui == target.PingshuiRhyme) psSame++; }
             }
         }
-        Check(allGood, "all distractors: 3 each, same 字数, same 韵组, different poem, distinct");
-
-        // Distractor-quality measures driven by the new Score signals (Part B 平水韵 + Part C 词牌/体裁).
-        // Build a (poemId|text) -> line index for source-line lookup of each distractor.
-        int psBoth = 0, psSame = 0;     // 平水韵: among distractors whose source+correct both carry 平水韵
-        int ciTotal = 0, ciSameType = 0; // 体裁: distractors of 词 questions that also come from 词
-        foreach (var q in questions)
-        {
-            var poem = FindPoem(seed, q.PoemId);
-            var correct = poem.Lines[q.BlankLineIndex];
-            foreach (var d in q.Distractors)
-            {
-                var src = FindPoem(seed, d.SourcePoemId);
-                PoemLine srcLine = null;
-                if (src != null) srcLine = src.Lines.Find(l => l.Text == d.Text);
-                if (srcLine != null && !string.IsNullOrEmpty(srcLine.PingshuiRhyme)
-                    && !string.IsNullOrEmpty(correct.PingshuiRhyme))
-                {
-                    psBoth++;
-                    if (srcLine.PingshuiRhyme == correct.PingshuiRhyme) psSame++;
-                }
-                if (poem.Type == "词") { ciTotal++; if (src != null && src.Type == "词") ciSameType++; }
-            }
-        }
+        Check(allGood, "runtime distractor pools: 3..20 each, same 字数, same 韵组, different poem, distinct");
         double psRate = psBoth > 0 ? (double)psSame / psBoth : 0;
-        double ciRate = ciTotal > 0 ? (double)ciSameType / ciTotal : 0;
-        Console.WriteLine($"  平水韵同韵部干扰项占比: {psSame}/{psBoth} = {psRate:P0}; 词题同体裁干扰项占比: {ciSameType}/{ciTotal} = {ciRate:P0}");
-        Check(psBoth > 0 && psRate > 0.30, $"平水韵打分生效：多数同新韵干扰项也同平水韵 ({psRate:P0})");
+        double ttRate = ttTotal > 0 ? (double)ttSame / ttTotal : 0;
+        Console.WriteLine($"  平水韵同韵部干扰项占比: {psSame}/{psBoth} = {psRate:P0}; 同平仄型干扰项占比: {ttSame}/{ttTotal} = {ttRate:P0}");
+        Check(psBoth > 0 && psRate > 0.30, $"平水韵打分生效：多数干扰项也同平水韵部 ({psRate:P0})");
+        Check(ttRate > 0.80, $"干扰项绝大多数同平仄型（簇内优先）({ttRate:P0})");
 
-        // Write shipped content.
+        // Write shipped content (v2 bank: clusters + lightweight questions).
         Write(Path.Combine(dataDir, "poems.json"), new PoemFile { Poems = seed.Poems });
-        Write(Path.Combine(dataDir, "questions.json"), new QuestionFile { Questions = questions });
+        Write(Path.Combine(dataDir, "questions.json"), bank);
         Console.WriteLine("  wrote poems.json / questions.json / rhyme_groups.json to StreamingAssets");
 
         // ---- 2b. 逐词填空 (残句调控): enrich word bank, generate tile-cloze questions ----
         Section("WordCloze pipeline (enrich bank + generate + write)");
-        var charPinyin = await bootSource.LoadCharPinyinAsync();
-        var tone = new ToneService(charPinyin);
 
         var catFile = PoemJson.Deserialize<SemanticCategoryFile>(
-            File.ReadAllText(Path.Combine(dataDir, "semantic_categories.json"), Encoding.UTF8));
+            File.ReadAllText(Path.Combine(buildDataDir, "semantic_categories.json"), Encoding.UTF8));
         Check(catFile != null && catFile.Categories.Count >= 5, $"semantic categories loaded ({catFile?.Categories.Count})");
 
         var bankSeed = PoemJson.Deserialize<WordBankFile>(
-            File.ReadAllText(Path.Combine(root, @"Tools\SampleContent\word_bank_seed.json"), Encoding.UTF8));
+            File.ReadAllText(Path.Combine(buildDataDir, "word_bank_seed.json"), Encoding.UTF8));
         Check(bankSeed != null && bankSeed.Words.Count >= 40, $"word bank seed loaded ({bankSeed?.Words.Count} words)");
 
         // Enrich each word: per-char primary pinyin, 平仄 string, and source lines from the corpus.
@@ -212,58 +235,71 @@ internal static class Program
                 foreach (var line in p.Lines)
                     if (line.Text.Contains(w.Text) && w.Sources.Count < 8) w.Sources.Add(line.Text);
         }
-        Write(Path.Combine(dataDir, "word_bank.json"), bankSeed);
+        Write(Path.Combine(buildDataDir, "word_bank.json"), bankSeed); // enriched bank: inspection artifact, not shipped/loaded
 
         var wcGen = new WordClozeGenerator(seed.Poems, bankSeed.Words, catFile.Categories, tone,
             new SystemRandomSource(20260624));
         var wcQuestions = new List<WordClozeQuestion>();
-        int wcSkippedLines = 0;
         foreach (var poem in seed.Poems)
-        {
-            var before = wcQuestions.Count;
             wcQuestions.AddRange(wcGen.GenerateForPoem(poem));
-            // count lines that yielded nothing (no blankable word) for visibility
-            wcSkippedLines += poem.Lines.Count - (wcQuestions.Count - before);
-        }
-        Check(wcQuestions.Count >= 50, $"wordcloze bank generated ({wcQuestions.Count} questions, {wcSkippedLines} lines skipped)");
+        Check(wcQuestions.Count >= 100, $"wordcloze bank generated ({wcQuestions.Count} questions)");
+        int n1 = 0, n2 = 0, n3 = 0, n4 = 0;
+        foreach (var q in wcQuestions) { int bc = q.Blanks.Count; if (bc == 1) n1++; else if (bc == 2) n2++; else if (bc == 3) n3++; else n4++; }
+        Console.WriteLine($"  挖空数分布: 1空={n1} 2空={n2} 3空={n3} 4空={n4}");
+        Check(n1 > 0 && n2 > 0, "bank covers both 单空 and 多空 shapes (挖空数 selector is meaningful)");
 
-        // Validate every generated wordcloze question.
+        // Validate every generated wordcloze question (shapes: 1/2/3 空, 1~3 句).
         bool wcGood = true;
         foreach (var q in wcQuestions)
         {
             var poem = FindPoem(seed, q.PoemId);
-            int lineLen = new System.Globalization.StringInfo(poem.Lines[q.BlankLineIndex].Text).LengthInTextElements;
-            if (q.Blanks.Count < 1) wcGood = false;
-            int prevEnd = -1;
+            if (q.Blanks.Count < 1 || q.Blanks.Count > 4) wcGood = false;
+            // Shown lines: explicit LineIndices, else the single BlankLineIndex.
+            var shown = new HashSet<int>(q.LineIndices != null && q.LineIndices.Count > 0
+                ? q.LineIndices : new List<int> { q.BlankLineIndex });
+            int lastLine = -1, prevEnd = -1;
             var answerSeq = new List<string>();
             foreach (var b in q.Blanks)
             {
-                if (b.Count < 2 || b.Count > 3) wcGood = false;                    // 2~3-char words only
-                if (b.Start < 0 || b.Start + b.Count > lineLen) wcGood = false;   // in-bounds
-                if (b.Start <= prevEnd) wcGood = false;                            // non-overlapping, ascending
-                prevEnd = b.Start + b.Count - 1;
+                if (!shown.Contains(b.LineIndex)) wcGood = false;
+                if (b.LineIndex < 0 || b.LineIndex >= poem.Lines.Count) { wcGood = false; continue; }
+                int lineLen = new System.Globalization.StringInfo(poem.Lines[b.LineIndex].Text).LengthInTextElements;
+                if (b.Count < 1 || b.Count > 3) wcGood = false;                     // 1~3-char blanks
+                if (b.Count == 1 && b.Pos != "v" && b.Pos != "p") wcGood = false;   // 单字空只能 动词/介词
+                if (b.Start < 0 || b.Start + b.Count > lineLen) wcGood = false;     // in-bounds of its own line
+                if (b.LineIndex < lastLine) wcGood = false;                         // blanks ordered by (line, start)
+                if (b.LineIndex != lastLine) prevEnd = -1;                          // reset per line
+                if (b.Start <= prevEnd) wcGood = false;                             // non-overlapping within line
+                prevEnd = b.Start + b.Count - 1; lastLine = b.LineIndex;
                 if (b.AnswerChars.Count != b.Count) wcGood = false;
                 answerSeq.AddRange(b.AnswerChars);
             }
-            // pool contains every answer char (multiset), and all tiles distinct chars
+            // pool covers every answer char, has distractors, and fills a full rows×cols grid.
             var poolCount = new Dictionary<string, int>();
-            foreach (var t in q.TilePool) { poolCount.TryGetValue(t, out var n); poolCount[t] = n + 1; }
-            foreach (var a in answerSeq) { if (!poolCount.TryGetValue(a, out var n) || n < 1) wcGood = false; }
-            if (q.TilePool.Count <= answerSeq.Count) wcGood = false;               // has distractors
-            if (q.TilePool.Count % 2 != 0) wcGood = false;                         // even → clean 2×N grid
+            foreach (var t in q.TilePool) { poolCount.TryGetValue(t, out var c); poolCount[t] = c + 1; }
+            foreach (var a in answerSeq) { if (!poolCount.TryGetValue(a, out var c) || c < 1) wcGood = false; }
+            if (q.TilePool.Count <= answerSeq.Count) wcGood = false;
+            int pn = q.TilePool.Count, prows = WordClozeGenerator.GridRows(pn), pcols = (pn + prows - 1) / prows;
+            if (pn % prows != 0 || pcols > WordClozeGenerator.MaxGridCols) wcGood = false; // full ≤8-col rectangle
         }
-        Check(wcGood, "all wordcloze: 2~3-char blanks in-bounds & non-overlapping, even pool covers answers + has distractors");
+        Check(wcGood, "all wordcloze: 1~3 空 (单字空仅 动词/介词), in-bounds & non-overlapping, pool covers answers + full grid");
         Write(Path.Combine(dataDir, "word_questions.json"), new WordClozeQuestionFile { Questions = wcQuestions });
-        Console.WriteLine("  wrote word_bank.json / word_questions.json to StreamingAssets");
+        Console.WriteLine("  wrote word_questions.json to StreamingAssets; word_bank.json to Tools/SampleContent (build-only)");
 
         // ---- 3. End-to-end content load through the real shipped files ----
         Section("Content load (JsonContentSource over shipped files)");
         var content = await ContentService.LoadAsync(bootSource);
         Check(content.Poems.Count >= 60, $"loaded the expanded library ({content.Poems.Count} poems)");
         Check(content.QuestionCount >= 21, $"loaded questions ({content.QuestionCount})");
-        Check(content.WordClozeCount >= 50, $"loaded wordcloze questions ({content.WordClozeCount})");
+        Check(content.WordClozeCount >= 100, $"loaded wordcloze questions ({content.WordClozeCount})");
         Check(content.GetWordClozePool(new ChallengeSettings()).Count == content.WordClozeCount,
             "unfiltered wordcloze pool == full bank");
+        var wcCounts = content.GetWordClozeBlankCounts();
+        Check(wcCounts.Contains(1) && wcCounts.Contains(2), $"挖空数 present: [{string.Join(",", wcCounts)}]");
+        int onlyOne = content.GetWordClozePool(new ChallengeSettings(), new List<int> { 1 }).Count;
+        int onlyTwo = content.GetWordClozePool(new ChallengeSettings(), new List<int> { 2 }).Count;
+        Check(onlyOne > 0 && onlyTwo > 0 && onlyOne + onlyTwo <= content.WordClozeCount,
+            $"挖空数 filter partitions pool (1空={onlyOne}, 2空={onlyTwo})");
         Check(content.GetPoem("tang-libai-jingyesi") != null, "GetPoem resolves by id");
         var rhyme2 = await RhymeService.LoadAsync(bootSource);
         CheckEq(rhyme2.GroupForChar("间"), "8", "reloaded rhyme: 间 -> 8");
@@ -298,11 +334,11 @@ internal static class Program
         bool rtOk = true;
         foreach (var rq in rt)
         {
-            if (rq.Distractors.Count != 3) rtOk = false;
+            if (rq.Distractors.Count < 3 || rq.Distractors.Count > 20) rtOk = false;
             foreach (var d in rq.Distractors)
                 if (d.CharCount != rq.Correct.CharCount || d.RhymeGroup != rq.Correct.RhymeGroup) rtOk = false;
         }
-        Check(rtOk, "runtime distractors: 3 each, same 字数+韵组");
+        Check(rtOk, "runtime distractor pools: 3..20 each, same 字数+韵组");
         var rt0 = content.BuildRuntimeQuestions(new ChallengeSettings { Difficulties = new List<int> { 0 }, QuestionCount = 5 },
             new SystemRandomSource(9), 5);
         bool d0only = true;
@@ -340,8 +376,11 @@ internal static class Program
         CheckEq(DifficultyRules.LineDifficulty(ovp, 0), 2, "no override -> derived (档1 其余 = 2)");
         CheckEq(DifficultyRules.LineDifficulty(ovp, 1), 3, "explicit override -> 3 (ignores 名句)");
         CheckEq(DifficultyRules.AvgDifficulty(ovp), 3, "avg (2+3)/2 -> 3 with override");
-        CheckEq(quiz.TimeLimitSeconds(quiz.Prepare(content.Questions[0])) >= 6, true, "time limit >= 6s");
-        var session = quiz.BuildSession(pool, new ChallengeSettings { QuestionCount = 5 });
+        CheckEq(quiz.TimeLimitSeconds(quiz.Prepare(rt[0])) >= 6, true, "time limit >= 6s");
+        // Session is built from runtime questions (distractor pools already filled from clusters).
+        var session = quiz.BuildSession(
+            content.BuildRuntimeQuestions(new ChallengeSettings { QuestionCount = 5 }, new SystemRandomSource(7), 5),
+            new ChallengeSettings { QuestionCount = 5 });
         CheckEq(session.Total, 5, "session has 5 questions");
         bool indicesOk = true, optionCountOk = true;
         var poemsInSession = new HashSet<string>();
@@ -354,6 +393,35 @@ internal static class Program
         Check(optionCountOk, "every question shows 4 options");
         Check(indicesOk, "CorrectIndex points at the correct option after shuffle");
         CheckEq(poemsInSession.Count, 5, "no repeated poem within the session");
+
+        // 出题：从干扰项池中随机取 3 个 —— pick a runtime question whose cluster pool is larger than 3
+        // and verify each Prepare draws exactly 3 distinct distractors that all belong to that pool.
+        Question poolQ = null;
+        foreach (var q in rt) if (q.Distractors.Count > 3) { poolQ = q; break; }
+        Check(poolQ != null, "at least one runtime question has a distractor pool > 3");
+        if (poolQ != null)
+        {
+            var poolTexts = new HashSet<string>();
+            foreach (var d in poolQ.Distractors) poolTexts.Add(d.Text);
+            bool sampleOk = true;
+            var sampledTexts = new HashSet<string>();
+            for (int t = 0; t < 30; t++)
+            {
+                var prepared = quiz.Prepare(poolQ);
+                if (prepared.Options.Count != 4) sampleOk = false;
+                var distinct = new HashSet<string>();
+                int correctCount = 0;
+                foreach (var o in prepared.Options)
+                {
+                    if (!distinct.Add(o.Text)) sampleOk = false;             // 4 options all distinct
+                    if (o.Text == poolQ.Correct.Text) correctCount++;
+                    else { if (!poolTexts.Contains(o.Text)) sampleOk = false; sampledTexts.Add(o.Text); }
+                }
+                if (correctCount != 1) sampleOk = false;                     // exactly the correct + 3 distractors
+            }
+            Check(sampleOk, "Prepare samples exactly 3 in-pool distractors + 1 correct, all distinct");
+            Check(sampledTexts.Count > 3, $"sampling varies across attempts (saw {sampledTexts.Count} distinct distractors)");
+        }
 
         var first = session.Questions[0];
         var rWrong = quiz.BuildResult(first, (first.CorrectIndex + 1) % 4, 1500);
@@ -451,8 +519,13 @@ internal static class Program
         var json = PoemJson.Serialize(q0);
         var q0b = PoemJson.Deserialize<Question>(json);
         CheckEq(q0b.Correct.Text, q0.Correct.Text, "Question survives serialize/deserialize");
-        CheckEq(q0b.Distractors.Count, 3, "distractors survive round-trip");
+        CheckEq(q0b.ClusterId, q0.ClusterId, "clusterId survives round-trip");
+        Check(!json.Contains("\"distractors\""), "v2: distractors NOT serialized per-question (resolved from cluster)");
         Check(json.Contains("\"poemId\""), "camelCase property naming in JSON");
+        // Cluster round-trips with its shared line pool.
+        var c0 = bank.Clusters[0];
+        var c0b = PoemJson.Deserialize<LineCluster>(PoemJson.Serialize(c0));
+        Check(c0b.Lines.Count == c0.Lines.Count && c0b.ToneType == c0.ToneType, "LineCluster survives round-trip");
 
         // ---- 7. GridWordSearch (滑动找诗 core) ----
         Section("GridWordSearch");

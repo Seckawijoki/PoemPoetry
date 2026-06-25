@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-One-off importer: enrich Assets/StreamingAssets/PoemData/semantic_categories.json
+One-off importer: enrich Tools/SampleContent/semantic_categories.json
 with vocabulary drawn from 声律启蒙, for the 逐字填空 distractor optimization (Part A of
 plan 234-2). Richer per-category char pools => WordClozeGenerator's "同类同平仄" distractor
 layer (_catToneChars) has more, better confusers.
@@ -28,8 +28,8 @@ import json, os, sys, urllib.request
 SL_CDN = "https://cdn.jsdelivr.net/gh/chinese-poetry/chinese-poetry@master/%E8%92%99%E5%AD%A6/shenglvqimeng.json"
 TC_CDN = "https://cdn.jsdelivr.net/gh/LingDong-/cope@master/data/TC2SC.json"
 OUT = os.path.normpath(os.path.join(
-    os.path.dirname(__file__), "..", "..",
-    "Assets", "StreamingAssets", "PoemData", "semantic_categories.json"))
+    os.path.dirname(__file__), "..",
+    "SampleContent", "semantic_categories.json"))
 
 # Curated candidate members per category, in the 声律启蒙 / 对韵 tradition.
 # (Final additions = candidates attested in 声律启蒙 and not already categorized.)

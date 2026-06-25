@@ -19,7 +19,21 @@ python build_pingshui.py                 # 从 CDN 抓取
 python build_pingshui.py rhymebooks.json # 用本地副本
 ```
 
-### `build_categories.py` → `Assets/StreamingAssets/PoemData/semantic_categories.json`
+### `build_char_pinyin.py` → `Assets/StreamingAssets/PoemData/char_pinyin.json`
+补全字→拼音读音表，供 `RhymeService` 标注 `RhymeFinal/RhymeGroup`（决定选择题挖哪句、找哪些干扰项）。
+
+- 数据源：`pypinyin`（离线内置词库，`heteronym=True, Style.TONE3`，常用读音在前）。
+- **加性、不破坏**：已有词条原样保留（含人工消歧的 还=huan2、间=jian1,jian4 等），只为语料中缺失的字补读音。
+- 背景：原表为初版小语料手工维护、未随题库扩充，曾缺约 70% 语料字（含大量韵脚字），
+  导致 `RhymeGroup` 为空 → 整首诗漏题（元日/忆江南/芙蓉楼/寄扬州/塞下曲/贾生 等 6 首）。
+  TestHarness 现含“每个韵脚都解析出新韵韵组”回归断言守住覆盖率。
+
+```
+pip install pypinyin
+python build_char_pinyin.py
+```
+
+### `build_categories.py` → `Tools/SampleContent/semantic_categories.json`
 用声律启蒙词汇充实语义类别（直接提升逐字填空 `WordClozeGenerator` 的"同类同平仄"干扰层），
 并新增 `天文` / `地理` 两类。
 
@@ -35,7 +49,8 @@ python build_categories.py shenglvqimeng.json TC2SC.json # 用本地副本
 
 ## 刷新流程
 
-1. 运行上面两个脚本，更新 `StreamingAssets/PoemData/` 下的资产。
+1. 运行上面三个脚本：`build_pingshui.py` / `build_char_pinyin.py` 写 `StreamingAssets/PoemData/`（运行时加载的公共库），
+   `build_categories.py` 写 `Tools/SampleContent/`（仅构建期输入，不进包）。语料新增字后务必跑 `build_char_pinyin.py`。
 2. 运行 `Tools/TestHarness/build_and_test.ps1` 重跑标注/出题流水线并验证（含平水韵/体裁断言）。
 
 ## 来源与许可

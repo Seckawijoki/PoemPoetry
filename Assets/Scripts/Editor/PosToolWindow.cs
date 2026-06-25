@@ -23,7 +23,7 @@ namespace PoemPoetry.Editor
         private string _report = "点击上方按钮开始。";
         private Vector2 _scroll;
 
-        [MenuItem("唐诗宋词/词性统计")]
+        [MenuItem("PoemPoetry/词性统计")]
         public static void Open() => GetWindow<PosToolWindow>("词性统计");
 
         private void OnGUI()
@@ -129,7 +129,7 @@ namespace PoemPoetry.Editor
         {
             // 字 → 语义类（按优先级，高优先级先占）。
             var charCat = new Dictionary<string, string>();
-            var catPath = Path.Combine(Application.streamingAssetsPath, "PoemData/semantic_categories.json");
+            var catPath = Path.GetFullPath(Path.Combine(Application.dataPath, "../Tools/SampleContent/semantic_categories.json"));
             if (File.Exists(catPath))
             {
                 var cf = JObject.Parse(File.ReadAllText(catPath, Encoding.UTF8));

@@ -102,12 +102,34 @@ Assets/
     App/       AppBootstrapper + StreamingAssetsTextLoader（Android 用 UnityWebRequest）
     Editor/    内容工具窗口 + 启动场景生成器
   Tests/EditMode/   NUnit 烟雾测试
-  StreamingAssets/PoemData/   出厂题库（由内容工具生成）
+  StreamingAssets/PoemData/   出厂数据库（运行时加载、随包发布；见下「数据库分层」）
   Fonts/   放中文字体与生成的 TMP SDF
 Tools/
-  SampleContent/poems_seed.json   题库种子（手工编辑这里）
-  TestHarness/                    引擎外测试与流水线（开发用，不进构建）
+  SampleContent/   构建期数据（种子 + 仅构建用的库，不进包）
+  TestHarness/      引擎外测试与流水线（开发用，不进构建）
 ```
+
+## 数据库分层（公共库 vs 游戏模式）
+
+三种玩法共享一套语料 + 韵律「公共库」，各自再叠加专属题库。运行时只加载
+`StreamingAssets/PoemData/` 下的文件（经 `IContentSource`）；生成这些题库的「构建期数据」
+放在 `Tools/SampleContent/`，不随包发布、运行时不加载。
+
+| 文件 | 位置 | 归属 | 角色 |
+|------|------|------|------|
+| `poems.json` | StreamingAssets/PoemData | 🟦 公共库 | 诗词正文语料，**三模式都依赖** |
+| `char_pinyin.json` | StreamingAssets/PoemData | 🟦 公共库 | 字→拼音（`RhymeService`） |
+| `rhyme_groups.json` | StreamingAssets/PoemData | 🟦 公共库 | 韵母→新韵组 |
+| `pingshui_rhyme.json` | StreamingAssets/PoemData | 🟦 公共库 | 字→平水韵部 |
+| `questions.json` | StreamingAssets/PoemData | 🟩 选择题 | 簇 + 轻量题（`QuizService`） |
+| `word_questions.json` | StreamingAssets/PoemData | 🟨 逐词填空 | 逐词填空题库（`ContentService`） |
+| `semantic_categories.json` | Tools/SampleContent | 🟨 逐词填空·构建期 | 语义类别字表（干扰字来源，构建期输入） |
+| `word_bank_seed.json` | Tools/SampleContent | 🟨 逐词填空·构建期 | 名/动词种子（手工审阅） |
+| `word_bank.json` | Tools/SampleContent | 🟨 逐词填空·构建期 | 由种子充实的词库（检视用输出，不加载） |
+| `poems_seed.json` | Tools/SampleContent | 🟦 公共库·构建期 | 诗词种子（手工编辑→生成 `poems.json`/`questions.json`） |
+
+- **滑动找诗（SlidePuzzle）无专属题库**，运行时直接用 `poems.json` 公共语料临时生成网格。
+- 重新出题/刷新数据的流程见 `Tools/ChinesePoetryImport/README.md` 与 `Tools/TestHarness/build_and_test.ps1`。
 
 ## 架构要点（便于后续接后端）
 

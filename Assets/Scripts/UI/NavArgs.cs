@@ -21,6 +21,7 @@ namespace PoemPoetry.UI
         public List<int> Difficulties = new List<int>();    // empty = all tiers
         public List<string> Dynasties = new List<string>(); // empty = all dynasties
         public List<string> Types = new List<string>();     // empty = all 体裁 (诗/词/曲)
+        public List<int> BlankCounts = new List<int>();      // 挖空数 (1/2/3); empty = all
         public string Mode = "wordcloze";    // "wordcloze" | "wrongbook"
         public List<string> QuestionIds;     // when set, use these specific questions (review mode)
     }
@@ -35,6 +36,7 @@ namespace PoemPoetry.UI
         public bool FamousOnly = false;        // 名句: only place lines marked as 名句
         public List<int> Difficulties = new List<int>();
         public List<string> Dynasties = new List<string>();
+        public List<string> Types = new List<string>();   // empty = all 体裁 (诗/词/曲)
         public SlideSnapshot Replay;   // when set, view/practice a past game (no recording)
     }
 
@@ -48,6 +50,7 @@ namespace PoemPoetry.UI
         public string RecordId;
         public List<string> Siblings;   // ordered record ids for prev/next jumping
         public int Index;
+        public int SlideFrom;           // 0 = no anim; +1 = slide in from right (next); -1 = from left (prev)
     }
 
     /// <summary>Optional filter for the records list: null/empty = all modes.</summary>
@@ -63,5 +66,6 @@ namespace PoemPoetry.UI
         public QuestionResult ResultContext; // optional: "your answer" when arrived from a review row
         public List<string> Siblings;        // optional ordered poem ids for prev/next navigation
         public int Index;                    // index of PoemId within Siblings
+        public int SlideFrom;                // 0 = no anim; +1 = slide in from right (next); -1 = from left (prev)
     }
 }

@@ -12,22 +12,39 @@ namespace PoemPoetry.Services
         private readonly List<WordClozeQuestion> _wordCloze;
         private readonly Dictionary<string, Poem> _byId = new Dictionary<string, Poem>();
 
+        // v2 干扰项簇: id → fine cluster (同字数/同韵组/同平仄型); (字数|韵组) → union bucket for widening.
+        private readonly Dictionary<int, LineCluster> _clusterById = new Dictionary<int, LineCluster>();
+        private readonly Dictionary<string, List<QuestionOption>> _looseBucket = new Dictionary<string, List<QuestionOption>>();
+
+        // Runtime distractor pool window: QuizService.Prepare samples 3 of these per attempt.
+        private const int DistractorPoolCap = 20;
+
         public ContentService(IReadOnlyList<Poem> poems, IReadOnlyList<Question> questions,
-            IReadOnlyList<WordClozeQuestion> wordCloze = null)
+            IReadOnlyList<WordClozeQuestion> wordCloze = null, IReadOnlyList<LineCluster> clusters = null)
         {
             _poems = new List<Poem>(poems ?? new List<Poem>());
             _questions = new List<Question>(questions ?? new List<Question>());
             _wordCloze = new List<WordClozeQuestion>(wordCloze ?? new List<WordClozeQuestion>());
             foreach (var p in _poems)
                 if (!string.IsNullOrEmpty(p.Id)) _byId[p.Id] = p;
+
+            if (clusters != null)
+                foreach (var c in clusters)
+                {
+                    if (c == null) continue;
+                    _clusterById[c.Id] = c;
+                    string lkey = c.CharCount + "|" + c.RhymeGroup;
+                    if (!_looseBucket.TryGetValue(lkey, out var bucket)) { bucket = new List<QuestionOption>(); _looseBucket[lkey] = bucket; }
+                    if (c.Lines != null) bucket.AddRange(c.Lines);
+                }
         }
 
         public static async Task<ContentService> LoadAsync(IContentSource source)
         {
             var poems = await source.LoadPoemsAsync();
-            var questions = await source.LoadQuestionsAsync();
+            var bank = await source.LoadQuestionBankAsync();
             var wordCloze = await source.LoadWordClozeQuestionsAsync();
-            return new ContentService(poems, questions, wordCloze);
+            return new ContentService(poems, bank?.Questions, wordCloze, bank?.Clusters);
         }
 
         public IReadOnlyList<Poem> Poems => _poems;
@@ -133,54 +150,107 @@ namespace PoemPoetry.Services
             || s.Difficulties.Contains(DifficultyRules.LineDifficulty(p, lineIndex));
 
         /// <summary>
-        /// Generate questions at runtime. Difficulty is judged per-line ("以诗句为准"): a blanked
-        /// line qualifies as a target when its line-difficulty is in the selected set; the distractor
-        /// corpus is the selected dynasty whose poem-average difficulty is &lt;= the max selected tier.
-        /// Returns up to ~2×limit candidate questions (one per poem) for the session builder.
+        /// Select runtime quiz candidates from the loaded v2 bank. Difficulty is judged per-line
+        /// ("以诗句为准"): a blanked line qualifies when its line-difficulty is in the selected set.
+        /// Each chosen question gets its transient distractor pool filled from its 簇 (preferring the
+        /// same 平仄型, widening to the 韵组 bucket when short), restricted to distractor poems whose
+        /// average difficulty is &lt;= the max selected tier. Returns up to ~2×limit candidates
+        /// (one per poem) for the session builder.
         /// </summary>
         public List<Question> BuildRuntimeQuestions(ChallengeSettings settings, IRandomSource rng, int limit)
         {
             rng = rng ?? new SystemRandomSource();
-            int maxTier = int.MaxValue;
-            if (settings != null && settings.Difficulties != null && settings.Difficulties.Count > 0)
+            int maxTier = MaxTier(settings);
+
+            // Candidate questions = bank questions passing dynasty/type/per-line difficulty filters,
+            // grouped per poem so we keep at most one per poem (no testing the same poem twice).
+            var byPoem = new Dictionary<string, List<Question>>();
+            foreach (var q in _questions)
             {
-                maxTier = int.MinValue;
-                foreach (var t in settings.Difficulties) if (t > maxTier) maxTier = t;
+                var poem = GetPoem(q.PoemId);
+                if (poem == null) continue;
+                if (!DynastyOk(poem, settings) || !TypeOk(poem, settings)) continue;
+                if (!LineDifficultyOk(poem, q.BlankLineIndex, settings)) continue;
+                if (!byPoem.TryGetValue(q.PoemId, out var list)) { list = new List<Question>(); byPoem[q.PoemId] = list; }
+                list.Add(q);
             }
 
-            // Distractor corpus: selected dynasty + poem-average difficulty <= max selected tier.
-            var corpus = new List<Poem>();
-            foreach (var p in _poems)
-                if (DynastyOk(p, settings) && DifficultyRules.AvgDifficulty(p) <= maxTier) corpus.Add(p);
-            var gen = new QuestionGenerator(corpus, rng);
-
-            // Target poems: dynasty + type filter (per-line difficulty checked below).
-            var targets = new List<Poem>();
-            foreach (var p in _poems)
-                if (DynastyOk(p, settings) && TypeOk(p, settings)) targets.Add(p);
-            ShuffleUtil.ShuffleInPlace(targets, rng);
+            var poemIds = new List<string>(byPoem.Keys);
+            ShuffleUtil.ShuffleInPlace(poemIds, rng);
 
             var result = new List<Question>();
             int want = limit > 0 ? limit * 2 : int.MaxValue;
-            foreach (var p in targets)
+            foreach (var pid in poemIds)
             {
                 if (result.Count >= want) break;
-                if (p.Lines == null) continue;
-                var lineIdx = new List<int>();
-                for (int i = 0; i < p.Lines.Count; i++)
+                var list = byPoem[pid];
+                ShuffleUtil.ShuffleInPlace(list, rng);
+                foreach (var q in list)
                 {
-                    if (p.Type == "诗" && !p.Lines[i].IsRhymeLine) continue;
-                    if (!LineDifficultyOk(p, i, settings)) continue;
-                    lineIdx.Add(i);
-                }
-                ShuffleUtil.ShuffleInPlace(lineIdx, rng);
-                foreach (var li in lineIdx)
-                {
-                    var q = gen.Generate(p, li, 3);
-                    if (q != null) { result.Add(q); break; } // one per poem
+                    PopulateDistractors(q, maxTier, rng);
+                    if (q.Distractors.Count >= QuestionGenerator.MinDistractors) { result.Add(q); break; } // one per poem
                 }
             }
             return result;
+        }
+
+        private static int MaxTier(ChallengeSettings settings)
+        {
+            if (settings == null || settings.Difficulties == null || settings.Difficulties.Count == 0) return int.MaxValue;
+            int max = int.MinValue;
+            foreach (var t in settings.Difficulties) if (t > max) max = t;
+            return max;
+        }
+
+        /// <summary>
+        /// Fill <paramref name="q"/>.Distractors from its 簇: candidates from the same 平仄型 cluster
+        /// first (其字面与正确句不同、来自他诗、非近似、所属诗均难度 &lt;= <paramref name="maxTier"/>);
+        /// only widen to the whole 韵组 bucket if the cluster can't supply 3. Same-平水韵部 ranked first,
+        /// then capped to a window that <see cref="QuizService.Prepare"/> samples 3 from.
+        /// </summary>
+        public void PopulateDistractors(Question q, int maxTier, IRandomSource rng)
+        {
+            rng = rng ?? new SystemRandomSource();
+            q.Distractors = new List<QuestionOption>();
+            if (q?.Correct == null) return;
+            var correct = q.Correct;
+
+            var same = new List<QuestionOption>();   // same 平水韵部 as correct
+            var other = new List<QuestionOption>();
+            var seen = new HashSet<string> { correct.Text };
+
+            void Collect(IEnumerable<QuestionOption> src)
+            {
+                if (src == null) return;
+                foreach (var o in src)
+                {
+                    if (o == null || o.SourcePoemId == q.PoemId) continue;
+                    if (!seen.Add(o.Text)) continue;
+                    if (QuestionGenerator.NearDuplicate(o.Text, correct.Text)) continue;
+                    if (!DistractorDifficultyOk(o, maxTier)) continue;
+                    if (!string.IsNullOrEmpty(correct.Pingshui) && o.Pingshui == correct.Pingshui) same.Add(o);
+                    else other.Add(o);
+                }
+            }
+
+            if (_clusterById.TryGetValue(q.ClusterId, out var cluster)) Collect(cluster.Lines);
+            if (same.Count + other.Count < QuestionGenerator.MinDistractors
+                && _looseBucket.TryGetValue(correct.CharCount + "|" + correct.RhymeGroup, out var widen))
+                Collect(widen);
+
+            ShuffleUtil.ShuffleInPlace(same, rng);
+            ShuffleUtil.ShuffleInPlace(other, rng);
+            var pool = q.Distractors;
+            foreach (var o in same) { if (pool.Count >= DistractorPoolCap) break; pool.Add(o); }
+            foreach (var o in other) { if (pool.Count >= DistractorPoolCap) break; pool.Add(o); }
+        }
+
+        // A distractor's source poem must be no harder than the selected max tier (matches v1 corpus filter).
+        private bool DistractorDifficultyOk(QuestionOption o, int maxTier)
+        {
+            if (maxTier == int.MaxValue) return true;
+            var p = GetPoem(o.SourcePoemId);
+            return p == null || DifficultyRules.AvgDifficulty(p) <= maxTier;
         }
 
         /// <summary>Apply per-poem difficulty overrides (from local user data) onto loaded poems.</summary>
@@ -197,14 +267,20 @@ namespace PoemPoetry.Services
             if (!string.IsNullOrEmpty(poemId) && _byId.TryGetValue(poemId, out var p)) p.Difficulty = tier;
         }
 
-        /// <summary>Look up specific questions by id (used by 错题本 review sessions).</summary>
+        /// <summary>Look up specific questions by id (used by 错题本 review sessions), with distractor
+        /// pools filled from each question's 簇 (no difficulty restriction for review).</summary>
         public List<Question> GetQuestionsByIds(IEnumerable<string> ids)
         {
             var byQId = new Dictionary<string, Question>();
             foreach (var q in _questions) byQId[q.Id] = q;
+            var rng = new SystemRandomSource();
             var result = new List<Question>();
             foreach (var id in ids)
-                if (byQId.TryGetValue(id, out var q)) result.Add(q);
+                if (byQId.TryGetValue(id, out var q))
+                {
+                    PopulateDistractors(q, int.MaxValue, rng);
+                    result.Add(q);
+                }
             return result;
         }
 
@@ -220,30 +296,43 @@ namespace PoemPoetry.Services
             return list;
         }
 
-        /// <summary>Wordcloze questions matching the settings' filters.</summary>
-        public List<WordClozeQuestion> GetWordClozePool(ChallengeSettings settings)
+        /// <summary>Distinct 挖空数 (total blanks per question) present in the wordcloze bank, ascending.</summary>
+        public List<int> GetWordClozeBlankCounts()
+        {
+            var set = new HashSet<int>();
+            foreach (var q in _wordCloze) set.Add(q.Blanks != null ? q.Blanks.Count : 0);
+            var list = new List<int>(set);
+            list.Sort();
+            return list;
+        }
+
+        /// <summary>Wordcloze questions matching the settings' filters and (optionally) a 挖空数 set.</summary>
+        public List<WordClozeQuestion> GetWordClozePool(ChallengeSettings settings, ICollection<int> blankCounts = null)
         {
             var pool = new List<WordClozeQuestion>();
             foreach (var q in _wordCloze)
-                if (WordClozeMatches(q, settings)) pool.Add(q);
+                if (WordClozeMatches(q, settings, blankCounts)) pool.Add(q);
             return pool;
         }
 
-        public int CountWordClozePool(ChallengeSettings settings)
+        public int CountWordClozePool(ChallengeSettings settings, ICollection<int> blankCounts = null)
         {
             int n = 0;
             foreach (var q in _wordCloze)
-                if (WordClozeMatches(q, settings)) n++;
+                if (WordClozeMatches(q, settings, blankCounts)) n++;
             return n;
         }
 
-        private bool WordClozeMatches(WordClozeQuestion q, ChallengeSettings settings)
+        private bool WordClozeMatches(WordClozeQuestion q, ChallengeSettings settings, ICollection<int> blankCounts)
         {
             var poem = GetPoem(q.PoemId);
             if (poem == null) return false;
             if (!DynastyOk(poem, settings) || !TypeOk(poem, settings)) return false;
-            return settings == null || settings.Difficulties == null || settings.Difficulties.Count == 0
-                   || settings.Difficulties.Contains(q.Difficulty);
+            if (settings != null && settings.Difficulties != null && settings.Difficulties.Count > 0
+                && !settings.Difficulties.Contains(q.Difficulty)) return false;
+            if (blankCounts != null && blankCounts.Count > 0
+                && !blankCounts.Contains(q.Blanks != null ? q.Blanks.Count : 0)) return false;
+            return true;
         }
 
         /// <summary>Look up specific wordcloze questions by id (used by 错题本 review sessions).</summary>

@@ -11,7 +11,7 @@ namespace PoemPoetry.Editor
     /// </summary>
     public static class FontSetup
     {
-        [MenuItem("唐诗宋词/字体/① 用选中的TTF创建动态SDF并设为默认")]
+        [MenuItem("PoemPoetry/字体/① 用选中的TTF创建动态SDF并设为默认")]
         public static void CreateAndSetDefault()
         {
             var font = Selection.activeObject as Font;
@@ -64,7 +64,7 @@ namespace PoemPoetry.Editor
                     "现在按 Play，中文与数字都应正常显示。", "好");
         }
 
-        [MenuItem("唐诗宋词/字体/② 将选中的 TMP 字体设为默认")]
+        [MenuItem("PoemPoetry/字体/② 将选中的 TMP 字体设为默认")]
         public static void SetSelectedAsDefault()
         {
             var fa = Selection.activeObject as TMP_FontAsset;
@@ -78,7 +78,7 @@ namespace PoemPoetry.Editor
                 EditorUtility.DisplayDialog("字体", $"已将「{fa.name}」设为 TMP 默认字体。", "好");
         }
 
-        [MenuItem("唐诗宋词/字体/③ 显示当前默认字体")]
+        [MenuItem("PoemPoetry/字体/③ 显示当前默认字体")]
         public static void ShowCurrent()
         {
             var settings = TMP_Settings.instance;
@@ -87,7 +87,7 @@ namespace PoemPoetry.Editor
             EditorUtility.DisplayDialog("字体", "当前 TMP 默认字体：" + name, "好");
         }
 
-        [MenuItem("唐诗宋词/字体/④ 给当前默认字体加 数字字母 回退")]
+        [MenuItem("PoemPoetry/字体/④ 给当前默认字体加 数字字母 回退")]
         public static void AddAsciiFallbackToDefault()
         {
             var main = TMP_Settings.defaultFontAsset;
@@ -117,7 +117,7 @@ namespace PoemPoetry.Editor
             return 1;
         }
 
-        [MenuItem("唐诗宋词/字体/⑤ 把选中的字体加为回退（补缺标点等）")]
+        [MenuItem("PoemPoetry/字体/⑤ 把选中的字体加为回退（补缺标点等）")]
         public static void AddSelectedAsFallback()
         {
             var main = TMP_Settings.defaultFontAsset;

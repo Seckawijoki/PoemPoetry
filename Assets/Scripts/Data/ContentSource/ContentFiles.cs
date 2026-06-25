@@ -9,10 +9,12 @@ namespace PoemPoetry.Data
         public List<Poem> Poems = new List<Poem>();
     }
 
-    /// <summary>Root object of questions.json.</summary>
+    /// <summary>Root object of questions.json. v2 adds a shared <see cref="Clusters"/> pool that the
+    /// lightweight <see cref="Questions"/> reference by <see cref="Question.ClusterId"/>.</summary>
     public class QuestionFile
     {
-        public int SchemaVersion = 1;
+        public int SchemaVersion = 2;
+        public List<LineCluster> Clusters = new List<LineCluster>();
         public List<Question> Questions = new List<Question>();
     }
 

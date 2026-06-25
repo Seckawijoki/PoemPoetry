@@ -89,22 +89,40 @@ namespace PoemPoetry.Services
             int maxLine = Cols > Rows ? Cols : Rows;
             if (!Snake && len > maxLine) return false; // a straight run can't exceed the longer side
 
+            // Without overlap: take the first fitting placement.
+            // With overlap (重叠字匹配优先): scan candidates and prefer the one that crosses the most
+            // already-placed matching characters, so words interlock crossword-style.
+            List<int> best = null;
+            int bestCross = -1;
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 var path = Snake ? RandomSnake(len) : RandomStraight(len);
                 if (path == null) continue;
                 if (!FitsAndFree(path, chars)) continue;
 
-                var t = new Target { Text = text, Chars = chars, Title = title, PoemId = poemId };
-                for (int k = 0; k < len; k++)
-                {
-                    Cells[path[k]] = chars[k];
-                    t.Cells.Add(path[k]);
-                }
-                _targets.Add(t);
-                return true;
+                if (!AllowOverlap) { best = path; break; }
+                int cross = Crossings(path);                 // non-null cells == matching chars (FitsAndFree guaranteed)
+                if (cross > bestCross) { bestCross = cross; best = path; }
+                if (cross >= len - 1) break;                 // already maximally interlocked
             }
-            return false;
+            if (best == null) return false;
+
+            var t = new Target { Text = text, Chars = chars, Title = title, PoemId = poemId };
+            for (int k = 0; k < len; k++)
+            {
+                Cells[best[k]] = chars[k];
+                t.Cells.Add(best[k]);
+            }
+            _targets.Add(t);
+            return true;
+        }
+
+        // How many cells of this path land on an already-filled cell (a char crossing).
+        private int Crossings(List<int> path)
+        {
+            int n = 0;
+            foreach (var idx in path) if (Cells[idx] != null) n++;
+            return n;
         }
 
         public void FillEmpty(IList<string> pool)

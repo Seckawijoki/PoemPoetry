@@ -9042,7 +9042,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "蜀道",
@@ -9063,166 +9063,166 @@
         },
         {
           "text": "蜀道之难难于上青天",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 1,
           "famous": true
         },
         {
           "text": "蚕丛及鱼凫",
-          "isRhymeLine": true,
-          "group": 1
+          "isRhymeLine": false,
+          "group": 2
         },
         {
           "text": "开国何茫然",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 2
         },
         {
           "text": "尔来四万八千岁",
-          "isRhymeLine": true,
-          "group": 2
+          "isRhymeLine": false,
+          "group": 3
         },
         {
           "text": "不与秦塞通人烟",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 3
         },
         {
           "text": "西当太白有鸟道",
-          "isRhymeLine": true,
-          "group": 3
+          "isRhymeLine": false,
+          "group": 4
         },
         {
           "text": "可以横绝峨眉巅",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 4
         },
         {
           "text": "地崩山摧壮士死",
-          "isRhymeLine": true,
-          "group": 4
+          "isRhymeLine": false,
+          "group": 5
         },
         {
           "text": "然后天梯石栈相钩连",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 5
         },
         {
           "text": "上有六龙回日之高标",
-          "isRhymeLine": true,
-          "group": 5
-        },
-        {
-          "text": "下有冲波逆折之回川",
           "isRhymeLine": false,
           "group": 6
         },
         {
-          "text": "黄鹤之飞尚不得过",
+          "text": "下有冲波逆折之回川",
           "isRhymeLine": true,
-          "group": 6,
+          "group": 6
+        },
+        {
+          "text": "黄鹤之飞尚不得过",
+          "isRhymeLine": false,
+          "group": 7,
           "famous": true
         },
         {
           "text": "猿猱欲度愁攀援",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 7
         },
         {
           "text": "青泥何盘盘",
-          "isRhymeLine": true,
-          "group": 7
+          "isRhymeLine": false,
+          "group": 8
         },
         {
           "text": "百步九折萦岩峦",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 8
         },
         {
           "text": "扪参历井仰胁息",
-          "isRhymeLine": true,
-          "group": 8
+          "isRhymeLine": false,
+          "group": 9
         },
         {
           "text": "以手抚膺坐长叹",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 9
         },
         {
           "text": "问君西游何时还",
           "isRhymeLine": true,
-          "group": 9
+          "group": 10
         },
         {
           "text": "畏途巉岩不可攀",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 10
         },
         {
           "text": "但见悲鸟号古木",
-          "isRhymeLine": true,
-          "group": 10
+          "isRhymeLine": false,
+          "group": 11
         },
         {
           "text": "雄飞雌从绕林间",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 11
         },
         {
           "text": "又闻子规啼夜月",
-          "isRhymeLine": true,
-          "group": 11
+          "isRhymeLine": false,
+          "group": 12
         },
         {
           "text": "愁空山",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 12
         },
         {
           "text": "蜀道之难难于上青天",
           "isRhymeLine": true,
-          "group": 12,
+          "group": 13,
           "famous": true
         },
         {
           "text": "使人听此凋朱颜",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 13
         },
         {
           "text": "连峰去天不盈尺",
           "isRhymeLine": true,
-          "group": 13
-        },
-        {
-          "text": "枯松倒挂倚绝壁",
-          "isRhymeLine": false,
           "group": 14
         },
         {
-          "text": "飞湍瀑流争喧豗",
+          "text": "枯松倒挂倚绝壁",
           "isRhymeLine": true,
           "group": 14
         },
         {
-          "text": "砯崖转石万壑雷",
+          "text": "飞湍瀑流争喧豗",
           "isRhymeLine": false,
+          "group": 15
+        },
+        {
+          "text": "砯崖转石万壑雷",
+          "isRhymeLine": true,
           "group": 15
         },
         {
           "text": "其险也如此",
           "isRhymeLine": true,
-          "group": 15
+          "group": 16
         },
         {
           "text": "嗟尔远道之人胡为乎来哉",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 16
         },
         {
           "text": "剑阁峥嵘而崔嵬",
           "isRhymeLine": true,
-          "group": 16
+          "group": 17
         },
         {
           "text": "一夫当关",
@@ -9298,7 +9298,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "月",
@@ -9380,7 +9380,8 @@
         {
           "text": "江月年年只相似",
           "isRhymeLine": true,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "不知江月待何人",
@@ -9425,12 +9426,14 @@
         {
           "text": "玉户帘中卷不去",
           "isRhymeLine": false,
-          "group": 11
+          "group": 11,
+          "famous": true
         },
         {
           "text": "捣衣砧上拂还来",
           "isRhymeLine": true,
-          "group": 11
+          "group": 11,
+          "famous": true
         },
         {
           "text": "此时相望不相闻",
@@ -9440,7 +9443,8 @@
         {
           "text": "愿逐月华流照君",
           "isRhymeLine": true,
-          "group": 12
+          "group": 12,
+          "famous": true
         },
         {
           "text": "鸿雁长飞光不度",
@@ -9504,7 +9508,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "饮酒",
@@ -9544,7 +9548,8 @@
         {
           "text": "莫使金樽空对月",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "天生我材必有用",
@@ -9606,7 +9611,8 @@
         {
           "text": "但愿长醉不愿醒",
           "isRhymeLine": true,
-          "group": 8
+          "group": 8,
+          "famous": true
         },
         {
           "text": "古来圣贤皆寂寞",
@@ -9670,7 +9676,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "长诗",
@@ -10301,7 +10307,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "农事",
@@ -10353,26 +10359,22 @@
         {
           "text": "足蒸暑土气",
           "isRhymeLine": false,
-          "group": 4,
-          "famous": true
+          "group": 4
         },
         {
           "text": "背灼炎天光",
           "isRhymeLine": true,
-          "group": 4,
-          "famous": true
+          "group": 4
         },
         {
           "text": "力尽不知热",
           "isRhymeLine": false,
-          "group": 5,
-          "famous": true
+          "group": 5
         },
         {
           "text": "但惜夏日长",
           "isRhymeLine": true,
-          "group": 5,
-          "famous": true
+          "group": 5
         },
         {
           "text": "复有贫妇人",
@@ -10407,14 +10409,12 @@
         {
           "text": "家田输税尽",
           "isRhymeLine": false,
-          "group": 9,
-          "famous": true
+          "group": 9
         },
         {
           "text": "拾此充饥肠",
           "isRhymeLine": true,
-          "group": 9,
-          "famous": true
+          "group": 9
         },
         {
           "text": "今我何功德",
@@ -10456,7 +10456,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "长诗",
@@ -10467,7 +10467,7 @@
       "lines": [
         {
           "text": "浔阳江头夜送客",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 0
         },
         {
@@ -10477,7 +10477,7 @@
         },
         {
           "text": "主人下马客在船",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 1
         },
         {
@@ -10487,7 +10487,7 @@
         },
         {
           "text": "醉不成欢惨将别",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 2
         },
         {
@@ -10517,7 +10517,7 @@
         },
         {
           "text": "移船相近邀相见",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 5
         },
         {
@@ -10539,7 +10539,7 @@
         },
         {
           "text": "转轴拨弦三两声",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 7
         },
         {
@@ -10549,7 +10549,7 @@
         },
         {
           "text": "弦弦掩抑声声思",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 8
         },
         {
@@ -10569,7 +10569,7 @@
         },
         {
           "text": "轻拢慢撚抹复挑",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 10
         },
         {
@@ -10579,7 +10579,7 @@
         },
         {
           "text": "大弦嘈嘈如急雨",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 11,
           "famous": true
         },
@@ -10591,7 +10591,7 @@
         },
         {
           "text": "嘈嘈切切错杂弹",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 12
         },
         {
@@ -10612,7 +10612,7 @@
         },
         {
           "text": "水泉冷涩弦疑绝",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 14
         },
         {
@@ -10622,7 +10622,7 @@
         },
         {
           "text": "别有幽愁暗恨生",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 15,
           "famous": true
         },
@@ -10634,7 +10634,7 @@
         },
         {
           "text": "银瓶乍破水浆迸",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 16
         },
         {
@@ -10664,7 +10664,7 @@
         },
         {
           "text": "沉吟放拨插弦中",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 19
         },
         {
@@ -10674,7 +10674,7 @@
         },
         {
           "text": "自言本是京城女",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 20
         },
         {
@@ -10694,7 +10694,7 @@
         },
         {
           "text": "曲罢曾教善才伏",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 22
         },
         {
@@ -10704,7 +10704,7 @@
         },
         {
           "text": "五陵年少争缠头",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 23
         },
         {
@@ -10767,7 +10767,7 @@
         },
         {
           "text": "去来江口守空船",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 29
         },
         {
@@ -10787,7 +10787,7 @@
         },
         {
           "text": "我闻琵琶已叹息",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 31
         },
         {
@@ -10809,7 +10809,7 @@
         },
         {
           "text": "我从去年辞帝京",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 33
         },
         {
@@ -10889,7 +10889,7 @@
         },
         {
           "text": "感我此言良久立",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 41
         },
         {
@@ -10929,7 +10929,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "抒怀",
@@ -10940,7 +10940,7 @@
       "lines": [
         {
           "text": "金樽清酒斗十千",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 0,
           "famous": true
         },
@@ -10963,7 +10963,7 @@
         },
         {
           "text": "欲渡黄河冰塞川",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 2
         },
         {
@@ -10983,7 +10983,7 @@
         },
         {
           "text": "行路难",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 4
         },
         {
@@ -11023,7 +11023,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "游仙",
@@ -11106,7 +11106,7 @@
         },
         {
           "text": "脚著谢公屐",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 7
         },
         {
@@ -11126,7 +11126,7 @@
         },
         {
           "text": "千岩万转路不定",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 9
         },
         {
@@ -11136,7 +11136,7 @@
         },
         {
           "text": "熊咆龙吟殷岩泉",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 10
         },
         {
@@ -11234,34 +11234,34 @@
         },
         {
           "text": "古来万事东流水",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 19,
           "famous": true
         },
         {
           "text": "别君去时何时还",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 20
         },
         {
           "text": "且放白鹿青崖间",
           "isRhymeLine": true,
-          "group": 20
+          "group": 21
         },
         {
           "text": "须行即骑访名山",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 21
         },
         {
           "text": "安能摧眉折腰事权贵",
-          "isRhymeLine": true,
-          "group": 21,
+          "isRhymeLine": false,
+          "group": 22,
           "famous": true
         },
         {
           "text": "使我不得开心颜",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 22,
           "famous": true
         }
@@ -11275,7 +11275,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "古风",
         "民生",
@@ -11286,7 +11286,7 @@
       "lines": [
         {
           "text": "八月秋高风怒号",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 0,
           "famous": true
         },
@@ -11307,13 +11307,13 @@
         },
         {
           "text": "下者飘转沉塘坳",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 2
         },
         {
           "text": "南村群童欺我老无力",
           "isRhymeLine": true,
-          "group": 2
+          "group": 3
         },
         {
           "text": "忍能对面为盗贼",
@@ -11322,92 +11322,92 @@
         },
         {
           "text": "公然抱茅入竹去",
-          "isRhymeLine": true,
-          "group": 3
+          "isRhymeLine": false,
+          "group": 4
         },
         {
           "text": "唇焦口燥呼不得",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 4
         },
         {
           "text": "归来倚杖自叹息",
           "isRhymeLine": true,
-          "group": 4
+          "group": 5
         },
         {
           "text": "俄顷风定云墨色",
           "isRhymeLine": false,
-          "group": 5
+          "group": 6
         },
         {
           "text": "秋天漠漠向昏黑",
           "isRhymeLine": true,
-          "group": 5
+          "group": 6
         },
         {
           "text": "布衾多年冷似铁",
           "isRhymeLine": false,
-          "group": 6
+          "group": 7
         },
         {
           "text": "骄儿恶卧踏里裂",
           "isRhymeLine": true,
-          "group": 6
+          "group": 7
         },
         {
           "text": "床床屋漏无干处",
           "isRhymeLine": false,
-          "group": 7
+          "group": 8
         },
         {
           "text": "雨脚如麻未断绝",
           "isRhymeLine": true,
-          "group": 7
+          "group": 8
         },
         {
           "text": "自经丧乱少睡眠",
           "isRhymeLine": false,
-          "group": 8
+          "group": 9
         },
         {
           "text": "长夜沾湿何由彻",
           "isRhymeLine": true,
-          "group": 8,
+          "group": 9,
           "famous": true
         },
         {
           "text": "安得广厦千万间",
-          "isRhymeLine": false,
-          "group": 9,
+          "isRhymeLine": true,
+          "group": 10,
           "famous": true
         },
         {
           "text": "大庇天下寒士俱欢颜",
           "isRhymeLine": true,
-          "group": 9,
+          "group": 10,
           "famous": true
         },
         {
           "text": "风雨不动安如山",
-          "isRhymeLine": false,
-          "group": 10,
+          "isRhymeLine": true,
+          "group": 11,
           "famous": true
         },
         {
           "text": "呜呼",
           "isRhymeLine": true,
-          "group": 10
+          "group": 12
         },
         {
           "text": "何时眼前突兀见此屋",
-          "isRhymeLine": false,
-          "group": 11
+          "isRhymeLine": true,
+          "group": 12
         },
         {
           "text": "吾庐独破受冻死亦足",
           "isRhymeLine": true,
-          "group": 11,
+          "group": 13,
           "famous": true
         }
       ]
@@ -11420,7 +11420,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "战乱",
@@ -11565,7 +11565,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "战争",
@@ -11588,80 +11588,78 @@
         },
         {
           "text": "行人弓箭各在腰",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "耶娘妻子走相送",
           "isRhymeLine": false,
           "group": 1
         },
         {
-          "text": "耶娘妻子走相送",
+          "text": "尘埃不见咸阳桥",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
-          "text": "尘埃不见咸阳桥",
+          "text": "牵衣顿足拦道哭",
           "isRhymeLine": false,
           "group": 2
         },
         {
-          "text": "牵衣顿足拦道哭",
-          "isRhymeLine": true,
-          "group": 2,
-          "famous": true
-        },
-        {
           "text": "哭声直上干云霄",
-          "isRhymeLine": false,
-          "group": 3
+          "isRhymeLine": true,
+          "group": 2
         },
         {
           "text": "道傍过者问行人",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 3
         },
         {
           "text": "行人但云点行频",
-          "isRhymeLine": false,
-          "group": 4
+          "isRhymeLine": true,
+          "group": 3
         },
         {
           "text": "或从十五北防河",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 4
         },
         {
           "text": "便至四十西营田",
-          "isRhymeLine": false,
-          "group": 5
+          "isRhymeLine": true,
+          "group": 4
         },
         {
           "text": "去时里正与裹头",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 5
         },
         {
           "text": "归来头白还戍边",
-          "isRhymeLine": false,
-          "group": 6
+          "isRhymeLine": true,
+          "group": 5
         },
         {
           "text": "边亭流血成海水",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 6
         },
         {
           "text": "武皇开边意未已",
-          "isRhymeLine": false,
-          "group": 7
+          "isRhymeLine": true,
+          "group": 6
         },
         {
           "text": "君不闻汉家山东二百州",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 7
         },
         {
           "text": "千村万落生荆杞",
-          "isRhymeLine": false,
-          "group": 8
+          "isRhymeLine": true,
+          "group": 7
         },
         {
           "text": "纵有健妇把锄犁",
@@ -11670,18 +11668,18 @@
         },
         {
           "text": "禾生陇亩无东西",
-          "isRhymeLine": false,
-          "group": 9
+          "isRhymeLine": true,
+          "group": 8
         },
         {
           "text": "况复秦兵耐苦战",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 9
         },
         {
           "text": "被驱不异犬与鸡",
-          "isRhymeLine": false,
-          "group": 10
+          "isRhymeLine": true,
+          "group": 9
         },
         {
           "text": "长者虽有问",
@@ -11690,18 +11688,18 @@
         },
         {
           "text": "役夫敢申恨",
-          "isRhymeLine": false,
-          "group": 11
+          "isRhymeLine": true,
+          "group": 10
         },
         {
           "text": "且如今年冬",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 11
         },
         {
           "text": "未休关西卒",
-          "isRhymeLine": false,
-          "group": 12
+          "isRhymeLine": true,
+          "group": 11
         },
         {
           "text": "县官急索租",
@@ -11710,52 +11708,49 @@
         },
         {
           "text": "租税从何出",
+          "isRhymeLine": true,
+          "group": 12
+        },
+        {
+          "text": "信知生男恶",
           "isRhymeLine": false,
           "group": 13
         },
         {
-          "text": "信知生男恶",
-          "isRhymeLine": true,
-          "group": 13,
-          "famous": true
-        },
-        {
           "text": "反是生女好",
-          "isRhymeLine": false,
-          "group": 14,
-          "famous": true
+          "isRhymeLine": true,
+          "group": 13
         },
         {
           "text": "生女犹是嫁比邻",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 14
         },
         {
           "text": "生男埋没随百草",
+          "isRhymeLine": true,
+          "group": 14
+        },
+        {
+          "text": "君不见青海头",
           "isRhymeLine": false,
           "group": 15
         },
         {
-          "text": "君不见青海头",
+          "text": "古来白骨无人收",
           "isRhymeLine": true,
           "group": 15,
           "famous": true
         },
         {
-          "text": "古来白骨无人收",
-          "isRhymeLine": false,
-          "group": 16,
-          "famous": true
-        },
-        {
           "text": "新鬼烦冤旧鬼哭",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 16
         },
         {
           "text": "天阴雨湿声啾啾",
-          "isRhymeLine": false,
-          "group": 17
+          "isRhymeLine": true,
+          "group": 16
         }
       ]
     },
@@ -12344,7 +12339,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "饮酒",
@@ -12356,14 +12351,12 @@
         {
           "text": "花间一壶酒",
           "isRhymeLine": false,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "独酌无相亲",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "举杯邀明月",
@@ -12379,7 +12372,7 @@
         },
         {
           "text": "月既不解饮",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 2
         },
         {
@@ -12400,16 +12393,18 @@
         {
           "text": "我歌月徘徊",
           "isRhymeLine": false,
-          "group": 4
+          "group": 4,
+          "famous": true
         },
         {
           "text": "我舞影零乱",
           "isRhymeLine": true,
-          "group": 4
+          "group": 4,
+          "famous": true
         },
         {
           "text": "醒时同交欢",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 5
         },
         {
@@ -12960,7 +12955,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "民生",
@@ -12970,7 +12965,7 @@
       "lines": [
         {
           "text": "卖炭翁",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 0
         },
         {
@@ -13002,7 +12997,7 @@
         },
         {
           "text": "可怜身上衣正单",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 3,
           "famous": true
         },
@@ -13014,7 +13009,7 @@
         },
         {
           "text": "夜来城上一尺雪",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 4
         },
         {
@@ -13087,7 +13082,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "边塞",
@@ -13098,7 +13093,7 @@
       "lines": [
         {
           "text": "北风卷地白草折",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 0
         },
         {
@@ -13109,7 +13104,8 @@
         {
           "text": "忽然一夜春风来",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "千树万树梨花开",
@@ -13199,7 +13195,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "边塞",
@@ -13304,7 +13300,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "边塞",
@@ -15723,7 +15719,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "思妇",
@@ -15812,7 +15808,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "抒怀",
@@ -15833,8 +15829,7 @@
         {
           "text": "长风万里送秋雁",
           "isRhymeLine": false,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "对此可以酣高楼",
@@ -15864,7 +15859,7 @@
         },
         {
           "text": "抽刀断水水更流",
-          "isRhymeLine": false,
+          "isRhymeLine": true,
           "group": 4,
           "famous": true
         },

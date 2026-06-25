@@ -9,9 +9,9 @@ using UnityEngine;
 namespace PoemPoetry.Editor
 {
     /// <summary>
-    /// Content pipeline UI: import the seed poems, auto-compute rhyme/字数, generate distractor
-    /// questions, write StreamingAssets, and validate the shipped bank. Uses the same Services
-    /// code paths that the runtime and the standalone test harness use.
+    /// Content pipeline UI: import the seed poems, auto-compute rhyme/字数/平仄型, cluster lines into
+    /// shared 干扰项簇 and emit lightweight (v2) questions, write StreamingAssets, and validate the
+    /// shipped bank. Uses the same Services code paths that the runtime and test harness use.
     /// </summary>
     public sealed class ContentToolWindow : EditorWindow
     {
@@ -29,7 +29,8 @@ namespace PoemPoetry.Editor
         private void OnGUI()
         {
             EditorGUILayout.HelpBox(
-                "① 读取 Tools/SampleContent/poems_seed.json → 计算韵脚/字数 → 生成同字数同韵的干扰项\n" +
+                "① 读取 Tools/SampleContent/poems_seed.json → 计算韵脚/字数/平仄型\n" +
+                "   → 按(字数,韵组,平仄型)聚成共享干扰项簇 + 轻量题目(v2)\n" +
                 "   → 写入 Assets/StreamingAssets/PoemData/{poems,questions,rhyme_groups}.json\n" +
                 "扩充题库：编辑 poems_seed.json（含 char_pinyin.json 覆盖韵脚字），再点①。",
                 MessageType.Info);
@@ -60,7 +61,9 @@ namespace PoemPoetry.Editor
                 if (!File.Exists(SeedPath)) { _report = "找不到种子文件：" + SeedPath; return; }
                 var seed = PoemJson.Deserialize<PoemFile>(File.ReadAllText(SeedPath, Encoding.UTF8));
 
-                var rhyme = RhymeService.LoadAsync(new JsonContentSource(Loader())).GetAwaiter().GetResult();
+                var source = new JsonContentSource(Loader());
+                var rhyme = RhymeService.LoadAsync(source).GetAwaiter().GetResult();
+                var tone = new ToneService(source.LoadCharPinyinAsync().GetAwaiter().GetResult());
                 foreach (var poem in seed.Poems)
                 {
                     foreach (var line in poem.Lines) rhyme.Annotate(line);
@@ -76,24 +79,20 @@ namespace PoemPoetry.Editor
                         if (line.IsRhymeLine) rhyme.Annotate(line, groups, pingshui);
                 }
 
+                // v2: cluster lines by (字数,韵组,平仄型) → shared 干扰项池; emit lightweight questions.
                 var gen = new QuestionGenerator(seed.Poems, new SystemRandomSource(20260622));
-                var questions = new List<Question>();
-                int skipped = 0;
-                foreach (var poem in seed.Poems)
-                {
-                    // 诗：只挖韵脚句；词/曲：可挖任意句（含中间句）。
-                    var qs = gen.GenerateForPoem(poem, 3, rhymeLinesOnly: poem.Type == "诗");
-                    questions.AddRange(qs);
-                    if (qs.Count == 0) skipped++;
-                }
+                var bank = gen.BuildBank(seed.Poems, tone, rhymeLinesOnlyForShi: true);
+
+                var withQuestion = new HashSet<string>();
+                foreach (var q in bank.Questions) withQuestion.Add(q.PoemId);
+                int skipped = seed.Poems.Count - withQuestion.Count;
 
                 File.WriteAllText(Path.Combine(DataDir, "poems.json"),
                     PoemJson.Serialize(new PoemFile { Poems = seed.Poems }), Utf8);
-                File.WriteAllText(Path.Combine(DataDir, "questions.json"),
-                    PoemJson.Serialize(new QuestionFile { Questions = questions }), Utf8);
+                File.WriteAllText(Path.Combine(DataDir, "questions.json"), PoemJson.Serialize(bank), Utf8);
 
                 AssetDatabase.Refresh();
-                sb.AppendLine($"✓ 生成完成：{seed.Poems.Count} 首诗，{questions.Count} 道题。");
+                sb.AppendLine($"✓ 生成完成：{seed.Poems.Count} 首诗，{bank.Questions.Count} 道题，{bank.Clusters.Count} 个干扰项簇。");
                 sb.AppendLine($"  {skipped} 首因同韵同字数候选不足而未出题（属正常，题库越大越少）。");
                 sb.AppendLine("  已写入 StreamingAssets/PoemData/。");
             }
@@ -111,28 +110,46 @@ namespace PoemPoetry.Editor
             {
                 var source = new JsonContentSource(Loader());
                 var poems = source.LoadPoemsAsync().GetAwaiter().GetResult();
-                var questions = source.LoadQuestionsAsync().GetAwaiter().GetResult();
+                var bank = source.LoadQuestionBankAsync().GetAwaiter().GetResult();
                 var byId = new Dictionary<string, Poem>();
                 foreach (var p in poems) byId[p.Id] = p;
 
                 int errors = 0, warns = 0;
-                foreach (var q in questions)
+
+                // Clusters: every line shares the cluster's 字数/韵组; build (字数|韵组) → unique texts for distractor counting.
+                var clusterById = new Dictionary<int, LineCluster>();
+                var bucket = new Dictionary<string, HashSet<string>>();
+                foreach (var c in bank.Clusters)
+                {
+                    clusterById[c.Id] = c;
+                    var bk = c.CharCount + "|" + c.RhymeGroup;
+                    if (!bucket.TryGetValue(bk, out var set)) { set = new HashSet<string>(); bucket[bk] = set; }
+                    foreach (var ln in c.Lines)
+                    {
+                        set.Add(ln.Text);
+                        if (ln.CharCount != c.CharCount || ln.RhymeGroup != c.RhymeGroup)
+                        { sb.AppendLine($"ERROR cluster {c.Id}: 成员字数/韵组与簇不符 [{ln.Text}]"); errors++; }
+                    }
+                }
+
+                foreach (var q in bank.Questions)
                 {
                     if (!byId.TryGetValue(q.PoemId, out var poem)) { sb.AppendLine($"ERROR {q.Id}: poemId 悬空"); errors++; continue; }
                     if (q.BlankLineIndex < 0 || q.BlankLineIndex >= poem.Lines.Count) { sb.AppendLine($"ERROR {q.Id}: blankLineIndex 越界"); errors++; continue; }
                     var target = poem.Lines[q.BlankLineIndex];
                     if (q.Correct == null || q.Correct.Text != target.Text) { sb.AppendLine($"ERROR {q.Id}: 正确答案与原诗不一致"); errors++; }
-                    if (q.Distractors == null || q.Distractors.Count != 3) { sb.AppendLine($"ERROR {q.Id}: 干扰项数 ≠ 3"); errors++; continue; }
-                    var seen = new HashSet<string> { q.Correct.Text };
-                    foreach (var d in q.Distractors)
-                    {
-                        if (d.CharCount != target.CharCount) { sb.AppendLine($"ERROR {q.Id}: 干扰项字数不符 [{d.Text}]"); errors++; }
-                        if (d.RhymeGroup != target.RhymeGroup) { sb.AppendLine($"ERROR {q.Id}: 干扰项韵组不符 [{d.Text}]"); errors++; }
-                        if (!seen.Add(d.Text)) { sb.AppendLine($"ERROR {q.Id}: 干扰项重复/同正确项 [{d.Text}]"); errors++; }
-                        else if (d.RhymeFinal != target.RhymeFinal) { sb.AppendLine($"WARN  {q.Id}: 韵母不同(同韵组) [{d.Text}]"); warns++; }
-                    }
+                    if (!clusterById.TryGetValue(q.ClusterId, out var cluster)) { sb.AppendLine($"ERROR {q.Id}: clusterId 悬空"); errors++; continue; }
+                    if (cluster.CharCount != target.CharCount || cluster.RhymeGroup != target.RhymeGroup)
+                    { sb.AppendLine($"ERROR {q.Id}: 簇字数/韵组与题不符"); errors++; }
+                    // The 韵组 bucket must yield ≥3 valid distractors (different poem, distinct, not near-dup).
+                    int valid = 0;
+                    if (bucket.TryGetValue(target.CharCount + "|" + target.RhymeGroup, out var texts))
+                        foreach (var t in texts)
+                            if (t != target.Text && !QuestionGenerator.NearDuplicate(t, target.Text)) valid++;
+                    if (valid < QuestionGenerator.MinDistractors)
+                    { sb.AppendLine($"ERROR {q.Id}: 同字数同韵组候选不足 ({valid})"); errors++; }
                 }
-                sb.Insert(0, $"校验：{poems.Count} 首诗 / {questions.Count} 题 → {errors} 错误，{warns} 警告。\n\n");
+                sb.Insert(0, $"校验：{poems.Count} 首诗 / {bank.Questions.Count} 题 / {bank.Clusters.Count} 簇 → {errors} 错误，{warns} 警告。\n\n");
             }
             catch (System.Exception e)
             {

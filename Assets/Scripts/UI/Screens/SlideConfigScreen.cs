@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PoemPoetry.UI
 {
-    /// <summary>滑动找诗设置: 方向难度 L1-L4 + 网格边长 + 允许重叠 → 开始.</summary>
+    /// <summary>滑动找诗设置 (按图索骥): 方向难度 L1-L4 + 网格 + 重叠/名句 + 朝代/难度 → 开始.</summary>
     public sealed class SlideConfigScreen : UIScreen
     {
         private int _level = 1;
@@ -21,65 +21,68 @@ namespace PoemPoetry.UI
             (3, "③ 横竖蛇形"),
             (4, "④ 全向蛇形"),
         };
-        // (cols, rows): the taller ones use the extra vertical space for higher difficulty.
-        private static readonly (int cols, int rows, string label)[] Grids =
-        {
-            (8, 8, "8×8"),
-            (10, 10, "10×10"),
-            (12, 12, "12×12"),
-            (12, 16, "12×16高"),
-            (12, 20, "12×20更高"),
-        };
+        // 横(列)、竖(行) 独立可选；竖向可更高用作进阶难度。
+        private static readonly int[] ColsOpts = { 8, 9, 10 };
+        private static readonly int[] RowsOpts = { 8, 9, 10, 12, 14, 16 };
 
         private readonly List<Button> _levelBtns = new List<Button>();
         private readonly List<TextMeshProUGUI> _levelLbls = new List<TextMeshProUGUI>();
-        private readonly List<Button> _sizeBtns = new List<Button>();
-        private readonly List<TextMeshProUGUI> _sizeLbls = new List<TextMeshProUGUI>();
+        private readonly List<Button> _colsBtns = new List<Button>();
+        private readonly List<TextMeshProUGUI> _colsLbls = new List<TextMeshProUGUI>();
+        private readonly List<Button> _rowsBtns = new List<Button>();
+        private readonly List<TextMeshProUGUI> _rowsLbls = new List<TextMeshProUGUI>();
         private Button _overlapBtn;
         private TextMeshProUGUI _overlapLbl;
         private Button _famousBtn;
         private TextMeshProUGUI _famousLbl;
         private readonly HashSet<int> _selDiff = new HashSet<int>();
         private readonly HashSet<string> _selDyn = new HashSet<string>();
+        private readonly HashSet<string> _selType = new HashSet<string>();
 
         protected override void OnShow(object args)
         {
-            var body = UiKit.ScreenRoot(gameObject, "滑动找诗设置", () => Nav.Pop());
-            UiKit.VerticalGroup(body.gameObject, spacing: 14, padX: 28, padY: 12, align: TextAnchor.UpperCenter);
+            var body = Design.Chrome(gameObject, () => Nav.Pop(), () => Nav.Push<SettingsScreen>(), "划线寻踪");
+            UiKit.VerticalGroup(body.gameObject, spacing: 14, padX: 28, padY: 16, align: TextAnchor.UpperCenter);
 
             RestoreLast();
 
             var scroll = UiKit.ScrollList("Cfg", body, out _);
 
-            Section(scroll, "方向难度");
-            BuildLevelRows(scroll);
+            var card = Design.Card(scroll);
+            Design.SectionHead(card, "方向难度");
+            BuildLevelRows(card);
 
-            Section(scroll, "网格大小");
-            BuildGridRow(scroll);
+            Design.SectionHead(card, "横向格数");
+            BuildSizeRow(card, ColsOpts, _colsBtns, _colsLbls, isCols: true);
+            Design.SectionHead(card, "纵向格数");
+            BuildSizeRow(card, RowsOpts, _rowsBtns, _rowsLbls, isCols: false);
 
-            Section(scroll, "重叠");
-            _overlapBtn = UiKit.Button("Overlap", scroll, "", out _overlapLbl, UiKit.Card, 32);
-            UiKit.Pref(_overlapBtn.gameObject, minH: 96);
+            Design.SectionHead(card, "选项");
+            var optRow = UiKit.Panel("OptRow", card);
+            UiKit.Pref(optRow, minH: 96);
+            UiKit.HorizontalGroup(optRow, spacing: 14);
+            _overlapBtn = UiKit.Button("Overlap", optRow.transform, "", out _overlapLbl, Design.SurfaceHigh, 30);
             _overlapBtn.onClick.AddListener(() => { _overlap = !_overlap; RefreshOverlap(); });
             RefreshOverlap();
-
-            Section(scroll, "名句");
-            _famousBtn = UiKit.Button("Famous", scroll, "", out _famousLbl, UiKit.Card, 32);
-            UiKit.Pref(_famousBtn.gameObject, minH: 96);
+            _famousBtn = UiKit.Button("Famous", optRow.transform, "", out _famousLbl, Design.SurfaceHigh, 30);
             _famousBtn.onClick.AddListener(() => { _famousOnly = !_famousOnly; RefreshFamous(); });
             RefreshFamous();
 
-            Section(scroll, "朝代（不选 = 全部）");
-            AddChips(scroll, Services.Content.GetDynasties(), d => d, _selDyn);
-            Section(scroll, "难度（不选 = 全部）");
-            AddChips(scroll, Services.Content.GetDifficultyTiers(), QuizConfigScreen.TierLabel, _selDiff);
+            Design.SectionHead(card, "朝代筛选（不选 = 全部）");
+            var dyn = Services.Content.GetDynasties();
+            AddChips(card, dyn, d => d, _selDyn, Mathf.CeilToInt(dyn.Count / 2f));
+            Design.SectionHead(card, "体裁范畴（不选 = 全部）");
+            AddChips(card, Services.Content.GetTypes(), tp => tp, _selType);
+            Design.SectionHead(card, "难易程度（不选 = 全部）");
+            var tiers = new List<int> { 0, 1, 2, 3 };
+            AddChips(card, tiers, QuizConfigScreen.TierLabel, _selDiff, tiers.Count);
 
-            var hist = UiKit.Button("Hist", scroll, "历史记录", out _, UiKit.CardAlt, 32);
+            var hist = UiKit.Button("Hist", scroll, "历史记录", out var histLbl, Design.SurfaceHigh, 32);
+            histLbl.color = Design.Ink;
             UiKit.Pref(hist.gameObject, minH: 92);
             hist.onClick.AddListener(() => Nav.Push<RecordsScreen>(new RecordsArgs { Mode = "slide", Title = "找诗记录" }));
 
-            var start = UiKit.Button("Start", body, "开始", out var sl, UiKit.Accent, 40);
-            sl.color = Color.white;
+            var start = Design.PrimaryButton("Start", body, "开始", out _, 42);
             var le = UiKit.Pref(start.gameObject, minH: 120);
             le.flexibleHeight = 0f;
             start.onClick.AddListener(StartGame);
@@ -90,84 +93,88 @@ namespace PoemPoetry.UI
             var s = Services.Settings != null ? Services.Settings.Current : null;
             if (s == null) return;
             if (s.LastSlideLevel >= 1 && s.LastSlideLevel <= 4) _level = s.LastSlideLevel;
-            if (s.LastSlideCols >= 4) _cols = s.LastSlideCols;
-            if (s.LastSlideRows >= 4) _rows = s.LastSlideRows;
+            _cols = ClampToOpts(s.LastSlideCols, ColsOpts, 9);
+            _rows = ClampToOpts(s.LastSlideRows, RowsOpts, 9);
             _overlap = s.LastSlideOverlap;
             _famousOnly = s.LastSlideFamousOnly;
             _selDiff.Clear();
             if (s.LastSlideDifficulties != null) foreach (var t in s.LastSlideDifficulties) _selDiff.Add(t);
             _selDyn.Clear();
             if (s.LastSlideDynasties != null) foreach (var d in s.LastSlideDynasties) _selDyn.Add(d);
+            _selType.Clear();
+            if (s.LastSlideTypes != null) foreach (var t in s.LastSlideTypes) _selType.Add(t);
+        }
+
+        // Snap a stored size to the nearest available option (old presets like 12×16 are gone).
+        private static int ClampToOpts(int value, int[] opts, int fallback)
+        {
+            int best = fallback, bestDist = int.MaxValue;
+            foreach (var o in opts)
+            {
+                int d = System.Math.Abs(o - value);
+                if (d < bestDist) { bestDist = d; best = o; }
+            }
+            return best;
         }
 
         private void StartGame()
         {
             var diffs = new List<int>(_selDiff);
             var dyns = new List<string>(_selDyn);
+            var types = new List<string>(_selType);
             var s = Services.Settings != null ? Services.Settings.Current : null;
             if (s != null)
             {
                 s.LastSlideLevel = _level; s.LastSlideCols = _cols; s.LastSlideRows = _rows;
                 s.LastSlideOverlap = _overlap; s.LastSlideFamousOnly = _famousOnly;
-                s.LastSlideDifficulties = diffs; s.LastSlideDynasties = dyns;
+                s.LastSlideDifficulties = diffs; s.LastSlideDynasties = dyns; s.LastSlideTypes = types;
                 _ = Services.Settings.SaveAsync();
             }
             Nav.Push<SlidePuzzleScreen>(new SlideStartArgs
             {
                 DirectionLevel = _level, GridCols = _cols, GridRows = _rows, AllowOverlap = _overlap,
-                FamousOnly = _famousOnly, Difficulties = diffs, Dynasties = dyns,
+                FamousOnly = _famousOnly, Difficulties = diffs, Dynasties = dyns, Types = types,
             });
         }
 
-        private void AddChips<T>(Transform parent, List<T> items, System.Func<T, string> label, HashSet<T> selected)
+        private void AddChips<T>(Transform parent, List<T> items, System.Func<T, string> label, HashSet<T> selected, int perRow = 3)
         {
             if (items == null || items.Count == 0)
             {
-                UiKit.Text("none", parent, "（无）", 26, TextAlignmentOptions.Center, UiKit.Muted);
+                UiKit.Text("none", parent, "（无）", 26, TextAlignmentOptions.Center, Design.OnSurfaceVariant);
                 return;
             }
             Transform row = null;
             for (int i = 0; i < items.Count; i++)
             {
-                if (i % 3 == 0)
+                if (i % perRow == 0)
                 {
                     var p = UiKit.Panel("Row", parent);
                     UiKit.Pref(p, minH: 90);
-                    UiKit.HorizontalGroup(p, spacing: 12);
+                    UiKit.HorizontalGroup(p, spacing: 14);
                     row = p.transform;
                 }
                 var item = items[i];
-                var b = UiKit.Button("Chip", row, label(item), out var lbl, UiKit.Card, 28);
-                UiKit.SetChipSelected(b, lbl, selected.Contains(item));
+                var b = UiKit.Button("Chip", row, label(item), out var lbl, Design.SurfaceHigh, 28);
+                Design.SetChip(b, lbl, selected.Contains(item));
                 b.onClick.AddListener(() =>
                 {
                     if (!selected.Remove(item)) selected.Add(item);
-                    UiKit.SetChipSelected(b, lbl, selected.Contains(item));
+                    Design.SetChip(b, lbl, selected.Contains(item));
                 });
             }
-        }
-
-        private void Section(Transform parent, string text)
-        {
-            var t = UiKit.Text("Sec", parent, text, 30, TextAlignmentOptions.Left, UiKit.Accent);
-            UiKit.MinHeight(t.gameObject, 56);
         }
 
         private void BuildLevelRows(Transform parent)
         {
             _levelBtns.Clear(); _levelLbls.Clear();
-            Transform row = null;
+            var row = UiKit.Panel("LevelRow", parent);
+            UiKit.Pref(row, minH: 100);
+            UiKit.HorizontalGroup(row, spacing: 10);
             for (int i = 0; i < Levels.Length; i++)
             {
-                if (i % 2 == 0)
-                {
-                    var p = UiKit.Panel("Row", parent);
-                    UiKit.Pref(p, minH: 100);
-                    UiKit.HorizontalGroup(p, spacing: 12);
-                    row = p.transform;
-                }
                 int lv = Levels[i].level;
-                var b = UiKit.Button("L" + lv, row, Levels[i].label, out var lbl, UiKit.Card, 30);
+                var b = UiKit.Button("L" + lv, row.transform, Levels[i].label, out var lbl, Design.SurfaceHigh, 26);
                 _levelBtns.Add(b); _levelLbls.Add(lbl);
                 b.onClick.AddListener(() => { _level = lv; RefreshLevel(); });
             }
@@ -177,46 +184,43 @@ namespace PoemPoetry.UI
         private void RefreshLevel()
         {
             for (int i = 0; i < _levelBtns.Count; i++)
-                UiKit.SetChipSelected(_levelBtns[i], _levelLbls[i], Levels[i].level == _level);
+                Design.SetChip(_levelBtns[i], _levelLbls[i], Levels[i].level == _level);
         }
 
-        private void BuildGridRow(Transform parent)
+        private void BuildSizeRow(Transform parent, int[] opts, List<Button> btns, List<TextMeshProUGUI> lbls, bool isCols)
         {
-            _sizeBtns.Clear(); _sizeLbls.Clear();
-            Transform row = null;
-            for (int i = 0; i < Grids.Length; i++)
+            btns.Clear(); lbls.Clear();
+            var p = UiKit.Panel("SizeRow", parent);
+            UiKit.Pref(p, minH: 100);
+            UiKit.HorizontalGroup(p, spacing: 12);
+            for (int i = 0; i < opts.Length; i++)
             {
-                if (i % 3 == 0)
-                {
-                    var p = UiKit.Panel("GridRow", parent);
-                    UiKit.Pref(p, minH: 100);
-                    UiKit.HorizontalGroup(p, spacing: 12);
-                    row = p.transform;
-                }
-                int cols = Grids[i].cols, rows = Grids[i].rows;
-                var b = UiKit.Button("G" + i, row, Grids[i].label, out var lbl, UiKit.Card, 28);
-                _sizeBtns.Add(b); _sizeLbls.Add(lbl);
-                b.onClick.AddListener(() => { _cols = cols; _rows = rows; RefreshSize(); });
+                int v = opts[i];
+                var b = UiKit.Button("S" + (isCols ? "C" : "R") + v, p.transform, v.ToString(), out var lbl, Design.SurfaceHigh, 30);
+                btns.Add(b); lbls.Add(lbl);
+                b.onClick.AddListener(() => { if (isCols) _cols = v; else _rows = v; RefreshSizes(); });
             }
-            RefreshSize();
+            RefreshSizes();
         }
 
-        private void RefreshSize()
+        private void RefreshSizes()
         {
-            for (int i = 0; i < _sizeBtns.Count; i++)
-                UiKit.SetChipSelected(_sizeBtns[i], _sizeLbls[i], Grids[i].cols == _cols && Grids[i].rows == _rows);
+            for (int i = 0; i < _colsBtns.Count; i++)
+                Design.SetChip(_colsBtns[i], _colsLbls[i], ColsOpts[i] == _cols);
+            for (int i = 0; i < _rowsBtns.Count; i++)
+                Design.SetChip(_rowsBtns[i], _rowsLbls[i], RowsOpts[i] == _rows);
         }
 
         private void RefreshOverlap()
         {
             _overlapLbl.text = _overlap ? "允许重叠字：开" : "允许重叠字：关";
-            UiKit.SetChipSelected(_overlapBtn, _overlapLbl, _overlap);
+            Design.SetChip(_overlapBtn, _overlapLbl, _overlap);
         }
 
         private void RefreshFamous()
         {
             _famousLbl.text = _famousOnly ? "仅名句：开" : "仅名句：关";
-            UiKit.SetChipSelected(_famousBtn, _famousLbl, _famousOnly);
+            Design.SetChip(_famousBtn, _famousLbl, _famousOnly);
         }
     }
 }

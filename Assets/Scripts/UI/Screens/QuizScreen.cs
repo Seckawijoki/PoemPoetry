@@ -19,6 +19,17 @@ namespace PoemPoetry.UI
         private const float AdvanceDelay = 1.2f;
         private const string GreenHex = "#2E8B47";
 
+        // Design palette ("Ink & Parchment" — designs/stitch_/DESIGN.md). Defined locally so the
+        // shared UiKit palette used by other screens is left untouched.
+        private static Color Hex(string h) { ColorUtility.TryParseHtmlString(h, out var c); return c; }
+        private static readonly Color Primary = Hex("#761519");          // cinnabar seal red
+        private static readonly Color PrimaryContainer = Hex("#962d2d"); // selected / timer fill
+        private static readonly Color SecondaryFixed = Hex("#e8e2d0");   // option button fill
+        private static readonly Color SecondaryTxt = Hex("#625e50");     // labels / meta
+        private static readonly Color BarTrack = Hex("#e7e2d4");         // timer track
+        private static readonly Color CardWhite = Hex("#ffffff");        // focused "scroll" card
+        private static readonly Color Outline = Hex("#8a716f");          // hairline / corner motif
+
         private QuizStartArgs _args;
         private QuizSession _session;
         private int _index;
@@ -32,7 +43,8 @@ namespace PoemPoetry.UI
         private float _sessionStart;
         private readonly List<QuestionResult> _results = new List<QuestionResult>();
 
-        private TextMeshProUGUI _progress;
+        private TextMeshProUGUI _progressValue;
+        private TextMeshProUGUI _streakValue;
         private TextMeshProUGUI _timerText;
         private RectTransform _timerFill;
         private TextMeshProUGUI _meta;
@@ -75,59 +87,148 @@ namespace PoemPoetry.UI
             var bg = gameObject.GetComponent<Image>() ?? gameObject.AddComponent<Image>();
             bg.color = UiKit.Paper;
 
-            // Quit (top-left) — returns without saving a record.
-            var quit = new GameObject("Quit", typeof(RectTransform), typeof(Image), typeof(Button));
-            quit.transform.SetParent(transform, false);
-            var qrt = UiKit.Rect(quit);
-            qrt.anchorMin = new Vector2(0, 1); qrt.anchorMax = new Vector2(0, 1); qrt.pivot = new Vector2(0, 1);
-            qrt.anchoredPosition = new Vector2(24, -24); qrt.sizeDelta = new Vector2(150, 72);
-            quit.GetComponent<Image>().color = UiKit.CardAlt;
-            var ql = UiKit.Text("L", quit.transform, "退出", 32, TextAlignmentOptions.Center, UiKit.Ink);
-            UiKit.StretchFull(ql.gameObject, 6);
-            quit.GetComponent<Button>().onClick.AddListener(Quit);
+            float safeTop = UiKit.SafeTopInset(gameObject);
+            const float headerH = 132f;
+            const float side = 48f;
 
-            _progress = UiKit.Text("Progress", transform, "", 34, TextAlignmentOptions.Center, UiKit.Muted);
-            UiKit.AnchorTop(_progress.gameObject, height: 70, topOffset: 30, sideMargin: 200);
+            // ── Top app bar: back (left) · title (center) · close (right), with a hairline base.
+            var header = UiKit.Panel("Header", transform, UiKit.Paper);
+            var hrt = UiKit.Rect(header);
+            hrt.anchorMin = new Vector2(0, 1); hrt.anchorMax = new Vector2(1, 1); hrt.pivot = new Vector2(0.5f, 1);
+            hrt.sizeDelta = new Vector2(0, headerH + safeTop); hrt.anchoredPosition = Vector2.zero;
+            var hairline = UiKit.Panel("HeaderBorder", header.transform, new Color(UiKit.Ink.r, UiKit.Ink.g, UiKit.Ink.b, 0.10f));
+            var hlr = UiKit.Rect(hairline);
+            hlr.anchorMin = new Vector2(0, 0); hlr.anchorMax = new Vector2(1, 0); hlr.pivot = new Vector2(0.5f, 0);
+            hlr.sizeDelta = new Vector2(0, 2); hlr.anchoredPosition = Vector2.zero;
 
-            _timerText = UiKit.Text("Timer", transform, "", 30, TextAlignmentOptions.Center, UiKit.Accent);
-            UiKit.AnchorTop(_timerText.gameObject, height: 44, topOffset: 104, sideMargin: 40);
+            IconButton("Back", "←", 52, Primary, new Vector2(0, 1), new Vector2(20, -(safeTop + 24)), Quit);
+            IconButton("Close", "×", 60, SecondaryTxt, new Vector2(1, 1), new Vector2(-20, -(safeTop + 24)), Quit);
 
-            // Timer bar: background + left-anchored fill whose width = remaining/total.
-            var barBg = UiKit.Panel("TimerBar", transform, UiKit.CardAlt);
+            // ── Status row: PROGRESS (left) / STREAK (right), then a thin countdown bar.
+            float top0 = safeTop + headerH + 40f;
+            CapLabel("ProgressCap", "PROGRESS", new Vector2(0, 1), TextAlignmentOptions.TopLeft, new Vector2(side, -top0));
+            _progressValue = ValueLabel("ProgressVal", new Vector2(0, 1), TextAlignmentOptions.TopLeft,
+                new Vector2(side, -(top0 + 32)), UiKit.Ink);
+            CapLabel("StreakCap", "STREAK", new Vector2(1, 1), TextAlignmentOptions.TopRight, new Vector2(-side, -top0));
+            _streakValue = ValueLabel("StreakVal", new Vector2(1, 1), TextAlignmentOptions.TopRight,
+                new Vector2(-side, -(top0 + 32)), Primary);
+
+            var barBg = UiKit.Panel("TimerBar", transform, BarTrack);
             var brt = UiKit.Rect(barBg);
             brt.anchorMin = new Vector2(0, 1); brt.anchorMax = new Vector2(1, 1); brt.pivot = new Vector2(0.5f, 1);
-            brt.sizeDelta = new Vector2(-120, 16); brt.anchoredPosition = new Vector2(0, -156);
-            var fill = UiKit.Panel("Fill", barBg.transform, UiKit.Accent);
+            brt.sizeDelta = new Vector2(-2 * side, 6); brt.anchoredPosition = new Vector2(0, -(top0 + 108));
+            var fill = UiKit.Panel("Fill", barBg.transform, PrimaryContainer);
             _timerFill = UiKit.Rect(fill);
             _timerFill.anchorMin = new Vector2(0, 0); _timerFill.anchorMax = new Vector2(1, 1);
             _timerFill.offsetMin = Vector2.zero; _timerFill.offsetMax = Vector2.zero;
 
-            // Poem card (only context line + blank line).
-            var card = UiKit.Panel("Card", transform, UiKit.Card);
+            _timerText = UiKit.Text("Timer", transform, "", 28, TextAlignmentOptions.Center, Primary);
+            UiKit.AnchorTop(_timerText.gameObject, height: 40, topOffset: top0 + 128, sideMargin: 40);
+
+            // ── Question card (the "scroll"): white sheet, lattice corners, meta + clue + divider.
+            float cardTop = top0 + 188f;
+            const float optionsReserve = 600f;
+            var card = UiKit.Panel("Card", transform, CardWhite);
             var crt = UiKit.Rect(card);
             crt.anchorMin = new Vector2(0, 0); crt.anchorMax = new Vector2(1, 1);
-            crt.offsetMin = new Vector2(40, 760); crt.offsetMax = new Vector2(-40, -200);
-            _meta = UiKit.Text("Meta", card.transform, "", 30, TextAlignmentOptions.Center, UiKit.Muted);
-            UiKit.AnchorTop(_meta.gameObject, height: 54, topOffset: 18, sideMargin: 18);
-            _poemText = UiKit.Text("Poem", card.transform, "", 58, TextAlignmentOptions.Center, UiKit.Ink);
-            var prt = UiKit.Rect(_poemText.gameObject);
-            prt.anchorMin = new Vector2(0, 0); prt.anchorMax = new Vector2(1, 1);
-            prt.offsetMin = new Vector2(20, 20); prt.offsetMax = new Vector2(-20, -78);
+            crt.offsetMin = new Vector2(side, optionsReserve); crt.offsetMax = new Vector2(-side, -cardTop);
+            AddCorners(card);
 
-            // Options.
+            _meta = UiKit.Text("Meta", card.transform, "", 30, TextAlignmentOptions.Center, SecondaryTxt);
+            UiKit.AnchorTop(_meta.gameObject, height: 50, topOffset: 44, sideMargin: 30);
+
+            // Clue area: poem lines + a short centered divider, vertically centered as a group.
+            var clue = UiKit.Panel("Clue", card.transform);
+            var clr = UiKit.Rect(clue);
+            clr.anchorMin = new Vector2(0, 0); clr.anchorMax = new Vector2(1, 1);
+            clr.offsetMin = new Vector2(40, 40); clr.offsetMax = new Vector2(-40, -120);
+            var vg = UiKit.VerticalGroup(clue, spacing: 30, padX: 0, padY: 0, align: TextAnchor.MiddleCenter);
+            vg.childForceExpandHeight = false;
+
+            _poemText = UiKit.Text("Poem", clue.transform, "", 92, TextAlignmentOptions.Center, UiKit.Ink, wrap: true);
+            _poemText.enableAutoSizing = true;
+            _poemText.fontSizeMin = 44; _poemText.fontSizeMax = 96;
+            // No object-level tracking: that splits the blank's underscores into separate dashes.
+            // Hanzi lines get their tracking via per-run <cspace> tags in BuildMinimalText instead.
+            _poemText.characterSpacing = 0f;
+            _poemText.lineSpacing = 12f;
+            // Fixed-height slot so the layout group doesn't depend on TMP's intrinsic height while
+            // auto-sizing; the text centers within and shrinks to fit both width and this box.
+            UiKit.Pref(_poemText.gameObject, minH: 300);
+
+            var divSlot = UiKit.Panel("Divider", clue.transform);
+            UiKit.Pref(divSlot.gameObject, minH: 2);
+            var dline = UiKit.Panel("DividerLine", divSlot.transform, new Color(PrimaryContainer.r, PrimaryContainer.g, PrimaryContainer.b, 0.30f));
+            var dlr = UiKit.Rect(dline);
+            dlr.anchorMin = dlr.anchorMax = dlr.pivot = new Vector2(0.5f, 0.5f);
+            dlr.sizeDelta = new Vector2(160, 2); dlr.anchoredPosition = Vector2.zero;
+
+            // ── Answer options: four full-width parchment buttons, sharp corners.
             var options = UiKit.Panel("Options", transform);
             var ort = UiKit.Rect(options);
             ort.anchorMin = new Vector2(0, 0); ort.anchorMax = new Vector2(1, 0); ort.pivot = new Vector2(0.5f, 0);
-            ort.sizeDelta = new Vector2(-80, 540); ort.anchoredPosition = new Vector2(0, 40);
+            ort.sizeDelta = new Vector2(-2 * side, 512); ort.anchoredPosition = new Vector2(0, 64);
             UiKit.VerticalGroup(options, spacing: 16, padX: 0, padY: 0, align: TextAnchor.UpperCenter);
             for (int i = 0; i < 4; i++)
             {
                 int idx = i;
-                var btn = UiKit.Button("Opt" + i, options.transform, "", out var lbl, UiKit.CardAlt, 40);
+                var btn = UiKit.Button("Opt" + i, options.transform, "", out var lbl, SecondaryFixed, 44);
                 UiKit.Pref(btn.gameObject, minH: 116);
                 btn.onClick.AddListener(() => Resolve(idx));
                 _optionButtons.Add(btn);
                 _optionLabels.Add(lbl);
+            }
+        }
+
+        /// <summary>Borderless icon glyph button anchored to a corner of the screen.</summary>
+        private void IconButton(string name, string glyph, float size, Color color,
+            Vector2 corner, Vector2 pos, System.Action onClick)
+        {
+            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
+            go.transform.SetParent(transform, false);
+            go.GetComponent<Image>().color = new Color(0, 0, 0, 0); // transparent hit area
+            var rt = UiKit.Rect(go);
+            rt.anchorMin = rt.anchorMax = corner; rt.pivot = corner;
+            rt.sizeDelta = new Vector2(84, 84); rt.anchoredPosition = pos;
+            var lbl = UiKit.Text("Glyph", go.transform, glyph, size, TextAlignmentOptions.Center, color);
+            UiKit.StretchFull(lbl.gameObject);
+            go.GetComponent<Button>().onClick.AddListener(() => onClick());
+        }
+
+        /// <summary>Small uppercase caption (PROGRESS / STREAK).</summary>
+        private void CapLabel(string name, string text, Vector2 corner, TextAlignmentOptions align, Vector2 pos)
+        {
+            var t = UiKit.Text(name, transform, text, 22, align, SecondaryTxt);
+            t.characterSpacing = 6f;
+            var rt = UiKit.Rect(t.gameObject);
+            rt.anchorMin = rt.anchorMax = corner; rt.pivot = corner;
+            rt.sizeDelta = new Vector2(420, 28); rt.anchoredPosition = pos;
+        }
+
+        private TextMeshProUGUI ValueLabel(string name, Vector2 corner, TextAlignmentOptions align, Vector2 pos, Color color)
+        {
+            var t = UiKit.Text(name, transform, "", 38, align, color);
+            var rt = UiKit.Rect(t.gameObject);
+            rt.anchorMin = rt.anchorMax = corner; rt.pivot = corner;
+            rt.sizeDelta = new Vector2(520, 48); rt.anchoredPosition = pos;
+            return t;
+        }
+
+        /// <summary>Window-lattice corner motif (an L-bracket) at each card corner.</summary>
+        private static void AddCorners(GameObject card)
+        {
+            var col = new Color(Outline.r, Outline.g, Outline.b, 0.30f);
+            const float arm = 46f, thick = 3f, inset = 20f;
+            Vector2[] corners = { new Vector2(0, 1), new Vector2(1, 1), new Vector2(0, 0), new Vector2(1, 0) };
+            foreach (var a in corners)
+            {
+                float sx = a.x == 0 ? 1f : -1f;
+                float sy = a.y == 1 ? -1f : 1f;
+                var pos = new Vector2(sx * inset, sy * inset);
+                var h = UiKit.Rect(UiKit.Panel("CornerH", card.transform, col));
+                h.anchorMin = h.anchorMax = h.pivot = a; h.sizeDelta = new Vector2(arm, thick); h.anchoredPosition = pos;
+                var v = UiKit.Rect(UiKit.Panel("CornerV", card.transform, col));
+                v.anchorMin = v.anchorMax = v.pivot = a; v.sizeDelta = new Vector2(thick, arm); v.anchoredPosition = pos;
             }
         }
 
@@ -144,7 +245,8 @@ namespace PoemPoetry.UI
             var q = Current;
             var poem = Services.Content.GetPoem(q.PoemId);
             bool isCi = poem != null && poem.Type == "词";
-            _progress.text = $"第 {_index + 1}/{_session.Total} 题   连胜 {_streak}";
+            _progressValue.text = $"第 {_index + 1}/{_session.Total} 题";
+            _streakValue.text = $"连胜 {_streak}";
             _meta.text = poem == null ? "" : (isCi
                 ? (string.IsNullOrEmpty(poem.Cipai) ? poem.Title : poem.Cipai) + " · " + poem.Author
                 : $"{poem.Title} · {poem.Dynasty}·{poem.Author}");
@@ -153,7 +255,7 @@ namespace PoemPoetry.UI
             for (int i = 0; i < 4; i++)
             {
                 _optionButtons[i].interactable = true;
-                _optionButtons[i].image.color = UiKit.CardAlt;
+                _optionButtons[i].image.color = SecondaryFixed;
                 _optionLabels[i].text = q.Options[i].Text;
                 _optionLabels[i].color = UiKit.Ink;
             }
@@ -258,9 +360,15 @@ namespace PoemPoetry.UI
                 int i = idxs[k];
                 if (k > 0) sb.Append('\n');
                 if (i == blankIndex)
-                    sb.Append(fill ?? "<color=#BF4038>" + new string('_', Mathf.Max(4, poem.Lines[i].CharCount * 2)) + "</color>");
+                {
+                    // Blank: plain underscores (no <cspace>) so the glyphs join into one continuous rule.
+                    if (fill != null) sb.Append("<cspace=0.1em>").Append(fill).Append("</cspace>");
+                    else sb.Append("<color=#BF4038>").Append('_', Mathf.Max(4, poem.Lines[i].CharCount * 2)).Append("</color>");
+                }
                 else
-                    sb.Append(poem.Lines[i].Text);
+                {
+                    sb.Append("<cspace=0.1em>").Append(poem.Lines[i].Text).Append("</cspace>");
+                }
             }
             return sb.ToString();
         }

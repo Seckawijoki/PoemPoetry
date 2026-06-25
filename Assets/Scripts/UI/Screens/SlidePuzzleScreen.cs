@@ -15,7 +15,8 @@ namespace PoemPoetry.UI
     /// </summary>
     public sealed class SlidePuzzleScreen : UIScreen
     {
-        private const float WidthBudget = 1000f;
+        // Canvas reference width is 1080; keep a comfortable side margin (grid frame adds +28).
+        private const float WidthBudget = 920f;
         private const float HeightBudget = 1400f;
         private const float Spacing = 6f;
         private static readonly Color RevealColor = new Color(0.92f, 0.74f, 0.30f);
@@ -33,6 +34,7 @@ namespace PoemPoetry.UI
 
         private TextMeshProUGUI _timerText;
         private TextMeshProUGUI _statusText;
+        private RectTransform _bodyRoot;
         private RectTransform _gridPanel;
         private GridSelector _selector;
         private float _cellSize;
@@ -52,7 +54,7 @@ namespace PoemPoetry.UI
         private float _backArmedUntil = -1f;   // 第一次按返回后给的二次确认窗口
         private TextMeshProUGUI _backHint;
 
-        private Color PathColor => _practice ? RevealColor : UiKit.CardAlt;
+        private Color PathColor => _practice ? RevealColor : Design.SecondaryFixed;
 
         protected override void OnShow(object args)
         {
@@ -73,31 +75,28 @@ namespace PoemPoetry.UI
 
         private void BuildChrome()
         {
-            var bg = gameObject.GetComponent<Image>() ?? gameObject.AddComponent<Image>();
-            bg.color = UiKit.Paper;
+            _bodyRoot = Design.Chrome(gameObject, OnBackPressed, () => Nav.Push<SettingsScreen>(),
+                _replay ? "找诗回看" : "划线寻踪");
 
-            var back = new GameObject("Back", typeof(RectTransform), typeof(Image), typeof(Button));
-            back.transform.SetParent(transform, false);
-            var brt = UiKit.Rect(back);
-            brt.anchorMin = new Vector2(0, 1); brt.anchorMax = new Vector2(0, 1); brt.pivot = new Vector2(0, 1);
-            brt.anchoredPosition = new Vector2(24, -24); brt.sizeDelta = new Vector2(150, 72);
-            back.GetComponent<Image>().color = UiKit.CardAlt;
-            var bl = UiKit.Text("L", back.transform, "返回", 32, TextAlignmentOptions.Center, UiKit.Ink);
-            UiKit.StretchFull(bl.gameObject, 6);
-            back.GetComponent<Button>().onClick.AddListener(OnBackPressed);
+            _timerText = UiKit.Text("Timer", _bodyRoot, "", 42, TextAlignmentOptions.Center, Design.Ink);
+            UiKit.AnchorTop(_timerText.gameObject, 60, 20, 30);
 
-            var title = UiKit.Text("Title", transform, _replay ? "找诗回看" : "滑动找诗", 50, TextAlignmentOptions.Center, UiKit.Accent);
-            UiKit.AnchorTop(title.gameObject, 84, 24, 200);
+            _statusText = UiKit.Text("Status", _bodyRoot, "", 26, TextAlignmentOptions.Center, Design.OnSurfaceVariant);
+            UiKit.AnchorTop(_statusText.gameObject, 46, 88, 30);
 
-            _backHint = UiKit.Text("BackHint", transform, "再按一次返回退出", 28, TextAlignmentOptions.Center, UiKit.Accent);
-            UiKit.AnchorTop(_backHint.gameObject, 40, 220, 30);
+            _backHint = UiKit.Text("BackHint", _bodyRoot, "再按一次返回退出", 26, TextAlignmentOptions.Center, Design.Primary);
+            UiKit.AnchorTop(_backHint.gameObject, 40, 138, 30);
             _backHint.gameObject.SetActive(false);
 
-            _timerText = UiKit.Text("Timer", transform, "", 38, TextAlignmentOptions.Center, UiKit.Ink);
-            UiKit.AnchorTop(_timerText.gameObject, 56, 118, 30);
-
-            _statusText = UiKit.Text("Status", transform, "", 26, TextAlignmentOptions.Center, UiKit.Muted);
-            UiKit.AnchorTop(_statusText.gameObject, 46, 178, 30);
+            if (!_replay)
+            {
+                var footer = UiKit.Text("Footer", _bodyRoot, "滑动方块 · 寻找诗篇", 26, TextAlignmentOptions.Center,
+                    Design.Alpha(Design.OnSurfaceVariant, 0.6f));
+                footer.characterSpacing = 4f;
+                var frt = UiKit.Rect(footer.gameObject);
+                frt.anchorMin = new Vector2(0.5f, 0); frt.anchorMax = new Vector2(0.5f, 0); frt.pivot = new Vector2(0.5f, 0);
+                frt.sizeDelta = new Vector2(700, 40); frt.anchoredPosition = new Vector2(0, 36);
+            }
 
             _gridPanel = MakeGrid();
         }
@@ -108,13 +107,22 @@ namespace PoemPoetry.UI
                                   (HeightBudget - (_rows - 1) * Spacing) / _rows);
             float w = _cols * _cellSize + (_cols - 1) * Spacing;
             float h = _rows * _cellSize + (_rows - 1) * Spacing;
+            var gridPos = new Vector2(0, -10);
+
+            // White "rice paper" mat behind the grid, with lattice corners.
+            var frame = UiKit.Panel("GridFrame", _bodyRoot, Design.CardWhite);
+            var frt = UiKit.Rect(frame);
+            frt.anchorMin = new Vector2(0.5f, 0.5f); frt.anchorMax = new Vector2(0.5f, 0.5f); frt.pivot = new Vector2(0.5f, 0.5f);
+            frt.anchoredPosition = gridPos; frt.sizeDelta = new Vector2(w + 28, h + 28);
+            Design.Corners(frame, Design.Alpha(Design.Primary, 0.35f), arm: 34, thick: 2, inset: 6);
+
             var panel = new GameObject("Grid", typeof(RectTransform), typeof(Image), typeof(GridLayoutGroup), typeof(GridSelector));
-            panel.transform.SetParent(transform, false);
+            panel.transform.SetParent(_bodyRoot, false);
             var rt = panel.GetComponent<RectTransform>();
             rt.anchorMin = new Vector2(0.5f, 0.5f); rt.anchorMax = new Vector2(0.5f, 0.5f); rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.anchoredPosition = new Vector2(0, -70);
+            rt.anchoredPosition = gridPos;
             rt.sizeDelta = new Vector2(w, h);
-            panel.GetComponent<Image>().color = new Color(0, 0, 0, 0.03f);
+            panel.GetComponent<Image>().color = Design.Alpha(Design.Outline, 0.18f); // shows through gaps as gridlines
 
             var glg = panel.GetComponent<GridLayoutGroup>();
             glg.cellSize = new Vector2(_cellSize, _cellSize);
@@ -153,15 +161,25 @@ namespace PoemPoetry.UI
                     l = fam[_rng.Next(fam.Count)];
                 }
                 else l = p.Lines[_rng.Next(p.Lines.Count)];
-                if (l.CharCount < 2 || l.CharCount > maxLine) continue;
+                if (l.CharCount < 5 || l.CharCount > maxLine) continue; // 只放五字及以上的诗句
                 if (!used.Add(l.Text)) continue;
                 if (_game.TryPlace(l.Text, SplitChars(l.Text), p.Title, p.Id)) placed++;
             }
 
+            // Filler pool = corpus chars EXCLUDING any character used by a placed target line, so the
+            // noise can't spell a target fragment and is easier to tell apart from the real 诗句 (降低难度).
+            var targetChars = new HashSet<string>();
+            foreach (var t in _game.Targets)
+                if (t.Chars != null) foreach (var ch in t.Chars) targetChars.Add(ch);
             var pool = new List<string>();
             foreach (var p in Services.Content.Poems)
                 foreach (var l in p.Lines)
-                    foreach (var ch in SplitChars(l.Text)) pool.Add(ch);
+                    foreach (var ch in SplitChars(l.Text))
+                        if (!targetChars.Contains(ch)) pool.Add(ch);
+            if (pool.Count == 0) // extreme fallback: targets consumed the whole corpus
+                foreach (var p in Services.Content.Poems)
+                    foreach (var l in p.Lines)
+                        foreach (var ch in SplitChars(l.Text)) pool.Add(ch);
             _game.FillEmpty(pool);
 
             RenderGrid();
@@ -176,10 +194,12 @@ namespace PoemPoetry.UI
         {
             var diff = _args.Difficulties ?? new List<int>();
             var dyn = _args.Dynasties ?? new List<string>();
+            var types = _args.Types ?? new List<string>();
             var result = new List<Poem>();
             foreach (var p in Services.Content.Poems)
             {
                 if (dyn.Count > 0 && !dyn.Contains(p.Dynasty)) continue;
+                if (types.Count > 0 && !types.Contains(p.Type)) continue;
                 if (diff.Count > 0 && !diff.Contains(p.Difficulty)) continue;
                 if (_args.FamousOnly && !p.Lines.Exists(x => x.Famous)) continue;
                 result.Add(p);
@@ -213,8 +233,8 @@ namespace PoemPoetry.UI
                 var cell = new GameObject("C" + i, typeof(RectTransform), typeof(Image));
                 cell.transform.SetParent(_gridPanel, false);
                 var img = cell.GetComponent<Image>();
-                img.color = UiKit.Card;
-                var t = UiKit.Text("t", cell.transform, _game.Cells[i] ?? "", fontSize, TextAlignmentOptions.Center, UiKit.Ink);
+                img.color = Design.CardWhite;
+                var t = UiKit.Text("t", cell.transform, _game.Cells[i] ?? "", fontSize, TextAlignmentOptions.Center, Design.Ink);
                 UiKit.StretchFull(t.gameObject, 2);
                 _cellBg.Add(img);
                 _cellTxt.Add(t);
@@ -294,7 +314,7 @@ namespace PoemPoetry.UI
         }
 
         private void Paint(int idx, Color c) { if (!_foundCells.Contains(idx)) _cellBg[idx].color = c; }
-        private void Repaint(int idx) { if (!_foundCells.Contains(idx)) _cellBg[idx].color = UiKit.Card; }
+        private void Repaint(int idx) { if (!_foundCells.Contains(idx)) _cellBg[idx].color = Design.CardWhite; }
         private void ClearPath()
         {
             foreach (var idx in _path) Repaint(idx);
@@ -312,9 +332,11 @@ namespace PoemPoetry.UI
         private string LevelHint() =>
             _level == 1 ? "横竖" : _level == 2 ? "横竖斜" : _level == 3 ? "横竖蛇形" : "全向蛇形";
 
-        // First tap arms a 2s window and warns; a second tap within it actually leaves.
+        // While a game is running, the first tap arms a 2s window and warns; a second tap within it
+        // actually leaves. Once finished or in replay there's nothing to lose, so a single tap exits.
         private void OnBackPressed()
         {
+            if (!_running) { Nav.Pop(); return; }
             if (Time.unscaledTime <= _backArmedUntil) { Nav.Pop(); return; }
             _backArmedUntil = Time.unscaledTime + 2f;
             if (_backHint != null) _backHint.gameObject.SetActive(true);
@@ -382,12 +404,12 @@ namespace PoemPoetry.UI
         private void AddRevealButton()
         {
             var b = new GameObject("Reveal", typeof(RectTransform), typeof(Image), typeof(Button));
-            b.transform.SetParent(transform, false);
+            b.transform.SetParent(_bodyRoot, false);
             var rt = UiKit.Rect(b);
             rt.anchorMin = new Vector2(0.5f, 0); rt.anchorMax = new Vector2(0.5f, 0); rt.pivot = new Vector2(0.5f, 0);
-            rt.anchoredPosition = new Vector2(0, 40); rt.sizeDelta = new Vector2(420, 96);
-            b.GetComponent<Image>().color = UiKit.CardAlt;
-            var l = UiKit.Text("L", b.transform, "显示未滑出的诗句", 30, TextAlignmentOptions.Center, UiKit.Ink);
+            rt.anchoredPosition = new Vector2(0, 40); rt.sizeDelta = new Vector2(460, 96);
+            b.GetComponent<Image>().color = Design.SurfaceHigh;
+            var l = UiKit.Text("L", b.transform, "显示未滑出的诗句", 30, TextAlignmentOptions.Center, Design.Ink);
             UiKit.StretchFull(l.gameObject, 6);
             b.GetComponent<Button>().onClick.AddListener(RevealUnfound);
         }
@@ -397,23 +419,34 @@ namespace PoemPoetry.UI
             _resultOverlay = UiKit.Panel("Result", transform, new Color(0, 0, 0, 0.78f));
             UiKit.StretchFull(_resultOverlay);
 
-            var box = UiKit.Panel("Box", _resultOverlay.transform, UiKit.Paper);
+            var box = UiKit.Panel("Box", _resultOverlay.transform, Design.Paper);
             var brt = UiKit.Rect(box);
             brt.anchorMin = new Vector2(0.5f, 0.5f); brt.anchorMax = new Vector2(0.5f, 0.5f); brt.pivot = new Vector2(0.5f, 0.5f);
-            brt.sizeDelta = new Vector2(940, 1240); brt.anchoredPosition = Vector2.zero;
-            UiKit.VerticalGroup(box, spacing: 14, padX: 30, padY: 30, align: TextAnchor.UpperCenter);
+            brt.sizeDelta = new Vector2(960, 1280); brt.anchoredPosition = Vector2.zero;
+            UiKit.VerticalGroup(box, spacing: 10, padX: 36, padY: 36, align: TextAnchor.UpperCenter);
+            Design.Corners(box, Design.Alpha(Design.PrimaryContainer, 0.4f), arm: 40, thick: 2, inset: 16);
 
             int found = 0;
             foreach (var t in _game.Targets) if (t.Found) found++;
-            var head = UiKit.Text("H", box.transform, $"找到 {found}/{_game.Targets.Count} 句", 48, TextAlignmentOptions.Center, UiKit.Accent);
-            UiKit.MinHeight(head.gameObject, 90);
+            int total = _game.Targets.Count;
+            int pct = total > 0 ? found * 100 / total : 0;
+            int dur = Mathf.RoundToInt(_totalSeconds - Mathf.Max(0f, _endTime - Time.unscaledTime));
+
+            UiKit.MinHeight(UiKit.Text("Cap", box.transform, "挑战结果", 26, TextAlignmentOptions.Center, Design.OnSurfaceVariant).gameObject, 40);
+            UiKit.MinHeight(UiKit.Text("H", box.transform, $"找到 {found}/{total} 句", 56, TextAlignmentOptions.Center, Design.Primary).gameObject, 90);
+            UiKit.MinHeight(UiKit.Text("Grade", box.transform, Grade(pct), 30, TextAlignmentOptions.Center, Design.Primary).gameObject, 46);
+            UiKit.MinHeight(UiKit.Text("Stat", box.transform, $"用时 {UiFormat.Duration(dur)}　·　正确率 {pct}%", 28,
+                TextAlignmentOptions.Center, Design.OnSurfaceVariant).gameObject, 52);
+            UiKit.MinHeight(Design.HLine(box.transform, 0.16f), 2);
 
             var list = UiKit.ScrollList("L", box.transform, out _);
+            string greenHex = ColorUtility.ToHtmlStringRGB(UiKit.Good);
+            string redHex = ColorUtility.ToHtmlStringRGB(UiKit.Bad);
             foreach (var t in _game.Targets)
             {
-                string color = t.Found ? "#2E8B47" : "#BF4038";
-                string mark = t.Found ? "对" : "错";
-                var row = UiKit.Text("R", list, $"<color={color}>[{mark}] {t.Text} · {t.Title}</color>", 32, TextAlignmentOptions.Left, UiKit.Ink);
+                string mark = t.Found ? $"<color=#{greenHex}>✓</color>" : $"<color=#{redHex}>×</color>";
+                var row = UiKit.Text("R", list, $"{mark}　{t.Text}　<size=80%><color=#{ColorUtility.ToHtmlStringRGB(Design.OnSurfaceVariant)}>· {t.Title}</color></size>",
+                    30, TextAlignmentOptions.Left, Design.Ink);
                 UiKit.Pref(row.gameObject, minH: 72);
             }
 
@@ -422,20 +455,19 @@ namespace PoemPoetry.UI
             var hg = UiKit.HorizontalGroup(btns, spacing: 12);
             hg.childForceExpandHeight = false;
 
-            var keep = UiKit.Button("Keep", btns.transform, "继续查看", out _, UiKit.CardAlt, 30);
+            var keep = UiKit.Button("Keep", btns.transform, "继续查看", out _, Design.SurfaceHigh, 30);
             UiKit.Pref(keep.gameObject, minH: 110);
             keep.onClick.AddListener(() => { CloseResult(); _practice = true; UpdateStatus(); });
 
-            var reveal = UiKit.Button("Reveal", btns.transform, "显示未滑出", out _, UiKit.CardAlt, 30);
+            var reveal = UiKit.Button("Reveal", btns.transform, "显示未滑出", out _, Design.SurfaceHigh, 30);
             UiKit.Pref(reveal.gameObject, minH: 110);
             reveal.onClick.AddListener(() => { CloseResult(); _practice = true; RevealUnfound(); UpdateStatus(); });
 
-            var again = UiKit.Button("Again", btns.transform, "再来一局", out var al, UiKit.Accent, 30);
+            var again = Design.PrimaryButton("Again", btns.transform, "再来一局", out _, 30);
             UiKit.Pref(again.gameObject, minH: 110);
-            al.color = Color.white;
             again.onClick.AddListener(NewGame);
 
-            var home = UiKit.Button("Home", btns.transform, "返回", out _, UiKit.CardAlt, 30);
+            var home = UiKit.Button("Home", btns.transform, "返回", out _, Design.SurfaceHigh, 30);
             UiKit.Pref(home.gameObject, minH: 110);
             home.onClick.AddListener(() => Nav.Pop());
         }
@@ -444,6 +476,9 @@ namespace PoemPoetry.UI
         {
             if (_resultOverlay != null) { Destroy(_resultOverlay); _resultOverlay = null; }
         }
+
+        private static string Grade(int pct) =>
+            pct >= 100 ? "妙笔生花" : pct >= 80 ? "出类拔萃" : pct >= 50 ? "渐入佳境" : "勤能补拙";
 
         private static string[] SplitChars(string s)
         {

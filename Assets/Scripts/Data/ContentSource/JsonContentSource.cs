@@ -28,12 +28,11 @@ namespace PoemPoetry.Data
             return (IReadOnlyList<Poem>)(file?.Poems) ?? new List<Poem>();
         }
 
-        public async Task<IReadOnlyList<Question>> LoadQuestionsAsync()
+        public async Task<QuestionFile> LoadQuestionBankAsync()
         {
-            if (!_loader.Exists(QuestionsPath)) return new List<Question>();
+            if (!_loader.Exists(QuestionsPath)) return new QuestionFile();
             var json = await _loader.ReadTextAsync(QuestionsPath);
-            var file = PoemJson.Deserialize<QuestionFile>(json);
-            return (IReadOnlyList<Question>)(file?.Questions) ?? new List<Question>();
+            return PoemJson.Deserialize<QuestionFile>(json) ?? new QuestionFile();
         }
 
         public async Task<IReadOnlyList<WordClozeQuestion>> LoadWordClozeQuestionsAsync()
