@@ -32,5 +32,6 @@
 *.aif       binary
 *.dll       binary
 *.so        binary
+*.db        binary
 *.pdf       binary
 *.unitypackage binary

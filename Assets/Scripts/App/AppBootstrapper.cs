@@ -31,8 +31,13 @@ namespace PoemPoetry.App
             AppServices services;
             try
             {
-                var content = new JsonContentSource(new StreamingAssetsTextLoader(Application.streamingAssetsPath));
-                services = await AppServices.CreateAsync(content, Application.persistentDataPath);
+                // Read-only content now comes from the compiled SQLite DB (content.db). Provision it
+                // out of StreamingAssets to a path-addressable location, then query it directly.
+                var dbPath = await ContentDbProvisioner.EnsureAsync(
+                    Application.streamingAssetsPath, Application.persistentDataPath);
+                var content = new SqliteContentSource(dbPath);
+                var contentDb = new SqliteContentDb(dbPath);
+                services = await AppServices.CreateAsync(content, Application.persistentDataPath, contentDb: contentDb);
             }
             catch (System.Exception e)
             {

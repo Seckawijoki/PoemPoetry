@@ -36,30 +36,37 @@ namespace PoemPoetry.Core
         }
 
         public static async Task<AppServices> CreateAsync(
-            IContentSource content, string userDataDir, IClock clock = null, IRandomSource rng = null)
+            IContentSource content, string userDataDir, IClock clock = null, IRandomSource rng = null,
+            SqliteContentDb contentDb = null)
         {
             clock = clock ?? new SystemClock();
             rng = rng ?? new SystemRandomSource();
 
-            var contentService = await ContentService.LoadAsync(content);
+            // contentDb (when supplied) pushes pool filtering down to indexed SQL; null keeps the
+            // in-memory path (unit tests / fallback).
+            var contentService = await ContentService.LoadAsync(content, contentDb);
 
             RhymeService rhyme = null;
             try { rhyme = await RhymeService.LoadAsync(content); }
             catch { /* rhyme dictionary optional at runtime; used mainly by editor tools / endless mode */ }
 
-            var settings = new SettingsService(new JsonSettingsStore(userDataDir));
+            // User data now lives in one transactional SQLite file (user.db); on first open it
+            // imports any pre-existing JSON via the old repos and renames them aside.
+            var userDb = await SqliteUserDatabase.OpenAsync(userDataDir);
+
+            var settings = new SettingsService(new SqliteSettingsStore(userDb));
             await settings.InitAsync();
 
-            var difficulty = new DifficultyService(new JsonDifficultyOverrideStore(userDataDir), contentService);
+            var difficulty = new DifficultyService(new SqliteDifficultyOverrideStore(userDb), contentService);
             await difficulty.InitAsync();
 
             return new AppServices(
                 contentService,
                 rhyme,
                 new QuizService(rng),
-                new RecordService(new JsonRecordRepository(userDataDir), clock),
-                new FavoriteService(new JsonFavoriteRepository(userDataDir), clock),
-                new WrongBookService(new JsonWrongBookRepository(userDataDir), clock),
+                new RecordService(new SqliteRecordRepository(userDb), clock),
+                new FavoriteService(new SqliteFavoriteRepository(userDb), clock),
+                new WrongBookService(new SqliteWrongBookRepository(userDb), clock),
                 settings,
                 difficulty);
         }

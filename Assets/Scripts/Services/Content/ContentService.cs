@@ -11,6 +11,13 @@ namespace PoemPoetry.Services
         private readonly List<Question> _questions;
         private readonly List<WordClozeQuestion> _wordCloze;
         private readonly Dictionary<string, Poem> _byId = new Dictionary<string, Poem>();
+        private readonly Dictionary<string, Question> _byQId = new Dictionary<string, Question>();
+        private readonly Dictionary<string, WordClozeQuestion> _byWcId = new Dictionary<string, WordClozeQuestion>();
+
+        // Optional SQL query backend (content.db). When set, pool FILTERING (dynasty/体裁/难度/挖空数)
+        // runs as indexed SQL; object materialization + distractor ranking still happen here in C#.
+        // Null in unit tests / the in-memory path, which keeps the original full-scan behavior.
+        private readonly SqliteContentDb _db;
 
         // v2 干扰项簇: id → fine cluster (同字数/同韵组/同平仄型); (字数|韵组) → union bucket for widening.
         private readonly Dictionary<int, LineCluster> _clusterById = new Dictionary<int, LineCluster>();
@@ -20,13 +27,17 @@ namespace PoemPoetry.Services
         private const int DistractorPoolCap = 20;
 
         public ContentService(IReadOnlyList<Poem> poems, IReadOnlyList<Question> questions,
-            IReadOnlyList<WordClozeQuestion> wordCloze = null, IReadOnlyList<LineCluster> clusters = null)
+            IReadOnlyList<WordClozeQuestion> wordCloze = null, IReadOnlyList<LineCluster> clusters = null,
+            SqliteContentDb db = null)
         {
+            _db = db;
             _poems = new List<Poem>(poems ?? new List<Poem>());
             _questions = new List<Question>(questions ?? new List<Question>());
             _wordCloze = new List<WordClozeQuestion>(wordCloze ?? new List<WordClozeQuestion>());
             foreach (var p in _poems)
                 if (!string.IsNullOrEmpty(p.Id)) _byId[p.Id] = p;
+            foreach (var q in _questions) _byQId[q.Id] = q;
+            foreach (var w in _wordCloze) _byWcId[w.Id] = w;
 
             if (clusters != null)
                 foreach (var c in clusters)
@@ -39,12 +50,12 @@ namespace PoemPoetry.Services
                 }
         }
 
-        public static async Task<ContentService> LoadAsync(IContentSource source)
+        public static async Task<ContentService> LoadAsync(IContentSource source, SqliteContentDb db = null)
         {
             var poems = await source.LoadPoemsAsync();
             var bank = await source.LoadQuestionBankAsync();
             var wordCloze = await source.LoadWordClozeQuestionsAsync();
-            return new ContentService(poems, bank?.Questions, wordCloze, bank?.Clusters);
+            return new ContentService(poems, bank?.Questions, wordCloze, bank?.Clusters, db);
         }
 
         public IReadOnlyList<Poem> Poems => _poems;
@@ -103,6 +114,7 @@ namespace PoemPoetry.Services
         /// </summary>
         public List<int> GetDifficultyTiers()
         {
+            if (_db != null) return _db.QuestionDifficultyTiers();
             var set = new HashSet<int>();
             foreach (var q in _questions)
             {
@@ -117,6 +129,13 @@ namespace PoemPoetry.Services
         /// <summary>Questions matching the settings' difficulty + dynasty filters.</summary>
         public List<Question> GetPool(ChallengeSettings settings)
         {
+            if (_db != null)
+            {
+                var ids = _db.QuestionPoolIds(settings);
+                var dbPool = new List<Question>(ids.Count);
+                foreach (var id in ids) if (_byQId.TryGetValue(id, out var q)) dbPool.Add(q);
+                return dbPool;
+            }
             var pool = new List<Question>();
             foreach (var q in _questions)
                 if (Matches(q, settings)) pool.Add(q);
@@ -126,6 +145,7 @@ namespace PoemPoetry.Services
         /// <summary>Pool size without allocating the list (for live count in the config screen).</summary>
         public int CountPool(ChallengeSettings settings)
         {
+            if (_db != null) return _db.CountQuestionPool(settings);
             int n = 0;
             foreach (var q in _questions)
                 if (Matches(q, settings)) n++;
@@ -162,15 +182,11 @@ namespace PoemPoetry.Services
             rng = rng ?? new SystemRandomSource();
             int maxTier = MaxTier(settings);
 
-            // Candidate questions = bank questions passing dynasty/type/per-line difficulty filters,
-            // grouped per poem so we keep at most one per poem (no testing the same poem twice).
+            // Candidate questions = pool passing dynasty/type/per-line difficulty filters (indexed SQL
+            // when a DB backend is present), grouped per poem so we keep at most one per poem.
             var byPoem = new Dictionary<string, List<Question>>();
-            foreach (var q in _questions)
+            foreach (var q in GetPool(settings))
             {
-                var poem = GetPoem(q.PoemId);
-                if (poem == null) continue;
-                if (!DynastyOk(poem, settings) || !TypeOk(poem, settings)) continue;
-                if (!LineDifficultyOk(poem, q.BlankLineIndex, settings)) continue;
                 if (!byPoem.TryGetValue(q.PoemId, out var list)) { list = new List<Question>(); byPoem[q.PoemId] = list; }
                 list.Add(q);
             }
@@ -259,12 +275,14 @@ namespace PoemPoetry.Services
             if (overrides == null) return;
             foreach (var kv in overrides)
                 if (_byId.TryGetValue(kv.Key, out var p)) p.Difficulty = kv.Value;
+            _db?.SyncOverrides(overrides); // keep SQL line-difficulty consistent with in-memory tiers
         }
 
         /// <summary>Set one poem's difficulty in memory (caller persists the override).</summary>
         public void SetDifficulty(string poemId, int tier)
         {
             if (!string.IsNullOrEmpty(poemId) && _byId.TryGetValue(poemId, out var p)) p.Difficulty = tier;
+            if (!string.IsNullOrEmpty(poemId)) _db?.SetOverride(poemId, tier);
         }
 
         /// <summary>Look up specific questions by id (used by 错题本 review sessions), with distractor
@@ -289,6 +307,7 @@ namespace PoemPoetry.Services
         /// <summary>Per-line difficulty tiers present among the wordcloze bank, ascending.</summary>
         public List<int> GetWordClozeDifficultyTiers()
         {
+            if (_db != null) return _db.WordClozeDifficultyTiers();
             var set = new HashSet<int>();
             foreach (var q in _wordCloze) set.Add(q.Difficulty);
             var list = new List<int>(set);
@@ -299,6 +318,7 @@ namespace PoemPoetry.Services
         /// <summary>Distinct 挖空数 (total blanks per question) present in the wordcloze bank, ascending.</summary>
         public List<int> GetWordClozeBlankCounts()
         {
+            if (_db != null) return _db.WordClozeBlankCounts();
             var set = new HashSet<int>();
             foreach (var q in _wordCloze) set.Add(q.Blanks != null ? q.Blanks.Count : 0);
             var list = new List<int>(set);
@@ -309,6 +329,13 @@ namespace PoemPoetry.Services
         /// <summary>Wordcloze questions matching the settings' filters and (optionally) a 挖空数 set.</summary>
         public List<WordClozeQuestion> GetWordClozePool(ChallengeSettings settings, ICollection<int> blankCounts = null)
         {
+            if (_db != null)
+            {
+                var ids = _db.WordClozePoolIds(settings, blankCounts);
+                var dbPool = new List<WordClozeQuestion>(ids.Count);
+                foreach (var id in ids) if (_byWcId.TryGetValue(id, out var q)) dbPool.Add(q);
+                return dbPool;
+            }
             var pool = new List<WordClozeQuestion>();
             foreach (var q in _wordCloze)
                 if (WordClozeMatches(q, settings, blankCounts)) pool.Add(q);
@@ -317,6 +344,7 @@ namespace PoemPoetry.Services
 
         public int CountWordClozePool(ChallengeSettings settings, ICollection<int> blankCounts = null)
         {
+            if (_db != null) return _db.CountWordClozePool(settings, blankCounts);
             int n = 0;
             foreach (var q in _wordCloze)
                 if (WordClozeMatches(q, settings, blankCounts)) n++;

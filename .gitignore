@@ -14,10 +14,12 @@
 *.userprefs
 
 chinese-poetry
+SQLite4Unity3d
 
 # Test harness build artifacts (dev-only, off-engine)
 /Tools/TestHarness/harness.exe
 /Tools/TestHarness/Newtonsoft.Json.dll
+/Tools/TestHarness/sqlite3.dll
 /Tools/TestHarness/sources.rsp
 /Tools/TestHarness/error.log
 /Tools/TestHarness/lib/
