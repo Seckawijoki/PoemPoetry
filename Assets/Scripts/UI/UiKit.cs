@@ -136,6 +136,55 @@ namespace PoemPoetry.UI
             if (lbl != null) lbl.color = on ? Color.white : Ink;
         }
 
+        /// <summary>
+        /// Code-built uGUI Slider (track + accent fill + round handle), mirroring Unity's default
+        /// prefab wiring so dragging works without serialized references. Caller wires onValueChanged.
+        /// </summary>
+        public static Slider Slider(string name, Transform parent, float min, float max, float value,
+            bool wholeNumbers = true)
+        {
+            var go = new GameObject(name, typeof(RectTransform), typeof(Slider));
+            go.transform.SetParent(parent, false);
+            var slider = go.GetComponent<Slider>();
+
+            // Background track.
+            var bg = Panel("Background", go.transform, CardAlt);
+            var bgrt = Rect(bg);
+            bgrt.anchorMin = new Vector2(0, 0.5f); bgrt.anchorMax = new Vector2(1, 0.5f);
+            bgrt.pivot = new Vector2(0.5f, 0.5f); bgrt.sizeDelta = new Vector2(0, 14); bgrt.anchoredPosition = Vector2.zero;
+
+            // Fill area + fill (driven by the slider on the x axis).
+            var fillArea = Panel("Fill Area", go.transform);
+            var fart = Rect(fillArea);
+            fart.anchorMin = new Vector2(0, 0.5f); fart.anchorMax = new Vector2(1, 0.5f);
+            fart.pivot = new Vector2(0.5f, 0.5f); fart.sizeDelta = new Vector2(-30, 14); fart.anchoredPosition = Vector2.zero;
+            var fill = Panel("Fill", fillArea.transform, Accent);
+            var fillrt = Rect(fill);
+            fillrt.anchorMin = new Vector2(0, 0); fillrt.anchorMax = new Vector2(1, 1);
+            fillrt.sizeDelta = new Vector2(10, 0);
+
+            // Handle slide area + handle.
+            var handleArea = Panel("Handle Slide Area", go.transform);
+            var hart = Rect(handleArea);
+            hart.anchorMin = new Vector2(0, 0); hart.anchorMax = new Vector2(1, 1);
+            hart.pivot = new Vector2(0.5f, 0.5f); hart.offsetMin = new Vector2(15, 0); hart.offsetMax = new Vector2(-15, 0);
+            var handle = Panel("Handle", handleArea.transform, Accent);
+            var handleImg = handle.GetComponent<Image>();
+            var hrt = Rect(handle);
+            hrt.anchorMin = new Vector2(0, 0); hrt.anchorMax = new Vector2(0, 1);
+            hrt.pivot = new Vector2(0.5f, 0.5f); hrt.sizeDelta = new Vector2(48, 0);
+
+            slider.fillRect = fillrt;
+            slider.handleRect = hrt;
+            slider.targetGraphic = handleImg;
+            slider.direction = Slider.Direction.LeftToRight;
+            slider.minValue = min;
+            slider.maxValue = max;
+            slider.wholeNumbers = wholeNumbers;
+            slider.value = value;
+            return slider;
+        }
+
         public static LayoutElement MinHeight(GameObject go, float height)
         {
             var le = go.GetComponent<LayoutElement>() ?? go.AddComponent<LayoutElement>();

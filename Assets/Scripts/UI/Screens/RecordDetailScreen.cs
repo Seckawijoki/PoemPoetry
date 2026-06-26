@@ -98,8 +98,9 @@ namespace PoemPoetry.UI
             Design.SectionHead(scroll, "题目回顾");
             var sib = new List<string>();
             foreach (var it in rec.Items) sib.Add(it.PoemId);
+            bool showChosen = rec.Mode != "slide";
             for (int i = 0; i < rec.Items.Count; i++)
-                ReviewRow.Build(scroll, Nav, rec.Items[i], sib, i);
+                ReviewRow.Build(scroll, Nav, rec.Items[i], sib, i, showChosen);
         }
 
         private static void BuildHero(Transform parent, ChallengeRecord rec)

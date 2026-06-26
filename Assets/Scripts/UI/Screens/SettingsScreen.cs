@@ -14,6 +14,7 @@ namespace PoemPoetry.UI
             var s = Services.Settings.Current;
             AddToggle(body, "音效", () => s.SfxOn, v => { s.SfxOn = v; Save(); });
             AddToggle(body, "音乐", () => s.MusicOn, v => { s.MusicOn = v; Save(); });
+            AddToggle(body, "诗词按组换行", () => s.GroupedLineBreak, v => { s.GroupedLineBreak = v; Save(); });
 
             var about = UiKit.Text("About", body,
                 "唐诗宋词测试 · 本地版\n题库可在 Unity 菜单「唐诗宋词/内容工具」导入与扩充", 28,

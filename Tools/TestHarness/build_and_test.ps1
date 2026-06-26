@@ -1,5 +1,7 @@
 # Compiles the UnityEngine-free core (Data + Services + Core) together with the test
 # harness using the Roslyn compiler from VS2022, referencing Newtonsoft.Json 13, then runs it.
+# The core now includes SQLite.cs (SQLite4Unity3d); the native sqlite3.dll is copied beside the
+# exe so the harness can P/Invoke it (mirrors the Newtonsoft copy below).
 $ErrorActionPreference = "Stop"
 
 $csc = "C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Roslyn\csc.exe"
@@ -14,6 +16,11 @@ $newton = Join-Path $lib "Newtonsoft.Json.dll"
 Copy-Item $newtonSrc $newton -Force
 # Also place it beside the exe so the runtime can resolve it.
 Copy-Item $newtonSrc (Join-Path $harnessDir "Newtonsoft.Json.dll") -Force
+
+# Native SQLite for the harness P/Invoke: copy the x64 Windows binary beside the exe.
+$sqliteSrc = Join-Path $root "Assets\Plugins\x64\sqlite3.dll"
+if (Test-Path $sqliteSrc) { Copy-Item $sqliteSrc (Join-Path $harnessDir "sqlite3.dll") -Force }
+else { Write-Output "WARN: $sqliteSrc not found; SQLite tests will fail to load sqlite3" }
 
 $sources = @()
 $sources += Get-ChildItem (Join-Path $root "Assets\Scripts\Data")     -Recurse -Filter *.cs | ForEach-Object FullName

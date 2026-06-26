@@ -15,8 +15,10 @@ namespace PoemPoetry.UI
     /// </summary>
     public static class ReviewRow
     {
+        // showChosen: render the "你选" note for wrong answers. 滑动找诗 has no per-question choice
+        // (a line is either traced out or not), so its review rows pass false to hide it.
         public static void Build(Transform parent, ScreenNavigator nav, QuestionResult item,
-            List<string> siblings = null, int index = 0)
+            List<string> siblings = null, int index = 0, bool showChosen = true)
         {
             var services = nav.Services;
             var poem = services.Content.GetPoem(item.PoemId);
@@ -56,7 +58,7 @@ namespace PoemPoetry.UI
             UiKit.Text("Line", openGo.transform, $"<i>{GroupedVerse(poem, item.CorrectText)}</i>", 32,
                 TextAlignmentOptions.Left, Design.Primary, wrap: true);
 
-            if (!item.IsCorrect)
+            if (!item.IsCorrect && showChosen)
                 UiKit.Text("Note", openGo.transform, $"你选：{item.ChosenText}", 24,
                     TextAlignmentOptions.Left, Design.Alpha(Design.OnSurfaceVariant, 0.75f), wrap: true);
 

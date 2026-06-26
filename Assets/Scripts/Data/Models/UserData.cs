@@ -29,6 +29,9 @@ namespace PoemPoetry.Data
         public float MasterVolume = 1f;
         public int LastChallengeLength = 10;
 
+        // 全局阅读偏好：诗词正文是否按句号组换行（同组诗句并排一行）。
+        public bool GroupedLineBreak = false;
+
         // Last answer-config selections.
         public List<int> LastDifficulties = new List<int>();
         public List<string> LastDynasties = new List<string>();
@@ -38,7 +41,9 @@ namespace PoemPoetry.Data
         public int LastSlideLevel = 1;
         public int LastSlideCols = 9;
         public int LastSlideRows = 9;
+        public int LastSlideLineCount = 5;
         public bool LastSlideOverlap = false;
+        public bool LastSlideOverlapHint = true;   // 重叠字提示：开=拖动时即用专色标出重叠字
         public bool LastSlideFamousOnly = false;
         public List<int> LastSlideDifficulties = new List<int>();
         public List<string> LastSlideDynasties = new List<string>();

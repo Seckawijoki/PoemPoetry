@@ -32,7 +32,9 @@ namespace PoemPoetry.UI
         public int DirectionLevel = 1; // 1=straight4, 2=straight8, 3=snake4, 4=snake8
         public int GridCols = 9;
         public int GridRows = 9;
+        public int LineCount = 5;              // 目标诗句数 (3~15)
         public bool AllowOverlap = false;
+        public bool OverlapHint = true;        // 重叠字提示：拖动时即标出重叠字 / 关则找到后才按句数着色
         public bool FamousOnly = false;        // 名句: only place lines marked as 名句
         public List<int> Difficulties = new List<int>();
         public List<string> Dynasties = new List<string>();

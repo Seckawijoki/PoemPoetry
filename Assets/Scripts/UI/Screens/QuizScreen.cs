@@ -152,9 +152,10 @@ namespace PoemPoetry.UI
             // Hanzi lines get their tracking via per-run <cspace> tags in BuildMinimalText instead.
             _poemText.characterSpacing = 0f;
             _poemText.lineSpacing = 12f;
-            // Fixed-height slot so the layout group doesn't depend on TMP's intrinsic height while
-            // auto-sizing; the text centers within and shrinks to fit both width and this box.
-            UiKit.Pref(_poemText.gameObject, minH: 300);
+            // Let the clue text fill the whole card area (flexibleHeight) instead of a fixed 300px box,
+            // so multi-line (3~4句) questions auto-size up to the same large font as 1~2句 ones rather
+            // than being crammed small. minH keeps a floor; flexH:1 consumes the remaining card height.
+            UiKit.Pref(_poemText.gameObject, minH: 300, flexH: 1f);
 
             var divSlot = UiKit.Panel("Divider", clue.transform);
             UiKit.Pref(divSlot.gameObject, minH: 2);
@@ -248,8 +249,8 @@ namespace PoemPoetry.UI
             _progressValue.text = $"第 {_index + 1}/{_session.Total} 题";
             _streakValue.text = $"连胜 {_streak}";
             _meta.text = poem == null ? "" : (isCi
-                ? (string.IsNullOrEmpty(poem.Cipai) ? poem.Title : poem.Cipai) + " · " + poem.Author
-                : $"{poem.Title} · {poem.Dynasty}·{poem.Author}");
+                ? $"《{(string.IsNullOrEmpty(poem.Cipai) ? poem.Title : poem.Cipai)}》 · {poem.Author}"
+                : $"《{poem.Title}》 {poem.Dynasty}·{poem.Author}");
             _poemText.text = BuildMinimalText(poem, q.BlankLineIndex, null);
 
             for (int i = 0; i < 4; i++)

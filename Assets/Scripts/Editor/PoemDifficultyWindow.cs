@@ -35,6 +35,23 @@ namespace PoemPoetry.Editor
         private static readonly string[] ShiCategories =
             { "五言绝句", "五言律诗", "七言绝句", "七言律诗", "其它" };
 
+        // 朝代按历史时间排序的参照表；表外朝代排到最后。
+        private static readonly string[] DynastyOrder =
+            { "先秦", "汉", "魏晋", "南北朝", "隋", "唐", "五代", "宋", "辽", "金", "元", "明", "清", "近现代" };
+
+        private static readonly System.Globalization.CultureInfo ZhCulture =
+            System.Globalization.CultureInfo.GetCultureInfo("zh-CN");
+
+        private static int DynastyRank(string d)
+        {
+            int i = System.Array.IndexOf(DynastyOrder, d);
+            return i < 0 ? int.MaxValue : i;
+        }
+
+        /// <summary>按拼音比较中文字符串 (zh-CN)。</summary>
+        private static int PinyinCompare(string a, string b) =>
+            string.Compare(a, b, ZhCulture, System.Globalization.CompareOptions.None);
+
         private static string SeedPath =>
             Path.GetFullPath(Path.Combine(Application.dataPath, "../Tools/SampleContent/poems_seed.json"));
 
@@ -46,12 +63,36 @@ namespace PoemPoetry.Editor
         private void Load()
         {
             if (!File.Exists(SeedPath)) { _root = null; _poems = null; return; }
+
+            // 记住当前筛选值，重新加载后按值还原（下标可能因数据变化而改变）。
+            string selType = SelectedValue(_typeOptions, _typeFilter);
+            string selDynasty = SelectedValue(_dynastyOptions, _dynastyFilter);
+            string selCat = SelectedValue(_catOptions, _catFilter);
+
             _root = JObject.Parse(File.ReadAllText(SeedPath, Encoding.UTF8));
             _poems = _root["poems"] as JArray;
             _typeOptions = DistinctValues("type");
-            _dynastyOptions = DistinctValues("dynasty");
-            _typeFilter = 0; _dynastyFilter = 0;
+            _dynastyOptions = DistinctValues("dynasty", (a, b) =>
+            {
+                int ra = DynastyRank(a), rb = DynastyRank(b);
+                return ra != rb ? ra.CompareTo(rb) : PinyinCompare(a, b);
+            });
+            _typeFilter = IndexOf(_typeOptions, selType);
+            _dynastyFilter = IndexOf(_dynastyOptions, selDynasty);
             _catFilter = 0; RebuildCatOptions();
+            _catFilter = IndexOf(_catOptions, selCat);
+        }
+
+        /// <summary>The value at <paramref name="index"/> (null for 全部/out-of-range).</summary>
+        private static string SelectedValue(string[] options, int index) =>
+            index > 0 && index < options.Length ? options[index] : null;
+
+        /// <summary>Index of <paramref name="value"/> in options, or 0 (全部) if missing.</summary>
+        private static int IndexOf(string[] options, string value)
+        {
+            if (string.IsNullOrEmpty(value)) return 0;
+            int i = System.Array.IndexOf(options, value);
+            return i < 0 ? 0 : i;
         }
 
         /// <summary>句式/词牌名 options for the currently-selected 体裁 (诗 / 词); just {全部} otherwise.</summary>
@@ -61,27 +102,34 @@ namespace PoemPoetry.Editor
             var list = new List<string> { "全部" };
             if (type == "诗") list.AddRange(ShiCategories);
             else if (type == "词" && _poems != null)
+            {
+                var cipai = new List<string>();
                 foreach (var item in _poems)
                 {
                     var p = (JObject)item;
                     if ((string)p["type"] != "词") continue;
                     string c = (string)p["cipai"];
-                    if (!string.IsNullOrEmpty(c) && !list.Contains(c)) list.Add(c);
+                    if (!string.IsNullOrEmpty(c) && !cipai.Contains(c)) cipai.Add(c);
                 }
+                cipai.Sort(PinyinCompare);   // 词牌名按拼音排序
+                list.AddRange(cipai);
+            }
             _catOptions = list.ToArray();
             _catForType = type;
             if (_catFilter >= _catOptions.Length) _catFilter = 0;
         }
 
-        private string[] DistinctValues(string field)
+        private string[] DistinctValues(string field, System.Comparison<string> sort = null)
         {
-            var list = new List<string> { "全部" };
+            var list = new List<string>();
             if (_poems != null)
                 foreach (var item in _poems)
                 {
                     string v = (string)((JObject)item)[field];
                     if (!string.IsNullOrEmpty(v) && !list.Contains(v)) list.Add(v);
                 }
+            if (sort != null) list.Sort(sort);
+            list.Insert(0, "全部");
             return list.ToArray();
         }
 

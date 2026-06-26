@@ -304,6 +304,108 @@ internal static class Program
         var rhyme2 = await RhymeService.LoadAsync(bootSource);
         CheckEq(rhyme2.GroupForChar("间"), "8", "reloaded rhyme: 间 -> 8");
 
+        // ---- 3b. SqliteContentSource parity (content.db must mirror the JSON exactly) ----
+        // content.db is compiled from the JSON by Tools/ChinesePoetryImport/build_db.py. If this
+        // section fails, rebuild it: `python Tools/ChinesePoetryImport/build_db.py`.
+        Section("SqliteContentSource parity (DB vs JSON)");
+        var dbPath = Path.Combine(dataDir, "content.db");
+        if (!File.Exists(dbPath))
+        {
+            Console.WriteLine("  SKIP: content.db not found — run `python Tools/ChinesePoetryImport/build_db.py`.");
+        }
+        else
+        {
+            var sqlSource = new SqliteContentSource(dbPath);
+            var dbContent = await ContentService.LoadAsync(sqlSource);
+            CheckEq(dbContent.Poems.Count, content.Poems.Count, "DB poem count == JSON");
+            CheckEq(dbContent.QuestionCount, content.QuestionCount, "DB question count == JSON");
+            CheckEq(dbContent.WordClozeCount, content.WordClozeCount, "DB wordcloze count == JSON");
+            CheckEq(string.Join(",", dbContent.GetDynasties()), string.Join(",", content.GetDynasties()), "DB dynasties == JSON");
+            CheckEq(string.Join(",", dbContent.GetTypes()), string.Join(",", content.GetTypes()), "DB types == JSON");
+            CheckEq(string.Join(",", dbContent.GetDifficultyTiers()), string.Join(",", content.GetDifficultyTiers()), "DB difficulty tiers == JSON");
+
+            // Field-level spot check: 静夜思 round-trips through the DB.
+            var jp = dbContent.GetPoem("tang-libai-jingyesi");
+            Check(jp != null, "DB GetPoem(静夜思) resolves");
+            CheckEq(jp.Lines.Count, 4, "DB 静夜思 has 4 lines");
+            CheckEq(jp.Lines[0].Text, "床前明月光", "DB 静夜思 line0 text");
+            CheckEq(jp.Lines[0].RhymeGroup, "10", "DB 静夜思 line0 韵组");
+            CheckEq(jp.Lines[0].PingshuiRhyme, "P22阳", "DB 静夜思 line0 平水韵");
+            Check(jp.Lines[0].Famous, "DB 静夜思 line0 名句 flag preserved");
+
+            // Clusters loaded → runtime distractor pools still satisfy the hard constraints.
+            var dbRt = dbContent.BuildRuntimeQuestions(new ChallengeSettings { QuestionCount = 8 }, new SystemRandomSource(5), 8);
+            Check(dbRt.Count >= 8, $"DB runtime generated >= 8 candidates ({dbRt.Count})");
+            bool dbRtOk = true;
+            foreach (var rq in dbRt)
+            {
+                if (rq.Distractors.Count < 3 || rq.Distractors.Count > 20) dbRtOk = false;
+                foreach (var d in rq.Distractors)
+                    if (d.CharCount != rq.Correct.CharCount || d.RhymeGroup != rq.Correct.RhymeGroup) dbRtOk = false;
+            }
+            Check(dbRtOk, "DB runtime distractor pools: 3..20 each, same 字数+韵组");
+
+            // Rhyme dictionaries load from the DB.
+            var dbRhyme = await RhymeService.LoadAsync(sqlSource);
+            CheckEq(dbRhyme.GroupForChar("间"), "8", "DB rhyme: 间 -> 8");
+            var dbCp = await sqlSource.LoadCharPinyinAsync();
+            Check(dbCp.ContainsKey("光") && dbCp["光"].Count > 0 && dbCp["光"][0] == "guang1", "DB char_pinyin: 光 -> guang1");
+        }
+
+        // ---- 3c. P2: SQL pool filtering parity (DB-backed ContentService vs in-memory) ----
+        Section("P2: SQL pool filtering parity");
+        if (File.Exists(dbPath))
+        {
+            var memC = await ContentService.LoadAsync(bootSource);                                  // in-memory full-scan
+            var sqlC = await ContentService.LoadAsync(new SqliteContentSource(dbPath), new SqliteContentDb(dbPath)); // SQL filtering
+
+            CheckEq(string.Join(",", sqlC.GetDifficultyTiers()), string.Join(",", memC.GetDifficultyTiers()), "P2 difficulty tiers parity");
+            CheckEq(string.Join(",", sqlC.GetWordClozeDifficultyTiers()), string.Join(",", memC.GetWordClozeDifficultyTiers()), "P2 wordcloze tiers parity");
+            CheckEq(string.Join(",", sqlC.GetWordClozeBlankCounts()), string.Join(",", memC.GetWordClozeBlankCounts()), "P2 挖空数 set parity");
+
+            // Build a battery of settings: all, per-dynasty, per-type, per-tier, and a combo.
+            var p2Dyns = memC.GetDynasties(); var p2Types = memC.GetTypes(); var p2Tiers = memC.GetDifficultyTiers();
+            var p2Battery = new List<ChallengeSettings> { new ChallengeSettings() };
+            foreach (var d in p2Dyns) p2Battery.Add(new ChallengeSettings { Dynasties = new List<string> { d } });
+            foreach (var t in p2Types) p2Battery.Add(new ChallengeSettings { Types = new List<string> { t } });
+            foreach (var tier in p2Tiers) p2Battery.Add(new ChallengeSettings { Difficulties = new List<int> { tier } });
+            if (p2Dyns.Count > 0 && p2Tiers.Count > 0)
+                p2Battery.Add(new ChallengeSettings { Dynasties = new List<string> { p2Dyns[0] }, Difficulties = new List<int> { p2Tiers[0] } });
+
+            bool poolOk = true, wcOk = true;
+            foreach (var s in p2Battery)
+            {
+                if (sqlC.CountPool(s) != memC.CountPool(s)) poolOk = false;
+                if (string.Join(",", sqlC.GetPool(s).ConvertAll(q => q.Id)) != string.Join(",", memC.GetPool(s).ConvertAll(q => q.Id))) poolOk = false;
+                if (sqlC.CountWordClozePool(s) != memC.CountWordClozePool(s)) wcOk = false;
+                if (string.Join(",", sqlC.GetWordClozePool(s).ConvertAll(q => q.Id)) != string.Join(",", memC.GetWordClozePool(s).ConvertAll(q => q.Id))) wcOk = false;
+            }
+            Check(poolOk, $"P2 question pool parity (count + id order) across {p2Battery.Count} settings");
+            Check(wcOk, "P2 wordcloze pool parity across settings");
+
+            // 挖空数 filter parity.
+            var p2Bcs = memC.GetWordClozeBlankCounts();
+            if (p2Bcs.Count > 0)
+            {
+                var bcSet = new List<int> { p2Bcs[0] };
+                CheckEq(sqlC.CountWordClozePool(new ChallengeSettings(), bcSet), memC.CountWordClozePool(new ChallengeSettings(), bcSet), "P2 挖空数 filter parity");
+            }
+
+            // BuildRuntimeQuestions: order-preserving grouping ⇒ same seed yields identical selection.
+            var rqA = sqlC.BuildRuntimeQuestions(new ChallengeSettings { QuestionCount = 8 }, new SystemRandomSource(5), 8);
+            var rqB = memC.BuildRuntimeQuestions(new ChallengeSettings { QuestionCount = 8 }, new SystemRandomSource(5), 8);
+            CheckEq(string.Join(",", rqA.ConvertAll(q => q.Id)), string.Join(",", rqB.ConvertAll(q => q.Id)), "P2 BuildRuntimeQuestions identical for same seed");
+
+            // Difficulty override flows into SQL line-difficulty (temp table) the same as in-memory tiers.
+            sqlC.SetDifficulty("tang-libai-jingyesi", 3);
+            memC.SetDifficulty("tang-libai-jingyesi", 3);
+            CheckEq(string.Join(",", sqlC.GetDifficultyTiers()), string.Join(",", memC.GetDifficultyTiers()), "P2 tiers parity after SetDifficulty override");
+            var d3 = new ChallengeSettings { Difficulties = new List<int> { 3 } };
+            CheckEq(sqlC.CountPool(d3), memC.CountPool(d3), "P2 pool parity after override (tier 3)");
+            CheckEq(string.Join(",", sqlC.GetPool(d3).ConvertAll(q => q.Id)), string.Join(",", memC.GetPool(d3).ConvertAll(q => q.Id)), "P2 pool id parity after override");
+        }
+        else Console.WriteLine("  SKIP: content.db not found — run build_db.py.");
+
         // ---- 4. QuizService ----
         Section("QuizService");
         var quiz = new QuizService(new SystemRandomSource(7));
@@ -429,16 +531,17 @@ internal static class Program
         Check(!rWrong.IsCorrect && rRight.IsCorrect, "BuildResult scores right/wrong correctly");
         CheckEq(rRight.CorrectText, first.Source.Correct.Text, "result carries the correct line text");
 
-        // ---- 5. Repositories round-trip (temp dir) ----
-        Section("Repositories round-trip");
+        // ---- 5. Repositories round-trip (temp dir, SQLite user.db) ----
+        Section("Repositories round-trip (SQLite user.db)");
         string tmp = Path.Combine(Path.GetTempPath(), "poempoetry_test_" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(tmp);
         try
         {
             var clock = new FixedClock(new DateTime(2026, 6, 22, 9, 0, 0, DateTimeKind.Utc));
+            var userDb = await SqliteUserDatabase.OpenAsync(tmp);
 
             // Records
-            var records = new RecordService(new JsonRecordRepository(tmp), clock);
+            var records = new RecordService(new SqliteRecordRepository(userDb), clock);
             var items = new List<QuestionResult>
             {
                 new QuestionResult { QuestionId = "a", IsCorrect = true },
@@ -463,7 +566,7 @@ internal static class Program
                 "slide record persists grid snapshot");
 
             // Favorites
-            var favRepo = new JsonFavoriteRepository(tmp);
+            var favRepo = new SqliteFavoriteRepository(userDb);
             var favorites = new FavoriteService(favRepo, clock);
             int changed = 0; favorites.FavoritesChanged += () => changed++;
             await favorites.AddAsync("poem-1");
@@ -475,7 +578,7 @@ internal static class Program
             Check(changed >= 2, "FavoritesChanged fired");
 
             // 错题本 Leitner
-            var wrongRepo = new JsonWrongBookRepository(tmp);
+            var wrongRepo = new SqliteWrongBookRepository(userDb);
             var wrongbook = new WrongBookService(wrongRepo, clock);
             await wrongbook.RegisterWrongAsync("q-1", "poem-1");
             CheckEq((await wrongbook.GetAllAsync()).Count, 1, "wrong question recorded");
@@ -489,21 +592,36 @@ internal static class Program
             await wrongbook.RegisterReviewResultAsync("q-1", true); // box3 -> graduate
             CheckEq((await wrongbook.GetAllAsync()).Count, 0, "correct out of box 3 graduates (removed)");
 
-            // Settings
-            var settings = new SettingsService(new JsonSettingsStore(tmp));
+            // Settings (reopen the DB to prove it persists across a fresh connection)
+            var settings = new SettingsService(new SqliteSettingsStore(userDb));
             await settings.InitAsync();
             CheckEq(settings.Current.LastChallengeLength, 10, "settings default length = 10");
             await settings.SetLastChallengeLengthAsync(20);
-            var settings2 = new SettingsService(new JsonSettingsStore(tmp));
+            var userDb2 = await SqliteUserDatabase.OpenAsync(tmp);
+            var settings2 = new SettingsService(new SqliteSettingsStore(userDb2));
             await settings2.InitAsync();
             CheckEq(settings2.Current.LastChallengeLength, 20, "settings persist across reload");
 
             // difficulty override store round-trip
-            await new JsonDifficultyOverrideStore(tmp).SaveAsync(new Dictionary<string, int> { { "poem-x", 4 } });
-            var dov = await new JsonDifficultyOverrideStore(tmp).LoadAsync();
+            await new SqliteDifficultyOverrideStore(userDb).SaveAsync(new Dictionary<string, int> { { "poem-x", 4 } });
+            var dov = await new SqliteDifficultyOverrideStore(userDb).LoadAsync();
             Check(dov.ContainsKey("poem-x") && dov["poem-x"] == 4, "difficulty override store round-trip");
 
-            // AppServices composition root
+            // JSON → SQLite migration: seed JSON via the OLD repos, then open user.db over that dir.
+            var mdir = Path.Combine(tmp, "migration");
+            Directory.CreateDirectory(mdir);
+            await new JsonFavoriteRepository(mdir).AddAsync(new FavoriteEntry { PoemId = "mig-poem", AddedAtUtc = "2026-06-22T00:00:00Z" });
+            await new JsonWrongBookRepository(mdir).UpsertAsync(new WrongBookEntry { QuestionId = "mig-q", PoemId = "mig-poem", Box = 2, NextReviewUtc = "2026-06-20T00:00:00Z" });
+            await new JsonRecordRepository(mdir).SaveAsync(new ChallengeRecord { Id = "mig-rec", Mode = "challenge", Total = 3, CorrectCount = 2, AccuracyPercent = 67 });
+            var migDb = await SqliteUserDatabase.OpenAsync(mdir);
+            CheckEq((await new SqliteFavoriteRepository(migDb).GetAllAsync()).Count, 1, "migration imported favorite");
+            CheckEq((await new SqliteWrongBookRepository(migDb).GetAllAsync()).Count, 1, "migration imported 错题");
+            var migRec = await new SqliteRecordRepository(migDb).GetByIdAsync("mig-rec");
+            Check(migRec != null && migRec.CorrectCount == 2, "migration imported full record");
+            Check(!File.Exists(Path.Combine(mdir, "favorites.json")) && File.Exists(Path.Combine(mdir, "favorites.json.migrated")),
+                "migration renames old JSON aside");
+
+            // AppServices composition root (now opens user.db internally)
             var app = await AppServices.CreateAsync(bootSource, tmp, clock, new SystemRandomSource(1));
             Check(app.Content != null && app.Rhyme != null && app.Quiz != null && app.Difficulty != null,
                 "AppServices wires all services");
@@ -622,6 +740,43 @@ internal static class Program
         Check(dpath.Count == 4 && dpath[0] == 0 && dpath[3] == 33, "StraightPath diagonal (0,0)->(3,3) = 4 cells");
         var hpath = gdiag.StraightPath(0, 5); // (0,0)->(0,5)
         Check(hpath.Count == 6 && hpath[5] == 5, "StraightPath horizontal = 6 cells");
+
+        // overlap (重叠字交叉): lines sharing chars must actually interlock crossword-style,
+        // i.e. at least one cell ends up shared by two targets (not just theoretically allowed).
+        string[] crossLines = { "床前明月光", "举头望明月", "低头思故乡", "疑是地上霜", "春眠不觉晓", "明月几时有" };
+        bool sawCrossing = false;
+        foreach (var level in new[] { 1, 2, 3, 4 })
+        {
+            var gx = new GridWordSearch(10, level, allowOverlap: true, rng: new SystemRandomSource(900 + level));
+            foreach (var line in crossLines) gx.TryPlace(line, SplitToChars(line), "t");
+            var owner = new Dictionary<int, int>();
+            bool levelCross = false;
+            for (int ti = 0; ti < gx.Targets.Count; ti++)
+                foreach (var idx in gx.Targets[ti].Cells)
+                {
+                    if (owner.TryGetValue(idx, out int other) && other != ti) levelCross = true;
+                    owner[idx] = ti;
+                }
+            // every crossing cell must agree on its character (re-matchable trace still holds)
+            bool stillMatchable = true;
+            foreach (var t in gx.Targets) if (gx.TryMatch(t.Cells) == null) stillMatchable = false;
+            Check(stillMatchable, $"L{level} overlap: crossed targets still re-matchable");
+            if (levelCross) sawCrossing = true;
+        }
+        Check(sawCrossing, "overlap mode actually produces a shared-cell crossing");
+
+        // 8x8 still出题: small square grid (maxLine=8) must place several 5~8 字诗句 on every level,
+        // both with and without overlap (the slide config now allows tiny grids via the cols slider).
+        string[] small8 = { "床前明月光", "疑是地上霜", "举头望明月", "低头思故乡", "春眠不觉晓", "夜来风雨声" };
+        foreach (var overlap in new[] { false, true })
+            foreach (var level in new[] { 1, 2, 3, 4 })
+            {
+                var g8 = new GridWordSearch(8, 8, level, overlap, new SystemRandomSource(800 + level + (overlap ? 50 : 0)));
+                int placed8 = 0;
+                foreach (var line in small8)
+                    if (g8.TryPlace(line, SplitToChars(line), "t")) placed8++;
+                Check(placed8 >= 3, $"8x8 L{level} overlap={overlap}: placed >= 3 lines (got {placed8})");
+            }
 
         // ---- Summary ----
         Console.WriteLine();

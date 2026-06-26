@@ -81,6 +81,21 @@
 > 自动出题的已知风险是「另一个选项其实也通」与「明显跑题给答案」——可在 `questions.json` 里人工删除坏题，
 > 或在内容工具里扩展黑名单（已预留）。
 
+## 5. （可选）一键截取所有界面
+
+菜单 **PoemPoetry ▸ 截图 ▸ 截取所有界面**：自动新建一个临时空场景进 Play，逐屏渲染并把 PNG 存到
+项目根目录 `screenshots/`，跑完自动退出 Play 并恢复你原来的场景。
+
+- 覆盖 15 张界面，文件名沿用 `screenshots/` 的「组-序-名称」命名（`1-主界面`、`2-1-答题设置`…
+  `8-设置`），运行即按名覆盖对应 PNG。其中 `2-3-答题结束，逐字填空结束` 为两种结算共用的同一结果页；
+  `3-3-滑动找诗结束` 由 `SlidePuzzleScreen.CaptureForceResult()` 标记半数诗句后直接跳到结算面板复现。
+- 固定输出 **1080×1920 竖屏**（独立相机渲染进 RenderTexture，与 Game 视图分辨率无关）。
+- **不动真实存档**：用临时数据目录并注入示例数据（两局答题记录、若干收藏/错题），
+  所以历史记录/记录详情/错题本/收藏夹/答题结果都有内容可截。
+- 实现见 `Assets/Scripts/App/ScreenshotRunner.cs`（也可手动挂到空物体上 Play；真机时存
+  `persistentDataPath/screenshots`），菜单见 `Assets/Scripts/Editor/ScreenshotCaptureMenu.cs`。
+  如某数据页截到空态，调大该组件 Inspector 的 `Settle Seconds` 即可。
+
 ---
 
 ## 运行单元测试
@@ -130,6 +145,33 @@ Tools/
 
 - **滑动找诗（SlidePuzzle）无专属题库**，运行时直接用 `poems.json` 公共语料临时生成网格。
 - 重新出题/刷新数据的流程见 `Tools/ChinesePoetryImport/README.md` 与 `Tools/TestHarness/build_and_test.ps1`。
+
+### 正式数据库 `content.db`（运行时索引查询，迁移进行中）
+
+上表的 JSON 正在升级为单一 SQLite 数据库 **`Assets/StreamingAssets/PoemData/content.db`**：由
+`Tools/ChinesePoetryImport/build_db.py` 把 JSON 编译而来（建表 + 索引 + FTS5 全文检索），运行时把过滤/凑题/
+选干扰项**下推到带索引的 SQL**，比内存全表扫描更快、更易扩展。迁移后 JSON 退为**人类可 diff 的构建中间真源**，
+运行时只读 `content.db`；用户数据将另存可写的 `user.db`（persistentDataPath）。详细计划与落地顺序见
+`~/.claude/plans/json-gui-zesty-nest.md`。
+
+**当前状态（P1+P2+P3 已落地，引擎外 182/182 通过；Unity+真机已验证）**：
+- **P1 出厂内容 → `content.db`**：`build_db.py` 把 JSON 编译为 `content.db`（+ `content.db.version`），含索引；FTS5 暂关
+  （`ENABLE_FTS=False`：SQLite4Unity3d 自带的原生 sqlite 太旧，无法解析 FTS5 影子表，全文检索留到后续）。
+  `SQLite.cs` 在 `PoemPoetry.Data`，原生库在 `Assets/Plugins/`（x64 + Android arm64/armv7）。`SqliteContentSource`
+  （`IContentSource` 的 DB 实现）经 TestHarness 与 JSON 逐项对拍一致（含运行时干扰项）。`AppBootstrapper` 用
+  `ContentDbProvisioner` 首启把 `content.db` 拷出 StreamingAssets→persistentDataPath（按 version 增量）再查询。
+- **P2 查询下推 → `SqliteContentDb`**：选择题/逐词填空的**池过滤（朝代/体裁/逐句难度/挖空数）下推为带索引的 SQL**；
+  难度过滤所依赖的运行时覆盖值经连接侧 `eff_override` TEMP 表注入。`ContentService` 在有 DB 后端时委托 SQL，
+  否则走原内存扫描（公有 API 不变，UI 零改动）。TestHarness 对 19 组筛选条件验证 SQL 与内存结果**逐项一致**
+  （计数+id 顺序），`BuildRuntimeQuestions` 同种子完全一致，难度覆盖后仍一致。干扰项排序仍留 C#。
+- **P3 用户数据 → `user.db`**：`SqliteUserData.cs` 提供 records/favorites/wrongbook/settings/difficulty 五个仓储
+  + 首启从旧 JSON 迁移（导入后把 JSON 改名 `*.migrated`）。`AppServices.CreateAsync` 一处切换到 SQLite 仓储。
+  错题本「到期复习」已是 `next_review_utc` 索引范围扫描。
+- 说明：当前语料（~1820 题）下 P2 的收益是**架构/可扩展性**（过滤逻辑以 SQL 表达、随语料增大才显出速度优势），
+  而非当下墙钟时间；正确性由对拍护住。待语料显著增大或做全文检索/复杂排序时收益才放大。
+
+> 注意：编辑器「内容工具 ▸ ①生成题库」只刷新 JSON；改完题库后需再跑 `python build_db.py` 重建 `content.db`，
+> 并自增 `build_db.py` 顶部 `CONTENT_VERSION`，运行时才会重新拷贝。
 
 ## 架构要点（便于后续接后端）
 

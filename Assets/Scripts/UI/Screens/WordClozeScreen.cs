@@ -38,8 +38,17 @@ namespace PoemPoetry.UI
         private TextMeshProUGUI _timerText;
         private RectTransform _timerFill;
         private TextMeshProUGUI _meta;
+        private TextMeshProUGUI _pick;
+        private RectTransform _card;
         private RectTransform _linesPanel;
         private RectTransform _tilePanel;
+
+        // Static per-char cell + layout constants for the poem card (card height grows with 句数).
+        private const float LineCell = 96f;     // fixed cell size (shrinks only for very long 句)
+        private const float RowGap = 16f;       // vertical gap between 句 rows
+        private const float CardInset = 34f;    // card inner padding (top & bottom) — breathing room
+        private const float CardTop = 250f;     // card's offset from the top band (gap above 题目)
+        private const float TilesBottomGap = 120f; // tile grid baseline above the body's bottom edge
 
         private WordClozeQuestion _q;
         private readonly List<string> _answerSeq = new List<string>();
@@ -117,9 +126,9 @@ namespace PoemPoetry.UI
 
             // Game canvas card: poem couplet (≥2 句). Holds ONLY the line rows so nothing overlaps.
             var card = UiKit.Panel("Canvas", body, Design.SurfaceLow);
-            var crt = UiKit.Rect(card);
-            crt.anchorMin = new Vector2(0, 1); crt.anchorMax = new Vector2(1, 1); crt.pivot = new Vector2(0.5f, 1);
-            crt.sizeDelta = new Vector2(-48, 372); crt.anchoredPosition = new Vector2(0, -212);
+            _card = UiKit.Rect(card);
+            _card.anchorMin = new Vector2(0, 1); _card.anchorMax = new Vector2(1, 1); _card.pivot = new Vector2(0.5f, 1);
+            _card.sizeDelta = new Vector2(-48, 300); _card.anchoredPosition = new Vector2(0, -CardTop);
             card.AddComponent<RectMask2D>(); // keep line rows from ever spilling onto the 词牌/提示 band
             Design.Corners(card, Design.Alpha(Design.PrimaryContainer, 0.4f), arm: 36, thick: 2, inset: 14);
 
@@ -127,8 +136,10 @@ namespace PoemPoetry.UI
             var lines = UiKit.Panel("Lines", card.transform);
             _linesPanel = UiKit.Rect(lines);
             _linesPanel.anchorMin = Vector2.zero; _linesPanel.anchorMax = Vector2.one; _linesPanel.pivot = new Vector2(0.5f, 0.5f);
-            _linesPanel.offsetMin = new Vector2(24, 24); _linesPanel.offsetMax = new Vector2(-24, -24);
-            var vg = UiKit.VerticalGroup(lines, spacing: 16, align: TextAnchor.MiddleCenter);
+            _linesPanel.offsetMin = new Vector2(CardInset, CardInset); _linesPanel.offsetMax = new Vector2(-CardInset, -CardInset);
+            // padX/Y = 0: the only inset is _linesPanel's 24px offset (= CardInset), so LayoutCard's
+            // height math is exact and the rows sit symmetrically (equal gap above/below).
+            var vg = UiKit.VerticalGroup(lines, spacing: (int)RowGap, padX: 0, padY: 0, align: TextAnchor.MiddleCenter);
             vg.childForceExpandHeight = false; vg.childControlHeight = true; vg.childControlWidth = true;
 
             // 词牌/作者 caption, BELOW the card (separate band, no longer overlapping the lines).
@@ -136,16 +147,17 @@ namespace PoemPoetry.UI
                 Design.Alpha(Design.OnSurfaceVariant, 0.85f), wrap: true);
             UiKit.AnchorTop(_meta.gameObject, height: 52, topOffset: 600, sideMargin: 40);
 
-            var pick = UiKit.Text("Pick", body, "请选择正确的字", 26, TextAlignmentOptions.Center, Design.Secondary);
-            pick.characterSpacing = 4f;
-            UiKit.AnchorTop(pick.gameObject, height: 40, topOffset: 668, sideMargin: 40);
+            // 提示语，位置在 BuildTiles 里随字块网格（底部锚定）一起定位。
+            _pick = UiKit.Text("Pick", body, "请选择正确的字", 26, TextAlignmentOptions.Center, Design.Secondary);
+            _pick.characterSpacing = 4f;
 
-            // Tile pool grid, clearly below the prompt.
+            // Tile grid is anchored to the BOTTOM of the body and grows upward — it sits at a stable
+            // baseline regardless of 句数 / tile count, filling the lower screen instead of leaving a gap.
             var tiles = new GameObject("Tiles", typeof(RectTransform), typeof(GridLayoutGroup));
             tiles.transform.SetParent(body, false);
             _tilePanel = tiles.GetComponent<RectTransform>();
-            _tilePanel.anchorMin = new Vector2(0.5f, 1); _tilePanel.anchorMax = new Vector2(0.5f, 1);
-            _tilePanel.pivot = new Vector2(0.5f, 1); _tilePanel.anchoredPosition = new Vector2(0, -740);
+            _tilePanel.anchorMin = new Vector2(0.5f, 0); _tilePanel.anchorMax = new Vector2(0.5f, 0);
+            _tilePanel.pivot = new Vector2(0.5f, 0); _tilePanel.anchoredPosition = new Vector2(0, TilesBottomGap);
         }
 
         private WordClozeQuestion Current => _questions[_index];
@@ -186,17 +198,18 @@ namespace PoemPoetry.UI
             var shown = new List<int>();
             foreach (var li in _q.ShownLines) if (!shown.Contains(li)) shown.Add(li);
 
-            // Uniform cell size across rows, sized to the longest shown line AND constrained so every
-            // row fits the card's inner height (≈324) — otherwise extra rows spill over the 词牌/提示 band.
+            // Static cell height (no longer stretched to fill the card). Width shrinks only when a 句
+            // is very long; the card height then grows with the 句数 so rows never look squashed.
             int maxLen = 1;
             foreach (var li in shown)
                 if (poem != null && li >= 0 && li < poem.Lines.Count)
                     maxLen = Mathf.Max(maxLen, Chars(poem.Lines[li].Text).Count);
             int rows = Mathf.Max(1, shown.Count);
-            float heightCap = (324f - 6f * rows - 16f * (rows - 1)) / rows;
-            int perRowCap = rows >= 3 ? 90 : 120;
-            float cell = Mathf.Min(perRowCap, 880f / Mathf.Max(1, maxLen), heightCap);
-            int fontSize = Mathf.RoundToInt(cell * 0.54f);
+            float cell = Mathf.Min(LineCell, 900f / Mathf.Max(1, maxLen));
+            int fontSize = Mathf.RoundToInt(cell * 0.56f);
+
+            // Card height = rows × cell + gaps + inset; reposition the 词牌/提示/字块 band below it.
+            LayoutCard(rows, cell);
 
             foreach (var li in shown)
             {
@@ -209,9 +222,11 @@ namespace PoemPoetry.UI
                         for (int k = 0; k < b.Count; k++) blanked.Add(b.Start + k);
 
                 var rowGo = UiKit.Panel("LineRow", _linesPanel);
-                UiKit.Pref(rowGo, minH: cell + 6);
+                UiKit.Pref(rowGo, minH: cell);
                 var hg = UiKit.HorizontalGroup(rowGo, spacing: 10, align: TextAnchor.MiddleCenter);
-                hg.childForceExpandWidth = false; hg.childControlWidth = true; hg.childControlHeight = true;
+                // Keep cells SQUARE: control size but don't stretch them to the row height.
+                hg.childForceExpandWidth = false; hg.childForceExpandHeight = false;
+                hg.childControlWidth = true; hg.childControlHeight = true;
                 var row = rowGo.transform;
 
                 for (int i = 0; i < elems.Count; i++)
@@ -241,6 +256,17 @@ namespace PoemPoetry.UI
             }
         }
 
+        // Size the poem card to exactly fit `rows` rows of `cell`-tall cells (equal top/bottom inset →
+        // symmetric), then place the 词牌 caption just below it. The 提示 + 字块 grid are bottom-anchored.
+        private void LayoutCard(int rows, float cell)
+        {
+            float cardHeight = rows * cell + (rows - 1) * RowGap + 2 * CardInset;
+            if (_card != null) _card.sizeDelta = new Vector2(-48, cardHeight);
+
+            float metaTop = CardTop + cardHeight + 40f;   // gap below 题目 before 词牌
+            if (_meta != null) UiKit.AnchorTop(_meta.gameObject, 52, metaTop, 40);
+        }
+
         // Back-compat: older single-line data has blanks without an explicit LineIndex (defaults 0).
         private int LineOf(WordClozeBlank b) =>
             (_q.LineIndices != null && _q.LineIndices.Count > 0) ? b.LineIndex : _q.BlankLineIndex;
@@ -261,7 +287,17 @@ namespace PoemPoetry.UI
             glg.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
             glg.constraintCount = cols;
             glg.childAlignment = TextAnchor.MiddleCenter;
-            _tilePanel.sizeDelta = new Vector2(cols * cell + (cols - 1) * spacing, rows * cell + (rows - 1) * spacing);
+            float gridH = rows * cell + (rows - 1) * spacing;
+            _tilePanel.sizeDelta = new Vector2(cols * cell + (cols - 1) * spacing, gridH);
+
+            // Park the "请选择正确的字" prompt just above the (bottom-anchored) grid.
+            if (_pick != null)
+            {
+                var prt = UiKit.Rect(_pick.gameObject);
+                prt.anchorMin = new Vector2(0.5f, 0); prt.anchorMax = new Vector2(0.5f, 0); prt.pivot = new Vector2(0.5f, 0);
+                prt.sizeDelta = new Vector2(900, 40);
+                prt.anchoredPosition = new Vector2(0, TilesBottomGap + gridH + 20f);
+            }
 
             int fontSize = Mathf.RoundToInt(cell * 0.46f);
             for (int i = 0; i < n; i++)

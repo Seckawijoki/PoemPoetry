@@ -90,10 +90,37 @@ namespace PoemPoetry.Services
             if (!Snake && len > maxLine) return false; // a straight run can't exceed the longer side
 
             // Without overlap: take the first fitting placement.
-            // With overlap (重叠字匹配优先): scan candidates and prefer the one that crosses the most
-            // already-placed matching characters, so words interlock crossword-style.
+            // With overlap (重叠字交叉优先): random placements almost never land a matching char on an
+            // existing one, so crossings stayed theoretical. Instead we *construct* them crossword-style:
+            // for every already-placed cell whose char also appears in this line, lay the line straight
+            // through that cell along each allowed direction and keep the most-interlocked fit. Random
+            // attempts remain as the fallback (first word, or when no shared char lines up).
             List<int> best = null;
             int bestCross = -1;
+
+            if (AllowOverlap)
+            {
+                for (int fi = 0; fi < Cells.Length; fi++)
+                {
+                    string fc = Cells[fi];
+                    if (fc == null) continue;                // only existing word cells anchor a crossing
+                    for (int j = 0; j < len; j++)
+                    {
+                        if (chars[j] != fc) continue;        // line's j-th char must match what's here
+                        int fr = fi / Cols, fcol = fi % Cols;
+                        for (int d = 0; d < DirCount; d++)
+                        {
+                            // Place so chars[j] sits on (fr,fcol): start j steps back along direction d.
+                            var path = StraightFrom(fr - j * DR[d], fcol - j * DC[d], d, len);
+                            if (path == null || !FitsAndFree(path, chars)) continue;
+                            int cross = Crossings(path);
+                            if (cross > bestCross) { bestCross = cross; best = path; }
+                        }
+                    }
+                }
+                if (bestCross >= len - 1 && best != null) goto done; // maximally interlocked
+            }
+
             for (int attempt = 0; attempt < maxAttempts; attempt++)
             {
                 var path = Snake ? RandomSnake(len) : RandomStraight(len);
@@ -105,6 +132,7 @@ namespace PoemPoetry.Services
                 if (cross > bestCross) { bestCross = cross; best = path; }
                 if (cross >= len - 1) break;                 // already maximally interlocked
             }
+        done:
             if (best == null) return false;
 
             var t = new Target { Text = text, Chars = chars, Title = title, PoemId = poemId };
@@ -196,6 +224,20 @@ namespace PoemPoetry.Services
             if (_targets.Count == 0) return false;
             foreach (var t in _targets) if (!t.Found) return false;
             return true;
+        }
+
+        // Build a straight run of `len` cells from (r,c) along direction `dir`; null if it leaves the grid.
+        private List<int> StraightFrom(int r, int c, int dir, int len)
+        {
+            var path = new List<int>(len);
+            for (int k = 0; k < len; k++)
+            {
+                if (r < 0 || r >= Rows || c < 0 || c >= Cols) return null;
+                path.Add(r * Cols + c);
+                r += DR[dir];
+                c += DC[dir];
+            }
+            return path;
         }
 
         private List<int> RandomStraight(int len)

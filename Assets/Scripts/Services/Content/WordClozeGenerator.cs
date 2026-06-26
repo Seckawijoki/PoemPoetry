@@ -158,52 +158,13 @@ namespace PoemPoetry.Services
                 if (SameCouplet(poem, i, i + 1))
                     TryAdd(BuildCouplet(poem, i, i + 1, lineBlanks, PerChar()));
 
-            // 3 空 & 4 空: 句号组对齐的窗口 (连续若干 group 的句数恰好 = 3 / 4)。这样能覆盖词的多种结构
-            // (单句+一联 1+2/2+1、三句一组 3、2+2、1+3 …)。3 空默认跳过律诗/绝句 (诗 且 4 或 8 句的近体)，
-            // 长诗 / 词 / 曲 只要句号组能凑出 3 句窗口即可出 3 空。BuildMulti 要求窗口内每句都可挖。
-            var runs = GroupRuns(poem);
-            bool jueLu = poem.Type == "诗" && (n == 4 || n == 8);
-            if (!jueLu)
-                foreach (var win in GroupWindows(runs, 3))
-                    TryAdd(BuildMulti(poem, win, lineBlanks, PerChar()));
-            foreach (var win in GroupWindows(runs, 4))
-                TryAdd(BuildMulti(poem, win, lineBlanks, PerChar()));
+            // 3 空 / 4 空: 任意连续 3 / 4 句各挖一空 (滑窗, 步进 1)。放宽到不限句号组、不排除律诗/绝句，
+            // 让同一首诗能出多种多空题型。BuildMulti 仍要求窗口内每句都可挖 (保证质量)，并按词性配对。
+            for (int i = 0; i + 2 < n; i++)
+                TryAdd(BuildMulti(poem, new List<int> { i, i + 1, i + 2 }, lineBlanks, PerChar()));
+            for (int i = 0; i + 3 < n; i++)
+                TryAdd(BuildMulti(poem, new List<int> { i, i + 1, i + 2, i + 3 }, lineBlanks, PerChar()));
             return list;
-        }
-
-        // Windows of consecutive 句号组 whose total 句数 == target (lines are consecutive, ascending).
-        // One window per starting group (the shortest span from that group reaching exactly target).
-        private static List<List<int>> GroupWindows(List<List<int>> runs, int target)
-        {
-            var wins = new List<List<int>>();
-            for (int s = 0; s < runs.Count; s++)
-            {
-                int sum = 0;
-                var lines = new List<int>();
-                for (int e = s; e < runs.Count; e++)
-                {
-                    sum += runs[e].Count;
-                    lines.AddRange(runs[e]);
-                    if (sum == target) { wins.Add(lines); break; }
-                    if (sum > target) break;
-                }
-            }
-            return wins;
-        }
-
-        // Consecutive runs of lines sharing the same 句号 group (each run = one 句号组).
-        private static List<List<int>> GroupRuns(Poem poem)
-        {
-            var runs = new List<List<int>>();
-            for (int i = 0; i < poem.Lines.Count; i++)
-            {
-                int g = DifficultyRules.EffectiveGroup(poem, i);
-                if (runs.Count == 0 || DifficultyRules.EffectiveGroup(poem, runs[runs.Count - 1][0]) != g)
-                    runs.Add(new List<int> { i });
-                else
-                    runs[runs.Count - 1].Add(i);
-            }
-            return runs;
         }
 
         // Two 等长 (same 字数) 句 in the same 句号 group → 对仗/对偶 candidate (粗判: group + 字数).

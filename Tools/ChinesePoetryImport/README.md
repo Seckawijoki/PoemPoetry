@@ -47,11 +47,30 @@ python build_categories.py                              # 从 CDN 抓取
 python build_categories.py shenglvqimeng.json TC2SC.json # 用本地副本
 ```
 
+### `build_db.py` → `Assets/StreamingAssets/PoemData/content.db`
+把上一步生成/校验过的 JSON **编译成运行时正式数据库** `content.db`（SQLite，三种玩法的只读出厂库）。
+纯 Python 标准库 `sqlite3`，无需联网或额外依赖。
+
+- 读：`StreamingAssets/PoemData/{poems,questions,word_questions,char_pinyin,rhyme_groups,pingshui_rhyme}.json`
+  + `Tools/SampleContent/{semantic_categories,word_bank}.json`。
+- 建表 + 索引 + FTS5 全文检索（诗句/标题/作者，按字 space-split 以适配中文）；嵌套但会被查询的拆子表，
+  仅整取的（tilePool/answerChars/pinyin 等）存 JSON 列。
+- `meta(schema_version, content_version, built_utc)`：运行时据 `content_version` 决定是否把 `content.db`
+  从 StreamingAssets 拷到 persistentDataPath。**改数据后改 `build_db.py` 顶部的 `CONTENT_VERSION` 自增**。
+- 运行后自带校验：打印各表记录数（应与 JSON 一致）+ FTS 冒烟（`明月` 命中）。
+
+```
+python build_db.py            # 默认写 StreamingAssets/PoemData/content.db
+python build_db.py out.db     # 自定义输出
+```
+
 ## 刷新流程
 
-1. 运行上面三个脚本：`build_pingshui.py` / `build_char_pinyin.py` 写 `StreamingAssets/PoemData/`（运行时加载的公共库），
-   `build_categories.py` 写 `Tools/SampleContent/`（仅构建期输入，不进包）。语料新增字后务必跑 `build_char_pinyin.py`。
-2. 运行 `Tools/TestHarness/build_and_test.ps1` 重跑标注/出题流水线并验证（含平水韵/体裁断言）。
+1. 运行上面三个 importer：`build_pingshui.py` / `build_char_pinyin.py` 写 `StreamingAssets/PoemData/`（公共库 JSON），
+   `build_categories.py` 写 `Tools/SampleContent/`（仅构建期输入）。语料新增字后务必跑 `build_char_pinyin.py`。
+2. 运行 `Tools/TestHarness/build_and_test.ps1` 重跑标注/出题流水线并验证（含平水韵/体裁断言），刷新 JSON。
+3. 运行 `python build_db.py` 把 JSON 编译成 `content.db`（运行时正式库）。JSON 自此是**人类可 diff 的中间真源**，
+   运行时只读 `content.db`。
 
 ## 来源与许可
 

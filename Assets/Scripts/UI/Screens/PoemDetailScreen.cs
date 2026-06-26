@@ -34,32 +34,19 @@ namespace PoemPoetry.UI
             meta.characterSpacing = 6f;
             UiKit.MinHeight(meta.gameObject, 60);
 
-            // Prev/next navigation across the list this poem was opened from (+ swipe).
+            // Left/right swipe flips to next/prev poem (prev/next buttons now live in the footer).
             if (a != null && a.Siblings != null && a.Siblings.Count > 1)
             {
                 int n = a.Siblings.Count;
-                var navRow = UiKit.Panel("Nav", scroll);
-                UiKit.Pref(navRow, minH: 78);
-                var navHg = UiKit.HorizontalGroup(navRow, spacing: 12);
-                navHg.childForceExpandHeight = false;
-                var prev = UiKit.Button("Prev", navRow.transform, "上一首", out _, Design.SurfaceHigh, 30);
-                UiKit.Pref(prev.gameObject, minH: 78);
-                prev.onClick.AddListener(() => Open(a.Siblings, (a.Index - 1 + n) % n, -1));
-                var pos = UiKit.Text("Pos", navRow.transform, $"{a.Index + 1}/{n}", 28, TextAlignmentOptions.Center, Design.OnSurfaceVariant);
-                pos.raycastTarget = false;
-                var next = UiKit.Button("Next", navRow.transform, "下一首", out _, Design.SurfaceHigh, 30);
-                UiKit.Pref(next.gameObject, minH: 78);
-                next.onClick.AddListener(() => Open(a.Siblings, (a.Index + 1) % n, +1));
-
-                // Left/right swipe flips to next/prev poem (slide in from the corresponding side).
                 var swipe = gameObject.AddComponent<SwipeNav>();
                 swipe.OnSwipeLeft = () => Open(a.Siblings, (a.Index + 1) % n, +1);
                 swipe.OnSwipeRight = () => Open(a.Siblings, (a.Index - 1 + n) % n, -1);
             }
 
-            BuildPoemBody(scroll, poem);
+            BuildPoemBody(scroll, poem, a);
 
-            if (a?.ResultContext != null && !a.ResultContext.IsCorrect)
+            if (a?.ResultContext != null && !a.ResultContext.IsCorrect &&
+                !string.IsNullOrEmpty(a.ResultContext.ChosenText))
             {
                 var yc = UiKit.Text("Ctx", scroll, $"<color=#BF4038>你的作答：{a.ResultContext.ChosenText}</color>",
                     30, TextAlignmentOptions.Center, Design.OnSurfaceVariant);
@@ -70,7 +57,7 @@ namespace PoemPoetry.UI
             AddSection(scroll, "译文", poem.Translation);
             AddSection(scroll, "赏析", poem.Appreciation);
 
-            BuildFooter(body, poem.Id);
+            BuildFooter(body, poem, a);
 
             if (a != null && a.SlideFrom != 0) StartCoroutine(SlideIn(a.SlideFrom));
         }
@@ -95,20 +82,47 @@ namespace PoemPoetry.UI
             rt.anchoredPosition = to;
         }
 
-        private void BuildPoemBody(Transform scroll, Poem poem)
+        private void BuildPoemBody(Transform scroll, Poem poem, PoemDetailArgs a)
         {
-            // Each clause on its own line (vertical reading column).
-            var sb = new StringBuilder();
-            foreach (var line in poem.Lines)
+            // 全局「按组换行」：开 → 同句号组的诗句并排一行；关 → 每句各占一行（默认竖排阅读）。
+            bool grouped = Services.Settings?.Current != null && Services.Settings.Current.GroupedLineBreak;
+
+            // 高亮出题诗句：从结果上下文（答题/逐字填空/滑动找诗）取被考的句子，绿=正确、红=错误；
+            // 从收藏夹等无上下文打开时不高亮（默认）。
+            HashSet<string> highlight = null;
+            string hiHex = null;
+            if (a?.ResultContext != null)
             {
-                if (sb.Length > 0) sb.Append('\n');
-                sb.Append(line.Text);
+                highlight = new HashSet<string>();
+                if (!string.IsNullOrEmpty(a.ResultContext.CorrectText))
+                    foreach (var seg in a.ResultContext.CorrectText.Split(' '))
+                        if (!string.IsNullOrEmpty(seg)) highlight.Add(seg);
+                hiHex = ColorUtility.ToHtmlStringRGB(a.ResultContext.IsCorrect ? UiKit.Good : UiKit.Bad);
             }
+
+            var sb = new StringBuilder();
+            int prevGroup = int.MinValue;
+            for (int i = 0; i < poem.Lines.Count; i++)
+            {
+                var line = poem.Lines[i];
+                if (sb.Length > 0)
+                    sb.Append(grouped && line.Group >= 0 && line.Group == prevGroup ? "  " : "\n");
+                if (highlight != null && highlight.Contains(line.Text))
+                    sb.Append($"<color=#{hiHex}>{line.Text}</color>");
+                else
+                    sb.Append(line.Text);
+                prevGroup = line.Group;
+            }
+            string body = sb.ToString();
+
             var box = UiKit.Panel("PoemBox", scroll);
-            var poemText = UiKit.Text("Poem", box.transform, sb.ToString(), 48, TextAlignmentOptions.Center, Design.Ink);
+            var poemText = UiKit.Text("Poem", box.transform, body, 48, TextAlignmentOptions.Center, Design.Ink,
+                wrap: grouped); // grouped rows can be long → allow wrap
             poemText.lineSpacing = 18f; poemText.characterSpacing = 6f;
             UiKit.StretchFull(poemText.gameObject, 36);
-            float poemH = poemText.GetPreferredValues(sb.ToString(), 100000f, 0f).y + 100f;
+            // Estimate height: unwrapped lines need no width bound; grouped rows can wrap, so bound to
+            // an approximate content width (canvas 1080 minus side margins) and add slack.
+            float poemH = poemText.GetPreferredValues(body, grouped ? 900f : 100000f, 0f).y + 100f;
             UiKit.Pref(box, minH: poemH);
             Design.Corners(box, Design.Alpha(Design.Primary, 0.3f), arm: 34, thick: 2, inset: 8);
         }
@@ -149,19 +163,42 @@ namespace PoemPoetry.UI
             // No LayoutElement: let TMP report its own wrapped height to the scroll layout group.
         }
 
-        private void BuildFooter(Transform body, string poemId)
+        private void BuildFooter(Transform body, Poem poem, PoemDetailArgs a)
         {
+            string poemId = poem.Id;
             var footer = UiKit.Panel("Footer", body);
             UiKit.Pref(footer, minH: 116).flexibleHeight = 0f;
-            UiKit.HorizontalGroup(footer, spacing: 0);
+            UiKit.HorizontalGroup(footer, spacing: 12);
+
+            bool hasNav = a != null && a.Siblings != null && a.Siblings.Count > 1;
+            int n = hasNav ? a.Siblings.Count : 0;
+
+            // 上一首 / 收藏 / 下一首 同列一行（收藏在中间、稍宽）。
+            if (hasNav)
+            {
+                var prev = UiKit.Button("Prev", footer.transform, "上一首", out var pl, Design.SurfaceHigh, 30);
+                pl.color = Design.Ink;
+                prev.gameObject.AddComponent<LayoutElement>().flexibleWidth = 0.8f;
+                prev.onClick.AddListener(() => Open(a.Siblings, (a.Index - 1 + n) % n, -1));
+            }
+
             var favBtn = UiKit.Button("Fav", footer.transform, "收藏作品", out var favLbl, Design.SecondaryFixed, 36);
             favLbl.color = Design.Primary;
+            if (hasNav) favBtn.gameObject.AddComponent<LayoutElement>().flexibleWidth = 1.4f;
             SetFav(favLbl, poemId);
             favBtn.onClick.AddListener(async () =>
             {
                 bool on = await Services.Favorites.ToggleAsync(poemId);
                 ApplyFav(favLbl, on);
             });
+
+            if (hasNav)
+            {
+                var next = UiKit.Button("Next", footer.transform, "下一首", out var nl, Design.SurfaceHigh, 30);
+                nl.color = Design.Ink;
+                next.gameObject.AddComponent<LayoutElement>().flexibleWidth = 0.8f;
+                next.onClick.AddListener(() => Open(a.Siblings, (a.Index + 1) % n, +1));
+            }
         }
 
         private void Open(List<string> siblings, int index, int dir)

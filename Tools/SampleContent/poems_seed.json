@@ -108,12 +108,14 @@
         {
           "text": "白日依山尽",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "黄河入海流",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "欲穷千里目",
@@ -155,12 +157,14 @@
         {
           "text": "春来发几枝",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "愿君多采撷",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "此物最相思",
@@ -407,12 +411,14 @@
         {
           "text": "日照香炉生紫烟",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "遥看瀑布挂前川",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "飞流直下三千尺",
@@ -461,15 +467,17 @@
         {
           "text": "返景入深林",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "复照青苔上",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ],
-      "difficulty": 1
+      "difficulty": 0
     },
     {
       "id": "xianqin-shijing-jianjia",
@@ -480,8 +488,8 @@
       "cipai": "",
       "fame": "famous",
       "source": "诗经·秦风",
-      "difficulty": 0,
-      "translation": "芦苇苍苍随风摇，清晨白露凝成霜。我所思念的那人，就在河水的那一方。",
+      "difficulty": 3,
+      "translation": "芦苇茂密苍翠，清晨的白露凝结成霜。我所思念的那个人，就在河水的另一方。逆流而上去追寻，道路艰险又漫长；顺流而下去寻找，她仿佛就在水的中央。（次章、末章反复咏叹，那思念的人始终可望而不可即。）",
       "appreciation": "四言古朴，意境朦胧，开千古怀人之绝唱。",
       "tags": [
         "四言",
@@ -491,7 +499,7 @@
       "lines": [
         {
           "text": "蒹葭苍苍",
-          "isRhymeLine": true,
+          "isRhymeLine": false,
           "group": 0,
           "famous": true
         },
@@ -512,6 +520,632 @@
           "isRhymeLine": true,
           "group": 1,
           "famous": true
+        },
+        {
+          "text": "溯洄从之",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "道阻且长",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "溯游从之",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "宛在水中央",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "蒹葭萋萋",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "白露未晞",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "所谓伊人",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "在水之湄",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "溯洄从之",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "道阻且跻",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "溯游从之",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "宛在水中坻",
+          "isRhymeLine": true,
+          "group": 7
+        },
+        {
+          "text": "蒹葭采采",
+          "isRhymeLine": false,
+          "group": 8
+        },
+        {
+          "text": "白露未已",
+          "isRhymeLine": true,
+          "group": 8
+        },
+        {
+          "text": "所谓伊人",
+          "isRhymeLine": false,
+          "group": 9,
+          "famous": true
+        },
+        {
+          "text": "在水之涘",
+          "isRhymeLine": true,
+          "group": 9
+        },
+        {
+          "text": "溯洄从之",
+          "isRhymeLine": false,
+          "group": 10
+        },
+        {
+          "text": "道阻且右",
+          "isRhymeLine": true,
+          "group": 10
+        },
+        {
+          "text": "溯游从之",
+          "isRhymeLine": false,
+          "group": 11
+        },
+        {
+          "text": "宛在水中沚",
+          "isRhymeLine": true,
+          "group": 11
+        }
+      ]
+    },
+    {
+      "id": "xianqin-shijing-guanju",
+      "dynasty": "先秦",
+      "author": "诗经",
+      "title": "关雎",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 2,
+      "source": "诗经·周南",
+      "tags": [
+        "四言",
+        "诗经",
+        "爱情"
+      ],
+      "translation": "雎鸠关关地鸣叫，在河中的小洲上。文静美好的姑娘，是君子的好配偶。参差不齐的荇菜，顺水左右采摘；那文静美好的姑娘，让人日夜都想追求。追求却得不到，日夜思念不已，思绪悠悠绵长，翻来覆去难以入眠。终得亲近，便弹琴鼓瑟来亲近她，敲钟击鼓来取悦她。",
+      "lines": [
+        {
+          "text": "关关雎鸠",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "在河之洲",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "窈窕淑女",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "君子好逑",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "参差荇菜",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "左右流之",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "窈窕淑女",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "寤寐求之",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "求之不得",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "寤寐思服",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "悠哉悠哉",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "辗转反侧",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "参差荇菜",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "左右采之",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "窈窕淑女",
+          "isRhymeLine": false,
+          "group": 7,
+          "famous": true
+        },
+        {
+          "text": "琴瑟友之",
+          "isRhymeLine": true,
+          "group": 7
+        },
+        {
+          "text": "参差荇菜",
+          "isRhymeLine": false,
+          "group": 8
+        },
+        {
+          "text": "左右芼之",
+          "isRhymeLine": true,
+          "group": 8
+        },
+        {
+          "text": "窈窕淑女",
+          "isRhymeLine": false,
+          "group": 9,
+          "famous": true
+        },
+        {
+          "text": "钟鼓乐之",
+          "isRhymeLine": true,
+          "group": 9
+        }
+      ]
+    },
+    {
+      "id": "xianqin-shijing-taoyao",
+      "dynasty": "先秦",
+      "author": "诗经",
+      "title": "桃夭",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "source": "诗经·周南",
+      "tags": [
+        "四言",
+        "诗经",
+        "婚嫁"
+      ],
+      "translation": "桃树茂盛，花朵开得鲜艳灼目。这位姑娘出嫁，定能使夫家和顺美满。桃树结满了肥硕的果实，桃叶繁茂葱茏——她的出嫁，将给夫家带来兴旺与和睦。",
+      "lines": [
+        {
+          "text": "桃之夭夭",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "灼灼其华",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "之子于归",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "宜其室家",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "桃之夭夭",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "有蕡其实",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "之子于归",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "宜其家室",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "桃之夭夭",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "其叶蓁蓁",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "之子于归",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "宜其家人",
+          "isRhymeLine": true,
+          "group": 5
+        }
+      ]
+    },
+    {
+      "id": "xianqin-shijing-shuoshu",
+      "dynasty": "先秦",
+      "author": "诗经",
+      "title": "硕鼠",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "source": "诗经·魏风",
+      "tags": [
+        "四言",
+        "诗经",
+        "讽刺"
+      ],
+      "translation": "大老鼠啊大老鼠，不要再吃我的粮食！多年辛苦养着你，你却从不顾念我。我发誓要离开你，去那理想的乐土。乐土啊乐土，那才是我安身的好去处。（以麦、苗反复申说，痛斥贪得无厌的剥削者。）",
+      "lines": [
+        {
+          "text": "硕鼠硕鼠",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "无食我黍",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "三岁贯女",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "莫我肯顾",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "逝将去女",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "适彼乐土",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "乐土乐土",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "爰得我所",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "硕鼠硕鼠",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "无食我麦",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "三岁贯女",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "莫我肯德",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "逝将去女",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "适彼乐国",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "乐国乐国",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "爰得我直",
+          "isRhymeLine": true,
+          "group": 7
+        },
+        {
+          "text": "硕鼠硕鼠",
+          "isRhymeLine": false,
+          "group": 8
+        },
+        {
+          "text": "无食我苗",
+          "isRhymeLine": true,
+          "group": 8
+        },
+        {
+          "text": "三岁贯女",
+          "isRhymeLine": false,
+          "group": 9
+        },
+        {
+          "text": "莫我肯劳",
+          "isRhymeLine": true,
+          "group": 9
+        },
+        {
+          "text": "逝将去女",
+          "isRhymeLine": false,
+          "group": 10
+        },
+        {
+          "text": "适彼乐郊",
+          "isRhymeLine": true,
+          "group": 10
+        },
+        {
+          "text": "乐郊乐郊",
+          "isRhymeLine": false,
+          "group": 11
+        },
+        {
+          "text": "谁之永号",
+          "isRhymeLine": true,
+          "group": 11
+        }
+      ]
+    },
+    {
+      "id": "xianqin-shijing-wuyi",
+      "dynasty": "先秦",
+      "author": "诗经",
+      "title": "无衣",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "source": "诗经·秦风",
+      "tags": [
+        "四言",
+        "诗经",
+        "战争"
+      ],
+      "translation": "谁说没有衣裳？我与你同穿一件战袍。国家要出兵打仗，修整好我们的戈矛，与你同仇敌忾。谁说没有衣裳？与你共穿内衣、战裙，整治好兵器铠甲，与你并肩出发、一同奔赴战场。",
+      "lines": [
+        {
+          "text": "岂曰无衣",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "与子同袍",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "王于兴师",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "修我戈矛",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "与子同仇",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "岂曰无衣",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "与子同泽",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "王于兴师",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "修我矛戟",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "与子偕作",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "岂曰无衣",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "与子同裳",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "王于兴师",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "修我甲兵",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "与子偕行",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "xianqin-shijing-caiwei",
+      "dynasty": "先秦",
+      "author": "诗经",
+      "title": "采薇",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "source": "诗经·小雅",
+      "tags": [
+        "四言",
+        "诗经",
+        "战争",
+        "思乡"
+      ],
+      "translation": "回想当初出征时，杨柳依依随风轻摆；如今归来途中，却是大雪纷纷漫天飞舞。道路泥泞难行，又饥又渴；我心中无限悲伤，没有人懂得我的哀痛。（此为《采薇》末章，最为传诵。）",
+      "lines": [
+        {
+          "text": "昔我往矣",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "杨柳依依",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "今我来思",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "雨雪霏霏",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "行道迟迟",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "载渴载饥",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "我心伤悲",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "莫知我哀",
+          "isRhymeLine": true,
+          "group": 3
         }
       ]
     },
@@ -524,8 +1158,8 @@
       "cipai": "",
       "fame": "famous",
       "source": "乐府",
-      "difficulty": 0,
-      "translation": "心中慷慨激昂，忧思难以相忘。用什么排解忧愁，唯有那杜康美酒。",
+      "difficulty": 1,
+      "translation": "面对美酒应当高歌，人生短暂能有几何？好比清晨的露水，逝去的日子实在太多。心中慷慨激昂，忧思却难以相忘，用什么排解忧愁，唯有那杜康美酒。「青青子衿，悠悠我心」，只因思念贤才，低声吟咏至今。明月高悬何时可摘取？忧思自心底涌来，无法断绝。月明星稀，乌鹊向南飞去，绕树三圈，哪根枝头可以栖息？山不嫌高、海不嫌深，我愿如周公般礼贤下士，使天下英才都来归心。",
       "appreciation": "慷慨悲凉，求贤若渴，建安风骨之代表。",
       "tags": [
         "四言",
@@ -534,25 +1168,176 @@
       ],
       "lines": [
         {
-          "text": "慨当以慷",
+          "text": "对酒当歌",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "人生几何",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "譬如朝露",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "去日苦多",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "慨当以慷",
+          "isRhymeLine": false,
+          "group": 2
         },
         {
           "text": "忧思难忘",
           "isRhymeLine": true,
-          "group": 0
+          "group": 2
         },
         {
           "text": "何以解忧",
           "isRhymeLine": false,
-          "group": 1,
+          "group": 3,
           "famous": true
         },
         {
           "text": "唯有杜康",
           "isRhymeLine": true,
-          "group": 1,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "青青子衿",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "悠悠我心",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "但为君故",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "沉吟至今",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "呦呦鹿鸣",
+          "isRhymeLine": false,
+          "group": 6,
+          "famous": true
+        },
+        {
+          "text": "食野之苹",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "我有嘉宾",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "鼓瑟吹笙",
+          "isRhymeLine": true,
+          "group": 7
+        },
+        {
+          "text": "明明如月",
+          "isRhymeLine": false,
+          "group": 8
+        },
+        {
+          "text": "何时可掇",
+          "isRhymeLine": true,
+          "group": 8
+        },
+        {
+          "text": "忧从中来",
+          "isRhymeLine": false,
+          "group": 9
+        },
+        {
+          "text": "不可断绝",
+          "isRhymeLine": true,
+          "group": 9
+        },
+        {
+          "text": "越陌度阡",
+          "isRhymeLine": false,
+          "group": 10
+        },
+        {
+          "text": "枉用相存",
+          "isRhymeLine": true,
+          "group": 10
+        },
+        {
+          "text": "契阔谈讌",
+          "isRhymeLine": false,
+          "group": 11
+        },
+        {
+          "text": "心念旧恩",
+          "isRhymeLine": true,
+          "group": 11
+        },
+        {
+          "text": "月明星稀",
+          "isRhymeLine": false,
+          "group": 12,
+          "famous": true
+        },
+        {
+          "text": "乌鹊南飞",
+          "isRhymeLine": true,
+          "group": 12,
+          "famous": true
+        },
+        {
+          "text": "绕树三匝",
+          "isRhymeLine": false,
+          "group": 13
+        },
+        {
+          "text": "何枝可依",
+          "isRhymeLine": true,
+          "group": 13
+        },
+        {
+          "text": "山不厌高",
+          "isRhymeLine": false,
+          "group": 14,
+          "famous": true
+        },
+        {
+          "text": "海不厌深",
+          "isRhymeLine": true,
+          "group": 14,
+          "famous": true
+        },
+        {
+          "text": "周公吐哺",
+          "isRhymeLine": false,
+          "group": 15,
+          "famous": true
+        },
+        {
+          "text": "天下归心",
+          "isRhymeLine": true,
+          "group": 15,
           "famous": true
         }
       ]
@@ -567,7 +1352,7 @@
       "fame": "common",
       "source": "乐府",
       "difficulty": 1,
-      "translation": "向东登上碣石山，来观赏苍茫大海。海水浩浩荡荡，山岛高高耸立。",
+      "translation": "向东登上碣石山，来观赏苍茫的大海。海水多么宽阔浩荡，山岛高高地耸立。岛上树木丛生，百草丰茂。萧瑟的秋风吹过，掀起滔天巨浪。日月的运行，好像出自这大海之中；银河璀璨，也仿佛出自这大海的怀抱。庆幸得很，就用这首诗歌来咏唱志向。",
       "appreciation": "气势恢宏，胸怀天下，以景写志。",
       "tags": [
         "四言",
@@ -598,6 +1383,62 @@
           "isRhymeLine": true,
           "group": 1,
           "famous": true
+        },
+        {
+          "text": "树木丛生",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "百草丰茂",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "秋风萧瑟",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "洪波涌起",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "日月之行",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "若出其中",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "星汉灿烂",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "若出其里",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "幸甚至哉",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "歌以咏志",
+          "isRhymeLine": true,
+          "group": 6
         }
       ]
     },
@@ -973,7 +1814,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "五言绝句",
         "春景",
@@ -984,22 +1825,26 @@
         {
           "text": "迟日江山丽",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "春风花草香",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "泥融飞燕子",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "沙暖睡鸳鸯",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ]
     },
@@ -1106,12 +1951,14 @@
         {
           "text": "离离原上草",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "一岁一枯荣",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "野火烧不尽",
@@ -1155,7 +2002,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "七言律诗",
         "登高",
@@ -1190,12 +2037,14 @@
         {
           "text": "晴川历历汉阳树",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "芳草萋萋鹦鹉洲",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "日暮乡关何处是",
@@ -1240,22 +2089,26 @@
         {
           "text": "造化钟神秀",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "阴阳割昏晓",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "荡胸生曾云",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "决眦入归鸟",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "会当凌绝顶",
@@ -1314,12 +2167,14 @@
         {
           "text": "烽火连三月",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "家书抵万金",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "白头搔更短",
@@ -1386,12 +2241,14 @@
         {
           "text": "艰难苦恨繁霜鬓",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "潦倒新停浊酒杯",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -1653,7 +2510,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "七言绝句",
         "思念",
@@ -1695,7 +2552,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "五言绝句",
         "山水",
@@ -1706,12 +2563,14 @@
         {
           "text": "独坐幽篁里",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "弹琴复长啸",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "深林人不知",
@@ -1735,7 +2594,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "七言绝句",
         "送别",
@@ -1746,12 +2605,14 @@
         {
           "text": "渭城朝雨浥轻尘",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "客舍青青柳色新",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "劝君更尽一杯酒",
@@ -1926,7 +2787,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "咏物",
@@ -1964,7 +2825,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "渔家",
@@ -2002,7 +2863,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "山水",
@@ -2238,20 +3099,17 @@
         {
           "text": "高处不胜寒",
           "isRhymeLine": true,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "起舞弄清影",
           "isRhymeLine": false,
-          "group": 3,
-          "famous": true
+          "group": 3
         },
         {
           "text": "何似在人间",
           "isRhymeLine": true,
-          "group": 3,
-          "famous": true
+          "group": 3
         },
         {
           "text": "转朱阁",
@@ -2578,7 +3436,7 @@
       "type": "词",
       "cipai": "声声慢",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "婉约",
         "愁",
@@ -2618,12 +3476,14 @@
         {
           "text": "三杯两盏淡酒",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "怎敌他晚来风急",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "雁过也",
@@ -2668,12 +3528,14 @@
         {
           "text": "梧桐更兼细雨",
           "isRhymeLine": false,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "到黄昏点点滴滴",
           "isRhymeLine": true,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "这次第",
@@ -2709,8 +3571,7 @@
         {
           "text": "东风夜放花千树",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "更吹落",
@@ -2822,22 +3683,26 @@
         {
           "text": "七八个星天外",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "两三点雨山前",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "旧时茅店社林边",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "路转溪桥忽见",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -2849,7 +3714,7 @@
       "type": "词",
       "cipai": "雨霖铃",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "离别",
         "婉约",
@@ -2934,8 +3799,7 @@
         {
           "text": "今宵酒醒何处",
           "isRhymeLine": false,
-          "group": 6,
-          "famous": true
+          "group": 6
         },
         {
           "text": "杨柳岸",
@@ -2979,7 +3843,7 @@
       "type": "词",
       "cipai": "浣溪沙",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "婉约",
         "伤春",
@@ -3030,7 +3894,7 @@
       "type": "词",
       "cipai": "渔家傲",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "边塞",
         "秋思",
@@ -3062,7 +3926,8 @@
         {
           "text": "长烟落日孤城闭",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "浊酒一杯家万里",
@@ -3084,12 +3949,14 @@
         {
           "text": "人不寐",
           "isRhymeLine": true,
-          "group": 5
+          "group": 5,
+          "famous": true
         },
         {
           "text": "将军白发征夫泪",
           "isRhymeLine": true,
-          "group": 5
+          "group": 5,
+          "famous": true
         }
       ]
     },
@@ -3124,12 +3991,14 @@
         {
           "text": "小楼昨夜又东风",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "故国不堪回首月明中",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "雕栏玉砌应犹在",
@@ -3163,7 +4032,7 @@
       "type": "词",
       "cipai": "浣溪沙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "婉约",
         "惜时",
@@ -3213,7 +4082,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 0,
       "tags": [
         "七言绝句",
         "思乡",
@@ -3224,12 +4093,14 @@
         {
           "text": "京口瓜洲一水间",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "钟山只隔数重山",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "春风又绿江南岸",
@@ -3270,7 +4141,8 @@
         {
           "text": "远近高低各不同",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "不识庐山真面目",
@@ -3305,12 +4177,14 @@
         {
           "text": "水光潋滟晴方好",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "山色空蒙雨亦奇",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "欲把西湖比西子",
@@ -3345,22 +4219,26 @@
         {
           "text": "死去元知万事空",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "但悲不见九州同",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "王师北定中原日",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "家祭无忘告乃翁",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ]
     },
@@ -3510,12 +4388,14 @@
         {
           "text": "千锤万凿出深山",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "烈火焚烧若等闲",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "粉骨碎身浑不怕",
@@ -3539,13 +4419,13 @@
       "type": "词",
       "cipai": "临江仙",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "怀古",
         "长江",
         "豪放"
       ],
-      "translation": "滚滚长江水向东奔流逝去，浪花淘尽了千古英雄。是非成败转眼间都成空，只有青山依然还在，经历了几度夕阳红。",
+      "translation": "滚滚长江水向东奔流逝去，浪花淘尽了千古英雄。是非成败转眼间都成空，只有青山依然还在，经历了几度夕阳红。白发苍苍的渔樵在江中沙洲上，早已看惯了秋月春风。难得与老友相逢，便备下一壶浊酒。古往今来多少兴亡之事，都付与这笑谈之中。",
       "lines": [
         {
           "text": "滚滚长江东逝水",
@@ -3574,6 +4454,33 @@
           "text": "几度夕阳红",
           "isRhymeLine": true,
           "group": 2
+        },
+        {
+          "text": "白发渔樵江渚上",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "惯看秋月春风",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "一壶浊酒喜相逢",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "古今多少事",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "都付笑谈中",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
         }
       ]
     },
@@ -3585,7 +4492,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "言志",
@@ -3596,14 +4503,12 @@
         {
           "text": "九州生气恃风雷",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "万马齐喑究可哀",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "我劝天公重抖擞",
@@ -3644,7 +4549,8 @@
         {
           "text": "立根原在破岩中",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "千磨万击还坚劲",
@@ -3668,7 +4574,7 @@
       "type": "词",
       "cipai": "长相思",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "边塞",
         "思乡",
@@ -3694,8 +4600,7 @@
         {
           "text": "夜深千帐灯",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "风一更",
@@ -3710,12 +4615,14 @@
         {
           "text": "聒碎乡心梦不成",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "故园无此声",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -3881,7 +4788,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "送别",
@@ -3919,7 +4826,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "田园",
@@ -3945,8 +4852,7 @@
         {
           "text": "家家扶得醉人归",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         }
       ]
     },
@@ -3958,7 +4864,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "惜别",
@@ -3996,7 +4902,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "obscure",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "落第",
@@ -4055,12 +4961,14 @@
         {
           "text": "尽日问花花不语",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "为谁零落为谁开",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ]
     },
@@ -4093,12 +5001,14 @@
         {
           "text": "八尺龙须方锦褥",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "已凉天气未寒时",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ]
     },
@@ -4110,7 +5020,7 @@
       "type": "词",
       "cipai": "沁园春",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "写景",
         "咏雪",
@@ -4204,37 +5114,44 @@
         {
           "text": "惜秦皇汉武",
           "isRhymeLine": false,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "略输文采",
           "isRhymeLine": false,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "唐宗宋祖",
           "isRhymeLine": false,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "稍逊风骚",
           "isRhymeLine": true,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "一代天骄",
           "isRhymeLine": true,
-          "group": 8
+          "group": 8,
+          "famous": true
         },
         {
           "text": "成吉思汗",
           "isRhymeLine": false,
-          "group": 8
+          "group": 8,
+          "famous": true
         },
         {
           "text": "只识弯弓射大雕",
           "isRhymeLine": true,
-          "group": 8
+          "group": 8,
+          "famous": true
         },
         {
           "text": "俱往矣",
@@ -4287,32 +5204,38 @@
         {
           "text": "五岭逶迤腾细浪",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "乌蒙磅礴走泥丸",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "金沙水拍云崖暖",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "大渡桥横铁索寒",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "更喜岷山千里雪",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "三军过后尽开颜",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -4324,7 +5247,7 @@
       "type": "词",
       "cipai": "沁园春",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "写景",
         "抒怀",
@@ -4335,17 +5258,20 @@
         {
           "text": "独立寒秋",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "湘江北去",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "橘子洲头",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "看万山红遍",
@@ -4370,17 +5296,20 @@
         {
           "text": "鹰击长空",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "鱼翔浅底",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "万类霜天竞自由",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "怅寥廓",
@@ -4412,22 +5341,26 @@
         {
           "text": "恰同学少年",
           "isRhymeLine": false,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "风华正茂",
           "isRhymeLine": false,
-          "group": 6
+          "group": 6,
+          "famous": true
         },
         {
           "text": "书生意气",
           "isRhymeLine": false,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "挥斥方遒",
           "isRhymeLine": true,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "指点江山",
@@ -4556,7 +5489,8 @@
         {
           "text": "屈指行程二万",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "六盘山上高峰",
@@ -4620,12 +5554,14 @@
         {
           "text": "宜将剩勇追穷寇",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "不可沽名学霸王",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "天若有情天亦老",
@@ -4649,7 +5585,7 @@
       "type": "词",
       "cipai": "采桑子",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "重阳",
         "写景",
@@ -4660,8 +5596,7 @@
         {
           "text": "人生易老天难老",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "岁岁重阳",
@@ -4744,12 +5679,14 @@
         {
           "text": "雄关漫道真如铁",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "而今迈步从头越",
           "isRhymeLine": true,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "从头越",
@@ -4778,7 +5715,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "思妇",
         "闺怨",
@@ -4816,7 +5753,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "讽喻",
         "感时",
@@ -4842,8 +5779,7 @@
         {
           "text": "不知忧国是何人",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         }
       ]
     },
@@ -4855,7 +5791,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "怀古",
         "宫怨",
@@ -4893,7 +5829,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "山水",
         "渔歌",
@@ -4931,7 +5867,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "思乡",
         "杏花",
@@ -4969,7 +5905,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "宫怨",
         "闺怨",
@@ -5007,7 +5943,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "闺情",
         "喜兆",
@@ -5045,7 +5981,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "思妇",
         "春思",
@@ -5103,7 +6039,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "宫怨",
         "闺怨",
@@ -5143,7 +6079,7 @@
       "type": "词",
       "cipai": "生查子",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "元宵",
         "相思",
@@ -5205,7 +6141,7 @@
       "type": "词",
       "cipai": "浪淘沙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "惜春",
         "聚散",
@@ -5346,7 +6282,7 @@
       "type": "词",
       "cipai": "浣溪沙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "春愁",
         "闲愁",
@@ -5396,7 +6332,7 @@
       "type": "词",
       "cipai": "苏幕遮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "荷花",
         "思乡",
@@ -5486,7 +6422,7 @@
       "type": "词",
       "cipai": "暗香",
       "fame": "rare",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "咏梅",
         "怀人",
@@ -5599,7 +6535,7 @@
       "type": "词",
       "cipai": "扬州慢",
       "fame": "rare",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "怀古",
         "扬州",
@@ -5721,7 +6657,7 @@
       "type": "词",
       "cipai": "青玉案",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "相思",
         "闲愁",
@@ -5856,12 +6792,14 @@
         {
           "text": "当时明月在",
           "isRhymeLine": false,
-          "group": 5
+          "group": 5,
+          "famous": true
         },
         {
           "text": "曾照彩云归",
           "isRhymeLine": true,
-          "group": 5
+          "group": 5,
+          "famous": true
         }
       ]
     },
@@ -5940,7 +6878,7 @@
       "type": "词",
       "cipai": "蝶恋花",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "闺怨",
         "春景",
@@ -6141,7 +7079,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "访友",
@@ -6179,7 +7117,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "七言律诗",
         "咏梅",
@@ -6190,24 +7128,24 @@
         {
           "text": "琼姿只合在瑶台",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "谁向江南处处栽",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "雪满山中高士卧",
           "isRhymeLine": false,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "月明林下美人来",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         }
       ]
     },
@@ -6219,7 +7157,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "咏物",
@@ -6307,13 +7245,13 @@
       "type": "词",
       "cipai": "木兰花令",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "爱情",
         "决绝",
         "感伤"
       ],
-      "translation": "与人相处若能永远像初见时那般美好，又怎会有秋风中团扇被弃般的哀怨。如今轻易就变了心，却反说是人心本来就容易变。",
+      "translation": "与人相处若能永远像初见时那般美好，又怎会有秋风中团扇被弃般的哀怨。如今轻易就变了心，却反说是人心本来就容易变。想当年唐明皇与杨贵妃在骊山长生殿夜半私语，纵使后来生死永诀也终未怨悔。可叹自己连那薄情的锦衣郎都不如——他至少还与爱人许下过比翼连枝的誓愿。",
       "lines": [
         {
           "text": "人生若只如初见",
@@ -6330,12 +7268,35 @@
         {
           "text": "等闲变却故人心",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "却道故人心易变",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "骊山语罢清宵半",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "泪雨霖铃终不怨",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "何如薄幸锦衣郎",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "比翼连枝当日愿",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -6347,7 +7308,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "江南",
@@ -6385,7 +7346,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "五言绝句",
         "童趣",
@@ -6423,7 +7384,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "五言绝句",
         "咏物",
@@ -6463,7 +7424,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "七言律诗",
         "感慨",
@@ -6494,8 +7455,7 @@
         {
           "text": "十有九人堪白眼",
           "isRhymeLine": false,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "百无一用是书生",
@@ -6513,7 +7473,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "七言绝句",
         "母爱",
@@ -6524,24 +7484,24 @@
         {
           "text": "搴帷拜母河梁去",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "白发愁看泪眼枯",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "惨惨柴门风雪夜",
           "isRhymeLine": false,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "此时有子不如无",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         }
       ]
     },
@@ -6553,7 +7513,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "不论平地与山尖，无限风光尽被占",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "咏物",
         "讽喻",
@@ -6593,7 +7553,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "落花犹似坠楼人",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "咏史",
         "怀古",
@@ -6631,7 +7591,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "渐与骨肉远，转于僮仆亲",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "羁旅",
         "思乡",
@@ -6691,7 +7651,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "子规夜半犹啼血，不信东风唤不回",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "惜春",
         "言志",
@@ -6731,7 +7691,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "疏影横斜水清浅，暗香浮动月黄昏",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "咏梅",
         "隐逸",
@@ -6791,7 +7751,7 @@
       "type": "词",
       "cipai": "采桑子",
       "fame": "恨君不似江楼月，南北东西",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "闺情",
         "相思",
@@ -6802,8 +7762,7 @@
         {
           "text": "恨君不似江楼月",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "南北东西",
@@ -6850,7 +7809,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "寒波澹澹起，白鸟悠悠下",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "留别",
         "哲理",
@@ -6970,7 +7929,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "五言古诗",
         "咏物",
@@ -7112,7 +8071,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "lesser",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "五言律诗",
         "重逢",
@@ -7634,7 +8593,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言绝句",
         "山水",
@@ -8112,12 +9071,14 @@
         {
           "text": "春风送暖入屠苏",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "千门万户曈曈日",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "总把新桃换旧符",
@@ -8422,7 +9383,7 @@
       "type": "词",
       "cipai": "江城子",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "悼亡",
         "婉约",
@@ -8546,7 +9507,8 @@
         {
           "text": "竹杖芒鞋轻胜马",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "谁怕",
@@ -8577,12 +9539,14 @@
         {
           "text": "回首向来萧瑟处",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "归去",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "也无风雨也无晴",
@@ -8623,12 +9587,14 @@
         {
           "text": "八百里分麾下炙",
           "isRhymeLine": false,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "五十弦翻塞外声",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         },
         {
           "text": "沙场秋点兵",
@@ -8674,7 +9640,7 @@
       "type": "词",
       "cipai": "丑奴儿",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "愁",
         "婉约",
@@ -8707,8 +9673,7 @@
         {
           "text": "而今识尽愁滋味",
           "isRhymeLine": false,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "欲说还休",
@@ -8718,7 +9683,8 @@
         {
           "text": "欲说还休",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "却道天凉好个秋",
@@ -8736,7 +9702,7 @@
       "type": "词",
       "cipai": "一剪梅",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "相思",
         "婉约",
@@ -8747,8 +9713,7 @@
         {
           "text": "红藕香残玉簟秋",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "轻解罗裳",
@@ -8778,13 +9743,13 @@
         {
           "text": "花自飘零水自流",
           "isRhymeLine": true,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "一种相思",
           "isRhymeLine": false,
-          "group": 2
+          "group": 2,
+          "famous": true
         },
         {
           "text": "两处闲愁",
@@ -8879,7 +9844,7 @@
       "type": "词",
       "cipai": "苏幕遮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "羁旅",
         "思乡",
@@ -9024,7 +9989,8 @@
         {
           "text": "欲寄彩笺兼尺素",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "山长水阔知何处",
@@ -9052,7 +10018,7 @@
       "translation": "啊，多么高峻！蜀道之难，比登天还难。自蚕丛、鱼凫开国，四万八千年不与秦塞相通，直到地崩山摧、壮士牺牲，才有天梯石栈勾连。山势高峻连黄鹤也飞不过，猿猴想攀越也发愁。剑阁雄关一夫当关、万夫莫开，所守非人便成祸患。蜀道如此艰险，锦城虽好，不如早早回家；蜀道之难难于上青天，令人侧身西望，长叹不已。",
       "lines": [
         {
-          "text": "噫吁戏",
+          "text": "噫吁嚱",
           "isRhymeLine": false,
           "group": 0
         },
@@ -9298,7 +10264,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "月",
@@ -9676,7 +10642,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "长诗",
@@ -10456,7 +11422,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "长诗",
@@ -10553,7 +11519,7 @@
           "group": 8
         },
         {
-          "text": "似诉平生不得意",
+          "text": "似诉平生不得志",
           "isRhymeLine": true,
           "group": 8
         },
@@ -10688,7 +11654,7 @@
           "group": 21
         },
         {
-          "text": "名蜀教坊第一部",
+          "text": "名属教坊第一部",
           "isRhymeLine": true,
           "group": 21
         },
@@ -10713,7 +11679,7 @@
           "group": 23
         },
         {
-          "text": "钿头云篦击节碎",
+          "text": "钿头银篦击节碎",
           "isRhymeLine": false,
           "group": 24
         },
@@ -10818,7 +11784,7 @@
           "group": 33
         },
         {
-          "text": "浔阳小处无音乐",
+          "text": "浔阳地僻无音乐",
           "isRhymeLine": false,
           "group": 34
         },
@@ -11023,7 +11989,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "游仙",
@@ -11275,7 +12241,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "古风",
         "民生",
@@ -11351,7 +12317,7 @@
           "group": 7
         },
         {
-          "text": "骄儿恶卧踏里裂",
+          "text": "娇儿恶卧踏里裂",
           "isRhymeLine": true,
           "group": 7
         },
@@ -11762,7 +12728,7 @@
       "type": "词",
       "cipai": "相见欢",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "亡国",
         "婉约",
@@ -11823,7 +12789,7 @@
       "type": "词",
       "cipai": "浪淘沙令",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "亡国",
         "故国",
@@ -11835,8 +12801,7 @@
         {
           "text": "帘外雨潺潺",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "春意阑珊",
@@ -11929,8 +12894,7 @@
         {
           "text": "几曾识干戈",
           "isRhymeLine": true,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "一旦归为臣虏",
@@ -11951,7 +12915,8 @@
         {
           "text": "教坊犹奏别离歌",
           "isRhymeLine": true,
-          "group": 4
+          "group": 4,
+          "famous": true
         },
         {
           "text": "垂泪对宫娥",
@@ -11969,7 +12934,7 @@
       "type": "词",
       "cipai": "摊破浣溪沙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "秋景",
         "婉约",
@@ -12031,7 +12996,7 @@
       "type": "词",
       "cipai": "菩萨蛮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "江南",
         "羁旅",
@@ -12054,14 +13019,12 @@
         {
           "text": "春水碧于天",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "画船听雨眠",
           "isRhymeLine": true,
-          "group": 1,
-          "famous": true
+          "group": 1
         },
         {
           "text": "垆边人似月",
@@ -12069,14 +13032,15 @@
           "group": 2
         },
         {
-          "text": "皓腕凝双雪",
+          "text": "皓腕凝霜雪",
           "isRhymeLine": true,
           "group": 2
         },
         {
           "text": "未老莫还乡",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "还乡须断肠",
@@ -12094,7 +13058,7 @@
       "type": "词",
       "cipai": "菩萨蛮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "闺情",
         "花间",
@@ -12106,14 +13070,12 @@
         {
           "text": "小山重叠金明灭",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "鬓云欲度香腮雪",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "懒起画蛾眉",
@@ -12156,7 +13118,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "羁旅",
@@ -12218,7 +13180,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "山水",
@@ -12279,7 +13241,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "五言律诗",
         "山水",
@@ -12432,7 +13394,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "送别",
@@ -12554,7 +13516,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言律诗",
         "怀古",
@@ -12675,7 +13637,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "送别",
@@ -12684,7 +13646,7 @@
       "translation": "迷蒙的寒雨连江而下，夜里飘入吴地，清晨送别友人，唯见楚山孤峙。洛阳的亲友倘若问起我，就说我的心如同玉壶里的一片冰那样高洁。",
       "lines": [
         {
-          "text": "寒雨连天夜入湖",
+          "text": "寒雨连江夜入吴",
           "isRhymeLine": false,
           "group": 0
         },
@@ -12715,7 +13677,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言律诗",
         "无题",
@@ -12775,7 +13737,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "咏月",
@@ -12955,7 +13917,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "民生",
@@ -13082,7 +14044,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 2,
+      "difficulty": 3,
       "tags": [
         "乐府",
         "边塞",
@@ -13139,7 +14101,7 @@
           "group": 4
         },
         {
-          "text": "愁云黪淡万里凝",
+          "text": "愁云惨淡万里凝",
           "isRhymeLine": true,
           "group": 4
         },
@@ -13564,7 +14526,7 @@
       "type": "词",
       "cipai": "卜算子",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "孤高",
         "咏物",
@@ -13609,9 +14571,10 @@
           "famous": true
         },
         {
-          "text": "枫落吴江冷",
+          "text": "寂寞沙洲冷",
           "isRhymeLine": true,
-          "group": 3
+          "group": 3,
+          "famous": true
         }
       ]
     },
@@ -13623,7 +14586,7 @@
       "type": "词",
       "cipai": "永遇乐",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "怀古",
         "豪放",
@@ -13680,7 +14643,8 @@
         {
           "text": "想当年",
           "isRhymeLine": false,
-          "group": 3
+          "group": 3,
+          "famous": true
         },
         {
           "text": "金戈铁马",
@@ -13742,7 +14706,8 @@
         {
           "text": "凭谁问",
           "isRhymeLine": false,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "廉颇老矣",
@@ -13766,7 +14731,7 @@
       "type": "词",
       "cipai": "水龙吟",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "登临",
         "抒怀",
@@ -13777,8 +14742,7 @@
         {
           "text": "楚天千里清秋",
           "isRhymeLine": false,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "水随天去秋无际",
@@ -13818,8 +14782,7 @@
         {
           "text": "把吴钩看了",
           "isRhymeLine": false,
-          "group": 3,
-          "famous": true
+          "group": 3
         },
         {
           "text": "栏干拍遍",
@@ -13829,14 +14792,12 @@
         {
           "text": "无人会",
           "isRhymeLine": false,
-          "group": 3,
-          "famous": true
+          "group": 3
         },
         {
           "text": "登临意",
           "isRhymeLine": true,
-          "group": 3,
-          "famous": true
+          "group": 3
         },
         {
           "text": "休说鲈鱼堪鲙",
@@ -13908,7 +14869,7 @@
       "type": "词",
       "cipai": "醉花阴",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "重阳",
         "婉约",
@@ -13942,7 +14903,7 @@
           "group": 2
         },
         {
-          "text": "东篱把洒黄昏后",
+          "text": "东篱把酒黄昏后",
           "isRhymeLine": false,
           "group": 3
         },
@@ -13954,7 +14915,8 @@
         {
           "text": "莫道不消魂",
           "isRhymeLine": false,
-          "group": 4
+          "group": 4,
+          "famous": true
         },
         {
           "text": "帘卷西风",
@@ -13963,9 +14925,10 @@
           "famous": true
         },
         {
-          "text": "人似黄花瘦",
+          "text": "人比黄花瘦",
           "isRhymeLine": true,
-          "group": 4
+          "group": 4,
+          "famous": true
         }
       ]
     },
@@ -13977,7 +14940,7 @@
       "type": "词",
       "cipai": "蝶恋花",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "相思",
         "婉约",
@@ -14047,7 +15010,7 @@
       "type": "词",
       "cipai": "望海潮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "都市",
         "写景",
@@ -14068,8 +15031,7 @@
         {
           "text": "钱塘自古繁华",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "烟柳画桥",
@@ -14124,8 +15086,7 @@
         {
           "text": "十里荷花",
           "isRhymeLine": true,
-          "group": 6,
-          "famous": true
+          "group": 6
         },
         {
           "text": "羌管弄晴",
@@ -14177,7 +15138,7 @@
       "type": "词",
       "cipai": "踏莎行",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "羁旅",
         "贬谪",
@@ -14188,14 +15149,12 @@
         {
           "text": "雾失楼台",
           "isRhymeLine": false,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "月迷津渡",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "桃源望断无寻处",
@@ -14249,7 +15208,7 @@
       "type": "词",
       "cipai": "满江红",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "爱国",
         "豪放",
@@ -14260,17 +15219,20 @@
         {
           "text": "怒发冲冠",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "凭阑处",
           "isRhymeLine": false,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "潇潇雨歇",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "抬望眼",
@@ -14350,12 +15312,14 @@
         {
           "text": "壮志饥餐胡虏肉",
           "isRhymeLine": false,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "笑谈渴饮匈奴血",
           "isRhymeLine": true,
-          "group": 7
+          "group": 7,
+          "famous": true
         },
         {
           "text": "待从头",
@@ -14382,7 +15346,7 @@
       "type": "词",
       "cipai": "钗头凤",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "爱情",
         "伤逝",
@@ -14393,84 +15357,87 @@
         {
           "text": "红酥手",
           "isRhymeLine": true,
-          "group": 0
+          "group": 0,
+          "famous": true
         },
         {
           "text": "黄縢酒",
           "isRhymeLine": true,
-          "group": 1
+          "group": 0,
+          "famous": true
         },
         {
           "text": "满城春色宫墙柳",
           "isRhymeLine": true,
-          "group": 2
+          "group": 0,
+          "famous": true
         },
         {
           "text": "东风恶",
           "isRhymeLine": true,
-          "group": 3
+          "group": 1
         },
         {
           "text": "欢情薄",
           "isRhymeLine": true,
-          "group": 4
+          "group": 1
         },
         {
           "text": "一怀愁绪",
           "isRhymeLine": false,
-          "group": 5
+          "group": 2
         },
         {
           "text": "几年离索",
           "isRhymeLine": true,
-          "group": 5
+          "group": 2
         },
         {
           "text": "错错错",
           "isRhymeLine": true,
-          "group": 6
+          "group": 3
         },
         {
           "text": "春如旧",
           "isRhymeLine": true,
-          "group": 7
+          "group": 4
         },
         {
           "text": "人空瘦",
           "isRhymeLine": true,
-          "group": 8
+          "group": 4
         },
         {
           "text": "泪痕红浥鲛绡透",
           "isRhymeLine": true,
-          "group": 9
+          "group": 4
         },
         {
           "text": "桃花落",
           "isRhymeLine": true,
-          "group": 10
+          "group": 5
         },
         {
           "text": "闲池阁",
           "isRhymeLine": true,
-          "group": 11
+          "group": 5
         },
         {
           "text": "山盟虽在",
           "isRhymeLine": false,
-          "group": 12,
+          "group": 6,
           "famous": true
         },
         {
           "text": "锦书难托",
           "isRhymeLine": true,
-          "group": 12,
+          "group": 6,
           "famous": true
         },
         {
           "text": "莫莫莫",
           "isRhymeLine": true,
-          "group": 13
+          "group": 7
         }
       ]
     },
@@ -14482,7 +15449,7 @@
       "type": "词",
       "cipai": "念奴娇",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "写景",
         "旷达",
@@ -14528,8 +15495,7 @@
         {
           "text": "表里俱澄澈",
           "isRhymeLine": true,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "悠然心会",
@@ -14552,7 +15518,7 @@
           "group": 4
         },
         {
-          "text": "肝肺皆冰雪",
+          "text": "肝胆皆冰雪",
           "isRhymeLine": true,
           "group": 4
         },
@@ -14589,8 +15555,7 @@
         {
           "text": "不知今夕何夕",
           "isRhymeLine": true,
-          "group": 7,
-          "famous": true
+          "group": 7
         }
       ]
     },
@@ -14602,7 +15567,7 @@
       "type": "词",
       "cipai": "虞美人",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "人生",
         "听雨",
@@ -14613,8 +15578,7 @@
         {
           "text": "少年听雨歌楼上",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "红烛昏罗帐",
@@ -14649,14 +15613,12 @@
         {
           "text": "悲欢离合总无情",
           "isRhymeLine": true,
-          "group": 6,
-          "famous": true
+          "group": 6
         },
         {
           "text": "一任阶前",
           "isRhymeLine": false,
-          "group": 7,
-          "famous": true
+          "group": 7
         },
         {
           "text": "点滴到天明",
@@ -14673,7 +15635,7 @@
       "type": "词",
       "cipai": "天仙子",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "伤春",
         "惜时",
@@ -14752,7 +15714,7 @@
       "type": "词",
       "cipai": "兰陵王",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "送别",
         "长调",
@@ -14763,8 +15725,7 @@
         {
           "text": "柳阴直",
           "isRhymeLine": true,
-          "group": 0,
-          "famous": true
+          "group": 0
         },
         {
           "text": "烟里丝丝弄碧",
@@ -14879,8 +15840,7 @@
         {
           "text": "斜阳冉冉春无极",
           "isRhymeLine": true,
-          "group": 15,
-          "famous": true
+          "group": 15
         },
         {
           "text": "念月榭携手",
@@ -14917,7 +15877,7 @@
       "type": "词",
       "cipai": "女冠子",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "相思",
         "回忆",
@@ -14982,7 +15942,7 @@
       "type": "词",
       "cipai": "菩萨蛮",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "离别",
         "回忆",
@@ -15042,7 +16002,7 @@
       "type": "词",
       "cipai": "生查子",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "离别",
         "相思",
@@ -15107,7 +16067,7 @@
       "type": "词",
       "cipai": "临江仙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "亡国",
         "怀古",
@@ -15143,14 +16103,12 @@
         {
           "text": "烟月不知人事改",
           "isRhymeLine": false,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "夜阑还照深宫",
           "isRhymeLine": true,
-          "group": 2,
-          "famous": true
+          "group": 2
         },
         {
           "text": "藕花相向野塘中",
@@ -15177,7 +16135,7 @@
       "type": "词",
       "cipai": "清平乐",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "离愁",
         "思念",
@@ -15237,7 +16195,7 @@
       "type": "词",
       "cipai": "乌夜啼",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "亡国",
         "人生",
@@ -15297,7 +16255,7 @@
       "type": "词",
       "cipai": "子夜歌",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "亡国",
         "故国",
@@ -15357,7 +16315,7 @@
       "type": "词",
       "cipai": "摊破浣溪沙",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "春恨",
         "婉约",
@@ -15459,7 +16417,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "五言绝句",
         "思乡",
@@ -15499,7 +16457,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "五言律诗",
         "山水",
@@ -15559,7 +16517,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 2,
       "tags": [
         "五言律诗",
         "山水",
@@ -15619,7 +16577,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "送别",
@@ -15660,7 +16618,7 @@
           "group": 2
         },
         {
-          "text": "仍连故乡水",
+          "text": "仍怜故乡水",
           "isRhymeLine": false,
           "group": 3
         },
@@ -15679,7 +16637,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "七言绝句",
         "写景",
@@ -15769,7 +16727,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "乐府",
         "咏物",
@@ -15853,7 +16811,7 @@
           "famous": true
         },
         {
-          "text": "欲上青天览日月",
+          "text": "欲上青天揽明月",
           "isRhymeLine": true,
           "group": 3
         },
@@ -15889,7 +16847,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "羁旅",
@@ -15925,7 +16883,7 @@
           "group": 2
         },
         {
-          "text": "官因老病休",
+          "text": "官应老病休",
           "isRhymeLine": true,
           "group": 2
         },
@@ -15951,7 +16909,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言律诗",
         "登高",
@@ -16011,7 +16969,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "感慨",
@@ -16051,7 +17009,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "五言律诗",
         "思亲",
@@ -16092,7 +17050,7 @@
           "group": 2
         },
         {
-          "text": "寄书长不避",
+          "text": "寄书长不达",
           "isRhymeLine": false,
           "group": 3
         },
@@ -16111,7 +17069,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "闺怨",
@@ -16138,7 +17096,8 @@
         {
           "text": "悔教夫壻觅封侯",
           "isRhymeLine": true,
-          "group": 1
+          "group": 1,
+          "famous": true
         }
       ]
     },
@@ -16164,7 +17123,7 @@
           "group": 0
         },
         {
-          "text": "孤城遥望雁门关",
+          "text": "孤城遥望玉门关",
           "isRhymeLine": true,
           "group": 0
         },
@@ -16190,7 +17149,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "五言绝句",
         "写景",
@@ -16271,7 +17230,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "七言绝句",
         "边塞",
@@ -16312,7 +17271,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "五言绝句",
         "边塞",
@@ -16353,7 +17312,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "边塞",
@@ -16393,7 +17352,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "思乡",
@@ -16408,12 +17367,12 @@
           "famous": true
         },
         {
-          "text": "欲作归书意万重",
+          "text": "欲作家书意万重",
           "isRhymeLine": true,
           "group": 0
         },
         {
-          "text": "忽恐匆匆说不尽",
+          "text": "复恐匆匆说不尽",
           "isRhymeLine": false,
           "group": 1
         },
@@ -16453,7 +17412,7 @@
           "famous": true
         },
         {
-          "text": "人面不知何处在",
+          "text": "人面不知何处去",
           "isRhymeLine": false,
           "group": 1
         },
@@ -16473,7 +17432,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "悼亡",
@@ -16513,7 +17472,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "咏史",
@@ -16553,7 +17512,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "宫怨",
@@ -16562,7 +17521,7 @@
       "translation": "银白的烛光映着秋夜冷清的画屏，宫女手执轻罗小扇扑打飞舞的流萤。夜色里石阶上凉意如水，她躺着仰望天上的牵牛织女星。",
       "lines": [
         {
-          "text": "红烛秋光冷画屏",
+          "text": "银烛秋光冷画屏",
           "isRhymeLine": false,
           "group": 0
         },
@@ -16578,7 +17537,7 @@
           "group": 1
         },
         {
-          "text": "坐看牵牛织女星",
+          "text": "卧看牵牛织女星",
           "isRhymeLine": true,
           "group": 1
         }
@@ -16592,7 +17551,7 @@
       "type": "诗",
       "cipai": "",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "七言绝句",
         "送别",
@@ -16633,7 +17592,7 @@
       "type": "词",
       "cipai": "蝶恋花",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "伤春",
         "婉约",
@@ -16703,7 +17662,7 @@
       "type": "词",
       "cipai": "临江仙",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "旷达",
         "抒怀",
@@ -16792,7 +17751,7 @@
           "group": 0
         },
         {
-          "text": "西北是长安",
+          "text": "西北望长安",
           "isRhymeLine": true,
           "group": 1
         },
@@ -16808,7 +17767,7 @@
           "famous": true
         },
         {
-          "text": "毕竟江流去",
+          "text": "毕竟东流去",
           "isRhymeLine": true,
           "group": 2
         },
@@ -16832,7 +17791,7 @@
       "type": "词",
       "cipai": "南乡子",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "怀古",
         "爱国",
@@ -16903,7 +17862,7 @@
       "type": "词",
       "cipai": "清平乐",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "田园",
         "婉约",
@@ -16922,7 +17881,7 @@
           "group": 1
         },
         {
-          "text": "醉里蛮音相媚好",
+          "text": "醉里吴音相媚好",
           "isRhymeLine": true,
           "group": 2
         },
@@ -16963,7 +17922,7 @@
       "type": "词",
       "cipai": "武陵春",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "婉约",
         "愁",
@@ -17030,7 +17989,7 @@
       "type": "词",
       "cipai": "渔家傲",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 1,
       "tags": [
         "豪放",
         "梦境",
@@ -17100,7 +18059,7 @@
       "type": "词",
       "cipai": "八声甘州",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "羁旅",
         "思乡",
@@ -17124,7 +18083,7 @@
           "group": 0
         },
         {
-          "text": "渐霜风凄惨",
+          "text": "渐霜风凄紧",
           "isRhymeLine": false,
           "group": 1
         },
@@ -17232,7 +18191,7 @@
       "type": "词",
       "cipai": "满庭芳",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "离别",
         "婉约",
@@ -17369,7 +18328,7 @@
       "type": "词",
       "cipai": "踏莎行",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "离别",
         "婉约",
@@ -17441,7 +18400,7 @@
       "type": "词",
       "cipai": "桂枝香",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 3,
       "tags": [
         "怀古",
         "金陵",
@@ -17638,7 +18597,7 @@
       "type": "词",
       "cipai": "一剪梅",
       "fame": "famous",
-      "difficulty": 0,
+      "difficulty": 2,
       "tags": [
         "羁旅",
         "惜时",
@@ -17719,7 +18678,7 @@
       "type": "词",
       "cipai": "风入松",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "伤春",
         "怀人",
@@ -17811,7 +18770,7 @@
       "type": "词",
       "cipai": "诉衷情",
       "fame": "common",
-      "difficulty": 1,
+      "difficulty": 3,
       "tags": [
         "闺怨",
         "相思",
@@ -17864,6 +18823,2659 @@
           "text": "始知相忆深",
           "isRhymeLine": true,
           "group": 3,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-wentianxiang-guolingdingyang",
+      "dynasty": "宋",
+      "author": "文天祥",
+      "title": "过零丁洋",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言律诗",
+        "爱国",
+        "气节"
+      ],
+      "translation": "回想当年艰苦的遭遇，自从研读经书踏上仕途，在频繁的战火中已度过四个春秋。山河破碎如同风中飘飞的柳絮，身世浮沉好似雨中飘摇的浮萍。当年兵败于惶恐滩头，至今想来仍心惊胆战；如今被囚于零丁洋上，更感孤苦伶仃。自古以来人生在世谁能不死？我要留下这一片忠心，永照史册。",
+      "lines": [
+        {
+          "text": "辛苦遭逢起一经",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "干戈寥落四周星",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "山河破碎风飘絮",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "身世浮沉雨打萍",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "惶恐滩头说惶恐",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "零丁洋里叹零丁",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "人生自古谁无死",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "留取丹心照汗青",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-wentianxiang-jinlingyi",
+      "dynasty": "宋",
+      "author": "文天祥",
+      "title": "金陵驿·其一",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "七言律诗",
+        "亡国",
+        "怀古"
+      ],
+      "translation": "荒草掩没了离宫，夕阳渐渐西斜，我像一片孤云飘泊无依。山河风景与往昔并无不同，城郭与人民却已半数凋零。满地的芦苇花和我一同衰老，旧巢的燕子飞向谁家？从今别却江南的道路，化作啼血的杜鹃，带着这一片丹心归去。",
+      "lines": [
+        {
+          "text": "草合离宫转夕晖",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "孤云飘泊复何依",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "山河风景元无异",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "城郭人民半已非",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "满地芦花和我老",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "旧家燕子傍谁飞",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "从今别却江南日",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "化作啼鹃带血归",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-wentianxiang-yangzijiang",
+      "dynasty": "宋",
+      "author": "文天祥",
+      "title": "扬子江",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "七言绝句",
+        "爱国",
+        "气节"
+      ],
+      "translation": "一连几日随风在北海上漂泊，如今得以从扬子江口回到大江之滨。我的心就像那一片磁针石，不指向南方（南宋朝廷）便绝不肯罢休。",
+      "lines": [
+        {
+          "text": "几日随风北海游",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "回从扬子大江头",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "臣心一片磁针石",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "不指南方不肯休",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "qing-nalanxingde-huanxisha-shuinian",
+      "dynasty": "清",
+      "author": "纳兰性德",
+      "title": "浣溪沙·谁念西风独自凉",
+      "type": "词",
+      "cipai": "浣溪沙",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "悼亡",
+        "婉约",
+        "追忆"
+      ],
+      "translation": "谁还会想起我在西风中独自感受凄凉？萧萧的黄叶飘落，我关上稀疏的窗户，对着残阳沉思往事。当年她怕我醉后春睡受寒，赌书泼茶、其乐融融——这些寻常的甜蜜，当时只当作平常，如今却再也不可复得。",
+      "lines": [
+        {
+          "text": "谁念西风独自凉",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "萧萧黄叶闭疏窗",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "沉思往事立残阳",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "被酒莫惊春睡重",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "赌书消得泼茶香",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "当时只道是寻常",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "qing-nalanxingde-caisangzi-shuifan",
+      "dynasty": "清",
+      "author": "纳兰性德",
+      "title": "采桑子·谁翻乐府凄凉曲",
+      "type": "词",
+      "cipai": "采桑子",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "婉约",
+        "愁",
+        "孤寂"
+      ],
+      "translation": "是谁翻奏起乐府里那凄凉的曲子？风也萧萧，雨也萧萧，灯花燃尽，又熬过一个长夜。不知什么事萦绕在心怀，醒着也无聊，醉了也无聊，梦境里还要被霜风惊断、寒月相照。",
+      "lines": [
+        {
+          "text": "谁翻乐府凄凉曲",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "风也萧萧",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "雨也萧萧",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "瘦尽灯花又一宵",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "不知何事萦怀抱",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "醒也无聊",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "醉也无聊",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "梦也何曾到谢桥",
+          "isRhymeLine": true,
+          "group": 2
+        }
+      ]
+    },
+    {
+      "id": "qing-nalanxingde-dielianhua-xinku",
+      "dynasty": "清",
+      "author": "纳兰性德",
+      "title": "蝶恋花·辛苦最怜天上月",
+      "type": "词",
+      "cipai": "蝶恋花",
+      "fame": "famous",
+      "difficulty": 2,
+      "tags": [
+        "悼亡",
+        "婉约",
+        "深情"
+      ],
+      "translation": "我最怜惜那天上辛苦的月亮：一夜圆满如玉环，夜夜却又残缺成玉玦。倘若它能像月轮终归皎洁，我也甘愿化作冰雪，为你温热。无奈尘世的情缘容易断绝，燕子飞去画檐空寂；幽魂若在重泉之下也该悲咽，我愿化作啼血的杜鹃唤你归来。",
+      "lines": [
+        {
+          "text": "辛苦最怜天上月",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "一夕如环",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "夕夕都成玦",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "若似月轮终皎洁",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "不辞冰雪为卿热",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "无那尘缘容易绝",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "燕子依然",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "软踏帘钩说",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "唱罢秋坟愁未歇",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "春丛认取双栖蝶",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "qing-nalanxingde-linjiangxian-hanliu",
+      "dynasty": "清",
+      "author": "纳兰性德",
+      "title": "临江仙·寒柳",
+      "type": "词",
+      "cipai": "临江仙",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "咏物",
+        "悼亡",
+        "婉约"
+      ],
+      "translation": "飞絮与落花究竟归向何处？只见层层寒冰、堆堆积雪，摧残着那疏疏一树寒柳，在五更天里独自承受清寒。我爱它即便在明月下憔悴不堪，仍与我心意相关。最是繁密的柳丝摇落之后，团团飞絮无凭无据，竟比春天还要凄凉。",
+      "lines": [
+        {
+          "text": "飞絮飞花何处是",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "层冰积雪摧残",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "疏疏一树五更寒",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "爱他明月好",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "憔悴也相关",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "最是繁丝摇落后",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "转教人忆春山",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "湔裙梦断续应难",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "西风多少恨",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "吹不散眉弯",
+          "isRhymeLine": true,
+          "group": 4
+        }
+      ]
+    },
+    {
+      "id": "tang-dufu-yonghuaiguji-qunshan",
+      "dynasty": "唐",
+      "author": "杜甫",
+      "title": "咏怀古迹·群山万壑赴荆门",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 2,
+      "tags": [
+        "七言律诗",
+        "咏史",
+        "昭君"
+      ],
+      "translation": "千山万壑伴随着江流奔向荆门，那里还留有王昭君出生成长的村落。她一离开汉宫便走向荒漠的边塞，最终只留下一座青冢面对着黄昏。画工只凭画图，怎能识得她绝世的容颜；她的魂魄空带着环佩，月夜归来。千载流传的琵琶曲弹的是胡地之音，分明在曲调中诉说着她的怨恨。",
+      "lines": [
+        {
+          "text": "群山万壑赴荆门",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "生长明妃尚有村",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "一去紫台连朔漠",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "独留青冢向黄昏",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "画图省识春风面",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "环佩空归月夜魂",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "千载琵琶作胡语",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "分明怨恨曲中论",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-dufu-geye",
+      "dynasty": "唐",
+      "author": "杜甫",
+      "title": "阁夜",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "七言律诗",
+        "羁旅",
+        "感时"
+      ],
+      "translation": "年末时节昼短夜长，催逼着光阴，天涯霜雪之夜刚刚放晴。五更时分鼓角声里满含悲壮，三峡上空星河的倒影在江中摇动。荒野里多少人家因战乱而恸哭，几处渔樵唱起了夷地的歌谣。诸葛亮、公孙述这般人物终归黄土，人事音书都任凭它寂寞罢了。",
+      "lines": [
+        {
+          "text": "岁暮阴阳催短景",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "天涯霜雪霁寒宵",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "五更鼓角声悲壮",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "三峡星河影动摇",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "野哭千家闻战伐",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "夷歌数处起渔樵",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "卧龙跃马终黄土",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "人事音书漫寂寥",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-libai-guanshanyue",
+      "dynasty": "唐",
+      "author": "李白",
+      "title": "关山月",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "乐府",
+        "边塞",
+        "思乡"
+      ],
+      "translation": "一轮明月从天山升起，浮现在苍茫的云海之间。浩荡的长风吹过几万里，一直吹度玉门关。当年汉军下白登山道，胡人窥伺青海湾，这里自古便是征战之地，几人能够生还。戍守的征人远望边城，思归的脸上满是愁苦；今夜高楼之上的思妇，想必也叹息辗转、不得安眠。",
+      "lines": [
+        {
+          "text": "明月出天山",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "苍茫云海间",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "长风几万里",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "吹度玉门关",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "汉下白登道",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "胡窥青海湾",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "由来征战地",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "不见有人还",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "戍客望边色",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "思归多苦颜",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "高楼当此夜",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "叹息未应闲",
+          "isRhymeLine": true,
+          "group": 5
+        }
+      ]
+    },
+    {
+      "id": "tang-wangwei-zhongnanshan",
+      "dynasty": "唐",
+      "author": "王维",
+      "title": "终南山",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "五言律诗",
+        "山水",
+        "壮丽"
+      ],
+      "translation": "终南山高近天都，山峦连绵直到海隅。回头望去白云合拢成一片，走进青霭却又消散无踪。中央主峰把原野分隔成不同的区域，山间阴晴各异、千岩万壑明暗不同。想要找户人家投宿，便隔着溪水向砍柴的樵夫打问。",
+      "lines": [
+        {
+          "text": "太乙近天都",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "连山接海隅",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "白云回望合",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "青霭入看无",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "分野中峰变",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "阴晴众壑殊",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "欲投人处宿",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "隔水问樵夫",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-wangwei-guanlie",
+      "dynasty": "唐",
+      "author": "王维",
+      "title": "观猎",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "五言律诗",
+        "狩猎",
+        "豪迈"
+      ],
+      "translation": "劲风之中角弓铮铮作响，将军在渭城外纵马围猎。草木枯黄，鹰眼格外锐利；积雪消融，马蹄分外轻快。转眼已驰过新丰市，又回到那细柳营。回头遥望射雕之处，只见暮云低垂、千里平阔。",
+      "lines": [
+        {
+          "text": "风劲角弓鸣",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "将军猎渭城",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "草枯鹰眼疾",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "雪尽马蹄轻",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "忽过新丰市",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "还归细柳营",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "回看射雕处",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "千里暮云平",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-wangwei-chouzhangshaofu",
+      "dynasty": "唐",
+      "author": "王维",
+      "title": "酬张少府",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "五言律诗",
+        "隐逸",
+        "抒怀"
+      ],
+      "translation": "晚年只喜爱清静，对世间万事都漠不关心。自顾没有什么高明的谋略，只懂得归返这旧日的山林。松风吹来，我解开衣带；山月升起，我对月弹琴。你问我穷通得失的道理，那渔歌唱入了水浦的深处（一切尽在不言中）。",
+      "lines": [
+        {
+          "text": "晚年唯好静",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "万事不关心",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "自顾无长策",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "空知返旧林",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "松风吹解带",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "山月照弹琴",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "君问穷通理",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "渔歌入浦深",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-menghaoran-suimuguinanshan",
+      "dynasty": "唐",
+      "author": "孟浩然",
+      "title": "岁暮归南山",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "五言律诗",
+        "失意",
+        "归隐"
+      ],
+      "translation": "不再向朝廷上书求仕，还是回到终南山下我那破旧的草庐。没有才能，圣明的君主把我舍弃；体弱多病，连老朋友也渐渐疏远。白发催着人一天天老去，岁暮的阳气又逼近了旧年。满怀愁绪难以入眠，松月当空，照着空寂的窗户。",
+      "lines": [
+        {
+          "text": "北阙休上书",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "南山归敝庐",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "不才明主弃",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "多病故人疎",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "白发催年老",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "青阳逼岁除",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "永怀愁不寐",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "松月夜窗虚",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-menghaoran-sutonglujiang",
+      "dynasty": "唐",
+      "author": "孟浩然",
+      "title": "宿桐庐江寄广陵旧游",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "五言律诗",
+        "羁旅",
+        "怀友"
+      ],
+      "translation": "山色昏暗，听见猿猴啼叫得格外凄哀，江水苍茫，夜里流得更急。两岸的风吹得树叶簌簌作响，一轮孤月映照着一叶小舟。建德一带并非我的故乡，我深深怀念扬州的旧友。索性把这两行思念的泪水，遥寄到那海西头去吧。",
+      "lines": [
+        {
+          "text": "山暝闻猿愁",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "沧江急夜流",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "风鸣两岸叶",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "月照一孤舟",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "建德非吾土",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "维扬忆旧游",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "还将两行泪",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "遥寄海西头",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-liuyuxi-chouletianyangzhou",
+      "dynasty": "唐",
+      "author": "刘禹锡",
+      "title": "酬乐天扬州初逢席上见赠",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言律诗",
+        "酬赠",
+        "哲理"
+      ],
+      "translation": "在巴山楚水那般凄凉的地方，我被弃置了整整二十三年。回到故乡，旧友多已离世，只能像那闻笛思旧的向秀空自吟咏；恍如烂柯人一般，倍感人事全非。沉舟之畔，千帆竞相驶过；病树前头，万木欣欣向荣。今天听了你为我写的这首诗，就借这一杯美酒振奋精神吧。",
+      "lines": [
+        {
+          "text": "巴山楚水凄凉地",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "二十三年弃置身",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "怀旧空吟闻篴赋",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "到乡翻似烂柯人",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "沉舟侧畔千帆过",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "病树前头万木春",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "今日听君歌一曲",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "暂凭杯酒长精神",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-liuyuxi-wangdongting",
+      "dynasty": "唐",
+      "author": "刘禹锡",
+      "title": "望洞庭",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言绝句",
+        "山水",
+        "洞庭"
+      ],
+      "translation": "洞庭湖的水光与秋月交相辉映，湖面平静无风，像一面未经磨拭的铜镜。远望那洞庭的山水苍翠如墨，恰似白银盘里托着一只青螺。",
+      "lines": [
+        {
+          "text": "湖光秋月两相和",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "潭面无风镜未磨",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "遥望洞庭山水翠",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "白银盘里一青螺",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-liuyuxi-zhuzhici",
+      "dynasty": "唐",
+      "author": "刘禹锡",
+      "title": "竹枝词·杨柳青青江水平",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言绝句",
+        "爱情",
+        "民歌"
+      ],
+      "translation": "杨柳青青，江水平缓，听见情郎在江上踏歌而行。东边出着太阳西边却下着雨，说是无晴（无情）却又有晴（有情）呢。",
+      "lines": [
+        {
+          "text": "杨柳青青江水平",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "闻郎江上唱歌声",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "东边日出西边雨",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "道是无晴却有晴",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-liuzongyuan-dengliuzhou",
+      "dynasty": "唐",
+      "author": "柳宗元",
+      "title": "登柳州城楼寄漳汀封连四州",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "七言律诗",
+        "贬谪",
+        "怀友"
+      ],
+      "translation": "登上柳州高楼，远接苍茫的荒原，海天般的愁思正与这茫茫旷野一样无边。狂风骤起，吹乱了水面盛开的芙蓉；密雨斜飞，扑打着墙上的薜荔。重重叠叠的山岭遮住了千里的目光，曲折回环的江流就像九转的愁肠。我们一同被贬到这文身异俗之地，音信阻隔，连一封书信也难以相通。",
+      "lines": [
+        {
+          "text": "城上高楼接大荒",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "海天愁思正茫茫",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "惊风乱飐芙蓉水",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "密雨斜侵薜荔墙",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "岭树重遮千里目",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "江流曲似九廻肠",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "共来百越文身地",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "犹自音书滞一乡",
+          "isRhymeLine": true,
+          "group": 3
+        }
+      ]
+    },
+    {
+      "id": "tang-baijuyi-wenliushijiu",
+      "dynasty": "唐",
+      "author": "白居易",
+      "title": "问刘十九",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "五言绝句",
+        "友情",
+        "闲适"
+      ],
+      "translation": "新酿的米酒浮着绿色的泡沫，红泥的小火炉烧得正旺。傍晚天色将要下雪了，你能否来同饮一杯呢？",
+      "lines": [
+        {
+          "text": "绿螘新醅酒",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "红泥小火垆",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "晚来天欲雪",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "能饮一杯无",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-baijuyi-dalinsitaohua",
+      "dynasty": "唐",
+      "author": "白居易",
+      "title": "大林寺桃花",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言绝句",
+        "春景",
+        "哲理"
+      ],
+      "translation": "人间四月里芳菲都已凋尽，山寺中的桃花却刚刚盛开。我常常怨恨春天归去无处寻觅，没想到它竟悄悄转到这山中来了。",
+      "lines": [
+        {
+          "text": "人间四月芳菲尽",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "山寺桃花始盛开",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "长恨春归无觅处",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "不知转入此中来",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-baijuyi-chishang",
+      "dynasty": "唐",
+      "author": "白居易",
+      "title": "池上·小娃撑小艇",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 1,
+      "tags": [
+        "五言绝句",
+        "童趣",
+        "夏景"
+      ],
+      "translation": "一个小孩撑着小船，偷偷采了白莲回来。他不懂得掩藏踪迹，浮萍被船儿荡开，留下了一道长长的水痕。",
+      "lines": [
+        {
+          "text": "小娃撑小艇",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "偷采白莲回",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "不解藏踪迹",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "浮萍一道开",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-lishangyin-yaochi",
+      "dynasty": "唐",
+      "author": "李商隐",
+      "title": "瑶池",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "七言绝句",
+        "咏史",
+        "讽喻"
+      ],
+      "translation": "瑶池上的西王母推开雕花的窗户，《黄竹》哀歌之声震动大地，令人哀愁。八骏马一日能行三万里，可周穆王为什么再也不来呢？（讽刺求仙之虚妄。）",
+      "lines": [
+        {
+          "text": "瑶池阿母绮窗开",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "黄竹歌声动地哀",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "八骏日行三万里",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "穆王何事不重来",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-yuanzhen-juhua",
+      "dynasty": "唐",
+      "author": "元稹",
+      "title": "菊花",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "七言绝句",
+        "咏物",
+        "菊"
+      ],
+      "translation": "丛丛秋菊环绕着房舍，仿佛到了陶渊明的家，我沿着篱笆边欣赏，不觉日已西斜。并不是百花之中我偏爱菊花，只因为菊花谢尽之后再无花可赏了。",
+      "lines": [
+        {
+          "text": "秋丛绕舍似陶家",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "遍绕篱边日渐斜",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "不是花中偏爱菊",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "此花开尽更无花",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-dumu-tiwujiangting",
+      "dynasty": "唐",
+      "author": "杜牧",
+      "title": "题乌江亭",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 1,
+      "tags": [
+        "七言绝句",
+        "咏史",
+        "项羽"
+      ],
+      "translation": "胜败本是兵家难以预料的事，能够包羞忍耻才算得上真正的男儿。江东的子弟中多有才俊之士，倘若项羽肯回江东重整旗鼓，卷土重来也未可知。",
+      "lines": [
+        {
+          "text": "胜败兵家事不期",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "包羞忍耻是男儿",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "江东子弟多才俊",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "卷土重来未可知",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-zuyong-zhongnanwangyuxue",
+      "dynasty": "唐",
+      "author": "祖咏",
+      "title": "终南望余雪",
+      "type": "诗",
+      "cipai": "",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "五言绝句",
+        "咏雪",
+        "写景"
+      ],
+      "translation": "终南山北面的山岭秀美，山顶的积雪仿佛浮在云端之上。雪后初晴，林梢一片明亮，傍晚时城中更增添了几分寒意。",
+      "lines": [
+        {
+          "text": "终南阴岭秀",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "积雪浮云端",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "林表明霁色",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "城中增暮寒",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "tang-duqiuniang-jinlvyi",
+      "dynasty": "唐",
+      "author": "杜秋娘",
+      "title": "金缕衣",
+      "type": "诗",
+      "cipai": "",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "七言绝句",
+        "劝勉",
+        "惜时"
+      ],
+      "translation": "劝你不要爱惜那金缕织成的华贵衣裳，劝你要珍惜少年的大好时光。花开正好时就该及时折取，不要等到花谢了只能空折光秃秃的枝条。",
+      "lines": [
+        {
+          "text": "劝君莫惜金缕衣",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "劝君惜取少年时",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "花开堪折直须折",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "莫待无花空折枝",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-sushi-huanxisha-shanxialanya",
+      "dynasty": "宋",
+      "author": "苏轼",
+      "title": "浣溪沙·山下兰芽短浸溪",
+      "type": "词",
+      "cipai": "浣溪沙",
+      "fame": "famous",
+      "difficulty": 1,
+      "tags": [
+        "旷达",
+        "哲理",
+        "春景"
+      ],
+      "translation": "山脚下兰草的新芽浸在溪水里，松林间的沙路被雨水冲洗得干净无泥，傍晚萧萧细雨中传来子规的啼鸣。谁说人生不能再回到少年？你看那门前的溪水还能向西流呢！不要在白发暮年还徒然慨叹光阴的流逝。",
+      "lines": [
+        {
+          "text": "山下兰芽短浸溪",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "松间沙路净无泥",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "萧萧暮雨子规啼",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "谁道人生无再少",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "门前流水尚能西",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "休将白发唱黄鸡",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-xinqiji-moyuer",
+      "dynasty": "宋",
+      "author": "辛弃疾",
+      "title": "摸鱼儿·更能消几番风雨",
+      "type": "词",
+      "cipai": "摸鱼儿",
+      "fame": "famous",
+      "difficulty": 3,
+      "tags": [
+        "惜春",
+        "婉约",
+        "寄托"
+      ],
+      "translation": "还经得起几番风雨呢？匆匆地，春天又将归去。我惜春常怕花开得太早，何况如今已落红无数。春天啊，且留步——听说芳草已绵延到天涯，遮断了你的归路。可恨春天默默无言，唯有殷勤的蛛网，整日沾惹着飞絮。长门宫里佳期受阻，纵有千金买得相如的赋，这一片脉脉深情又能向谁倾诉？切莫得意地起舞，你没看见玉环、飞燕都已化为尘土！闲愁最苦，别去倚靠那危栏，斜阳正照着烟柳迷蒙的断肠之处。",
+      "lines": [
+        {
+          "text": "更能消",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "几番风雨",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "匆匆春又归去",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "惜春长恨花开早",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "何况落红无数",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "春且住",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "见说道",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "天涯芳草迷归路",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "怨春不语",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "算只有殷勤",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "画檐珠网",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "尽日惹飞絮",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "长门事",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "准拟佳期又误",
+          "isRhymeLine": true,
+          "group": 7
+        },
+        {
+          "text": "蛾眉曾有人妒",
+          "isRhymeLine": true,
+          "group": 8
+        },
+        {
+          "text": "千金纵买相如赋",
+          "isRhymeLine": false,
+          "group": 9
+        },
+        {
+          "text": "脉脉此情谁诉",
+          "isRhymeLine": true,
+          "group": 9
+        },
+        {
+          "text": "君莫舞",
+          "isRhymeLine": true,
+          "group": 10
+        },
+        {
+          "text": "君不见",
+          "isRhymeLine": false,
+          "group": 11
+        },
+        {
+          "text": "玉环飞燕皆尘土",
+          "isRhymeLine": true,
+          "group": 11
+        },
+        {
+          "text": "闲愁最苦",
+          "isRhymeLine": true,
+          "group": 12
+        },
+        {
+          "text": "休去倚危楼",
+          "isRhymeLine": false,
+          "group": 13
+        },
+        {
+          "text": "斜阳正在",
+          "isRhymeLine": false,
+          "group": 13,
+          "famous": true
+        },
+        {
+          "text": "烟柳断肠处",
+          "isRhymeLine": true,
+          "group": 13,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-xinqiji-taichangyin",
+      "dynasty": "宋",
+      "author": "辛弃疾",
+      "title": "太常引·建康中秋夜为吕叔潜赋",
+      "type": "词",
+      "cipai": "太常引",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "中秋",
+        "抒怀",
+        "寄托"
+      ],
+      "translation": "一轮秋月转动着金色的清辉，把酒问那月中的姮娥：可奈何这渐渐白了的头发，把人欺负得不轻？我愿乘风直上万里长空，俯瞰这祖国的山河；再砍去月中婆娑的桂树影，好让那清光更多地洒向人间。",
+      "lines": [
+        {
+          "text": "一轮秋影转金波",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "飞镜又重磨",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "把酒问姮娥",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "被白发",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "欺人奈何",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "乘风好去",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "长空万里",
+          "isRhymeLine": false,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "直下看山河",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "斫去桂婆娑",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "人道是",
+          "isRhymeLine": false,
+          "group": 6,
+          "famous": true
+        },
+        {
+          "text": "清光更多",
+          "isRhymeLine": true,
+          "group": 6,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-liqingzhao-yongyule-luori",
+      "dynasty": "宋",
+      "author": "李清照",
+      "title": "永遇乐·落日熔金",
+      "type": "词",
+      "cipai": "永遇乐",
+      "fame": "famous",
+      "difficulty": 3,
+      "tags": [
+        "元宵",
+        "今昔",
+        "婉约"
+      ],
+      "translation": "落日像熔化的金子，晚云像合拢的白璧，而我所思念的人却在何处？染柳的烟霭浓浓，吹梅的笛声幽怨，谁知道这又是多少春意。元宵佳节，正逢融和的天气，可转眼会不会又有风雨？有人驾着香车宝马来邀约，我却谢绝了那些酒朋诗侣。想当年在汴京的繁盛时节，闺中有许多闲暇，最看重这正月十五。头戴翠羽金饰、雪柳簇簇，打扮得整整齐齐去争俏。如今容颜憔悴、鬓发蓬乱，怕在夜里出门。不如就在帘儿底下，听别人笑语欢声。",
+      "lines": [
+        {
+          "text": "落日熔金",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "暮云合璧",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "人在何处",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "染柳烟浓",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "吹梅笛怨",
+          "isRhymeLine": false,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "春意知几许",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "元宵佳节",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "融和天气",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "次第岂无风雨",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "来相召",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "香车宝马",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "谢他酒朋诗侣",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "中州盛日",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "闺门多暇",
+          "isRhymeLine": false,
+          "group": 4
+        },
+        {
+          "text": "记得偏重三五",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "铺翠冠儿",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "捻金雪柳",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "簇带争济楚",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "如今憔悴",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "风鬟霜鬓",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "怕见夜间出去",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "不如向",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "帘儿底下",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "听人笑语",
+          "isRhymeLine": true,
+          "group": 7
+        }
+      ]
+    },
+    {
+      "id": "song-liqingzhao-dianjiangchun-cuba",
+      "dynasty": "宋",
+      "author": "李清照",
+      "title": "点绛唇·蹴罢秋千",
+      "type": "词",
+      "cipai": "点绛唇",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "少女",
+        "婉约",
+        "娇憨"
+      ],
+      "translation": "荡完秋千起身，慵懒地揉着纤纤细手。露水浓浓，花儿娇弱，薄薄的衣衫已被香汗浸透。忽见有客人来到，她来不及穿好鞋袜，只穿着袜子含羞跑开，连头上的金钗也滑落了。走到门口又忍不住回头，假装嗅着青梅，偷偷把客人打量。",
+      "lines": [
+        {
+          "text": "蹴罢秋千",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "起来慵整纤纤手",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "露浓花瘦",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "薄汗轻衣透",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "见客入来",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "袜刬金钗溜",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "和羞走",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "倚门回首",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "却把青梅嗅",
+          "isRhymeLine": true,
+          "group": 6,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-ouyangxiu-caisangzi-qingzhou",
+      "dynasty": "宋",
+      "author": "欧阳修",
+      "title": "采桑子·轻舟短棹西湖好",
+      "type": "词",
+      "cipai": "采桑子",
+      "fame": "common",
+      "difficulty": 1,
+      "tags": [
+        "西湖",
+        "写景",
+        "闲适"
+      ],
+      "translation": "颍州西湖的风光真好，划着轻舟短桨，碧绿的春水蜿蜒十里，长堤上芳草萋萋，隐隐传来悠扬的笙歌。水面风平浪静，小船缓缓滑行也不觉摇动，惊起沙鸟掠过堤岸飞去。回头望那西南的天空，水天一色，连绵的彩云仿佛与堤岸相平。",
+      "lines": [
+        {
+          "text": "轻舟短棹西湖好",
+          "isRhymeLine": false,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "绿水逶迤",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "芳草长堤",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "隐隐笙歌处处随",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "无风水面琉璃滑",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "不觉船移",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "微动涟漪",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "惊起沙禽掠岸飞",
+          "isRhymeLine": true,
+          "group": 5
+        }
+      ]
+    },
+    {
+      "id": "song-ouyangxiu-yulouchun-zunqian",
+      "dynasty": "宋",
+      "author": "欧阳修",
+      "title": "玉楼春·尊前拟把归期说",
+      "type": "词",
+      "cipai": "玉楼春",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "离别",
+        "婉约",
+        "深情"
+      ],
+      "translation": "酒席前正想说定归来的日期，话还没出口，她已先哽咽悲伤。人生自来就有这般痴情，这份相思之恨与那风月本来无关。离别的歌且莫翻唱新词，一曲就能叫人愁肠寸断。要把洛阳满城的好花都赏遍，这样才能轻松地与春风作别。",
+      "lines": [
+        {
+          "text": "尊前拟把归期说",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "未语春容先惨咽",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "人生自是有情痴",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "此恨不关风与月",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "离歌且莫翻新阕",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "一曲能教肠寸结",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "直须看尽洛城花",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "始共春风容易别",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-yanshu-qingpingyue-hongjian",
+      "dynasty": "宋",
+      "author": "晏殊",
+      "title": "清平乐·红笺小字",
+      "type": "词",
+      "cipai": "清平乐",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "相思",
+        "婉约",
+        "寄远"
+      ],
+      "translation": "在红色的信笺上写满小字，说尽我平生的相思情意。鸿雁在云中、鱼在水里，要寄的书信怎么也难以送达。斜阳独自照着深深的庭院，远山恰好对着帘钩低垂。人面不知去了何处，唯有绿水默默地绕着芳草自流。",
+      "lines": [
+        {
+          "text": "红笺小字",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "说尽平生意",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "鸿雁在云鱼在水",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "惆怅此情难寄",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "斜阳独倚西楼",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "遥山恰对帘钩",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "人面不知何处",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "绿波依旧东流",
+          "isRhymeLine": true,
+          "group": 6
+        }
+      ]
+    },
+    {
+      "id": "song-yanjidao-dielianhua-mengru",
+      "dynasty": "宋",
+      "author": "晏几道",
+      "title": "蝶恋花·梦入江南烟水路",
+      "type": "词",
+      "cipai": "蝶恋花",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "相思",
+        "婉约",
+        "梦"
+      ],
+      "translation": "梦中走入江南那烟水迷蒙的路，走遍江南也不见要找的人。在睡梦中不知原来是梦，醒来时空自悲苦。想把心事写在彩笺红格之上，可这绵绵情意比那纸上的红格还要多。斜倚单枕、午梦初醒，又见花影低垂、月色朦胧。",
+      "lines": [
+        {
+          "text": "梦入江南烟水路",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "行尽江南",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "不与离人遇",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "睡里消魂无说处",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "觉来惆怅消魂误",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "欲尽此情书尺素",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "浮雁沉鱼",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "终了无凭据",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "却倚缓弦歌别绪",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "断肠移破秦筝柱",
+          "isRhymeLine": true,
+          "group": 7
+        }
+      ]
+    },
+    {
+      "id": "song-hezhu-zhegutian-chongguo",
+      "dynasty": "宋",
+      "author": "贺铸",
+      "title": "鹧鸪天·半死桐",
+      "type": "词",
+      "cipai": "鹧鸪天",
+      "fame": "famous",
+      "difficulty": 2,
+      "tags": [
+        "悼亡",
+        "婉约",
+        "伤逝"
+      ],
+      "translation": "再次经过阊门，万事都已非旧——同来的人为何不能与我同归？梧桐半死，经霜后只剩清冷的影子；白头的鸳鸯失去了伴侣，独自飞翔。原野上青草凝着露珠，旧时的居处令人徘徊。空荡荡的床上我听着南窗的夜雨，谁还能在灯下为我缝补衣裳呢？",
+      "lines": [
+        {
+          "text": "重过阊门万事非",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "同来何事不同归",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "梧桐半死清霜后",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "头白鸳鸯失伴飞",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "原上草",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "露初晞",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "旧栖新垅两依依",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "空床卧听南窗雨",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "谁复挑灯夜补衣",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-zhangxian-yichonghualing",
+      "dynasty": "宋",
+      "author": "张先",
+      "title": "一丛花令·伤高怀远几时穷",
+      "type": "词",
+      "cipai": "一丛花令",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "相思",
+        "离愁",
+        "婉约"
+      ],
+      "translation": "登高伤怀、思念远人，这愁绪何时才有尽头？无尽的离恨化作千丝万缕。在那马儿嘶鸣、渡口斜阳的地方，杨柳如烟、行人渐去，杨花纷飞蒙住了视线。当年双双鸳鸯戏水的池阁犹在，南北小桥、东西流水依旧。如今独倚画楼平望，那一弯新月恰似当初。早知如此牵肠挂肚，还不如那解嫁东风、不致辜负春光的桃杏花呢。",
+      "lines": [
+        {
+          "text": "伤高怀远几时穷",
+          "isRhymeLine": true,
+          "group": 0,
+          "famous": true
+        },
+        {
+          "text": "无物似情浓",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "离愁正引千丝乱",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "更东陌",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "飞絮蒙蒙",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "嘶骑渐遥",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "征尘不断",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "何处认郎踪",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "双鸳池沼水溶溶",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "南北小桡通",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "梯横画阁黄昏后",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "又还是",
+          "isRhymeLine": false,
+          "group": 6
+        },
+        {
+          "text": "斜月帘栊",
+          "isRhymeLine": true,
+          "group": 6
+        },
+        {
+          "text": "沉恨细思",
+          "isRhymeLine": false,
+          "group": 7
+        },
+        {
+          "text": "不如桃杏",
+          "isRhymeLine": false,
+          "group": 7,
+          "famous": true
+        },
+        {
+          "text": "犹解嫁东风",
+          "isRhymeLine": true,
+          "group": 7,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-yuefei-xiaochongshan",
+      "dynasty": "宋",
+      "author": "岳飞",
+      "title": "小重山·昨夜寒蛩不住鸣",
+      "type": "词",
+      "cipai": "小重山",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "爱国",
+        "抒怀",
+        "孤愤"
+      ],
+      "translation": "昨夜寒秋的蟋蟀鸣叫个不停，惊醒了我千里征战的梦，已是三更天。起身独自在台阶上踱步，四下无人，帘外一钩残月正明。功名之事仿佛已成了泥土，转眼三千里奔波，旧山的松竹也老了，归乡的路却被阻断。我想把满怀的心事寄托在瑶琴上，可知音稀少，纵然弦断了，又有谁来听呢？",
+      "lines": [
+        {
+          "text": "昨夜寒蛩不住鸣",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "惊回千里梦",
+          "isRhymeLine": false,
+          "group": 1
+        },
+        {
+          "text": "已三更",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "起来独自绕阶行",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "人悄悄",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "帘外月胧明",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "白首为功名",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "旧山松竹老",
+          "isRhymeLine": false,
+          "group": 5
+        },
+        {
+          "text": "阻归程",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "欲将心事付瑶琴",
+          "isRhymeLine": true,
+          "group": 6,
+          "famous": true
+        },
+        {
+          "text": "知音少",
+          "isRhymeLine": false,
+          "group": 7,
+          "famous": true
+        },
+        {
+          "text": "弦断有谁听",
+          "isRhymeLine": true,
+          "group": 7,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-luyou-suzhongqing-dangnian",
+      "dynasty": "宋",
+      "author": "陆游",
+      "title": "诉衷情·当年万里觅封侯",
+      "type": "词",
+      "cipai": "诉衷情",
+      "fame": "famous",
+      "difficulty": 2,
+      "tags": [
+        "爱国",
+        "壮志难酬",
+        "抒怀"
+      ],
+      "translation": "当年我远赴万里、立志建功封侯，单枪匹马戍守梁州。如今那报国的旧梦早已断绝，关河何处可寻？尘封的貂裘已旧。胡虏未灭，鬓发已先斑白，空有报国的热泪长流。谁能料到，此生的心还在天山（前线），衰老的身躯却困守在沧洲（江湖）。",
+      "lines": [
+        {
+          "text": "当年万里觅封侯",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "匹马戍梁州",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "关河梦断何处",
+          "isRhymeLine": false,
+          "group": 2
+        },
+        {
+          "text": "尘暗旧貂裘",
+          "isRhymeLine": true,
+          "group": 2
+        },
+        {
+          "text": "胡未灭",
+          "isRhymeLine": false,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "鬓先秋",
+          "isRhymeLine": true,
+          "group": 3,
+          "famous": true
+        },
+        {
+          "text": "泪空流",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "此生谁料",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "心在天山",
+          "isRhymeLine": false,
+          "group": 5,
+          "famous": true
+        },
+        {
+          "text": "身老沧洲",
+          "isRhymeLine": true,
+          "group": 5,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-zhudunru-xiangjianhuan-jinling",
+      "dynasty": "宋",
+      "author": "朱敦儒",
+      "title": "相见欢·金陵城上西楼",
+      "type": "词",
+      "cipai": "相见欢",
+      "fame": "common",
+      "difficulty": 2,
+      "tags": [
+        "亡国",
+        "登临",
+        "悲慨"
+      ],
+      "translation": "登上金陵城的西楼，倚栏远望，万里清秋的天空一片澄澈。夕阳下，浩荡的中原大地随着流水奔涌远去。中原的簪缨贵族如今都已四散，何时才能请那长风，把这中原的旧恨一扫而尽呢？",
+      "lines": [
+        {
+          "text": "金陵城上西楼",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "倚清秋",
+          "isRhymeLine": true,
+          "group": 1
+        },
+        {
+          "text": "万里夕阳垂地",
+          "isRhymeLine": false,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "大江流",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "中原乱",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "簪缨散",
+          "isRhymeLine": true,
+          "group": 4
+        },
+        {
+          "text": "几时收",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "试倩悲风吹泪",
+          "isRhymeLine": false,
+          "group": 6,
+          "famous": true
+        },
+        {
+          "text": "过扬州",
+          "isRhymeLine": true,
+          "group": 6,
+          "famous": true
+        }
+      ]
+    },
+    {
+      "id": "song-jiangkui-dianjiangchun-yanyan",
+      "dynasty": "宋",
+      "author": "姜夔",
+      "title": "点绛唇·丁未冬过吴松作",
+      "type": "词",
+      "cipai": "点绛唇",
+      "fame": "common",
+      "difficulty": 3,
+      "tags": [
+        "羁旅",
+        "怀古",
+        "清空"
+      ],
+      "translation": "北来的鸿雁无心机，随意地飞过太湖西畔。数峰青山清冷地伫立着，在傍晚商略着即将到来的风雨。当年范蠡泛舟五湖的兴致，如今还剩多少呢？我凭栏远眺，怀古之情正浓，可叹这般高怀谁能领会，只有那天边的几行新雁默默飞过。",
+      "lines": [
+        {
+          "text": "燕雁无心",
+          "isRhymeLine": false,
+          "group": 0
+        },
+        {
+          "text": "太湖西畔随云去",
+          "isRhymeLine": true,
+          "group": 0
+        },
+        {
+          "text": "数峰清苦",
+          "isRhymeLine": true,
+          "group": 1,
+          "famous": true
+        },
+        {
+          "text": "商略黄昏雨",
+          "isRhymeLine": true,
+          "group": 2,
+          "famous": true
+        },
+        {
+          "text": "第四桥边",
+          "isRhymeLine": false,
+          "group": 3
+        },
+        {
+          "text": "拟共天随住",
+          "isRhymeLine": true,
+          "group": 3
+        },
+        {
+          "text": "今何许",
+          "isRhymeLine": true,
+          "group": 4,
+          "famous": true
+        },
+        {
+          "text": "凭栏怀古",
+          "isRhymeLine": true,
+          "group": 5
+        },
+        {
+          "text": "残柳参差舞",
+          "isRhymeLine": true,
+          "group": 6,
           "famous": true
         }
       ]
