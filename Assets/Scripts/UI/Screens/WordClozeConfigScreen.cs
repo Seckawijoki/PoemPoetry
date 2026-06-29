@@ -31,8 +31,8 @@ namespace PoemPoetry.UI
             Design.SectionHead(card, "题量选择");
             BuildCountRow(card);
             Design.SectionHead(card, "朝代筛选（不选 = 全部）");
-            var dyn = Services.Content.GetDynasties();
-            AddChips(card, dyn, d => d, _selDynasties, Mathf.CeilToInt(dyn.Count / 2f));
+            var dynFacets = Services.Content.GetDynastyFacets();
+            FacetChips.BuildDynasty(card, dynFacets, _selDynasties, RefreshPoolCount, Mathf.CeilToInt(dynFacets.Count / 2f));
             Design.SectionHead(card, "体裁范畴（不选 = 全部）");
             AddChips(card, Services.Content.GetTypes(), tp => tp, _selTypes);
             Design.SectionHead(card, "难易程度（不选 = 全部）");

@@ -8,8 +8,8 @@ using UnityEngine;
 namespace PoemPoetry.Editor
 {
     /// <summary>
-    /// One-click Android APK builder. Use the menu (Build → Android APK) from the Editor, or run
-    /// headless from the command line:
+    /// One-click Android APK builder. Use the menu (PoemPoetry → 打包 → Android APK) from the
+    /// Editor, or run headless from the command line:
     ///   Unity.exe -quit -batchmode -projectPath &lt;proj&gt; -buildTarget Android \
     ///             -executeMethod PoemPoetry.Editor.AndroidBuilder.BuildApk
     /// Optional command-line flags (batchmode only):
@@ -21,7 +21,7 @@ namespace PoemPoetry.Editor
     {
         private const string DefaultOutputDir = "Builds/Android";
 
-        [MenuItem("Build/Android APK", priority = 0)]
+        [MenuItem("PoemPoetry/打包/Android APK", priority = 80)]
         public static void BuildApkMenu()
         {
             string path = BuildInternal(development: false, overridePath: null);
@@ -31,7 +31,7 @@ namespace PoemPoetry.Editor
             }
         }
 
-        [MenuItem("Build/Android APK (Development)", priority = 1)]
+        [MenuItem("PoemPoetry/打包/Android APK (Development)", priority = 81)]
         public static void BuildApkDevMenu()
         {
             string path = BuildInternal(development: true, overridePath: null);

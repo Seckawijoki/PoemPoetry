@@ -175,8 +175,8 @@ namespace PoemPoetry.UI
             bool isCi = poem != null && poem.Type == "词";
             _progress.text = $"第 {_index + 1}/{_questions.Count} 题 · 连胜 {_streak}";
             _meta.text = poem == null ? "" : (isCi
-                ? $"《{(string.IsNullOrEmpty(poem.Cipai) ? poem.Title : poem.Cipai)}》 · {poem.Author}"
-                : $"《{poem.Title}》 {poem.Dynasty}·{poem.Author}");
+                ? $"《{(string.IsNullOrEmpty(poem.Cipai) ? PoemFormat.DisplayTitle(poem.Title) : poem.Cipai)}》 · {poem.Author}"
+                : $"《{PoemFormat.DisplayTitle(poem.Title)}》 {poem.Dynasty}·{poem.Author}");
 
             BuildLineRows(poem);
             BuildTiles();

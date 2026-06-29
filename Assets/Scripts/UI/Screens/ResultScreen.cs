@@ -48,7 +48,7 @@ namespace PoemPoetry.UI
             var sib = new List<string>();
             foreach (var it in record.Items) sib.Add(it.PoemId);
             for (int i = 0; i < record.Items.Count; i++)
-                ReviewRow.Build(content, Nav, record.Items[i], sib, i);
+                ReviewRow.Build(content, Nav, record.Items[i], sib, i, true, record.Items);
 
             // Fixed footer: two side-by-side actions, always pinned below the scrolling review.
             var footer = UiKit.Panel("Footer", body);

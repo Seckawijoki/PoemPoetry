@@ -18,7 +18,8 @@ namespace PoemPoetry.UI
         // showChosen: render the "你选" note for wrong answers. 滑动找诗 has no per-question choice
         // (a line is either traced out or not), so its review rows pass false to hide it.
         public static void Build(Transform parent, ScreenNavigator nav, QuestionResult item,
-            List<string> siblings = null, int index = 0, bool showChosen = true)
+            List<string> siblings = null, int index = 0, bool showChosen = true,
+            List<QuestionResult> siblingResults = null)
         {
             var services = nav.Services;
             var poem = services.Content.GetPoem(item.PoemId);
@@ -68,6 +69,7 @@ namespace PoemPoetry.UI
                 () => nav.Push<PoemDetailScreen>(new PoemDetailArgs
                 {
                     PoemId = pid, ResultContext = ctx, Siblings = siblings, Index = index,
+                    SiblingResults = siblingResults,
                 }));
 
             // Favorite toggle (top-right), borderless like the design's bookmark.

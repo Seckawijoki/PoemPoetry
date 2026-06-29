@@ -10,7 +10,7 @@ namespace PoemPoetry.Editor
     /// <summary>One-click creation of a runnable scene (no manual prefab wiring needed).</summary>
     public static class SceneBuilder
     {
-        [MenuItem("PoemPoetry/创建启动场景")]
+        [MenuItem("PoemPoetry/创建启动场景", priority = 40)]
         public static void CreateBootstrapScene()
         {
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);

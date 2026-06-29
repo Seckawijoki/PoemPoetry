@@ -21,7 +21,7 @@ namespace PoemPoetry.Editor
             EditorApplication.playModeStateChanged += OnPlayModeChanged;
         }
 
-        [MenuItem("PoemPoetry/截图/截取所有界面")]
+        [MenuItem("PoemPoetry/截图/截取所有界面", priority = 41)]
         public static void CaptureAll()
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode)

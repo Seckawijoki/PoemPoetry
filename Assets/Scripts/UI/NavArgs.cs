@@ -67,6 +67,7 @@ namespace PoemPoetry.UI
         public string PoemId;
         public QuestionResult ResultContext; // optional: "your answer" when arrived from a review row
         public List<string> Siblings;        // optional ordered poem ids for prev/next navigation
+        public List<QuestionResult> SiblingResults; // optional per-sibling result, parallel to Siblings (for 出题句 highlight on swipe)
         public int Index;                    // index of PoemId within Siblings
         public int SlideFrom;                // 0 = no anim; +1 = slide in from right (next); -1 = from left (prev)
     }

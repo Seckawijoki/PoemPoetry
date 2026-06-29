@@ -23,7 +23,7 @@ namespace PoemPoetry.Editor
         private string _report = "点击上方按钮开始。";
         private Vector2 _scroll;
 
-        [MenuItem("PoemPoetry/词性统计")]
+        [MenuItem("PoemPoetry/词性统计", priority = 3)]
         public static void Open() => GetWindow<PosToolWindow>("词性统计");
 
         private void OnGUI()

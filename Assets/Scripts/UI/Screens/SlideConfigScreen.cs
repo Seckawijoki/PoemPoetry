@@ -18,20 +18,18 @@ namespace PoemPoetry.UI
 
         private static readonly (int level, string label)[] Levels =
         {
-            (1, "① 横竖直线"),
-            (2, "② 横竖斜线"),
-            (3, "③ 横竖蛇形"),
-            (4, "④ 全向蛇形"),
+            (1, "横竖直线"),
+            (2, "横竖斜线"),
+            (3, "横竖蛇形"),
+            (4, "全向蛇形"),
         };
-        // 横(列) 滑动条 6~18；竖(行) 仍为档位选择，可更高用作进阶难度；诗句数滑动条 3~15。
-        private const int ColsMin = 6, ColsMax = 18;
+        // 横、纵均为滑动条；横向 8~10，纵向 8~16；诗句数 3~15。
+        private const int ColsMin = 8, ColsMax = 10;
+        private const int RowsMin = 8, RowsMax = 16;
         private const int LineMin = 3, LineMax = 15;
-        private static readonly int[] RowsOpts = { 8, 9, 10, 12, 14, 16 };
 
         private readonly List<Button> _levelBtns = new List<Button>();
         private readonly List<TextMeshProUGUI> _levelLbls = new List<TextMeshProUGUI>();
-        private readonly List<Button> _rowsBtns = new List<Button>();
-        private readonly List<TextMeshProUGUI> _rowsLbls = new List<TextMeshProUGUI>();
         private Button _overlapBtn;
         private TextMeshProUGUI _overlapLbl;
         private Button _overlapHintBtn;
@@ -55,10 +53,12 @@ namespace PoemPoetry.UI
             Design.SectionHead(card, "方向难度");
             BuildLevelRows(card);
 
-            Design.SectionHead(card, "横向格数");
-            BuildSlider(card, "横向 {0} 格", ColsMin, ColsMax, _cols, v => _cols = v);
-            Design.SectionHead(card, "纵向格数");
-            BuildSizeRow(card, RowsOpts, _rowsBtns, _rowsLbls, isCols: false);
+            Design.SectionHead(card, "网格大小（横 × 纵）");
+            var sizeRow = UiKit.Panel("SizeRow", card);
+            UiKit.Pref(sizeRow, minH: 150);
+            UiKit.HorizontalGroup(sizeRow, spacing: 24);
+            BuildSliderCell(sizeRow.transform, "横向 {0}", ColsMin, ColsMax, _cols, v => _cols = v);
+            BuildSliderCell(sizeRow.transform, "纵向 {0}", RowsMin, RowsMax, _rows, v => _rows = v);
 
             Design.SectionHead(card, "诗句数量（越多时间越长）");
             BuildSlider(card, "{0} 句诗", LineMin, LineMax, _lineCount, v => _lineCount = v);
@@ -66,25 +66,20 @@ namespace PoemPoetry.UI
             Design.SectionHead(card, "选项");
             var optRow = UiKit.Panel("OptRow", card);
             UiKit.Pref(optRow, minH: 96);
-            UiKit.HorizontalGroup(optRow, spacing: 14);
-            _overlapBtn = UiKit.Button("Overlap", optRow.transform, "", out _overlapLbl, Design.SurfaceHigh, 30);
+            UiKit.HorizontalGroup(optRow, spacing: 12);
+            _overlapBtn = UiKit.Button("Overlap", optRow.transform, "", out _overlapLbl, Design.SurfaceHigh, 26);
             _overlapBtn.onClick.AddListener(() => { _overlap = !_overlap; RefreshOverlap(); });
             RefreshOverlap();
-            _famousBtn = UiKit.Button("Famous", optRow.transform, "", out _famousLbl, Design.SurfaceHigh, 30);
+            _overlapHintBtn = UiKit.Button("OverlapHint", optRow.transform, "", out _overlapHintLbl, Design.SurfaceHigh, 26);
+            _overlapHintBtn.onClick.AddListener(() => { _overlapHint = !_overlapHint; RefreshOverlapHint(); });
+            RefreshOverlapHint();
+            _famousBtn = UiKit.Button("Famous", optRow.transform, "", out _famousLbl, Design.SurfaceHigh, 26);
             _famousBtn.onClick.AddListener(() => { _famousOnly = !_famousOnly; RefreshFamous(); });
             RefreshFamous();
 
-            // 重叠字提示：仅在开启重叠字时有意义，但始终可设置。
-            var optRow2 = UiKit.Panel("OptRow2", card);
-            UiKit.Pref(optRow2, minH: 96);
-            UiKit.HorizontalGroup(optRow2, spacing: 14);
-            _overlapHintBtn = UiKit.Button("OverlapHint", optRow2.transform, "", out _overlapHintLbl, Design.SurfaceHigh, 30);
-            _overlapHintBtn.onClick.AddListener(() => { _overlapHint = !_overlapHint; RefreshOverlapHint(); });
-            RefreshOverlapHint();
-
             Design.SectionHead(card, "朝代筛选（不选 = 全部）");
-            var dyn = Services.Content.GetDynasties();
-            AddChips(card, dyn, d => d, _selDyn, Mathf.CeilToInt(dyn.Count / 2f));
+            var dynFacets = Services.Content.GetDynastyFacets();
+            FacetChips.BuildDynasty(card, dynFacets, _selDyn, null, Mathf.CeilToInt(dynFacets.Count / 2f));
             Design.SectionHead(card, "体裁范畴（不选 = 全部）");
             AddChips(card, Services.Content.GetTypes(), tp => tp, _selType);
             Design.SectionHead(card, "难易程度（不选 = 全部）");
@@ -108,7 +103,7 @@ namespace PoemPoetry.UI
             if (s == null) return;
             if (s.LastSlideLevel >= 1 && s.LastSlideLevel <= 4) _level = s.LastSlideLevel;
             _cols = Mathf.Clamp(s.LastSlideCols, ColsMin, ColsMax);
-            _rows = ClampToOpts(s.LastSlideRows, RowsOpts, 9);
+            _rows = Mathf.Clamp(s.LastSlideRows, RowsMin, RowsMax);
             _lineCount = Mathf.Clamp(s.LastSlideLineCount, LineMin, LineMax);
             _overlap = s.LastSlideOverlap;
             _overlapHint = s.LastSlideOverlapHint;
@@ -119,18 +114,6 @@ namespace PoemPoetry.UI
             if (s.LastSlideDynasties != null) foreach (var d in s.LastSlideDynasties) _selDyn.Add(d);
             _selType.Clear();
             if (s.LastSlideTypes != null) foreach (var t in s.LastSlideTypes) _selType.Add(t);
-        }
-
-        // Snap a stored size to the nearest available option (old presets like 12×16 are gone).
-        private static int ClampToOpts(int value, int[] opts, int fallback)
-        {
-            int best = fallback, bestDist = int.MaxValue;
-            foreach (var o in opts)
-            {
-                int d = System.Math.Abs(o - value);
-                if (d < bestDist) { bestDist = d; best = o; }
-            }
-            return best;
         }
 
         private void StartGame()
@@ -206,22 +189,6 @@ namespace PoemPoetry.UI
                 Design.SetChip(_levelBtns[i], _levelLbls[i], Levels[i].level == _level);
         }
 
-        private void BuildSizeRow(Transform parent, int[] opts, List<Button> btns, List<TextMeshProUGUI> lbls, bool isCols)
-        {
-            btns.Clear(); lbls.Clear();
-            var p = UiKit.Panel("SizeRow", parent);
-            UiKit.Pref(p, minH: 100);
-            UiKit.HorizontalGroup(p, spacing: 12);
-            for (int i = 0; i < opts.Length; i++)
-            {
-                int v = opts[i];
-                var b = UiKit.Button("S" + (isCols ? "C" : "R") + v, p.transform, v.ToString(), out var lbl, Design.SurfaceHigh, 30);
-                btns.Add(b); lbls.Add(lbl);
-                b.onClick.AddListener(() => { if (isCols) _cols = v; else _rows = v; RefreshSizes(); });
-            }
-            RefreshSizes();
-        }
-
         // A labeled slider row: value text on the left, draggable track filling the rest.
         private void BuildSlider(Transform parent, string fmt, int min, int max, int value, System.Action<int> onChange)
         {
@@ -242,27 +209,40 @@ namespace PoemPoetry.UI
             });
         }
 
-        private void RefreshSizes()
+        // A compact labeled slider stacked vertically (value text above the track), for placing two
+        // sliders side-by-side in one row.
+        private void BuildSliderCell(Transform parent, string fmt, int min, int max, int value, System.Action<int> onChange)
         {
-            for (int i = 0; i < _rowsBtns.Count; i++)
-                Design.SetChip(_rowsBtns[i], _rowsLbls[i], RowsOpts[i] == _rows);
+            var cell = UiKit.Panel("Cell", parent);
+            var vg = UiKit.VerticalGroup(cell, spacing: 8, padX: 0, padY: 0, align: TextAnchor.UpperCenter);
+            vg.childForceExpandHeight = false;
+            var valLbl = UiKit.Text("Val", cell.transform, string.Format(fmt, value), 30, TextAlignmentOptions.Center, Design.Ink);
+            UiKit.Pref(valLbl.gameObject, minH: 44);
+            var slider = UiKit.Slider("S", cell.transform, min, max, value);
+            UiKit.Pref(slider.gameObject, minH: 56);
+            slider.onValueChanged.AddListener(v =>
+            {
+                int iv = Mathf.RoundToInt(v);
+                onChange(iv);
+                valLbl.text = string.Format(fmt, iv);
+            });
         }
 
         private void RefreshOverlap()
         {
-            _overlapLbl.text = _overlap ? "允许重叠字：开" : "允许重叠字：关";
+            _overlapLbl.text = _overlap ? "重叠字 开" : "重叠字 关";
             Design.SetChip(_overlapBtn, _overlapLbl, _overlap);
         }
 
         private void RefreshOverlapHint()
         {
-            _overlapHintLbl.text = _overlapHint ? "重叠字提示：开（拖动即标色）" : "重叠字提示：关（找到后按句数着色）";
+            _overlapHintLbl.text = _overlapHint ? "重叠提示 开" : "重叠提示 关";
             Design.SetChip(_overlapHintBtn, _overlapHintLbl, _overlapHint);
         }
 
         private void RefreshFamous()
         {
-            _famousLbl.text = _famousOnly ? "仅名句：开" : "仅名句：关";
+            _famousLbl.text = _famousOnly ? "仅名句 开" : "仅名句 关";
             Design.SetChip(_famousBtn, _famousLbl, _famousOnly);
         }
     }

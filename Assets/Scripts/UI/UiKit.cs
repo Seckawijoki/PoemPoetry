@@ -177,7 +177,7 @@ namespace PoemPoetry.UI
             slider.fillRect = fillrt;
             slider.handleRect = hrt;
             slider.targetGraphic = handleImg;
-            slider.direction = Slider.Direction.LeftToRight;
+            slider.direction = UnityEngine.UI.Slider.Direction.LeftToRight;
             slider.minValue = min;
             slider.maxValue = max;
             slider.wholeNumbers = wholeNumbers;

@@ -100,7 +100,7 @@ namespace PoemPoetry.UI
             foreach (var it in rec.Items) sib.Add(it.PoemId);
             bool showChosen = rec.Mode != "slide";
             for (int i = 0; i < rec.Items.Count; i++)
-                ReviewRow.Build(scroll, Nav, rec.Items[i], sib, i, showChosen);
+                ReviewRow.Build(scroll, Nav, rec.Items[i], sib, i, showChosen, rec.Items);
         }
 
         private static void BuildHero(Transform parent, ChallengeRecord rec)

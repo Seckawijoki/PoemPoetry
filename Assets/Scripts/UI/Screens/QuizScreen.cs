@@ -249,8 +249,8 @@ namespace PoemPoetry.UI
             _progressValue.text = $"第 {_index + 1}/{_session.Total} 题";
             _streakValue.text = $"连胜 {_streak}";
             _meta.text = poem == null ? "" : (isCi
-                ? $"《{(string.IsNullOrEmpty(poem.Cipai) ? poem.Title : poem.Cipai)}》 · {poem.Author}"
-                : $"《{poem.Title}》 {poem.Dynasty}·{poem.Author}");
+                ? $"《{(string.IsNullOrEmpty(poem.Cipai) ? PoemFormat.DisplayTitle(poem.Title) : poem.Cipai)}》 · {poem.Author}"
+                : $"《{PoemFormat.DisplayTitle(poem.Title)}》 {poem.Dynasty}·{poem.Author}");
             _poemText.text = BuildMinimalText(poem, q.BlankLineIndex, null);
 
             for (int i = 0; i < 4; i++)

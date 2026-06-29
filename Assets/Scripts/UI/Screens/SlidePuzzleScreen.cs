@@ -207,9 +207,9 @@ namespace PoemPoetry.UI
                 else l = p.Lines[_rng.Next(p.Lines.Count)];
                 if (l.CharCount < 5 || l.CharCount > maxLine) continue; // 只放五字及以上的诗句
                 if (used.Contains(l.Text)) continue;
-                // 开启重叠字时，从第二句起约 50% 的句子要求与已放置诗句共享字，制造真正的交叉；
+                // 开启重叠字时，从第二句起约 80% 的句子要求与已放置诗句共享字，制造真正的交叉；
                 // 不满足则回退重抽新随机诗句。400 次后放宽，避免共享字稀少时凑不够目标句数。
-                if (_overlap && placed > 0 && guard < 400 && _rng.Next(2) == 0 && !SharesPlacedChar(l, placedChars)) continue;
+                if (_overlap && placed > 0 && guard < 400 && _rng.Next(100) < 80 && !SharesPlacedChar(l, placedChars)) continue;
                 used.Add(l.Text);
                 var chars = SplitChars(l.Text);
                 if (_game.TryPlace(l.Text, chars, p.Title, p.Id))
@@ -639,7 +639,7 @@ namespace PoemPoetry.UI
             foreach (var t in _game.Targets)
             {
                 string mark = t.Found ? $"<color=#{greenHex}>✓</color>" : $"<color=#{redHex}>×</color>";
-                var row = UiKit.Text("R", list, $"{mark}　{t.Text}　<size=78%><color=#{mutedHex}>· {t.Title}</color></size>",
+                var row = UiKit.Text("R", list, $"{mark}　{t.Text}　<size=78%><color=#{mutedHex}>· {PoemFormat.DisplayTitle(t.Title)}</color></size>",
                     30, TextAlignmentOptions.Left, Design.Ink);
                 UiKit.Pref(row.gameObject, minH: 76);
             }

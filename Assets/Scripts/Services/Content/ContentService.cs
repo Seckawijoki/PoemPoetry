@@ -4,6 +4,14 @@ using PoemPoetry.Data;
 
 namespace PoemPoetry.Services
 {
+    /// <summary>A selectable 朝代 filter option that may fold several raw dynasties behind one label
+    /// (e.g. 汉魏六朝 / 五代十国). Selecting it selects all <see cref="Members"/>.</summary>
+    public sealed class DynastyFacet
+    {
+        public string Label;
+        public List<string> Members = new List<string>();
+    }
+
     /// <summary>Holds loaded poems + questions and provides lookups / filtered pools.</summary>
     public sealed class ContentService
     {
@@ -71,9 +79,25 @@ namespace PoemPoetry.Services
         // sorts after these, keeping its first-seen position.
         private static readonly string[] DynastyOrder =
         {
-            "先秦", "秦", "汉", "魏", "晋", "魏晋", "南北朝", "隋", "唐",
-            "五代", "宋", "辽", "金", "元", "明", "清", "近现代", "现代", "当代",
+            "先秦", "秦", "汉", "三国", "魏", "晋", "东晋", "魏晋", "南北朝", "隋", "唐",
+            "前蜀", "后蜀", "南唐", "五代", "宋", "辽", "金", "元", "明", "清", "近现代", "现代", "当代",
         };
+
+        // Display-time grouping of dynasties into selectable filter facets: the pre-Tang dynasties fold
+        // into 汉魏六朝, the Ten Kingdoms states into 五代十国. Members are raw p.Dynasty values; picking a
+        // facet selects all its members. Anything not listed becomes its own singleton facet.
+        private static readonly (string Label, string[] Members)[] DynastyGroupDefs =
+        {
+            ("汉魏六朝", new[] { "先秦", "秦", "汉", "三国", "魏", "晋", "东晋", "魏晋", "南北朝" }),
+            ("五代十国", new[] { "前蜀", "后蜀", "南唐", "吴", "南汉", "北汉", "吴越", "闽", "楚", "荆南", "五代", "十国" }),
+        };
+
+        private static string GroupLabelFor(string dynasty)
+        {
+            foreach (var g in DynastyGroupDefs)
+                if (System.Array.IndexOf(g.Members, dynasty) >= 0) return g.Label;
+            return null;
+        }
 
         private static int DynastyRank(string d)
         {
@@ -96,6 +120,27 @@ namespace PoemPoetry.Services
                 return ra != rb ? ra.CompareTo(rb) : firstSeen.IndexOf(a).CompareTo(firstSeen.IndexOf(b));
             });
             return list;
+        }
+
+        /// <summary>朝代 facets for the filter UI: pre-Tang dynasties fold into 汉魏六朝, the Ten Kingdoms
+        /// states into 五代十国; everything else stays a singleton. Chronologically ordered; only facets
+        /// that actually have poems present, and each facet's Members are its present member dynasties.</summary>
+        public List<DynastyFacet> GetDynastyFacets()
+        {
+            var facets = new List<DynastyFacet>();
+            var byLabel = new Dictionary<string, DynastyFacet>();
+            foreach (var dyn in GetDynasties()) // chronological, present-only
+            {
+                string label = GroupLabelFor(dyn) ?? dyn;
+                if (!byLabel.TryGetValue(label, out var f))
+                {
+                    f = new DynastyFacet { Label = label };
+                    byLabel[label] = f;
+                    facets.Add(f);
+                }
+                f.Members.Add(dyn);
+            }
+            return facets;
         }
 
         /// <summary>Distinct 体裁 (诗/词/曲) present, for the type filter.</summary>

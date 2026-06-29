@@ -11,13 +11,25 @@ namespace PoemPoetry.UI
     /// <summary>诗词详情: author band · poem body (lattice corners) · 译文/赏析, with a pinned 收藏 footer.</summary>
     public sealed class PoemDetailScreen : UIScreen
     {
+        private List<QuestionResult> _siblingResults;
+
         protected override void OnShow(object args)
         {
             var a = args as PoemDetailArgs;
+            _siblingResults = a?.SiblingResults;
             var poem = a != null ? Services.Content.GetPoem(a.PoemId) : null;
             var body = Design.Chrome(gameObject, () => Nav.Pop(), () => Nav.Push<SettingsScreen>(),
-                poem != null ? poem.Title : "诗词");
+                poem != null ? PoemFormat.DisplayTitle(poem.Title) : "诗词");
             UiKit.VerticalGroup(body.gameObject, spacing: 12, padX: 28, padY: 16, align: TextAnchor.UpperCenter);
+
+            // 标题上方显示「当前/总数」(仅在按列表浏览时)。
+            if (a != null && a.Siblings != null && a.Siblings.Count > 1)
+            {
+                float safeTop = UiKit.SafeTopInset(gameObject);
+                var posLbl = UiKit.Text("Pos", gameObject.transform, $"{a.Index + 1} / {a.Siblings.Count}", 22,
+                    TextAlignmentOptions.Center, Design.OnSurfaceVariant);
+                UiKit.AnchorTop(posLbl.gameObject, height: 24, topOffset: safeTop + 6, sideMargin: 220);
+            }
 
             if (poem == null)
             {
@@ -203,9 +215,13 @@ namespace PoemPoetry.UI
 
         private void Open(List<string> siblings, int index, int dir)
         {
+            // Carry the parallel per-sibling result so the swiped-to poem keeps highlighting its 出题句.
+            var ctx = (_siblingResults != null && index >= 0 && index < _siblingResults.Count)
+                ? _siblingResults[index] : null;
             Nav.Replace<PoemDetailScreen>(new PoemDetailArgs
             {
                 PoemId = siblings[index], Siblings = siblings, Index = index, SlideFrom = dir,
+                SiblingResults = _siblingResults, ResultContext = ctx,
             });
         }
 

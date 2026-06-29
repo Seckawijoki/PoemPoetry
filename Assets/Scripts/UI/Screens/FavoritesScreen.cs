@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PoemPoetry.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,7 +52,7 @@ namespace PoemPoetry.UI
                 Design.Corners(card, Design.Alpha(Design.Outline, 0.3f), arm: 24, thick: 1, inset: 10);
 
                 Design.CardText("Title", card.transform,
-                    $"<b>《{poem.Title}》</b>　<size=72%><color=#{mutedHex}>{poem.Dynasty}·{poem.Author}</color></size>",
+                    $"<b>《{PoemFormat.DisplayTitle(poem.Title)}》</b>　<size=72%><color=#{mutedHex}>{poem.Dynasty}·{poem.Author}</color></size>",
                     32, Design.Primary, TextAlignmentOptions.Left,
                     new Vector2(0, 1), new Vector2(30, -28), new Vector2(600, 44));
 
