@@ -24,6 +24,14 @@ SQLite4Unity3d
 /Tools/TestHarness/error.log
 /Tools/TestHarness/lib/
 
+# Large Noto Serif CJK font/atlas — kept local only, never pushed
+/Assets/Fonts/NOTOSERIFCJKSC-REGULAR.OTF
+/Assets/Fonts/NOTOSERIFCJKSC-REGULAR.OTF.meta
+/Assets/Fonts/NOTOSERIFCJKSC-REGULAR SDF.asset
+/Assets/Fonts/NOTOSERIFCJKSC-REGULAR SDF.asset.meta
+/Assets/Fonts/Subset/*SDF*.asset
+/Assets/Fonts/Subset/*SDF*.asset.meta
+
 # OS / IDE
 .DS_Store
 .idea/
