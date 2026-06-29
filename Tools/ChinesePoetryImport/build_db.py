@@ -40,7 +40,7 @@ from datetime import datetime, timezone
 
 # Bump CONTENT_VERSION whenever the shipped data changes so clients re-copy content.db.
 SCHEMA_VERSION = 1
-CONTENT_VERSION = 6  # bumped: 校勘 26 处原文用字 (芙蓉楼/从军行/琵琶行/阁夜等，统一通行本)
+CONTENT_VERSION = 11  # bumped: +30 名篇 (杜甫/李白/王维/李商隐/韩愈/朱熹/温庭筠 等唐宋词补缺)
 
 # FTS5 is OFF by default: the native sqlite3 bundled with SQLite4Unity3d is too old to even
 # parse the FTS5 shadow tables a modern sqlite writes ("malformed database schema

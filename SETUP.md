@@ -76,6 +76,16 @@
 **加诗的方法**：编辑 `Tools/SampleContent/poems_seed.json`（每首给 `lines[].text` 和 `isRhymeLine`），
 并确保每句**末字**的拼音在 `Assets/StreamingAssets/PoemData/char_pinyin.json` 里（多音字按韵脚正确读音排在首位），
 然后点①重新生成。某首诗若「同字数同韵」候选不足 3 个会自动跳过，不出题——题库越大越少见。
+`translation`（译文）/ `appreciation`（赏析）是**可选**字段，批量加诗时可**暂留空、日后再补**：
+详情页用 `AddSection` 对空内容直接跳过、自动隐藏该段，不影响出题与显示。
+
+> **补充语料后务必再做两步**（「内容工具」生成完成后也会弹窗提示）：
+> 1. **重烤字体图集并应用**：菜单 **PoemPoetry ▸ 字体 ▸ ① 一键：生成精简图集并应用**。
+>    精简图集只含语料里出现过的字，新增字若不重烤会显示成方块 □。
+> 2. **重建运行时库**：`python Tools/ChinesePoetryImport/build_db.py` 并自增脚本顶部 `CONTENT_VERSION`
+>    （运行时只读 `content.db`，不重建就还是旧题库）。
+> 语料里**新增了字**时，还需先跑 `python Tools/ChinesePoetryImport/build_char_pinyin.py` 补末字拼音，
+> 否则该句韵脚解析为空、整首漏题。完整刷新+回归校验请跑 `Tools/TestHarness/build_and_test.ps1`。
 
 > 接公共语料（chinese-poetry）时：把语料文本转成同样的 `poems_seed` 结构、补齐末字拼音字典即可走同一条流水线。
 > 自动出题的已知风险是「另一个选项其实也通」与「明显跑题给答案」——可在 `questions.json` 里人工删除坏题，
