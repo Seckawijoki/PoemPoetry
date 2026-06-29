@@ -11,10 +11,11 @@ namespace PoemPoetry.Editor
 {
     /// <summary>
     /// Builds a *trimmed* CJK SDF font atlas containing only the characters the app actually uses,
-    /// instead of the full ~20k-glyph atlas (the 55 MB asset). Two steps:
-    ///   ⑥ Scan poem data + UI source for every unique character -> writes poem_charset.txt.
-    ///   ⑦ Bake a static SDF atlas from a selected source font covering exactly that charset.
-    /// The original font files and full atlas are left untouched — the subset is written alongside.
+    /// instead of the full ~20k-glyph atlas (the 55 MB asset). The source font is always
+    /// <see cref="FontSetup.SourceFontPath"/> (NOTOSERIFCJKSC-REGULAR) — no manual selection needed.
+    ///
+    /// 一键命令会顺序执行：扫描字符集 → 用 NOTOSERIFCJKSC 烘焙精简图集 → 设为 TMP 默认字体。
+    /// 单步命令保留，便于排查。原始字体与完整图集始终不被修改。
     /// </summary>
     public static class FontSubsetBuilder
     {
@@ -36,17 +37,95 @@ namespace PoemPoetry.Editor
         };
 
         // ---------------------------------------------------------------------------------------
-        // ⑥ Scan: collect the unique character set the app needs.
+        // ① One-click: scan → bake subset from NOTOSERIFCJKSC → set as TMP default.
         // ---------------------------------------------------------------------------------------
-        [MenuItem("PoemPoetry/字体/⑥ 扫描诗词字符集（生成精简集）")]
+        [MenuItem("PoemPoetry/字体/① 一键：生成精简图集并应用 (NOTOSERIFCJKSC)", priority = 20)]
+        public static void BuildSubsetAndApply()
+        {
+            string charset = ScanAndWriteCharset(out int total, out int cjk);
+            if (charset == null) return;
+
+            var font = FontSetup.LoadSourceFont();
+            if (font == null) return;
+
+            var fa = BakeSubset(font, charset, out int missing, out string assetPath, out int atlasCount);
+            if (fa == null) return;
+
+            if (!FontSetup.ApplyAsDefault(fa, out int asciiAdded)) return;
+
+            EditorGUIUtility.PingObject(fa);
+            Selection.activeObject = fa;
+            EditorUtility.DisplayDialog("字体精简",
+                $"完成！已生成精简图集并设为 TMP 默认字体。\n" +
+                $"资源：{assetPath}\n" +
+                $"字符：{total} 个（CJK {cjk}）　图集张数：{atlasCount}　缺字：{missing}\n" +
+                (asciiAdded > 0 ? "已添加数字/字母回退（LiberationSans）。\n" : "") +
+                (missing > 0 ? "注意：有缺字，建议把完整字体加为回退（菜单：把选中的字体加为回退）。\n" : "") +
+                "重新 Play / 打包即可。", "好");
+        }
+
+        // ---------------------------------------------------------------------------------------
+        // Scan only: collect the unique character set the app needs.
+        // ---------------------------------------------------------------------------------------
+        [MenuItem("PoemPoetry/字体/扫描诗词字符集", priority = 35)]
         public static void ScanCharset()
         {
+            string charset = ScanAndWriteCharset(out int total, out int cjk);
+            if (charset == null) return;
+            Debug.Log($"[FontSubset] 扫描完成：共 {total} 个唯一字符（其中 CJK {cjk} 个）-> {CharsetPath}");
+            EditorUtility.DisplayDialog("字体精简",
+                $"扫描完成！\n唯一字符：{total} 个（CJK {cjk} 个）\n已写入：{CharsetPath}\n\n" +
+                "接着执行菜单「导出精简图集 (NOTOSERIFCJKSC)」，或直接用「① 一键」。", "好");
+        }
+
+        // ---------------------------------------------------------------------------------------
+        // Bake only: build a static SDF atlas from NOTOSERIFCJKSC covering the scanned charset.
+        // ---------------------------------------------------------------------------------------
+        [MenuItem("PoemPoetry/字体/导出精简图集 (NOTOSERIFCJKSC)", priority = 36)]
+        public static void ExportTrimmedAtlas()
+        {
+            string fullCharsetPath = ToFullPath(CharsetPath);
+            if (!File.Exists(fullCharsetPath))
+            {
+                EditorUtility.DisplayDialog("字体精简", "尚未生成字符集。请先执行菜单「扫描诗词字符集」。", "好");
+                return;
+            }
+            string charset = File.ReadAllText(fullCharsetPath, Encoding.UTF8);
+            if (string.IsNullOrEmpty(charset))
+            {
+                EditorUtility.DisplayDialog("字体精简", "字符集文件为空，请重新执行「扫描诗词字符集」。", "好");
+                return;
+            }
+
+            var font = FontSetup.LoadSourceFont();
+            if (font == null) return;
+
+            var fa = BakeSubset(font, charset, out int missing, out string assetPath, out int atlasCount);
+            if (fa == null) return;
+
+            EditorGUIUtility.PingObject(fa);
+            Selection.activeObject = fa;
+            EditorUtility.DisplayDialog("字体精简",
+                $"导出完成！\n资源：{assetPath}\n图集张数：{atlasCount}　缺字：{missing}\n\n" +
+                "下一步：用菜单「将选中的 TMP 字体设为默认」应用它，或下次直接用「① 一键」。\n" +
+                (missing > 0 ? "注意：有缺字，建议把完整字体加为回退。" : ""), "好");
+        }
+
+        // ---------------------------------------------------------------------------------------
+        // Core helpers (UI-free, reused by the menus above)
+        // ---------------------------------------------------------------------------------------
+
+        /// <summary>Scans the charset, writes it to <see cref="CharsetPath"/>, and returns it.
+        /// Returns null (after a dialog) if nothing was found.</summary>
+        private static string ScanAndWriteCharset(out int total, out int cjk)
+        {
+            total = 0; cjk = 0;
             var chars = CollectCharacters();
             if (chars.Count == 0)
             {
                 EditorUtility.DisplayDialog("字体精简",
                     "未扫描到任何字符，请确认 Assets/StreamingAssets/PoemData 下有诗词数据。", "好");
-                return;
+                return null;
             }
 
             // Stable order so the file diffs cleanly in git.
@@ -55,48 +134,20 @@ namespace PoemPoetry.Editor
             string content = new string(sorted.ToArray());
 
             EnsureFolder();
-            string fullPath = ToFullPath(CharsetPath);
-            File.WriteAllText(fullPath, content, new UTF8Encoding(false));
+            File.WriteAllText(ToFullPath(CharsetPath), content, new UTF8Encoding(false));
             AssetDatabase.ImportAsset(CharsetPath);
 
-            int cjk = 0;
+            total = chars.Count;
             foreach (char c in sorted) if (c >= 0x2E80) cjk++;
-
-            Debug.Log($"[FontSubset] 扫描完成：共 {chars.Count} 个唯一字符（其中 CJK {cjk} 个）-> {CharsetPath}");
-            EditorUtility.DisplayDialog("字体精简",
-                $"扫描完成！\n唯一字符：{chars.Count} 个（CJK {cjk} 个）\n已写入：{CharsetPath}\n\n" +
-                "接着在 Project 选中源字体（如 NOTOSERIFCJKSC-REGULAR.OTF），执行菜单⑦导出精简图集。", "好");
+            return content;
         }
 
-        // ---------------------------------------------------------------------------------------
-        // ⑦ Export: bake a static SDF atlas from the selected font covering only the scanned chars.
-        // ---------------------------------------------------------------------------------------
-        [MenuItem("PoemPoetry/字体/⑦ 用源字体导出精简SDF图集")]
-        public static void ExportTrimmedAtlas()
+        /// <summary>Bakes a static subset SDF asset from <paramref name="font"/> covering
+        /// <paramref name="charset"/>. Returns the asset (or null after a dialog on failure).</summary>
+        private static TMP_FontAsset BakeSubset(
+            Font font, string charset, out int missingCount, out string assetPath, out int atlasCount)
         {
-            var font = Selection.activeObject as Font;
-            if (font == null)
-            {
-                EditorUtility.DisplayDialog("字体精简",
-                    "请先在 Project 窗口选中一个源字体（已导入的 .ttf/.otf Font 资源，\n" +
-                    "如 NOTOSERIFCJKSC-REGULAR.OTF），再执行本命令。", "好");
-                return;
-            }
-
-            string fullCharsetPath = ToFullPath(CharsetPath);
-            if (!File.Exists(fullCharsetPath))
-            {
-                EditorUtility.DisplayDialog("字体精简",
-                    "尚未生成字符集。请先执行菜单⑥ 扫描诗词字符集。", "好");
-                return;
-            }
-
-            string charset = File.ReadAllText(fullCharsetPath, Encoding.UTF8);
-            if (string.IsNullOrEmpty(charset))
-            {
-                EditorUtility.DisplayDialog("字体精简", "字符集文件为空，请重新执行菜单⑥。", "好");
-                return;
-            }
+            missingCount = 0; assetPath = null; atlasCount = 0;
 
             TMP_FontAsset fa;
             try
@@ -112,26 +163,25 @@ namespace PoemPoetry.Editor
                 EditorUtility.DisplayDialog("字体精简",
                     "创建字体资源失败。该源字体可能不支持动态 SDF，请改用 Window ▸ TextMeshPro ▸ Font Asset Creator，\n" +
                     $"用 Character File 模式加载 {CharsetPath} 手动烘焙。", "好");
-                return;
+                return null;
             }
-            if (fa == null) return;
+            if (fa == null) return null;
 
             if (!fa.TryAddCharacters(charset, out string missing))
-            {
                 Debug.LogWarning("[FontSubset] TryAddCharacters 报告部分失败。");
-            }
-            int missingCount = string.IsNullOrEmpty(missing) ? 0 : missing.Length;
+            missingCount = string.IsNullOrEmpty(missing) ? 0 : missing.Length;
             if (missingCount > 0)
-            {
                 Debug.LogWarning($"[FontSubset] 该源字体缺少 {missingCount} 个字形（将由回退字体或方块占位）：{missing}");
-            }
 
             // Freeze: static atlas + drop the source-font reference so the 24 MB OTF is NOT pulled
             // into the build. (Keep the original full atlas/source files for future re-bakes.)
             fa.atlasPopulationMode = AtlasPopulationMode.Static;
 
             EnsureFolder();
-            string assetPath = AssetDatabase.GenerateUniqueAssetPath($"{OutputFolder}/{font.name}-Subset SDF.asset");
+            // Overwrite a single canonical asset; never accumulate “…-Subset SDF 1/2/3.asset”.
+            // PrepareOverwrite also clears stale numbered duplicates from earlier runs.
+            assetPath = $"{OutputFolder}/{font.name}-Subset SDF.asset";
+            bool wasDefault = FontSetup.PrepareOverwrite(assetPath);
             string nameNoExt = Path.GetFileNameWithoutExtension(assetPath);
 
             AssetDatabase.CreateAsset(fa, assetPath);
@@ -168,19 +218,14 @@ namespace PoemPoetry.Editor
                 AssetDatabase.SaveAssets();
             }
 
-            int atlasCount = fa.atlasTextures != null ? fa.atlasTextures.Length : 0;
-            Debug.Log($"[FontSubset] 导出完成 -> {assetPath}（图集张数 {atlasCount}，缺字 {missingCount}）");
-            EditorGUIUtility.PingObject(fa);
-            Selection.activeObject = fa;
-            EditorUtility.DisplayDialog("字体精简",
-                $"导出完成！\n资源：{assetPath}\n图集张数：{atlasCount}　缺字：{missingCount}\n\n" +
-                "下一步：用菜单②把它设为 TMP 默认字体（替换 55MB 的完整图集），再重新打包。\n" +
-                (missingCount > 0 ? "注意：有缺字，建议保留原完整字体作为回退（菜单⑤）。" : ""), "好");
-        }
+            // Overwrite gave the asset a fresh GUID, so re-wire it as TMP default if it was before
+            // (otherwise TMP_Settings would point at the just-deleted asset).
+            if (wasDefault) FontSetup.ApplyAsDefault(fa, out _);
 
-        // ---------------------------------------------------------------------------------------
-        // Helpers
-        // ---------------------------------------------------------------------------------------
+            atlasCount = fa.atlasTextures != null ? fa.atlasTextures.Length : 0;
+            Debug.Log($"[FontSubset] 导出完成 -> {assetPath}（图集张数 {atlasCount}，缺字 {missingCount}）");
+            return fa;
+        }
 
         /// <summary>Scans poem data (*.json) and UI source (*.cs) for every renderable character,
         /// then unions a base set of ASCII + common CJK punctuation so labels never miss glyphs.</summary>
@@ -201,6 +246,10 @@ namespace PoemPoetry.Editor
                 if (!Directory.Exists(fullFolder)) continue;
 
                 string pattern = folder.EndsWith("PoemData") ? "*.json" : "*.cs";
+                // From poem data (*.json) take every character; from source (*.cs) take only CJK,
+                // so comment/dialog symbols like ▸ ✓ ← don't pollute the atlas (ASCII + common
+                // punctuation are already covered by the base set above).
+                bool cjkOnly = pattern == "*.cs";
                 foreach (string file in Directory.GetFiles(fullFolder, pattern, SearchOption.AllDirectories))
                 {
                     string text;
@@ -210,6 +259,7 @@ namespace PoemPoetry.Editor
                     foreach (char c in text)
                     {
                         if (char.IsControl(c) || char.IsWhiteSpace(c)) continue;
+                        if (cjkOnly && c < 0x2E80) continue;
                         set.Add(c);
                     }
                 }

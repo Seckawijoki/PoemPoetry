@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -11,16 +12,63 @@ namespace PoemPoetry.Editor
     /// </summary>
     public static class FontSetup
     {
-        [MenuItem("PoemPoetry/字体/① 用选中的TTF创建动态SDF并设为默认")]
+        /// <summary>App 的源中文字体。所有字体命令都直接用它，无需在 Project 里手动选中。</summary>
+        public const string SourceFontPath = "Assets/Fonts/NOTOSERIFCJKSC-REGULAR.OTF";
+
+        /// <summary>Loads the project's source CJK font; shows a dialog and returns null if missing.</summary>
+        public static Font LoadSourceFont()
+        {
+            var font = AssetDatabase.LoadAssetAtPath<Font>(SourceFontPath);
+            if (font == null)
+                EditorUtility.DisplayDialog("字体",
+                    "找不到源字体：\n" + SourceFontPath + "\n请确认该 OTF 已导入工程。", "好");
+            return font;
+        }
+
+        /// <summary>Sets <paramref name="fa"/> as the TMP default and adds the ASCII fallback.
+        /// Returns whether the default was set; <paramref name="asciiAdded"/> = fallbacks added.</summary>
+        public static bool ApplyAsDefault(TMP_FontAsset fa, out int asciiAdded)
+        {
+            asciiAdded = AddAsciiFallbackTo(fa);
+            return SetDefault(fa);
+        }
+
+        /// <summary>
+        /// Clears <paramref name="assetPath"/> for an overwrite-style bake: deletes any existing asset
+        /// there AND stale numbered siblings (“&lt;base&gt; 1.asset”…) left by earlier runs, so re-baking
+        /// never piles up duplicate font assets. (Outside Resources/StreamingAssets only the referenced
+        /// asset ships, but the leftovers clutter the project and risk shipping if wired as a fallback.)
+        /// Returns true if a removed asset was the current TMP default — caller should re-apply.
+        /// </summary>
+        public static bool PrepareOverwrite(string assetPath)
+        {
+            string dir = Path.GetDirectoryName(assetPath).Replace('\\', '/');
+            string baseName = Path.GetFileNameWithoutExtension(assetPath);
+            if (!AssetDatabase.IsValidFolder(dir)) return false;
+
+            var def = TMP_Settings.defaultFontAsset;
+            bool wasDefault = false;
+            foreach (var guid in AssetDatabase.FindAssets("t:TMP_FontAsset", new[] { dir }))
+            {
+                string p = AssetDatabase.GUIDToAssetPath(guid);
+                // FindAssets recurses; keep to assets directly in this folder.
+                if (Path.GetDirectoryName(p).Replace('\\', '/') != dir) continue;
+                string file = Path.GetFileNameWithoutExtension(p);
+                // Match the exact base name or "<base> <n>" (the numbered duplicates).
+                bool isSibling = file == baseName
+                    || (file.StartsWith(baseName + " ") && int.TryParse(file.Substring(baseName.Length + 1), out _));
+                if (!isSibling) continue;
+                if (def != null && AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(p) == def) wasDefault = true;
+                AssetDatabase.DeleteAsset(p);
+            }
+            return wasDefault;
+        }
+
+        [MenuItem("PoemPoetry/字体/② 创建完整动态SDF并应用 (NOTOSERIFCJKSC)", priority = 21)]
         public static void CreateAndSetDefault()
         {
-            var font = Selection.activeObject as Font;
-            if (font == null)
-            {
-                EditorUtility.DisplayDialog("字体",
-                    "请先在 Project 窗口选中一个已导入的中文字体（.ttf/.otf 的 Font 资源），再执行本命令。", "好");
-                return;
-            }
+            var font = LoadSourceFont();
+            if (font == null) return;
 
             TMP_FontAsset fontAsset;
             try
@@ -38,7 +86,8 @@ namespace PoemPoetry.Editor
 
             const string folder = "Assets/Fonts";
             if (!AssetDatabase.IsValidFolder(folder)) AssetDatabase.CreateFolder("Assets", "Fonts");
-            string path = AssetDatabase.GenerateUniqueAssetPath($"{folder}/{font.name} SDF.asset");
+            string path = $"{folder}/{font.name} SDF.asset";
+            PrepareOverwrite(path);   // overwrite in place; never accumulate “… 1/2/3.asset”
             AssetDatabase.CreateAsset(fontAsset, path);
 
             // Persist the atlas texture + material as sub-assets so references survive a reimport.
@@ -64,7 +113,7 @@ namespace PoemPoetry.Editor
                     "现在按 Play，中文与数字都应正常显示。", "好");
         }
 
-        [MenuItem("PoemPoetry/字体/② 将选中的 TMP 字体设为默认")]
+        [MenuItem("PoemPoetry/字体/将选中的 TMP 字体设为默认", priority = 50)]
         public static void SetSelectedAsDefault()
         {
             var fa = Selection.activeObject as TMP_FontAsset;
@@ -78,7 +127,7 @@ namespace PoemPoetry.Editor
                 EditorUtility.DisplayDialog("字体", $"已将「{fa.name}」设为 TMP 默认字体。", "好");
         }
 
-        [MenuItem("PoemPoetry/字体/③ 显示当前默认字体")]
+        [MenuItem("PoemPoetry/字体/显示当前默认字体", priority = 51)]
         public static void ShowCurrent()
         {
             var settings = TMP_Settings.instance;
@@ -87,7 +136,7 @@ namespace PoemPoetry.Editor
             EditorUtility.DisplayDialog("字体", "当前 TMP 默认字体：" + name, "好");
         }
 
-        [MenuItem("PoemPoetry/字体/④ 给当前默认字体加 数字字母 回退")]
+        [MenuItem("PoemPoetry/字体/给当前默认字体加 数字字母 回退", priority = 52)]
         public static void AddAsciiFallbackToDefault()
         {
             var main = TMP_Settings.defaultFontAsset;
@@ -117,7 +166,7 @@ namespace PoemPoetry.Editor
             return 1;
         }
 
-        [MenuItem("PoemPoetry/字体/⑤ 把选中的字体加为回退（补缺标点等）")]
+        [MenuItem("PoemPoetry/字体/把选中的字体加为回退（补缺标点等）", priority = 53)]
         public static void AddSelectedAsFallback()
         {
             var main = TMP_Settings.defaultFontAsset;
@@ -165,7 +214,8 @@ namespace PoemPoetry.Editor
 
             const string folder = "Assets/Fonts";
             if (!AssetDatabase.IsValidFolder(folder)) AssetDatabase.CreateFolder("Assets", "Fonts");
-            string path = AssetDatabase.GenerateUniqueAssetPath($"{folder}/{font.name} SDF.asset");
+            string path = $"{folder}/{font.name} SDF.asset";
+            PrepareOverwrite(path);   // overwrite in place; never accumulate “… 1/2/3.asset”
             AssetDatabase.CreateAsset(fa, path);
             if (fa.atlasTextures != null && fa.atlasTextures.Length > 0 && fa.atlasTextures[0] != null)
             {
