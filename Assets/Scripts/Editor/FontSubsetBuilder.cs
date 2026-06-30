@@ -65,54 +65,7 @@ namespace PoemPoetry.Editor
         }
 
         // ---------------------------------------------------------------------------------------
-        // Scan only: collect the unique character set the app needs.
-        // ---------------------------------------------------------------------------------------
-        [MenuItem("PoemPoetry/字体/扫描诗词字符集", priority = 35)]
-        public static void ScanCharset()
-        {
-            string charset = ScanAndWriteCharset(out int total, out int cjk);
-            if (charset == null) return;
-            Debug.Log($"[FontSubset] 扫描完成：共 {total} 个唯一字符（其中 CJK {cjk} 个）-> {CharsetPath}");
-            EditorUtility.DisplayDialog("字体精简",
-                $"扫描完成！\n唯一字符：{total} 个（CJK {cjk} 个）\n已写入：{CharsetPath}\n\n" +
-                "接着执行菜单「导出精简图集 (NOTOSERIFCJKSC)」，或直接用「① 一键」。", "好");
-        }
-
-        // ---------------------------------------------------------------------------------------
-        // Bake only: build a static SDF atlas from NOTOSERIFCJKSC covering the scanned charset.
-        // ---------------------------------------------------------------------------------------
-        [MenuItem("PoemPoetry/字体/导出精简图集 (NOTOSERIFCJKSC)", priority = 36)]
-        public static void ExportTrimmedAtlas()
-        {
-            string fullCharsetPath = ToFullPath(CharsetPath);
-            if (!File.Exists(fullCharsetPath))
-            {
-                EditorUtility.DisplayDialog("字体精简", "尚未生成字符集。请先执行菜单「扫描诗词字符集」。", "好");
-                return;
-            }
-            string charset = File.ReadAllText(fullCharsetPath, Encoding.UTF8);
-            if (string.IsNullOrEmpty(charset))
-            {
-                EditorUtility.DisplayDialog("字体精简", "字符集文件为空，请重新执行「扫描诗词字符集」。", "好");
-                return;
-            }
-
-            var font = FontSetup.LoadSourceFont();
-            if (font == null) return;
-
-            var fa = BakeSubset(font, charset, out int missing, out string assetPath, out int atlasCount);
-            if (fa == null) return;
-
-            EditorGUIUtility.PingObject(fa);
-            Selection.activeObject = fa;
-            EditorUtility.DisplayDialog("字体精简",
-                $"导出完成！\n资源：{assetPath}\n图集张数：{atlasCount}　缺字：{missing}\n\n" +
-                "下一步：用菜单「将选中的 TMP 字体设为默认」应用它，或下次直接用「① 一键」。\n" +
-                (missing > 0 ? "注意：有缺字，建议把完整字体加为回退。" : ""), "好");
-        }
-
-        // ---------------------------------------------------------------------------------------
-        // Core helpers (UI-free, reused by the menus above)
+        // Core helpers (UI-free). 扫描+烘焙 没有单独菜单——「① 一键」已覆盖完整流程。
         // ---------------------------------------------------------------------------------------
 
         /// <summary>Scans the charset, writes it to <see cref="CharsetPath"/>, and returns it.
