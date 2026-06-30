@@ -1027,6 +1027,15 @@
           "rhymeGroup": "12",
           "pingshui": "Z04纸",
           "sourcePoemId": "song-sushi-shuilongyin-yanghua"
+        },
+        {
+          "text": "鬓边觑",
+          "charCount": 3,
+          "lastChar": "觑",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z35御",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -1088,6 +1097,24 @@
           "rhymeGroup": "13",
           "pingshui": "Z33寘",
           "sourcePoemId": "song-liqingzhao-fenghuangtai"
+        },
+        {
+          "text": "能几日",
+          "charCount": 3,
+          "lastChar": "日",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "Z63质",
+          "sourcePoemId": "song-liuguo-tangduoling"
+        },
+        {
+          "text": "终不似",
+          "charCount": 3,
+          "lastChar": "似",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "Z04纸",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -1202,6 +1229,15 @@
           "rhymeGroup": "13",
           "pingshui": "P04支",
           "sourcePoemId": "song-wuwenying-fengrusong-tingfeng"
+        },
+        {
+          "text": "长相思",
+          "charCount": 3,
+          "lastChar": "思",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
         }
       ]
     },
@@ -1273,6 +1309,24 @@
           "rhymeGroup": "14",
           "pingshui": "Z07麌",
           "sourcePoemId": "song-xinqiji-moyuer"
+        },
+        {
+          "text": "桃叶渡",
+          "charCount": 3,
+          "lastChar": "渡",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "携手处",
+          "charCount": 3,
+          "lastChar": "处",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z06语",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -1668,6 +1722,24 @@
           "rhymeGroup": "3",
           "pingshui": "Z68屑",
           "sourcePoemId": "song-luyou-suzhongqing-dangnian"
+        },
+        {
+          "text": "却不解",
+          "charCount": 3,
+          "lastChar": "解",
+          "rhymeFinal": "ie",
+          "rhymeGroup": "3",
+          "pingshui": "Z09蟹",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "春去也",
+          "charCount": 3,
+          "lastChar": "也",
+          "rhymeFinal": "ie",
+          "rhymeGroup": "3",
+          "pingshui": "Z21马",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -1799,6 +1871,15 @@
           "rhymeGroup": "4",
           "pingshui": "Z38泰",
           "sourcePoemId": "song-qinguan-mantingfang-shanmo"
+        },
+        {
+          "text": "今谁在",
+          "charCount": 3,
+          "lastChar": "在",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -1912,6 +1993,15 @@
           "rhymeGroup": "5",
           "pingshui": "Z33寘",
           "sourcePoemId": "song-fanzhongyan-yujiexing"
+        },
+        {
+          "text": "莺声碎",
+          "charCount": 3,
+          "lastChar": "碎",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z40队",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -2400,6 +2490,24 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "song-qinguan-jiangchengzi-xicheng"
+        },
+        {
+          "text": "又中秋",
+          "charCount": 3,
+          "lastChar": "秋",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
+        },
+        {
+          "text": "少年游",
+          "charCount": 3,
+          "lastChar": "游",
+          "rhymeFinal": "iou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -2462,6 +2570,15 @@
           "rhymeGroup": "8",
           "pingshui": "Z15潸",
           "sourcePoemId": "song-qinguan-jiangchengzi-xicheng"
+        },
+        {
+          "text": "花影乱",
+          "charCount": 3,
+          "lastChar": "乱",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z44翰",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -2568,6 +2685,15 @@
           "rhymeGroup": "8",
           "pingshui": "Z14旱",
           "sourcePoemId": "song-zhudunru-xiangjianhuan-jinling"
+        },
+        {
+          "text": "倩谁唤",
+          "charCount": 3,
+          "lastChar": "唤",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z44翰",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -2657,6 +2783,42 @@
           "rhymeGroup": "8",
           "pingshui": "P13元",
           "sourcePoemId": "song-sushi-shuilongyin-yanghua"
+        },
+        {
+          "text": "在长安",
+          "charCount": 3,
+          "lastChar": "安",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "摧心肝",
+          "charCount": 3,
+          "lastChar": "肝",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "二十年",
+          "charCount": 3,
+          "lastChar": "年",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "song-liuguo-tangduoling"
+        },
+        {
+          "text": "旧江山",
+          "charCount": 3,
+          "lastChar": "山",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P15删",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -2825,6 +2987,15 @@
           "rhymeGroup": "9",
           "pingshui": "P27侵",
           "sourcePoemId": "wudai-gujiong-suzhongqing-yongye"
+        },
+        {
+          "text": "宝钗分",
+          "charCount": 3,
+          "lastChar": "分",
+          "rhymeFinal": "en",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -3360,6 +3531,15 @@
           "rhymeGroup": "11",
           "pingshui": "P23庚",
           "sourcePoemId": "song-zhushuzhen-dielianhua"
+        },
+        {
+          "text": "画角声中",
+          "charCount": 4,
+          "lastChar": "中",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -4066,6 +4246,15 @@
           "rhymeGroup": "12",
           "pingshui": "Z07麌",
           "sourcePoemId": "song-hezhu-tasuoxing-yangliu"
+        },
+        {
+          "text": "将愁归去",
+          "charCount": 4,
+          "lastChar": "去",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z06语",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -5003,6 +5192,24 @@
           "rhymeGroup": "14",
           "pingshui": "Z06语",
           "sourcePoemId": "song-xinqiji-qingpingyue-dusu"
+        },
+        {
+          "text": "流莺声住",
+          "charCount": 4,
+          "lastChar": "住",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "春归何处",
+          "charCount": 4,
+          "lastChar": "处",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z06语",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -5411,6 +5618,15 @@
           "rhymeGroup": "2",
           "pingshui": "P04支",
           "sourcePoemId": "tang-libai-shudaonan"
+        },
+        {
+          "text": "铁马金戈",
+          "charCount": 4,
+          "lastChar": "戈",
+          "rhymeFinal": "e",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -5987,6 +6203,15 @@
           "rhymeGroup": "4",
           "pingshui": "Z38泰",
           "sourcePoemId": "song-liuyong-shaoniaynou-changan"
+        },
+        {
+          "text": "水边沙外",
+          "charCount": 4,
+          "lastChar": "外",
+          "rhymeFinal": "uai",
+          "rhymeGroup": "4",
+          "pingshui": "Z38泰",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -7048,6 +7273,33 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "song-liqingzhao-fenghuangtai"
+        },
+        {
+          "text": "怕上层楼",
+          "charCount": 4,
+          "lastChar": "楼",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "重过南楼",
+          "charCount": 4,
+          "lastChar": "楼",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
+        },
+        {
+          "text": "浑是新愁",
+          "charCount": 4,
+          "lastChar": "愁",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -7664,6 +7916,15 @@
           "rhymeGroup": "8",
           "pingshui": "Z46霰",
           "sourcePoemId": "song-fanzhongyan-yujiexing"
+        },
+        {
+          "text": "都无人管",
+          "charCount": 4,
+          "lastChar": "管",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z14旱",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -7949,6 +8210,15 @@
           "rhymeGroup": "9",
           "pingshui": "P11真",
           "sourcePoemId": "song-zhushuzhen-dielianhua"
+        },
+        {
+          "text": "罗帐灯昏",
+          "charCount": 4,
+          "lastChar": "昏",
+          "rhymeFinal": "un",
+          "rhymeGroup": "9",
+          "pingshui": "P13元",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -8287,6 +8557,60 @@
           "rhymeGroup": "10",
           "pingshui": "P22阳",
           "sourcePoemId": "tang-libai-qiupuge-baifa"
+        },
+        {
+          "text": "共此灯烛光",
+          "charCount": 5,
+          "lastChar": "光",
+          "rhymeFinal": "uang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "重上君子堂",
+          "charCount": 5,
+          "lastChar": "堂",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "问我来何方",
+          "charCount": 5,
+          "lastChar": "方",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "一举累十觞",
+          "charCount": 5,
+          "lastChar": "觞",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "感子故意长",
+          "charCount": 5,
+          "lastChar": "长",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "世事两茫茫",
+          "charCount": 5,
+          "lastChar": "茫",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
         }
       ]
     },
@@ -8385,6 +8709,15 @@
           "rhymeGroup": "10",
           "pingshui": "Z22养",
           "sourcePoemId": "tang-libai-qiupuge-baifa"
+        },
+        {
+          "text": "泠泠七弦上",
+          "charCount": 5,
+          "lastChar": "上",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "Z22养",
+          "sourcePoemId": "tang-liuchangqing-tanqin"
         }
       ]
     },
@@ -8492,6 +8825,51 @@
           "rhymeGroup": "10",
           "pingshui": "P22阳",
           "sourcePoemId": "tang-libai-qiupuge-baifa"
+        },
+        {
+          "text": "动如参与商",
+          "charCount": 5,
+          "lastChar": "商",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "鬓发各已苍",
+          "charCount": 5,
+          "lastChar": "苍",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "惊呼热中肠",
+          "charCount": 5,
+          "lastChar": "肠",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "驱儿罗酒浆",
+          "charCount": 5,
+          "lastChar": "浆",
+          "rhymeFinal": "iang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "新炊间黄粱",
+          "charCount": 5,
+          "lastChar": "粱",
+          "rhymeFinal": "iang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
         }
       ]
     },
@@ -9228,6 +9606,15 @@
           "rhymeGroup": "11",
           "pingshui": "P23庚",
           "sourcePoemId": "song-wangguan-busuanzi-songbao"
+        },
+        {
+          "text": "儿女忽成行",
+          "charCount": 5,
+          "lastChar": "行",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P22阳",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
         }
       ]
     },
@@ -9371,6 +9758,15 @@
           "rhymeGroup": "11",
           "pingshui": "Z23梗",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "势分三足鼎",
+          "charCount": 5,
+          "lastChar": "鼎",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "Z24迥",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
         }
       ]
     },
@@ -9820,6 +10216,24 @@
           "rhymeGroup": "11",
           "pingshui": "P23庚",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "日长飞絮轻",
+          "charCount": 5,
+          "lastChar": "轻",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+        },
+        {
+          "text": "笑从双脸生",
+          "charCount": 5,
+          "lastChar": "生",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -10215,6 +10629,51 @@
           "rhymeGroup": "12",
           "pingshui": "Z06语",
           "sourcePoemId": "song-wangguan-busuanzi-songbao"
+        },
+        {
+          "text": "黄叶仍风雨",
+          "charCount": 5,
+          "lastChar": "雨",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "天地英雄气",
+          "charCount": 5,
+          "lastChar": "气",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z34未",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+        },
+        {
+          "text": "十日九风雨",
+          "charCount": 5,
+          "lastChar": "雨",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "哽咽梦中语",
+          "charCount": 5,
+          "lastChar": "语",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z06语",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "牧马频来去",
+          "charCount": 5,
+          "lastChar": "去",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z06语",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -10403,6 +10862,24 @@
           "rhymeGroup": "12",
           "pingshui": "Z70陌",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "白也诗无敌",
+          "charCount": 5,
+          "lastChar": "敌",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z71锡",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "嫁与弄潮儿",
+          "charCount": 5,
+          "lastChar": "儿",
+          "rhymeFinal": "er",
+          "rhymeGroup": "12",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-liyi-jiangnanqu"
         }
       ]
     },
@@ -10753,6 +11230,33 @@
           "rhymeGroup": "12",
           "pingshui": "Z04纸",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "问答乃未已",
+          "charCount": 5,
+          "lastChar": "已",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z04纸",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "君言不得意",
+          "charCount": 5,
+          "lastChar": "意",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z33寘",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
+        },
+        {
+          "text": "凄凉蜀故妓",
+          "charCount": 5,
+          "lastChar": "妓",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z04纸",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
         }
       ]
     },
@@ -10887,6 +11391,33 @@
           "rhymeGroup": "12",
           "pingshui": "P05微",
           "sourcePoemId": "tang-lishangyin-luohua"
+        },
+        {
+          "text": "今夕复何夕",
+          "charCount": 5,
+          "lastChar": "夕",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z70陌",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "我家襄水曲",
+          "charCount": 5,
+          "lastChar": "曲",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z61沃",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "朝朝误妾期",
+          "charCount": 5,
+          "lastChar": "期",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-liyi-jiangnanqu"
         }
       ]
     },
@@ -11110,6 +11641,33 @@
           "rhymeGroup": "13",
           "pingshui": "P04支",
           "sourcePoemId": "song-liuyong-shaoniaynou-changan"
+        },
+        {
+          "text": "少壮能几时",
+          "charCount": 5,
+          "lastChar": "时",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "燕草如碧丝",
+          "charCount": 5,
+          "lastChar": "丝",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-libai-chunsi"
+        },
+        {
+          "text": "是妾断肠时",
+          "charCount": 5,
+          "lastChar": "时",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-libai-chunsi"
         }
       ]
     },
@@ -11316,6 +11874,15 @@
           "rhymeGroup": "13",
           "pingshui": "Z04纸",
           "sourcePoemId": "tang-dufu-fangbingcaohuma"
+        },
+        {
+          "text": "当君怀归日",
+          "charCount": 5,
+          "lastChar": "日",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "Z63质",
+          "sourcePoemId": "tang-libai-chunsi"
         }
       ]
     },
@@ -11441,6 +12008,51 @@
           "rhymeGroup": "13",
           "pingshui": "Z70陌",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "怡然敬父执",
+          "charCount": 5,
+          "lastChar": "执",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "Z73缉",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "秦桑低绿枝",
+          "charCount": 5,
+          "lastChar": "枝",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-libai-chunsi"
+        },
+        {
+          "text": "春风不相识",
+          "charCount": 5,
+          "lastChar": "识",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "Z33寘",
+          "sourcePoemId": "tang-libai-chunsi"
+        },
+        {
+          "text": "问君何所之",
+          "charCount": 5,
+          "lastChar": "之",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
+        },
+        {
+          "text": "白云无尽时",
+          "charCount": 5,
+          "lastChar": "时",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
         }
       ]
     },
@@ -11755,6 +12367,42 @@
           "rhymeGroup": "14",
           "pingshui": "Z36遇",
           "sourcePoemId": "song-wangguan-busuanzi-songbao"
+        },
+        {
+          "text": "渭北春天树",
+          "charCount": 5,
+          "lastChar": "树",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "木落雁南度",
+          "charCount": 5,
+          "lastChar": "度",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "烟柳暗南浦",
+          "charCount": 5,
+          "lastChar": "浦",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "青冢黄昏路",
+          "charCount": 5,
+          "lastChar": "路",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -12095,6 +12743,51 @@
           "rhymeGroup": "14",
           "pingshui": "Z07麌",
           "sourcePoemId": "song-xinqiji-qingpingyue-dusu"
+        },
+        {
+          "text": "清新庾开府",
+          "charCount": 5,
+          "lastChar": "府",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "故园眇何处",
+          "charCount": 5,
+          "lastChar": "处",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z06语",
+          "sourcePoemId": "tang-weiyingwu-wenyan"
+        },
+        {
+          "text": "高风汉阳渡",
+          "charCount": 5,
+          "lastChar": "渡",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "雨中黄叶树",
+          "charCount": 5,
+          "lastChar": "树",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+        },
+        {
+          "text": "才簪又重数",
+          "charCount": 5,
+          "lastChar": "数",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -12238,6 +12931,15 @@
           "rhymeGroup": "14",
           "pingshui": "P07虞",
           "sourcePoemId": "tang-zhangji-jiefuyin"
+        },
+        {
+          "text": "新知遭薄俗",
+          "charCount": 5,
+          "lastChar": "俗",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z61沃",
+          "sourcePoemId": "tang-lishangyin-fengyu"
         }
       ]
     },
@@ -12415,6 +13117,15 @@
           "rhymeGroup": "1",
           "pingshui": "Z51祃",
           "sourcePoemId": "ming-wangpan-chaotianzi-yonglaba"
+        },
+        {
+          "text": "嫁得瞿塘贾",
+          "charCount": 5,
+          "lastChar": "贾",
+          "rhymeFinal": "ia",
+          "rhymeGroup": "1",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-liyi-jiangnanqu"
         }
       ]
     },
@@ -13076,6 +13787,15 @@
           "rhymeGroup": "2",
           "pingshui": "P20歌",
           "sourcePoemId": "tang-dufu-tianmohuailibai"
+        },
+        {
+          "text": "得相能开国",
+          "charCount": 5,
+          "lastChar": "国",
+          "rhymeFinal": "uo",
+          "rhymeGroup": "2",
+          "pingshui": "Z60屋",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
         }
       ]
     },
@@ -13228,6 +13948,24 @@
           "rhymeGroup": "3",
           "pingshui": "Z51祃",
           "sourcePoemId": "tang-menghaoran-yuzhuzideng"
+        },
+        {
+          "text": "明日隔山岳",
+          "charCount": 5,
+          "lastChar": "岳",
+          "rhymeFinal": "üe",
+          "rhymeGroup": "3",
+          "pingshui": "Z62觉",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "荒戍落黄叶",
+          "charCount": 5,
+          "lastChar": "叶",
+          "rhymeFinal": "ie",
+          "rhymeGroup": "3",
+          "pingshui": "Z75叶",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
         }
       ]
     },
@@ -13532,6 +14270,15 @@
           "rhymeGroup": "3",
           "pingshui": "Z65月",
           "sourcePoemId": "tang-dumu-lvsu"
+        },
+        {
+          "text": "淮南秋雨夜",
+          "charCount": 5,
+          "lastChar": "夜",
+          "rhymeFinal": "ie",
+          "rhymeGroup": "3",
+          "pingshui": "Z51祃",
+          "sourcePoemId": "tang-weiyingwu-wenyan"
         }
       ]
     },
@@ -13692,6 +14439,42 @@
           "rhymeGroup": "4",
           "pingshui": "Z38泰",
           "sourcePoemId": "tang-wangwei-wangchuanxianju"
+        },
+        {
+          "text": "江上几人在",
+          "charCount": 5,
+          "lastChar": "在",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "古调虽自爱",
+          "charCount": 5,
+          "lastChar": "爱",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z40队",
+          "sourcePoemId": "tang-liuchangqing-tanqin"
+        },
+        {
+          "text": "鹓鹭同飞盖",
+          "charCount": 5,
+          "lastChar": "盖",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z38泰",
+          "sourcePoemId": "song-qinguan-qianqiusui"
+        },
+        {
+          "text": "镜里朱颜改",
+          "charCount": 5,
+          "lastChar": "改",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -13825,6 +14608,33 @@
           "rhymeGroup": "4",
           "pingshui": "Z10贿",
           "sourcePoemId": "tang-yuanzhen-xinggong"
+        },
+        {
+          "text": "焉知二十载",
+          "charCount": 5,
+          "lastChar": "载",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "离别宽衣带",
+          "charCount": 5,
+          "lastChar": "带",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z38泰",
+          "sourcePoemId": "song-qinguan-qianqiusui"
+        },
+        {
+          "text": "故人今不在",
+          "charCount": 5,
+          "lastChar": "在",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -13905,6 +14715,24 @@
           "rhymeGroup": "4",
           "pingshui": "P04支",
           "sourcePoemId": "han-yuefu-changgexing"
+        },
+        {
+          "text": "归思方悠哉",
+          "charCount": 5,
+          "lastChar": "哉",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-weiyingwu-wenyan"
+        },
+        {
+          "text": "高斋闻雁来",
+          "charCount": 5,
+          "lastChar": "来",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-weiyingwu-wenyan"
         }
       ]
     },
@@ -14030,6 +14858,15 @@
           "rhymeGroup": "5",
           "pingshui": "Z04纸",
           "sourcePoemId": "song-lizhiyi-busuanzi-wozhuchangjiang"
+        },
+        {
+          "text": "访旧半为鬼",
+          "charCount": 5,
+          "lastChar": "鬼",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z05尾",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
         }
       ]
     },
@@ -14227,6 +15064,24 @@
           "rhymeGroup": "5",
           "pingshui": "P05微",
           "sourcePoemId": "song-wangguan-busuanzi-songbao"
+        },
+        {
+          "text": "何事入罗帏",
+          "charCount": 5,
+          "lastChar": "帏",
+          "rhymeFinal": "uei",
+          "rhymeGroup": "5",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-libai-chunsi"
+        },
+        {
+          "text": "归卧南山陲",
+          "charCount": 5,
+          "lastChar": "陲",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "P04支",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
         }
       ]
     },
@@ -14361,6 +15216,33 @@
           "rhymeGroup": "5",
           "pingshui": "Z04纸",
           "sourcePoemId": "tang-libai-tingshusengtanqin"
+        },
+        {
+          "text": "十觞亦不醉",
+          "charCount": 5,
+          "lastChar": "醉",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z33寘",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "城郭春寒退",
+          "charCount": 5,
+          "lastChar": "退",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z40队",
+          "sourcePoemId": "song-qinguan-qianqiusui"
+        },
+        {
+          "text": "忆昔西池会",
+          "charCount": 5,
+          "lastChar": "会",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z38泰",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -15192,6 +16074,42 @@
           "rhymeGroup": "7",
           "pingshui": "Z25有",
           "sourcePoemId": "tang-libai-tingshusengtanqin"
+        },
+        {
+          "text": "夜雨剪春韭",
+          "charCount": 5,
+          "lastChar": "韭",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "下马饮君酒",
+          "charCount": 5,
+          "lastChar": "酒",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
+        },
+        {
+          "text": "心断新丰酒",
+          "charCount": 5,
+          "lastChar": "酒",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "以我独沉久",
+          "charCount": 5,
+          "lastChar": "久",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
         }
       ]
     },
@@ -15515,6 +16433,24 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "song-qinguan-jiangchengzi-xicheng"
+        },
+        {
+          "text": "芦叶满汀洲",
+          "charCount": 5,
+          "lastChar": "洲",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
+        },
+        {
+          "text": "黄鹤断矶头",
+          "charCount": 5,
+          "lastChar": "头",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -15613,6 +16549,15 @@
           "rhymeGroup": "7",
           "pingshui": "Z25有",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "何时一尊酒",
+          "charCount": 5,
+          "lastChar": "酒",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
         }
       ]
     },
@@ -15810,6 +16755,15 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "tang-baijuyi-changxiangsi-bian"
+        },
+        {
+          "text": "寒沙带浅流",
+          "charCount": 5,
+          "lastChar": "流",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -16034,6 +16988,15 @@
           "rhymeGroup": "8",
           "pingshui": "Z16铣",
           "sourcePoemId": "tang-menghaoran-yuzhuzideng"
+        },
+        {
+          "text": "平海夕漫漫",
+          "charCount": 5,
+          "lastChar": "漫",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
         }
       ]
     },
@@ -16537,6 +17500,51 @@
           "rhymeGroup": "8",
           "pingshui": "P15删",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "旧好隔良缘",
+          "charCount": 5,
+          "lastChar": "缘",
+          "rhymeFinal": "üan",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "业复五铢钱",
+          "charCount": 5,
+          "lastChar": "钱",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+        },
+        {
+          "text": "来舞魏宫前",
+          "charCount": 5,
+          "lastChar": "前",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+        },
+        {
+          "text": "初日郢门山",
+          "charCount": 5,
+          "lastChar": "山",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P15删",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "尊酒慰离颜",
+          "charCount": 5,
+          "lastChar": "颜",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P15删",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
         }
       ]
     },
@@ -16635,6 +17643,51 @@
           "rhymeGroup": "8",
           "pingshui": "Z14旱",
           "sourcePoemId": "tang-lishangyin-chan"
+        },
+        {
+          "text": "人生不相见",
+          "charCount": 5,
+          "lastChar": "见",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "Z15潸",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "何当重相见",
+          "charCount": 5,
+          "lastChar": "见",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "Z15潸",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "今人多不弹",
+          "charCount": 5,
+          "lastChar": "弹",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-liuchangqing-tanqin"
+        },
+        {
+          "text": "飘零疏酒盏",
+          "charCount": 5,
+          "lastChar": "盏",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "Z15潸",
+          "sourcePoemId": "song-qinguan-qianqiusui"
+        },
+        {
+          "text": "日边清梦断",
+          "charCount": 5,
+          "lastChar": "断",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z14旱",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -16985,6 +18038,123 @@
           "rhymeGroup": "8",
           "pingshui": "P15删",
           "sourcePoemId": "tang-wangwei-guisongshanzuo"
+        },
+        {
+          "text": "主称会面难",
+          "charCount": 5,
+          "lastChar": "难",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "凄凉宝剑篇",
+          "charCount": 5,
+          "lastChar": "篇",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "羁泊欲穷年",
+          "charCount": 5,
+          "lastChar": "年",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "青楼自管弦",
+          "charCount": 5,
+          "lastChar": "弦",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "销愁斗几千",
+          "charCount": 5,
+          "lastChar": "千",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-lishangyin-fengyu"
+        },
+        {
+          "text": "北风江上寒",
+          "charCount": 5,
+          "lastChar": "寒",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "遥隔楚云端",
+          "charCount": 5,
+          "lastChar": "端",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "孤帆天际看",
+          "charCount": 5,
+          "lastChar": "看",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "千秋尚凛然",
+          "charCount": 5,
+          "lastChar": "然",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+        },
+        {
+          "text": "生儿不象贤",
+          "charCount": 5,
+          "lastChar": "贤",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+        },
+        {
+          "text": "浩然离故关",
+          "charCount": 5,
+          "lastChar": "关",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "P15删",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "天涯孤櫂还",
+          "charCount": 5,
+          "lastChar": "还",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "P15删",
+          "sourcePoemId": "tang-wentingyun-songrendongyou"
+        },
+        {
+          "text": "静听松风寒",
+          "charCount": 5,
+          "lastChar": "寒",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-liuchangqing-tanqin"
         }
       ]
     },
@@ -17038,6 +18208,24 @@
           "rhymeGroup": "9",
           "pingshui": "Z26寝",
           "sourcePoemId": "tang-libai-yuexiaduzhuo"
+        },
+        {
+          "text": "但去莫复问",
+          "charCount": 5,
+          "lastChar": "问",
+          "rhymeFinal": "uen",
+          "rhymeGroup": "9",
+          "pingshui": "Z42问",
+          "sourcePoemId": "tang-wangwei-songbie-xiama"
+        },
+        {
+          "text": "乡泪客中尽",
+          "charCount": 5,
+          "lastChar": "尽",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "Z11轸",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
         }
       ]
     },
@@ -17388,6 +18576,51 @@
           "rhymeGroup": "9",
           "pingshui": "P11真",
           "sourcePoemId": "tang-weiyingwu-jiquanjiao"
+        },
+        {
+          "text": "俊逸鲍参军",
+          "charCount": 5,
+          "lastChar": "军",
+          "rhymeFinal": "ün",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "重与细论文",
+          "charCount": 5,
+          "lastChar": "文",
+          "rhymeFinal": "uen",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "静夜四无邻",
+          "charCount": 5,
+          "lastChar": "邻",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "P11真",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+        },
+        {
+          "text": "灯下白头人",
+          "charCount": 5,
+          "lastChar": "人",
+          "rhymeFinal": "en",
+          "rhymeGroup": "9",
+          "pingshui": "P11真",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+        },
+        {
+          "text": "况是蔡家亲",
+          "charCount": 5,
+          "lastChar": "亲",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "P11真",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
         }
       ]
     },
@@ -17477,6 +18710,24 @@
           "rhymeGroup": "9",
           "pingshui": "Z41震",
           "sourcePoemId": "tang-dufu-fangbingcaohuma"
+        },
+        {
+          "text": "迷津欲有问",
+          "charCount": 5,
+          "lastChar": "问",
+          "rhymeFinal": "uen",
+          "rhymeGroup": "9",
+          "pingshui": "Z42问",
+          "sourcePoemId": "tang-menghaoran-zaohanjiang"
+        },
+        {
+          "text": "早知潮有信",
+          "charCount": 5,
+          "lastChar": "信",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "Z41震",
+          "sourcePoemId": "tang-liyi-jiangnanqu"
         }
       ]
     },
@@ -17755,6 +19006,60 @@
           "rhymeGroup": "9",
           "pingshui": "P27侵",
           "sourcePoemId": "tang-menghaoran-yuzhuzideng"
+        },
+        {
+          "text": "昔别君未婚",
+          "charCount": 5,
+          "lastChar": "婚",
+          "rhymeFinal": "un",
+          "rhymeGroup": "9",
+          "pingshui": "P13元",
+          "sourcePoemId": "tang-dufu-zengweibachushi"
+        },
+        {
+          "text": "飘然思不群",
+          "charCount": 5,
+          "lastChar": "群",
+          "rhymeFinal": "ün",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "江东日暮云",
+          "charCount": 5,
+          "lastChar": "云",
+          "rhymeFinal": "ün",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "tang-dufu-chunriyilibai"
+        },
+        {
+          "text": "荒居旧业贫",
+          "charCount": 5,
+          "lastChar": "贫",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "P11真",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+        },
+        {
+          "text": "愧君相见频",
+          "charCount": 5,
+          "lastChar": "频",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "P11真",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+        },
+        {
+          "text": "平生自有分",
+          "charCount": 5,
+          "lastChar": "分",
+          "rhymeFinal": "en",
+          "rhymeGroup": "9",
+          "pingshui": "P12文",
+          "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
         }
       ]
     },
@@ -18092,6 +19397,33 @@
           "rhymeGroup": "11",
           "pingshui": "P23庚",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "断肠片片飞红",
+          "charCount": 6,
+          "lastChar": "红",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+        },
+        {
+          "text": "梨花落后清明",
+          "charCount": 6,
+          "lastChar": "明",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+        },
+        {
+          "text": "采桑径里逢迎",
+          "charCount": 6,
+          "lastChar": "迎",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -18225,6 +19557,15 @@
           "rhymeGroup": "12",
           "pingshui": "Z33寘",
           "sourcePoemId": "song-liqingzhao-shengshengman-xunxunmimi"
+        },
+        {
+          "text": "试把花卜心期",
+          "charCount": 6,
+          "lastChar": "期",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "P04支",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -18843,6 +20184,15 @@
           "rhymeGroup": "2",
           "pingshui": "Z66曷",
           "sourcePoemId": "song-zhangxiaoxiang-niannujiao-guodongting"
+        },
+        {
+          "text": "燕子来时新社",
+          "charCount": 6,
+          "lastChar": "社",
+          "rhymeFinal": "e",
+          "rhymeGroup": "2",
+          "pingshui": "Z21马",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -19130,6 +20480,15 @@
           "rhymeGroup": "4",
           "pingshui": "Z70陌",
           "sourcePoemId": "song-liqingzhao-shengshengman-xunxunmimi"
+        },
+        {
+          "text": "是他春带愁来",
+          "charCount": 6,
+          "lastChar": "来",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "song-xinqiji-zhuyingtaijin"
         }
       ]
     },
@@ -19660,6 +21019,15 @@
           "rhymeGroup": "8",
           "pingshui": "Z28琰",
           "sourcePoemId": "song-sushi-shuilongyin-yanghua"
+        },
+        {
+          "text": "巧笑东邻女伴",
+          "charCount": 6,
+          "lastChar": "伴",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "Z14旱",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -19896,6 +21264,15 @@
           "rhymeGroup": "10",
           "pingshui": "P03江",
           "sourcePoemId": "song-lumeipo-xuemei"
+        },
+        {
+          "text": "何事吟余忽惆怅",
+          "charCount": 7,
+          "lastChar": "怅",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "Z52漾",
+          "sourcePoemId": "song-wangyucheng-cunxing"
         }
       ]
     },
@@ -20048,6 +21425,24 @@
           "rhymeGroup": "10",
           "pingshui": "P22阳",
           "sourcePoemId": "song-lumeipo-xuemei"
+        },
+        {
+          "text": "信马悠悠野兴长",
+          "charCount": 7,
+          "lastChar": "长",
+          "rhymeFinal": "ang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "song-wangyucheng-cunxing"
+        },
+        {
+          "text": "荞麦花开白雪香",
+          "charCount": 7,
+          "lastChar": "香",
+          "rhymeFinal": "iang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "song-wangyucheng-cunxing"
         }
       ]
     },
@@ -20442,6 +21837,33 @@
           "rhymeGroup": "10",
           "pingshui": "P22阳",
           "sourcePoemId": "song-sushi-xijiangyue-shishi"
+        },
+        {
+          "text": "马穿山径菊初黄",
+          "charCount": 7,
+          "lastChar": "黄",
+          "rhymeFinal": "uang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "song-wangyucheng-cunxing"
+        },
+        {
+          "text": "数峰无语立斜阳",
+          "charCount": 7,
+          "lastChar": "阳",
+          "rhymeFinal": "iang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "song-wangyucheng-cunxing"
+        },
+        {
+          "text": "村桥原树似吾乡",
+          "charCount": 7,
+          "lastChar": "乡",
+          "rhymeFinal": "iang",
+          "rhymeGroup": "10",
+          "pingshui": "P22阳",
+          "sourcePoemId": "song-wangyucheng-cunxing"
         }
       ]
     },
@@ -21268,6 +22690,87 @@
           "rhymeGroup": "11",
           "pingshui": "P01东",
           "sourcePoemId": "song-yangwanli-zhouguoanren"
+        },
+        {
+          "text": "斜倚薰笼坐到明",
+          "charCount": 7,
+          "lastChar": "明",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "tang-baijuyi-hougongci"
+        },
+        {
+          "text": "骨肉流离道路中",
+          "charCount": 7,
+          "lastChar": "中",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "一夜乡心五处同",
+          "charCount": 7,
+          "lastChar": "同",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "鸿雁不堪愁里听",
+          "charCount": 7,
+          "lastChar": "听",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P24青",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
+        },
+        {
+          "text": "别院深深夏簟清",
+          "charCount": 7,
+          "lastChar": "清",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-sushunqin-xiayi"
+        },
+        {
+          "text": "寄雁传书谢不能",
+          "charCount": 7,
+          "lastChar": "能",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P25蒸",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "治病不蕲三折肱",
+          "charCount": 7,
+          "lastChar": "肱",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P25蒸",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "叶底黄鹂一两声",
+          "charCount": 7,
+          "lastChar": "声",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+        },
+        {
+          "text": "元是今朝斗草赢",
+          "charCount": 7,
+          "lastChar": "赢",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -21357,6 +22860,15 @@
           "rhymeGroup": "11",
           "pingshui": "Z30送",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "红楼隔雨相望冷",
+          "charCount": 7,
+          "lastChar": "冷",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "Z23梗",
+          "sourcePoemId": "tang-lishangyin-chunyu"
         }
       ]
     },
@@ -22544,6 +24056,87 @@
           "rhymeGroup": "11",
           "pingshui": "P23庚",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "泪湿罗巾梦不成",
+          "charCount": 7,
+          "lastChar": "成",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "tang-baijuyi-hougongci"
+        },
+        {
+          "text": "夜深前殿按歌声",
+          "charCount": 7,
+          "lastChar": "声",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "tang-baijuyi-hougongci"
+        },
+        {
+          "text": "时难年荒世业空",
+          "charCount": 7,
+          "lastChar": "空",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "弟兄羁旅各西东",
+          "charCount": 7,
+          "lastChar": "东",
+          "rhymeFinal": "ong",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "辞根散作九秋蓬",
+          "charCount": 7,
+          "lastChar": "蓬",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P01东",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "石榴开遍透帘明",
+          "charCount": 7,
+          "lastChar": "明",
+          "rhymeFinal": "ing",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-sushunqin-xiayi"
+        },
+        {
+          "text": "梦觉流莺时一声",
+          "charCount": 7,
+          "lastChar": "声",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P23庚",
+          "sourcePoemId": "song-sushunqin-xiayi"
+        },
+        {
+          "text": "江湖夜雨十年灯",
+          "charCount": 7,
+          "lastChar": "灯",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P25蒸",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "隔溪猿哭瘴溪藤",
+          "charCount": 7,
+          "lastChar": "藤",
+          "rhymeFinal": "eng",
+          "rhymeGroup": "11",
+          "pingshui": "P25蒸",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
         }
       ]
     },
@@ -22993,6 +24586,42 @@
           "rhymeGroup": "12",
           "pingshui": "Z07麌",
           "sourcePoemId": "song-xinqiji-qingpingyue-dusu"
+        },
+        {
+          "text": "昔日戏言身后意",
+          "charCount": 7,
+          "lastChar": "意",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z33寘",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+        },
+        {
+          "text": "今古河山无定据",
+          "charCount": 7,
+          "lastChar": "据",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "P06鱼",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+        },
+        {
+          "text": "满目荒凉谁可语",
+          "charCount": 7,
+          "lastChar": "语",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z06语",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+        },
+        {
+          "text": "一往情深深几许",
+          "charCount": 7,
+          "lastChar": "许",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z06语",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -23280,6 +24909,15 @@
           "rhymeGroup": "12",
           "pingshui": "P08齐",
           "sourcePoemId": "tang-weizhuang-taicheng"
+        },
+        {
+          "text": "怅卧新春白袷衣",
+          "charCount": 7,
+          "lastChar": "衣",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-lishangyin-chunyu"
         }
       ]
     },
@@ -23990,6 +25628,24 @@
           "rhymeGroup": "12",
           "pingshui": "Z72职",
           "sourcePoemId": "song-zhuxi-guanshuyougan-er"
+        },
+        {
+          "text": "持家但有四立壁",
+          "charCount": 7,
+          "lastChar": "壁",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "Z71锡",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "深山夕照深秋雨",
+          "charCount": 7,
+          "lastChar": "雨",
+          "rhymeFinal": "ü",
+          "rhymeGroup": "12",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -24439,6 +26095,15 @@
           "rhymeGroup": "12",
           "pingshui": "P08齐",
           "sourcePoemId": "tang-weizhuang-taicheng"
+        },
+        {
+          "text": "残宵犹得梦依稀",
+          "charCount": 7,
+          "lastChar": "稀",
+          "rhymeFinal": "i",
+          "rhymeGroup": "12",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-lishangyin-chunyu"
         }
       ]
     },
@@ -25425,6 +27090,15 @@
           "rhymeGroup": "13",
           "pingshui": "P04支",
           "sourcePoemId": "tang-libai-bajiuwenyue"
+        },
+        {
+          "text": "日长睡起无情思",
+          "charCount": 7,
+          "lastChar": "思",
+          "rhymeFinal": "i_buzz",
+          "rhymeGroup": "13",
+          "pingshui": "P04支",
+          "sourcePoemId": "song-yangwanli-xianjuchuxia"
         }
       ]
     },
@@ -25847,6 +27521,33 @@
           "rhymeGroup": "14",
           "pingshui": "Z06语",
           "sourcePoemId": "tang-liuchangqing-changshaguojiayi"
+        },
+        {
+          "text": "莫厌潇湘少人处",
+          "charCount": 7,
+          "lastChar": "处",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z06语",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "今夜不知何处宿",
+          "charCount": 7,
+          "lastChar": "宿",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z55宥",
+          "sourcePoemId": "tang-censhen-qizhongzuo"
+        },
+        {
+          "text": "莫见长安行乐处",
+          "charCount": 7,
+          "lastChar": "处",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z06语",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
         }
       ]
     },
@@ -25990,6 +27691,15 @@
           "rhymeGroup": "14",
           "pingshui": "Z61沃",
           "sourcePoemId": "tang-hanhong-hanshi"
+        },
+        {
+          "text": "尚想旧情怜婢仆",
+          "charCount": 7,
+          "lastChar": "仆",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z36遇",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
         }
       ]
     },
@@ -26556,6 +28266,42 @@
           "rhymeGroup": "14",
           "pingshui": "Z06语",
           "sourcePoemId": "song-zhushuzhen-dielianhua"
+        },
+        {
+          "text": "天长路远魂飞苦",
+          "charCount": 7,
+          "lastChar": "苦",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "树阴满地日当午",
+          "charCount": 7,
+          "lastChar": "午",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "song-sushunqin-xiayi"
+        },
+        {
+          "text": "西风吹老丹枫树",
+          "charCount": 7,
+          "lastChar": "树",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+        },
+        {
+          "text": "从前幽怨应无数",
+          "charCount": 7,
+          "lastChar": "数",
+          "rhymeFinal": "u",
+          "rhymeGroup": "14",
+          "pingshui": "Z07麌",
+          "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
         }
       ]
     },
@@ -26940,6 +28686,15 @@
           "rhymeGroup": "1",
           "pingshui": "P21麻",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "梅子留酸软齿牙",
+          "charCount": 7,
+          "lastChar": "牙",
+          "rhymeFinal": "ia",
+          "rhymeGroup": "1",
+          "pingshui": "P21麻",
+          "sourcePoemId": "song-yangwanli-xianjuchuxia"
         }
       ]
     },
@@ -27397,6 +29152,33 @@
           "rhymeGroup": "1",
           "pingshui": "Z65月",
           "sourcePoemId": "tang-libai-bajiuwenyue"
+        },
+        {
+          "text": "玉珰缄札何由达",
+          "charCount": 7,
+          "lastChar": "达",
+          "rhymeFinal": "a",
+          "rhymeGroup": "1",
+          "pingshui": "Z66曷",
+          "sourcePoemId": "tang-lishangyin-chunyu"
+        },
+        {
+          "text": "芭蕉分绿与窗纱",
+          "charCount": 7,
+          "lastChar": "纱",
+          "rhymeFinal": "a",
+          "rhymeGroup": "1",
+          "pingshui": "P21麻",
+          "sourcePoemId": "song-yangwanli-xianjuchuxia"
+        },
+        {
+          "text": "闲看儿童捉柳花",
+          "charCount": 7,
+          "lastChar": "花",
+          "rhymeFinal": "ua",
+          "rhymeGroup": "1",
+          "pingshui": "P21麻",
+          "sourcePoemId": "song-yangwanli-xianjuchuxia"
         }
       ]
     },
@@ -27585,6 +29367,15 @@
           "rhymeGroup": "2",
           "pingshui": "Z69药",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "仙掌月明孤影过",
+          "charCount": 7,
+          "lastChar": "过",
+          "rhymeFinal": "uo",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-dumu-zaoyan"
         }
       ]
     },
@@ -27710,6 +29501,33 @@
           "rhymeGroup": "2",
           "pingshui": "P21麻",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "昨夜微霜初渡河",
+          "charCount": 7,
+          "lastChar": "河",
+          "rhymeFinal": "e",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
+        },
+        {
+          "text": "御苑砧声向晚多",
+          "charCount": 7,
+          "lastChar": "多",
+          "rhymeFinal": "uo",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
+        },
+        {
+          "text": "空令岁月易蹉跎",
+          "charCount": 7,
+          "lastChar": "跎",
+          "rhymeFinal": "uo",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
         }
       ]
     },
@@ -27952,6 +29770,24 @@
           "rhymeGroup": "2",
           "pingshui": "Z69药",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "云山况是客中过",
+          "charCount": 7,
+          "lastChar": "过",
+          "rhymeFinal": "uo",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
+        },
+        {
+          "text": "棠梨叶落胭脂色",
+          "charCount": 7,
+          "lastChar": "色",
+          "rhymeFinal": "e",
+          "rhymeGroup": "2",
+          "pingshui": "Z72职",
+          "sourcePoemId": "song-wangyucheng-cunxing"
         }
       ]
     },
@@ -28221,6 +30057,15 @@
           "rhymeGroup": "2",
           "pingshui": "P06鱼",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "朝闻游子唱离歌",
+          "charCount": 7,
+          "lastChar": "歌",
+          "rhymeFinal": "e",
+          "rhymeGroup": "2",
+          "pingshui": "P20歌",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
         }
       ]
     },
@@ -28391,6 +30236,15 @@
           "rhymeGroup": "3",
           "pingshui": "Z68屑",
           "sourcePoemId": "song-sushi-donglanlihua"
+        },
+        {
+          "text": "霜草苍苍虫切切",
+          "charCount": 7,
+          "lastChar": "切",
+          "rhymeFinal": "ie",
+          "rhymeGroup": "3",
+          "pingshui": "Z68屑",
+          "sourcePoemId": "tang-baijuyi-cunye"
         }
       ]
     },
@@ -28830,6 +30684,24 @@
           "rhymeGroup": "3",
           "pingshui": "Z65月",
           "sourcePoemId": "tang-libai-bajiuwenyue"
+        },
+        {
+          "text": "月明荞麦花如雪",
+          "charCount": 7,
+          "lastChar": "雪",
+          "rhymeFinal": "üe",
+          "rhymeGroup": "3",
+          "pingshui": "Z68屑",
+          "sourcePoemId": "tang-baijuyi-cunye"
+        },
+        {
+          "text": "更吹羌笛关山月",
+          "charCount": 7,
+          "lastChar": "月",
+          "rhymeFinal": "üe",
+          "rhymeGroup": "3",
+          "pingshui": "Z65月",
+          "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
         }
       ]
     },
@@ -29009,6 +30881,24 @@
           "rhymeGroup": "3",
           "pingshui": "Z68屑",
           "sourcePoemId": "tang-dumu-jiuriqishan"
+        },
+        {
+          "text": "孤灯不明思欲绝",
+          "charCount": 7,
+          "lastChar": "绝",
+          "rhymeFinal": "üe",
+          "rhymeGroup": "3",
+          "pingshui": "Z68屑",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "村南村北行人绝",
+          "charCount": 7,
+          "lastChar": "绝",
+          "rhymeFinal": "üe",
+          "rhymeGroup": "3",
+          "pingshui": "Z68屑",
+          "sourcePoemId": "tang-baijuyi-cunye"
         }
       ]
     },
@@ -29080,6 +30970,15 @@
           "rhymeGroup": "4",
           "pingshui": "Z10贿",
           "sourcePoemId": "song-luyou-qiuyejiangxiaochulimen"
+        },
+        {
+          "text": "万壑有声含晚籁",
+          "charCount": 7,
+          "lastChar": "籁",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z38泰",
+          "sourcePoemId": "song-wangyucheng-cunxing"
         }
       ]
     },
@@ -29394,6 +31293,33 @@
           "rhymeGroup": "4",
           "pingshui": "P10灰",
           "sourcePoemId": "tang-wangchangling-changxinqiuci"
+        },
+        {
+          "text": "云外惊飞四散哀",
+          "charCount": 7,
+          "lastChar": "哀",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "针线犹存未忍开",
+          "charCount": 7,
+          "lastChar": "开",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+        },
+        {
+          "text": "贫贱夫妻百事哀",
+          "charCount": 7,
+          "lastChar": "哀",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
         }
       ]
     },
@@ -29474,6 +31400,33 @@
           "rhymeGroup": "4",
           "pingshui": "Z38泰",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "须知胡骑纷纷在",
+          "charCount": 7,
+          "lastChar": "在",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "我居北海君南海",
+          "charCount": 7,
+          "lastChar": "海",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "飞红万点愁如海",
+          "charCount": 7,
+          "lastChar": "海",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z10贿",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -29896,6 +31849,60 @@
           "rhymeGroup": "4",
           "pingshui": "P10灰",
           "sourcePoemId": "tang-wangchangling-changxinqiuci"
+        },
+        {
+          "text": "金河秋半虏弦开",
+          "charCount": 7,
+          "lastChar": "开",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "长门灯暗数声来",
+          "charCount": 7,
+          "lastChar": "来",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "水多菰米岸莓苔",
+          "charCount": 7,
+          "lastChar": "苔",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-dumu-zaoyan"
+        },
+        {
+          "text": "今朝都到眼前来",
+          "charCount": 7,
+          "lastChar": "来",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+        },
+        {
+          "text": "也曾因梦送钱财",
+          "charCount": 7,
+          "lastChar": "财",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+        },
+        {
+          "text": "想得读书头已白",
+          "charCount": 7,
+          "lastChar": "白",
+          "rhymeFinal": "ai",
+          "rhymeGroup": "4",
+          "pingshui": "Z70陌",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
         }
       ]
     },
@@ -30371,6 +32378,15 @@
           "rhymeGroup": "5",
           "pingshui": "P05微",
           "sourcePoemId": "tang-liqi-gucongjunxing"
+        },
+        {
+          "text": "万里云罗一雁飞",
+          "charCount": 7,
+          "lastChar": "飞",
+          "rhymeFinal": "ei",
+          "rhymeGroup": "5",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-lishangyin-chunyu"
         }
       ]
     },
@@ -30631,6 +32647,24 @@
           "rhymeGroup": "5",
           "pingshui": "Z04纸",
           "sourcePoemId": "tang-libai-bajiuwenyue"
+        },
+        {
+          "text": "共看明月应垂泪",
+          "charCount": 7,
+          "lastChar": "泪",
+          "rhymeFinal": "ei",
+          "rhymeGroup": "5",
+          "pingshui": "Z33寘",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "碧云暮合空相对",
+          "charCount": 7,
+          "lastChar": "对",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "Z40队",
+          "sourcePoemId": "song-qinguan-qianqiusui"
         }
       ]
     },
@@ -31062,6 +33096,33 @@
           "rhymeGroup": "5",
           "pingshui": "P05微",
           "sourcePoemId": "tang-dumu-jiuriqishan"
+        },
+        {
+          "text": "白门寥落意多违",
+          "charCount": 7,
+          "lastChar": "违",
+          "rhymeFinal": "uei",
+          "rhymeGroup": "5",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-lishangyin-chunyu"
+        },
+        {
+          "text": "珠箔飘灯独自归",
+          "charCount": 7,
+          "lastChar": "归",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "P05微",
+          "sourcePoemId": "tang-lishangyin-chunyu"
+        },
+        {
+          "text": "岂逐春风一一回",
+          "charCount": 7,
+          "lastChar": "回",
+          "rhymeFinal": "ui",
+          "rhymeGroup": "5",
+          "pingshui": "P10灰",
+          "sourcePoemId": "tang-dumu-zaoyan"
         }
       ]
     },
@@ -31286,6 +33347,15 @@
           "rhymeGroup": "6",
           "pingshui": "Z47啸",
           "sourcePoemId": "tang-dumu-jiuriqishan"
+        },
+        {
+          "text": "疑怪昨宵春梦好",
+          "charCount": 7,
+          "lastChar": "好",
+          "rhymeFinal": "ao",
+          "rhymeGroup": "6",
+          "pingshui": "Z19皓",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -31770,6 +33840,15 @@
           "rhymeGroup": "6",
           "pingshui": "Z17筱",
           "sourcePoemId": "song-songqi-yulouchun-chunjing"
+        },
+        {
+          "text": "此生此夜不长好",
+          "charCount": 7,
+          "lastChar": "好",
+          "rhymeFinal": "ao",
+          "rhymeGroup": "6",
+          "pingshui": "Z19皓",
+          "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
         }
       ]
     },
@@ -32182,6 +34261,24 @@
           "rhymeGroup": "7",
           "pingshui": "Z25有",
           "sourcePoemId": "tang-liuchangqing-changshaguojiayi"
+        },
+        {
+          "text": "桃李春风一杯酒",
+          "charCount": 7,
+          "lastChar": "酒",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "song-huangtingjian-jihuangjifu"
+        },
+        {
+          "text": "欲买桂花同载酒",
+          "charCount": 7,
+          "lastChar": "酒",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -32577,6 +34674,24 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "tang-baijuyi-changxiangsi-bian"
+        },
+        {
+          "text": "烽火城西百尺楼",
+          "charCount": 7,
+          "lastChar": "楼",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
+        },
+        {
+          "text": "无那金闺万里愁",
+          "charCount": 7,
+          "lastChar": "愁",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
         }
       ]
     },
@@ -32792,6 +34907,24 @@
           "rhymeGroup": "7",
           "pingshui": "Z25有",
           "sourcePoemId": "tang-weizhuang-taicheng"
+        },
+        {
+          "text": "田园寥落干戈后",
+          "charCount": 7,
+          "lastChar": "后",
+          "rhymeFinal": "ou",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "诚知此恨人人有",
+          "charCount": 7,
+          "lastChar": "有",
+          "rhymeFinal": "iou",
+          "rhymeGroup": "7",
+          "pingshui": "Z25有",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
         }
       ]
     },
@@ -33187,6 +35320,15 @@
           "rhymeGroup": "7",
           "pingshui": "P26尤",
           "sourcePoemId": "song-wonganshi-zhongshanjishi"
+        },
+        {
+          "text": "黄昏独上海风秋",
+          "charCount": 7,
+          "lastChar": "秋",
+          "rhymeFinal": "iu",
+          "rhymeGroup": "7",
+          "pingshui": "P26尤",
+          "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
         }
       ]
     },
@@ -33483,6 +35625,33 @@
           "rhymeGroup": "8",
           "pingshui": "Z15潸",
           "sourcePoemId": "tang-wangchangling-cailianqu"
+        },
+        {
+          "text": "远路应悲春晼晚",
+          "charCount": 7,
+          "lastChar": "晚",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z13阮",
+          "sourcePoemId": "tang-lishangyin-chunyu"
+        },
+        {
+          "text": "吊影分为千里雁",
+          "charCount": 7,
+          "lastChar": "雁",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "Z45谏",
+          "sourcePoemId": "tang-baijuyi-wangyueyougan"
+        },
+        {
+          "text": "池上碧苔三四点",
+          "charCount": 7,
+          "lastChar": "点",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "Z28琰",
+          "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
         }
       ]
     },
@@ -34184,6 +36353,60 @@
           "rhymeGroup": "8",
           "pingshui": "P16先",
           "sourcePoemId": "song-wangguan-busuanzi-songbao"
+        },
+        {
+          "text": "络纬秋啼金井阑",
+          "charCount": 7,
+          "lastChar": "阑",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "上有青冥之长天",
+          "charCount": 7,
+          "lastChar": "天",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "下有渌水之波澜",
+          "charCount": 7,
+          "lastChar": "澜",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "走马西来欲到天",
+          "charCount": 7,
+          "lastChar": "天",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-censhen-qizhongzuo"
+        },
+        {
+          "text": "银汉无声转玉盘",
+          "charCount": 7,
+          "lastChar": "盘",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
+        },
+        {
+          "text": "明月明年何处看",
+          "charCount": 7,
+          "lastChar": "看",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
         }
       ]
     },
@@ -34489,6 +36712,24 @@
           "rhymeGroup": "8",
           "pingshui": "Z14旱",
           "sourcePoemId": "song-yangwanli-zhouguoanren"
+        },
+        {
+          "text": "卷帷望月空长叹",
+          "charCount": 7,
+          "lastChar": "叹",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "红颜未老恩先断",
+          "charCount": 7,
+          "lastChar": "断",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "Z14旱",
+          "sourcePoemId": "tang-baijuyi-hougongci"
         }
       ]
     },
@@ -35433,6 +37674,69 @@
           "rhymeGroup": "8",
           "pingshui": "P16先",
           "sourcePoemId": "tang-gaoshi-chuyezuo"
+        },
+        {
+          "text": "微霜凄凄簟色寒",
+          "charCount": 7,
+          "lastChar": "寒",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "美人如花隔云端",
+          "charCount": 7,
+          "lastChar": "端",
+          "rhymeFinal": "uan",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "梦魂不到关山难",
+          "charCount": 7,
+          "lastChar": "难",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "tang-libai-changxiangsi-yi"
+        },
+        {
+          "text": "独出前门望野田",
+          "charCount": 7,
+          "lastChar": "田",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-baijuyi-cunye"
+        },
+        {
+          "text": "辞家见月两回圆",
+          "charCount": 7,
+          "lastChar": "圆",
+          "rhymeFinal": "üan",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-censhen-qizhongzuo"
+        },
+        {
+          "text": "平沙莽莽绝人烟",
+          "charCount": 7,
+          "lastChar": "烟",
+          "rhymeFinal": "ian",
+          "rhymeGroup": "8",
+          "pingshui": "P16先",
+          "sourcePoemId": "tang-censhen-qizhongzuo"
+        },
+        {
+          "text": "暮云收尽溢清寒",
+          "charCount": 7,
+          "lastChar": "寒",
+          "rhymeFinal": "an",
+          "rhymeGroup": "8",
+          "pingshui": "P14寒",
+          "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
         }
       ]
     },
@@ -35522,6 +37826,15 @@
           "rhymeGroup": "9",
           "pingshui": "Z11轸",
           "sourcePoemId": "song-liqingzhao-wulingchun-fengzhu"
+        },
+        {
+          "text": "柳下系舟犹未稳",
+          "charCount": 7,
+          "lastChar": "稳",
+          "rhymeFinal": "uen",
+          "rhymeGroup": "9",
+          "pingshui": "Z13阮",
+          "sourcePoemId": "song-liuguo-tangduoling"
         }
       ]
     },
@@ -36150,6 +38463,24 @@
           "rhymeGroup": "9",
           "pingshui": "Z26寝",
           "sourcePoemId": "song-chenyuyi-linjiangxian-yedeng"
+        },
+        {
+          "text": "衣裳已施行看尽",
+          "charCount": 7,
+          "lastChar": "尽",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "Z11轸",
+          "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+        },
+        {
+          "text": "关城树色催寒近",
+          "charCount": 7,
+          "lastChar": "近",
+          "rhymeFinal": "in",
+          "rhymeGroup": "9",
+          "pingshui": "Z12吻",
+          "sourcePoemId": "tang-liqi-songweiwanzhijing"
         }
       ]
     },
@@ -88038,6 +90369,2994 @@
         "sourcePoemId": "qing-nalanxingde-rumengling-wanzhang"
       },
       "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-1",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 1,
+      "clusterId": 127,
+      "correct": {
+        "text": "动如参与商",
+        "charCount": 5,
+        "lastChar": "商",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-3",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 3,
+      "clusterId": 125,
+      "correct": {
+        "text": "共此灯烛光",
+        "charCount": 5,
+        "lastChar": "光",
+        "rhymeFinal": "uang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-5",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 5,
+      "clusterId": 127,
+      "correct": {
+        "text": "鬓发各已苍",
+        "charCount": 5,
+        "lastChar": "苍",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-7",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 7,
+      "clusterId": 127,
+      "correct": {
+        "text": "惊呼热中肠",
+        "charCount": 5,
+        "lastChar": "肠",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-9",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 9,
+      "clusterId": 125,
+      "correct": {
+        "text": "重上君子堂",
+        "charCount": 5,
+        "lastChar": "堂",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-11",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 11,
+      "clusterId": 129,
+      "correct": {
+        "text": "儿女忽成行",
+        "charCount": 5,
+        "lastChar": "行",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-13",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 13,
+      "clusterId": 125,
+      "correct": {
+        "text": "问我来何方",
+        "charCount": 5,
+        "lastChar": "方",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-15",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 15,
+      "clusterId": 127,
+      "correct": {
+        "text": "驱儿罗酒浆",
+        "charCount": 5,
+        "lastChar": "浆",
+        "rhymeFinal": "iang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-17",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 17,
+      "clusterId": 127,
+      "correct": {
+        "text": "新炊间黄粱",
+        "charCount": 5,
+        "lastChar": "粱",
+        "rhymeFinal": "iang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-19",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 19,
+      "clusterId": 125,
+      "correct": {
+        "text": "一举累十觞",
+        "charCount": 5,
+        "lastChar": "觞",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-21",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 21,
+      "clusterId": 125,
+      "correct": {
+        "text": "感子故意长",
+        "charCount": 5,
+        "lastChar": "长",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-zengweibachushi-23",
+      "poemId": "tang-dufu-zengweibachushi",
+      "blankLineIndex": 23,
+      "clusterId": 125,
+      "correct": {
+        "text": "世事两茫茫",
+        "charCount": 5,
+        "lastChar": "茫",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "tang-dufu-zengweibachushi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-chunriyilibai-1",
+      "poemId": "tang-dufu-chunriyilibai",
+      "blankLineIndex": 1,
+      "clusterId": 179,
+      "correct": {
+        "text": "飘然思不群",
+        "charCount": 5,
+        "lastChar": "群",
+        "rhymeFinal": "ün",
+        "rhymeGroup": "9",
+        "pingshui": "P12文",
+        "sourcePoemId": "tang-dufu-chunriyilibai"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-chunriyilibai-3",
+      "poemId": "tang-dufu-chunriyilibai",
+      "blankLineIndex": 3,
+      "clusterId": 177,
+      "correct": {
+        "text": "俊逸鲍参军",
+        "charCount": 5,
+        "lastChar": "军",
+        "rhymeFinal": "ün",
+        "rhymeGroup": "9",
+        "pingshui": "P12文",
+        "sourcePoemId": "tang-dufu-chunriyilibai"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-chunriyilibai-5",
+      "poemId": "tang-dufu-chunriyilibai",
+      "blankLineIndex": 5,
+      "clusterId": 179,
+      "correct": {
+        "text": "江东日暮云",
+        "charCount": 5,
+        "lastChar": "云",
+        "rhymeFinal": "ün",
+        "rhymeGroup": "9",
+        "pingshui": "P12文",
+        "sourcePoemId": "tang-dufu-chunriyilibai"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dufu-chunriyilibai-7",
+      "poemId": "tang-dufu-chunriyilibai",
+      "blankLineIndex": 7,
+      "clusterId": 177,
+      "correct": {
+        "text": "重与细论文",
+        "charCount": 5,
+        "lastChar": "文",
+        "rhymeFinal": "uen",
+        "rhymeGroup": "9",
+        "pingshui": "P12文",
+        "sourcePoemId": "tang-dufu-chunriyilibai"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-2",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 2,
+      "clusterId": 274,
+      "correct": {
+        "text": "络纬秋啼金井阑",
+        "charCount": 7,
+        "lastChar": "阑",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-4",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 4,
+      "clusterId": 256,
+      "correct": {
+        "text": "孤灯不明思欲绝",
+        "charCount": 7,
+        "lastChar": "绝",
+        "rhymeFinal": "üe",
+        "rhymeGroup": "3",
+        "pingshui": "Z68屑",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-6",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 6,
+      "clusterId": 276,
+      "correct": {
+        "text": "美人如花隔云端",
+        "charCount": 7,
+        "lastChar": "端",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-8",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 8,
+      "clusterId": 274,
+      "correct": {
+        "text": "下有渌水之波澜",
+        "charCount": 7,
+        "lastChar": "澜",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-10",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 10,
+      "clusterId": 276,
+      "correct": {
+        "text": "梦魂不到关山难",
+        "charCount": 7,
+        "lastChar": "难",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-changxiangsi-yi-12",
+      "poemId": "tang-libai-changxiangsi-yi",
+      "blankLineIndex": 12,
+      "clusterId": 67,
+      "correct": {
+        "text": "摧心肝",
+        "charCount": 3,
+        "lastChar": "肝",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-libai-changxiangsi-yi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-chunsi-1",
+      "poemId": "tang-libai-chunsi",
+      "blankLineIndex": 1,
+      "clusterId": 139,
+      "correct": {
+        "text": "秦桑低绿枝",
+        "charCount": 5,
+        "lastChar": "枝",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-libai-chunsi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-chunsi-3",
+      "poemId": "tang-libai-chunsi",
+      "blankLineIndex": 3,
+      "clusterId": 137,
+      "correct": {
+        "text": "是妾断肠时",
+        "charCount": 5,
+        "lastChar": "时",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-libai-chunsi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-libai-chunsi-5",
+      "poemId": "tang-libai-chunsi",
+      "blankLineIndex": 5,
+      "clusterId": 161,
+      "correct": {
+        "text": "何事入罗帏",
+        "charCount": 5,
+        "lastChar": "帏",
+        "rhymeFinal": "uei",
+        "rhymeGroup": "5",
+        "pingshui": "P05微",
+        "sourcePoemId": "tang-libai-chunsi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wangwei-songbie-xiama-1",
+      "poemId": "tang-wangwei-songbie-xiama",
+      "blankLineIndex": 1,
+      "clusterId": 139,
+      "correct": {
+        "text": "问君何所之",
+        "charCount": 5,
+        "lastChar": "之",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-wangwei-songbie-xiama"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wangwei-songbie-xiama-3",
+      "poemId": "tang-wangwei-songbie-xiama",
+      "blankLineIndex": 3,
+      "clusterId": 161,
+      "correct": {
+        "text": "归卧南山陲",
+        "charCount": 5,
+        "lastChar": "陲",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-wangwei-songbie-xiama"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wangwei-songbie-xiama-5",
+      "poemId": "tang-wangwei-songbie-xiama",
+      "blankLineIndex": 5,
+      "clusterId": 139,
+      "correct": {
+        "text": "白云无尽时",
+        "charCount": 5,
+        "lastChar": "时",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-wangwei-songbie-xiama"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-fengyu-1",
+      "poemId": "tang-lishangyin-fengyu",
+      "blankLineIndex": 1,
+      "clusterId": 175,
+      "correct": {
+        "text": "羁泊欲穷年",
+        "charCount": 5,
+        "lastChar": "年",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-lishangyin-fengyu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-fengyu-3",
+      "poemId": "tang-lishangyin-fengyu",
+      "blankLineIndex": 3,
+      "clusterId": 175,
+      "correct": {
+        "text": "青楼自管弦",
+        "charCount": 5,
+        "lastChar": "弦",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-lishangyin-fengyu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-fengyu-5",
+      "poemId": "tang-lishangyin-fengyu",
+      "blankLineIndex": 5,
+      "clusterId": 173,
+      "correct": {
+        "text": "旧好隔良缘",
+        "charCount": 5,
+        "lastChar": "缘",
+        "rhymeFinal": "üan",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-lishangyin-fengyu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-fengyu-7",
+      "poemId": "tang-lishangyin-fengyu",
+      "blankLineIndex": 7,
+      "clusterId": 175,
+      "correct": {
+        "text": "销愁斗几千",
+        "charCount": 5,
+        "lastChar": "千",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-lishangyin-fengyu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-chunyu-1",
+      "poemId": "tang-lishangyin-chunyu",
+      "blankLineIndex": 1,
+      "clusterId": 264,
+      "correct": {
+        "text": "白门寥落意多违",
+        "charCount": 7,
+        "lastChar": "违",
+        "rhymeFinal": "uei",
+        "rhymeGroup": "5",
+        "pingshui": "P05微",
+        "sourcePoemId": "tang-lishangyin-chunyu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-chunyu-3",
+      "poemId": "tang-lishangyin-chunyu",
+      "blankLineIndex": 3,
+      "clusterId": 264,
+      "correct": {
+        "text": "珠箔飘灯独自归",
+        "charCount": 7,
+        "lastChar": "归",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "P05微",
+        "sourcePoemId": "tang-lishangyin-chunyu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-chunyu-5",
+      "poemId": "tang-lishangyin-chunyu",
+      "blankLineIndex": 5,
+      "clusterId": 236,
+      "correct": {
+        "text": "残宵犹得梦依稀",
+        "charCount": 7,
+        "lastChar": "稀",
+        "rhymeFinal": "i",
+        "rhymeGroup": "12",
+        "pingshui": "P05微",
+        "sourcePoemId": "tang-lishangyin-chunyu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-lishangyin-chunyu-7",
+      "poemId": "tang-lishangyin-chunyu",
+      "blankLineIndex": 7,
+      "clusterId": 262,
+      "correct": {
+        "text": "万里云罗一雁飞",
+        "charCount": 7,
+        "lastChar": "飞",
+        "rhymeFinal": "ei",
+        "rhymeGroup": "5",
+        "pingshui": "P05微",
+        "sourcePoemId": "tang-lishangyin-chunyu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dumu-zaoyan-1",
+      "poemId": "tang-dumu-zaoyan",
+      "blankLineIndex": 1,
+      "clusterId": 258,
+      "correct": {
+        "text": "云外惊飞四散哀",
+        "charCount": 7,
+        "lastChar": "哀",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-dumu-zaoyan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dumu-zaoyan-3",
+      "poemId": "tang-dumu-zaoyan",
+      "blankLineIndex": 3,
+      "clusterId": 260,
+      "correct": {
+        "text": "长门灯暗数声来",
+        "charCount": 7,
+        "lastChar": "来",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-dumu-zaoyan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dumu-zaoyan-5",
+      "poemId": "tang-dumu-zaoyan",
+      "blankLineIndex": 5,
+      "clusterId": 264,
+      "correct": {
+        "text": "岂逐春风一一回",
+        "charCount": 7,
+        "lastChar": "回",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-dumu-zaoyan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-dumu-zaoyan-7",
+      "poemId": "tang-dumu-zaoyan",
+      "blankLineIndex": 7,
+      "clusterId": 260,
+      "correct": {
+        "text": "水多菰米岸莓苔",
+        "charCount": 7,
+        "lastChar": "苔",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-dumu-zaoyan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-hougongci-1",
+      "poemId": "tang-baijuyi-hougongci",
+      "blankLineIndex": 1,
+      "clusterId": 232,
+      "correct": {
+        "text": "夜深前殿按歌声",
+        "charCount": 7,
+        "lastChar": "声",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "tang-baijuyi-hougongci"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-hougongci-3",
+      "poemId": "tang-baijuyi-hougongci",
+      "blankLineIndex": 3,
+      "clusterId": 230,
+      "correct": {
+        "text": "斜倚薰笼坐到明",
+        "charCount": 7,
+        "lastChar": "明",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "tang-baijuyi-hougongci"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-wangyueyougan-1",
+      "poemId": "tang-baijuyi-wangyueyougan",
+      "blankLineIndex": 1,
+      "clusterId": 232,
+      "correct": {
+        "text": "弟兄羁旅各西东",
+        "charCount": 7,
+        "lastChar": "东",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "tang-baijuyi-wangyueyougan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-wangyueyougan-3",
+      "poemId": "tang-baijuyi-wangyueyougan",
+      "blankLineIndex": 3,
+      "clusterId": 230,
+      "correct": {
+        "text": "骨肉流离道路中",
+        "charCount": 7,
+        "lastChar": "中",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "tang-baijuyi-wangyueyougan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-wangyueyougan-5",
+      "poemId": "tang-baijuyi-wangyueyougan",
+      "blankLineIndex": 5,
+      "clusterId": 232,
+      "correct": {
+        "text": "辞根散作九秋蓬",
+        "charCount": 7,
+        "lastChar": "蓬",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "tang-baijuyi-wangyueyougan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-wangyueyougan-7",
+      "poemId": "tang-baijuyi-wangyueyougan",
+      "blankLineIndex": 7,
+      "clusterId": 230,
+      "correct": {
+        "text": "一夜乡心五处同",
+        "charCount": 7,
+        "lastChar": "同",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "tang-baijuyi-wangyueyougan"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-cunye-1",
+      "poemId": "tang-baijuyi-cunye",
+      "blankLineIndex": 1,
+      "clusterId": 256,
+      "correct": {
+        "text": "村南村北行人绝",
+        "charCount": 7,
+        "lastChar": "绝",
+        "rhymeFinal": "üe",
+        "rhymeGroup": "3",
+        "pingshui": "Z68屑",
+        "sourcePoemId": "tang-baijuyi-cunye"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-baijuyi-cunye-3",
+      "poemId": "tang-baijuyi-cunye",
+      "blankLineIndex": 3,
+      "clusterId": 255,
+      "correct": {
+        "text": "月明荞麦花如雪",
+        "charCount": 7,
+        "lastChar": "雪",
+        "rhymeFinal": "üe",
+        "rhymeGroup": "3",
+        "pingshui": "Z68屑",
+        "sourcePoemId": "tang-baijuyi-cunye"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-menghaoran-zaohanjiang-1",
+      "poemId": "tang-menghaoran-zaohanjiang",
+      "blankLineIndex": 1,
+      "clusterId": 175,
+      "correct": {
+        "text": "北风江上寒",
+        "charCount": 5,
+        "lastChar": "寒",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-menghaoran-zaohanjiang"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-menghaoran-zaohanjiang-3",
+      "poemId": "tang-menghaoran-zaohanjiang",
+      "blankLineIndex": 3,
+      "clusterId": 175,
+      "correct": {
+        "text": "遥隔楚云端",
+        "charCount": 5,
+        "lastChar": "端",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-menghaoran-zaohanjiang"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-menghaoran-zaohanjiang-5",
+      "poemId": "tang-menghaoran-zaohanjiang",
+      "blankLineIndex": 5,
+      "clusterId": 175,
+      "correct": {
+        "text": "孤帆天际看",
+        "charCount": 5,
+        "lastChar": "看",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-menghaoran-zaohanjiang"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-menghaoran-zaohanjiang-7",
+      "poemId": "tang-menghaoran-zaohanjiang",
+      "blankLineIndex": 7,
+      "clusterId": 172,
+      "correct": {
+        "text": "平海夕漫漫",
+        "charCount": 5,
+        "lastChar": "漫",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-menghaoran-zaohanjiang"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wangchangling-congjunxing-fenghuo-1",
+      "poemId": "tang-wangchangling-congjunxing-fenghuo",
+      "blankLineIndex": 1,
+      "clusterId": 272,
+      "correct": {
+        "text": "黄昏独上海风秋",
+        "charCount": 7,
+        "lastChar": "秋",
+        "rhymeFinal": "iu",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wangchangling-congjunxing-fenghuo-3",
+      "poemId": "tang-wangchangling-congjunxing-fenghuo",
+      "blankLineIndex": 3,
+      "clusterId": 270,
+      "correct": {
+        "text": "无那金闺万里愁",
+        "charCount": 7,
+        "lastChar": "愁",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "tang-wangchangling-congjunxing-fenghuo"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-censhen-qizhongzuo-1",
+      "poemId": "tang-censhen-qizhongzuo",
+      "blankLineIndex": 1,
+      "clusterId": 276,
+      "correct": {
+        "text": "辞家见月两回圆",
+        "charCount": 7,
+        "lastChar": "圆",
+        "rhymeFinal": "üan",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-censhen-qizhongzuo"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-censhen-qizhongzuo-3",
+      "poemId": "tang-censhen-qizhongzuo",
+      "blankLineIndex": 3,
+      "clusterId": 276,
+      "correct": {
+        "text": "平沙莽莽绝人烟",
+        "charCount": 7,
+        "lastChar": "烟",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-censhen-qizhongzuo"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-weiyingwu-wenyan-1",
+      "poemId": "tang-weiyingwu-wenyan",
+      "blankLineIndex": 1,
+      "clusterId": 159,
+      "correct": {
+        "text": "归思方悠哉",
+        "charCount": 5,
+        "lastChar": "哉",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-weiyingwu-wenyan"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-weiyingwu-wenyan-3",
+      "poemId": "tang-weiyingwu-wenyan",
+      "blankLineIndex": 3,
+      "clusterId": 159,
+      "correct": {
+        "text": "高斋闻雁来",
+        "charCount": 5,
+        "lastChar": "来",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-weiyingwu-wenyan"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuyuxi-shuxianzhumiao-1",
+      "poemId": "tang-liuyuxi-shuxianzhumiao",
+      "blankLineIndex": 1,
+      "clusterId": 175,
+      "correct": {
+        "text": "千秋尚凛然",
+        "charCount": 5,
+        "lastChar": "然",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuyuxi-shuxianzhumiao-3",
+      "poemId": "tang-liuyuxi-shuxianzhumiao",
+      "blankLineIndex": 3,
+      "clusterId": 173,
+      "correct": {
+        "text": "业复五铢钱",
+        "charCount": 5,
+        "lastChar": "钱",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuyuxi-shuxianzhumiao-5",
+      "poemId": "tang-liuyuxi-shuxianzhumiao",
+      "blankLineIndex": 5,
+      "clusterId": 175,
+      "correct": {
+        "text": "生儿不象贤",
+        "charCount": 5,
+        "lastChar": "贤",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuyuxi-shuxianzhumiao-7",
+      "poemId": "tang-liuyuxi-shuxianzhumiao",
+      "blankLineIndex": 7,
+      "clusterId": 173,
+      "correct": {
+        "text": "来舞魏宫前",
+        "charCount": 5,
+        "lastChar": "前",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "tang-liuyuxi-shuxianzhumiao"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-yuanzhen-qianbeihuai-er-1",
+      "poemId": "tang-yuanzhen-qianbeihuai-er",
+      "blankLineIndex": 1,
+      "clusterId": 260,
+      "correct": {
+        "text": "今朝都到眼前来",
+        "charCount": 7,
+        "lastChar": "来",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-yuanzhen-qianbeihuai-er-3",
+      "poemId": "tang-yuanzhen-qianbeihuai-er",
+      "blankLineIndex": 3,
+      "clusterId": 258,
+      "correct": {
+        "text": "针线犹存未忍开",
+        "charCount": 7,
+        "lastChar": "开",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-yuanzhen-qianbeihuai-er-5",
+      "poemId": "tang-yuanzhen-qianbeihuai-er",
+      "blankLineIndex": 5,
+      "clusterId": 260,
+      "correct": {
+        "text": "也曾因梦送钱财",
+        "charCount": 7,
+        "lastChar": "财",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-yuanzhen-qianbeihuai-er-7",
+      "poemId": "tang-yuanzhen-qianbeihuai-er",
+      "blankLineIndex": 7,
+      "clusterId": 258,
+      "correct": {
+        "text": "贫贱夫妻百事哀",
+        "charCount": 7,
+        "lastChar": "哀",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "tang-yuanzhen-qianbeihuai-er"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liyi-jiangnanqu-1",
+      "poemId": "tang-liyi-jiangnanqu",
+      "blankLineIndex": 1,
+      "clusterId": 135,
+      "correct": {
+        "text": "朝朝误妾期",
+        "charCount": 5,
+        "lastChar": "期",
+        "rhymeFinal": "i",
+        "rhymeGroup": "12",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-liyi-jiangnanqu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liyi-jiangnanqu-3",
+      "poemId": "tang-liyi-jiangnanqu",
+      "blankLineIndex": 3,
+      "clusterId": 133,
+      "correct": {
+        "text": "嫁与弄潮儿",
+        "charCount": 5,
+        "lastChar": "儿",
+        "rhymeFinal": "er",
+        "rhymeGroup": "12",
+        "pingshui": "P04支",
+        "sourcePoemId": "tang-liyi-jiangnanqu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wentingyun-songrendongyou-1",
+      "poemId": "tang-wentingyun-songrendongyou",
+      "blankLineIndex": 1,
+      "clusterId": 175,
+      "correct": {
+        "text": "浩然离故关",
+        "charCount": 5,
+        "lastChar": "关",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "P15删",
+        "sourcePoemId": "tang-wentingyun-songrendongyou"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wentingyun-songrendongyou-3",
+      "poemId": "tang-wentingyun-songrendongyou",
+      "blankLineIndex": 3,
+      "clusterId": 173,
+      "correct": {
+        "text": "初日郢门山",
+        "charCount": 5,
+        "lastChar": "山",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P15删",
+        "sourcePoemId": "tang-wentingyun-songrendongyou"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wentingyun-songrendongyou-5",
+      "poemId": "tang-wentingyun-songrendongyou",
+      "blankLineIndex": 5,
+      "clusterId": 175,
+      "correct": {
+        "text": "天涯孤櫂还",
+        "charCount": 5,
+        "lastChar": "还",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "P15删",
+        "sourcePoemId": "tang-wentingyun-songrendongyou"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-wentingyun-songrendongyou-7",
+      "poemId": "tang-wentingyun-songrendongyou",
+      "blankLineIndex": 7,
+      "clusterId": 173,
+      "correct": {
+        "text": "尊酒慰离颜",
+        "charCount": 5,
+        "lastChar": "颜",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P15删",
+        "sourcePoemId": "tang-wentingyun-songrendongyou"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liqi-songweiwanzhijing-1",
+      "poemId": "tang-liqi-songweiwanzhijing",
+      "blankLineIndex": 1,
+      "clusterId": 250,
+      "correct": {
+        "text": "昨夜微霜初渡河",
+        "charCount": 7,
+        "lastChar": "河",
+        "rhymeFinal": "e",
+        "rhymeGroup": "2",
+        "pingshui": "P20歌",
+        "sourcePoemId": "tang-liqi-songweiwanzhijing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liqi-songweiwanzhijing-3",
+      "poemId": "tang-liqi-songweiwanzhijing",
+      "blankLineIndex": 3,
+      "clusterId": 251,
+      "correct": {
+        "text": "云山况是客中过",
+        "charCount": 7,
+        "lastChar": "过",
+        "rhymeFinal": "uo",
+        "rhymeGroup": "2",
+        "pingshui": "P20歌",
+        "sourcePoemId": "tang-liqi-songweiwanzhijing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liqi-songweiwanzhijing-5",
+      "poemId": "tang-liqi-songweiwanzhijing",
+      "blankLineIndex": 5,
+      "clusterId": 250,
+      "correct": {
+        "text": "御苑砧声向晚多",
+        "charCount": 7,
+        "lastChar": "多",
+        "rhymeFinal": "uo",
+        "rhymeGroup": "2",
+        "pingshui": "P20歌",
+        "sourcePoemId": "tang-liqi-songweiwanzhijing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liqi-songweiwanzhijing-7",
+      "poemId": "tang-liqi-songweiwanzhijing",
+      "blankLineIndex": 7,
+      "clusterId": 250,
+      "correct": {
+        "text": "空令岁月易蹉跎",
+        "charCount": 7,
+        "lastChar": "跎",
+        "rhymeFinal": "uo",
+        "rhymeGroup": "2",
+        "pingshui": "P20歌",
+        "sourcePoemId": "tang-liqi-songweiwanzhijing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-sikongshu-xiwailudijiansu-1",
+      "poemId": "tang-sikongshu-xiwailudijiansu",
+      "blankLineIndex": 1,
+      "clusterId": 179,
+      "correct": {
+        "text": "荒居旧业贫",
+        "charCount": 5,
+        "lastChar": "贫",
+        "rhymeFinal": "in",
+        "rhymeGroup": "9",
+        "pingshui": "P11真",
+        "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-sikongshu-xiwailudijiansu-3",
+      "poemId": "tang-sikongshu-xiwailudijiansu",
+      "blankLineIndex": 3,
+      "clusterId": 177,
+      "correct": {
+        "text": "灯下白头人",
+        "charCount": 5,
+        "lastChar": "人",
+        "rhymeFinal": "en",
+        "rhymeGroup": "9",
+        "pingshui": "P11真",
+        "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-sikongshu-xiwailudijiansu-5",
+      "poemId": "tang-sikongshu-xiwailudijiansu",
+      "blankLineIndex": 5,
+      "clusterId": 179,
+      "correct": {
+        "text": "愧君相见频",
+        "charCount": 5,
+        "lastChar": "频",
+        "rhymeFinal": "in",
+        "rhymeGroup": "9",
+        "pingshui": "P11真",
+        "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-sikongshu-xiwailudijiansu-7",
+      "poemId": "tang-sikongshu-xiwailudijiansu",
+      "blankLineIndex": 7,
+      "clusterId": 177,
+      "correct": {
+        "text": "况是蔡家亲",
+        "charCount": 5,
+        "lastChar": "亲",
+        "rhymeFinal": "in",
+        "rhymeGroup": "9",
+        "pingshui": "P11真",
+        "sourcePoemId": "tang-sikongshu-xiwailudijiansu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuchangqing-tanqin-1",
+      "poemId": "tang-liuchangqing-tanqin",
+      "blankLineIndex": 1,
+      "clusterId": 175,
+      "correct": {
+        "text": "静听松风寒",
+        "charCount": 5,
+        "lastChar": "寒",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-liuchangqing-tanqin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-tang-liuchangqing-tanqin-3",
+      "poemId": "tang-liuchangqing-tanqin",
+      "blankLineIndex": 3,
+      "clusterId": 174,
+      "correct": {
+        "text": "今人多不弹",
+        "charCount": 5,
+        "lastChar": "弹",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "tang-liuchangqing-tanqin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushunqin-xiayi-1",
+      "poemId": "song-sushunqin-xiayi",
+      "blankLineIndex": 1,
+      "clusterId": 232,
+      "correct": {
+        "text": "石榴开遍透帘明",
+        "charCount": 7,
+        "lastChar": "明",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-sushunqin-xiayi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushunqin-xiayi-3",
+      "poemId": "song-sushunqin-xiayi",
+      "blankLineIndex": 3,
+      "clusterId": 232,
+      "correct": {
+        "text": "梦觉流莺时一声",
+        "charCount": 7,
+        "lastChar": "声",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-sushunqin-xiayi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-huangtingjian-jihuangjifu-1",
+      "poemId": "song-huangtingjian-jihuangjifu",
+      "blankLineIndex": 1,
+      "clusterId": 230,
+      "correct": {
+        "text": "寄雁传书谢不能",
+        "charCount": 7,
+        "lastChar": "能",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P25蒸",
+        "sourcePoemId": "song-huangtingjian-jihuangjifu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-huangtingjian-jihuangjifu-3",
+      "poemId": "song-huangtingjian-jihuangjifu",
+      "blankLineIndex": 3,
+      "clusterId": 232,
+      "correct": {
+        "text": "江湖夜雨十年灯",
+        "charCount": 7,
+        "lastChar": "灯",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P25蒸",
+        "sourcePoemId": "song-huangtingjian-jihuangjifu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-huangtingjian-jihuangjifu-5",
+      "poemId": "song-huangtingjian-jihuangjifu",
+      "blankLineIndex": 5,
+      "clusterId": 230,
+      "correct": {
+        "text": "治病不蕲三折肱",
+        "charCount": 7,
+        "lastChar": "肱",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P25蒸",
+        "sourcePoemId": "song-huangtingjian-jihuangjifu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-huangtingjian-jihuangjifu-7",
+      "poemId": "song-huangtingjian-jihuangjifu",
+      "blankLineIndex": 7,
+      "clusterId": 232,
+      "correct": {
+        "text": "隔溪猿哭瘴溪藤",
+        "charCount": 7,
+        "lastChar": "藤",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P25蒸",
+        "sourcePoemId": "song-huangtingjian-jihuangjifu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-wangyucheng-cunxing-1",
+      "poemId": "song-wangyucheng-cunxing",
+      "blankLineIndex": 1,
+      "clusterId": 226,
+      "correct": {
+        "text": "信马悠悠野兴长",
+        "charCount": 7,
+        "lastChar": "长",
+        "rhymeFinal": "ang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "song-wangyucheng-cunxing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-wangyucheng-cunxing-3",
+      "poemId": "song-wangyucheng-cunxing",
+      "blankLineIndex": 3,
+      "clusterId": 228,
+      "correct": {
+        "text": "数峰无语立斜阳",
+        "charCount": 7,
+        "lastChar": "阳",
+        "rhymeFinal": "iang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "song-wangyucheng-cunxing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-wangyucheng-cunxing-5",
+      "poemId": "song-wangyucheng-cunxing",
+      "blankLineIndex": 5,
+      "clusterId": 226,
+      "correct": {
+        "text": "荞麦花开白雪香",
+        "charCount": 7,
+        "lastChar": "香",
+        "rhymeFinal": "iang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "song-wangyucheng-cunxing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-wangyucheng-cunxing-7",
+      "poemId": "song-wangyucheng-cunxing",
+      "blankLineIndex": 7,
+      "clusterId": 228,
+      "correct": {
+        "text": "村桥原树似吾乡",
+        "charCount": 7,
+        "lastChar": "乡",
+        "rhymeFinal": "iang",
+        "rhymeGroup": "10",
+        "pingshui": "P22阳",
+        "sourcePoemId": "song-wangyucheng-cunxing"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yangwanli-xianjuchuxia-1",
+      "poemId": "song-yangwanli-xianjuchuxia",
+      "blankLineIndex": 1,
+      "clusterId": 248,
+      "correct": {
+        "text": "芭蕉分绿与窗纱",
+        "charCount": 7,
+        "lastChar": "纱",
+        "rhymeFinal": "a",
+        "rhymeGroup": "1",
+        "pingshui": "P21麻",
+        "sourcePoemId": "song-yangwanli-xianjuchuxia"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yangwanli-xianjuchuxia-3",
+      "poemId": "song-yangwanli-xianjuchuxia",
+      "blankLineIndex": 3,
+      "clusterId": 248,
+      "correct": {
+        "text": "闲看儿童捉柳花",
+        "charCount": 7,
+        "lastChar": "花",
+        "rhymeFinal": "ua",
+        "rhymeGroup": "1",
+        "pingshui": "P21麻",
+        "sourcePoemId": "song-yangwanli-xianjuchuxia"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushi-yangguanqu-zhongqiu-0",
+      "poemId": "song-sushi-yangguanqu-zhongqiu",
+      "blankLineIndex": 0,
+      "clusterId": 276,
+      "correct": {
+        "text": "暮云收尽溢清寒",
+        "charCount": 7,
+        "lastChar": "寒",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushi-yangguanqu-zhongqiu-1",
+      "poemId": "song-sushi-yangguanqu-zhongqiu",
+      "blankLineIndex": 1,
+      "clusterId": 274,
+      "correct": {
+        "text": "银汉无声转玉盘",
+        "charCount": 7,
+        "lastChar": "盘",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushi-yangguanqu-zhongqiu-2",
+      "poemId": "song-sushi-yangguanqu-zhongqiu",
+      "blankLineIndex": 2,
+      "clusterId": 267,
+      "correct": {
+        "text": "此生此夜不长好",
+        "charCount": 7,
+        "lastChar": "好",
+        "rhymeFinal": "ao",
+        "rhymeGroup": "6",
+        "pingshui": "Z19皓",
+        "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-sushi-yangguanqu-zhongqiu-3",
+      "poemId": "song-sushi-yangguanqu-zhongqiu",
+      "blankLineIndex": 3,
+      "clusterId": 274,
+      "correct": {
+        "text": "明月明年何处看",
+        "charCount": 7,
+        "lastChar": "看",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P14寒",
+        "sourcePoemId": "song-sushi-yangguanqu-zhongqiu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-0",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 0,
+      "clusterId": 70,
+      "correct": {
+        "text": "宝钗分",
+        "charCount": 3,
+        "lastChar": "分",
+        "rhymeFinal": "en",
+        "rhymeGroup": "9",
+        "pingshui": "P12文",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-1",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 1,
+      "clusterId": 38,
+      "correct": {
+        "text": "桃叶渡",
+        "charCount": 3,
+        "lastChar": "渡",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z36遇",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-2",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 2,
+      "clusterId": 140,
+      "correct": {
+        "text": "烟柳暗南浦",
+        "charCount": 5,
+        "lastChar": "浦",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-3",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 3,
+      "clusterId": 113,
+      "correct": {
+        "text": "怕上层楼",
+        "charCount": 4,
+        "lastChar": "楼",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-4",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 4,
+      "clusterId": 132,
+      "correct": {
+        "text": "十日九风雨",
+        "charCount": 5,
+        "lastChar": "雨",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-5",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 5,
+      "clusterId": 184,
+      "correct": {
+        "text": "断肠片片飞红",
+        "charCount": 6,
+        "lastChar": "红",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-6",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 6,
+      "clusterId": 118,
+      "correct": {
+        "text": "都无人管",
+        "charCount": 4,
+        "lastChar": "管",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "Z14旱",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-7",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 7,
+      "clusterId": 66,
+      "correct": {
+        "text": "倩谁唤",
+        "charCount": 3,
+        "lastChar": "唤",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "Z44翰",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-8",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 8,
+      "clusterId": 88,
+      "correct": {
+        "text": "流莺声住",
+        "charCount": 4,
+        "lastChar": "住",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z36遇",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-9",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 9,
+      "clusterId": 32,
+      "correct": {
+        "text": "鬓边觑",
+        "charCount": 3,
+        "lastChar": "觑",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z35御",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-10",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 10,
+      "clusterId": 186,
+      "correct": {
+        "text": "试把花卜心期",
+        "charCount": 6,
+        "lastChar": "期",
+        "rhymeFinal": "i",
+        "rhymeGroup": "12",
+        "pingshui": "P04支",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-11",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 11,
+      "clusterId": 142,
+      "correct": {
+        "text": "才簪又重数",
+        "charCount": 5,
+        "lastChar": "数",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-12",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 12,
+      "clusterId": 121,
+      "correct": {
+        "text": "罗帐灯昏",
+        "charCount": 4,
+        "lastChar": "昏",
+        "rhymeFinal": "un",
+        "rhymeGroup": "9",
+        "pingshui": "P13元",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-13",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 13,
+      "clusterId": 132,
+      "correct": {
+        "text": "哽咽梦中语",
+        "charCount": 5,
+        "lastChar": "语",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z06语",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-14",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 14,
+      "clusterId": 208,
+      "correct": {
+        "text": "是他春带愁来",
+        "charCount": 6,
+        "lastChar": "来",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "P10灰",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-15",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 15,
+      "clusterId": 88,
+      "correct": {
+        "text": "春归何处",
+        "charCount": 4,
+        "lastChar": "处",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z06语",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-16",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 16,
+      "clusterId": 48,
+      "correct": {
+        "text": "却不解",
+        "charCount": 3,
+        "lastChar": "解",
+        "rhymeFinal": "ie",
+        "rhymeGroup": "3",
+        "pingshui": "Z09蟹",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-xinqiji-zhuyingtaijin-17",
+      "poemId": "song-xinqiji-zhuyingtaijin",
+      "blankLineIndex": 17,
+      "clusterId": 80,
+      "correct": {
+        "text": "将愁归去",
+        "charCount": 4,
+        "lastChar": "去",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z06语",
+        "sourcePoemId": "song-xinqiji-zhuyingtaijin"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-0",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 0,
+      "clusterId": 198,
+      "correct": {
+        "text": "燕子来时新社",
+        "charCount": 6,
+        "lastChar": "社",
+        "rhymeFinal": "e",
+        "rhymeGroup": "2",
+        "pingshui": "Z21马",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-1",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 1,
+      "clusterId": 184,
+      "correct": {
+        "text": "梨花落后清明",
+        "charCount": 6,
+        "lastChar": "明",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-2",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 2,
+      "clusterId": 273,
+      "correct": {
+        "text": "池上碧苔三四点",
+        "charCount": 7,
+        "lastChar": "点",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "Z28琰",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-3",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 3,
+      "clusterId": 230,
+      "correct": {
+        "text": "叶底黄鹂一两声",
+        "charCount": 7,
+        "lastChar": "声",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-4",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 4,
+      "clusterId": 131,
+      "correct": {
+        "text": "日长飞絮轻",
+        "charCount": 5,
+        "lastChar": "轻",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-5",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 5,
+      "clusterId": 218,
+      "correct": {
+        "text": "巧笑东邻女伴",
+        "charCount": 6,
+        "lastChar": "伴",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "Z14旱",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-6",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 6,
+      "clusterId": 184,
+      "correct": {
+        "text": "采桑径里逢迎",
+        "charCount": 6,
+        "lastChar": "迎",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-7",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 7,
+      "clusterId": 265,
+      "correct": {
+        "text": "疑怪昨宵春梦好",
+        "charCount": 7,
+        "lastChar": "好",
+        "rhymeFinal": "ao",
+        "rhymeGroup": "6",
+        "pingshui": "Z19皓",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-8",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 8,
+      "clusterId": 230,
+      "correct": {
+        "text": "元是今朝斗草赢",
+        "charCount": 7,
+        "lastChar": "赢",
+        "rhymeFinal": "ing",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-yanshu-pozhenzi-yanzi-9",
+      "poemId": "song-yanshu-pozhenzi-yanzi",
+      "blankLineIndex": 9,
+      "clusterId": 131,
+      "correct": {
+        "text": "笑从双脸生",
+        "charCount": 5,
+        "lastChar": "生",
+        "rhymeFinal": "eng",
+        "rhymeGroup": "11",
+        "pingshui": "P23庚",
+        "sourcePoemId": "song-yanshu-pozhenzi-yanzi"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-0",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 0,
+      "clusterId": 103,
+      "correct": {
+        "text": "水边沙外",
+        "charCount": 4,
+        "lastChar": "外",
+        "rhymeFinal": "uai",
+        "rhymeGroup": "4",
+        "pingshui": "Z38泰",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-1",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 1,
+      "clusterId": 162,
+      "correct": {
+        "text": "城郭春寒退",
+        "charCount": 5,
+        "lastChar": "退",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "Z40队",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-2",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 2,
+      "clusterId": 64,
+      "correct": {
+        "text": "花影乱",
+        "charCount": 3,
+        "lastChar": "乱",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "Z44翰",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-3",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 3,
+      "clusterId": 56,
+      "correct": {
+        "text": "莺声碎",
+        "charCount": 3,
+        "lastChar": "碎",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "Z40队",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-4",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 4,
+      "clusterId": 174,
+      "correct": {
+        "text": "飘零疏酒盏",
+        "charCount": 5,
+        "lastChar": "盏",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "Z15潸",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-5",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 5,
+      "clusterId": 158,
+      "correct": {
+        "text": "离别宽衣带",
+        "charCount": 5,
+        "lastChar": "带",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z38泰",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-6",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 6,
+      "clusterId": 64,
+      "correct": {
+        "text": "人不见",
+        "charCount": 3,
+        "lastChar": "见",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "Z15潸",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-7",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 7,
+      "clusterId": 263,
+      "correct": {
+        "text": "碧云暮合空相对",
+        "charCount": 7,
+        "lastChar": "对",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "Z40队",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-8",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 8,
+      "clusterId": 162,
+      "correct": {
+        "text": "忆昔西池会",
+        "charCount": 5,
+        "lastChar": "会",
+        "rhymeFinal": "ui",
+        "rhymeGroup": "5",
+        "pingshui": "Z38泰",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-9",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 9,
+      "clusterId": 156,
+      "correct": {
+        "text": "鹓鹭同飞盖",
+        "charCount": 5,
+        "lastChar": "盖",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z38泰",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-10",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 10,
+      "clusterId": 38,
+      "correct": {
+        "text": "携手处",
+        "charCount": 3,
+        "lastChar": "处",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z06语",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-11",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 11,
+      "clusterId": 52,
+      "correct": {
+        "text": "今谁在",
+        "charCount": 3,
+        "lastChar": "在",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z10贿",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-12",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 12,
+      "clusterId": 174,
+      "correct": {
+        "text": "日边清梦断",
+        "charCount": 5,
+        "lastChar": "断",
+        "rhymeFinal": "uan",
+        "rhymeGroup": "8",
+        "pingshui": "Z14旱",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-13",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 13,
+      "clusterId": 156,
+      "correct": {
+        "text": "镜里朱颜改",
+        "charCount": 5,
+        "lastChar": "改",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z10贿",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-14",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 14,
+      "clusterId": 48,
+      "correct": {
+        "text": "春去也",
+        "charCount": 3,
+        "lastChar": "也",
+        "rhymeFinal": "ie",
+        "rhymeGroup": "3",
+        "pingshui": "Z21马",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-qinguan-qianqiusui-15",
+      "poemId": "song-qinguan-qianqiusui",
+      "blankLineIndex": 15,
+      "clusterId": 259,
+      "correct": {
+        "text": "飞红万点愁如海",
+        "charCount": 7,
+        "lastChar": "海",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z10贿",
+        "sourcePoemId": "song-qinguan-qianqiusui"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-0",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 0,
+      "clusterId": 169,
+      "correct": {
+        "text": "芦叶满汀洲",
+        "charCount": 5,
+        "lastChar": "洲",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-1",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 1,
+      "clusterId": 171,
+      "correct": {
+        "text": "寒沙带浅流",
+        "charCount": 5,
+        "lastChar": "流",
+        "rhymeFinal": "iu",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-2",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 2,
+      "clusterId": 67,
+      "correct": {
+        "text": "二十年",
+        "charCount": 3,
+        "lastChar": "年",
+        "rhymeFinal": "ian",
+        "rhymeGroup": "8",
+        "pingshui": "P16先",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-3",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 3,
+      "clusterId": 113,
+      "correct": {
+        "text": "重过南楼",
+        "charCount": 4,
+        "lastChar": "楼",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-4",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 4,
+      "clusterId": 277,
+      "correct": {
+        "text": "柳下系舟犹未稳",
+        "charCount": 7,
+        "lastChar": "稳",
+        "rhymeFinal": "uen",
+        "rhymeGroup": "9",
+        "pingshui": "Z13阮",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-5",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 5,
+      "clusterId": 34,
+      "correct": {
+        "text": "能几日",
+        "charCount": 3,
+        "lastChar": "日",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "Z63质",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-6",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 6,
+      "clusterId": 63,
+      "correct": {
+        "text": "又中秋",
+        "charCount": 3,
+        "lastChar": "秋",
+        "rhymeFinal": "iu",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-7",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 7,
+      "clusterId": 169,
+      "correct": {
+        "text": "黄鹤断矶头",
+        "charCount": 5,
+        "lastChar": "头",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-8",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 8,
+      "clusterId": 158,
+      "correct": {
+        "text": "故人今不在",
+        "charCount": 5,
+        "lastChar": "在",
+        "rhymeFinal": "ai",
+        "rhymeGroup": "4",
+        "pingshui": "Z10贿",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-9",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 9,
+      "clusterId": 67,
+      "correct": {
+        "text": "旧江山",
+        "charCount": 3,
+        "lastChar": "山",
+        "rhymeFinal": "an",
+        "rhymeGroup": "8",
+        "pingshui": "P15删",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-10",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 10,
+      "clusterId": 113,
+      "correct": {
+        "text": "浑是新愁",
+        "charCount": 4,
+        "lastChar": "愁",
+        "rhymeFinal": "ou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-11",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 11,
+      "clusterId": 269,
+      "correct": {
+        "text": "欲买桂花同载酒",
+        "charCount": 7,
+        "lastChar": "酒",
+        "rhymeFinal": "iu",
+        "rhymeGroup": "7",
+        "pingshui": "Z25有",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-12",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 12,
+      "clusterId": 34,
+      "correct": {
+        "text": "终不似",
+        "charCount": 3,
+        "lastChar": "似",
+        "rhymeFinal": "i_buzz",
+        "rhymeGroup": "13",
+        "pingshui": "Z04纸",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-song-liuguo-tangduoling-13",
+      "poemId": "song-liuguo-tangduoling",
+      "blankLineIndex": 13,
+      "clusterId": 63,
+      "correct": {
+        "text": "少年游",
+        "charCount": 3,
+        "lastChar": "游",
+        "rhymeFinal": "iou",
+        "rhymeGroup": "7",
+        "pingshui": "P26尤",
+        "sourcePoemId": "song-liuguo-tangduoling"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-0",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 0,
+      "clusterId": 233,
+      "correct": {
+        "text": "今古河山无定据",
+        "charCount": 7,
+        "lastChar": "据",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "P06鱼",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-1",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 1,
+      "clusterId": 75,
+      "correct": {
+        "text": "画角声中",
+        "charCount": 4,
+        "lastChar": "中",
+        "rhymeFinal": "ong",
+        "rhymeGroup": "11",
+        "pingshui": "P01东",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-2",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 2,
+      "clusterId": 132,
+      "correct": {
+        "text": "牧马频来去",
+        "charCount": 5,
+        "lastChar": "去",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z06语",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-3",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 3,
+      "clusterId": 233,
+      "correct": {
+        "text": "满目荒凉谁可语",
+        "charCount": 7,
+        "lastChar": "语",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z06语",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-4",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 4,
+      "clusterId": 243,
+      "correct": {
+        "text": "西风吹老丹枫树",
+        "charCount": 7,
+        "lastChar": "树",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-5",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 5,
+      "clusterId": 243,
+      "correct": {
+        "text": "从前幽怨应无数",
+        "charCount": 7,
+        "lastChar": "数",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-6",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 6,
+      "clusterId": 94,
+      "correct": {
+        "text": "铁马金戈",
+        "charCount": 4,
+        "lastChar": "戈",
+        "rhymeFinal": "e",
+        "rhymeGroup": "2",
+        "pingshui": "P20歌",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-7",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 7,
+      "clusterId": 140,
+      "correct": {
+        "text": "青冢黄昏路",
+        "charCount": 5,
+        "lastChar": "路",
+        "rhymeFinal": "u",
+        "rhymeGroup": "14",
+        "pingshui": "Z36遇",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 3,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-8",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 8,
+      "clusterId": 233,
+      "correct": {
+        "text": "一往情深深几许",
+        "charCount": 7,
+        "lastChar": "许",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z06语",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
+      "explanation": "",
+      "sourceMode": "corpus"
+    },
+    {
+      "id": "q-qing-nalanxingde-dielianhua-jingu-9",
+      "poemId": "qing-nalanxingde-dielianhua-jingu",
+      "blankLineIndex": 9,
+      "clusterId": 235,
+      "correct": {
+        "text": "深山夕照深秋雨",
+        "charCount": 7,
+        "lastChar": "雨",
+        "rhymeFinal": "ü",
+        "rhymeGroup": "12",
+        "pingshui": "Z07麌",
+        "sourcePoemId": "qing-nalanxingde-dielianhua-jingu"
+      },
+      "difficulty": 4,
       "explanation": "",
       "sourceMode": "corpus"
     }

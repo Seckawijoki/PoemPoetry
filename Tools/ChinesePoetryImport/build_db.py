@@ -12,7 +12,7 @@ Pipeline position:
 Reads:
   Assets/StreamingAssets/PoemData/{poems,questions,word_questions,char_pinyin,
                                     rhyme_groups,pingshui_rhyme}.json
-  Tools/SampleContent/{semantic_categories,word_bank}.json   # build-time inputs
+  Tools/SampleContent/{semantic_categories,word_bank,cipai_templates}.json  # build-time inputs
 Writes:
   Assets/StreamingAssets/PoemData/content.db
 
@@ -32,6 +32,7 @@ Usage:
   python build_db.py                 # default paths
   python build_db.py path/to/out.db  # custom output
 """
+import hashlib
 import json
 import os
 import sqlite3
@@ -40,7 +41,7 @@ from datetime import datetime, timezone
 
 # Bump CONTENT_VERSION whenever the shipped data changes so clients re-copy content.db.
 SCHEMA_VERSION = 1
-CONTENT_VERSION = 11  # bumped: +30 名篇 (杜甫/李白/王维/李商隐/韩愈/朱熹/温庭筠 等唐宋词补缺)
+CONTENT_VERSION = 16  # bumped: 新增 cipai_templates 表 (词牌→句组模板入库)
 
 # FTS5 is OFF by default: the native sqlite3 bundled with SQLite4Unity3d is too old to even
 # parse the FTS5 shadow tables a modern sqlite writes ("malformed database schema
@@ -187,6 +188,9 @@ CREATE TABLE semantic_categories (
 CREATE TABLE char_pinyin   (char  TEXT PRIMARY KEY, pinyins_json TEXT);
 CREATE TABLE rhyme_groups  (final TEXT PRIMARY KEY, group_id TEXT);
 CREATE TABLE pingshui_rhyme(char  TEXT PRIMARY KEY, ids_json TEXT);
+
+-- 词牌名 -> 句组(group)模板 (如 浣溪沙 = [0,0,0,1,1,1])。bulk-only, 整段 JSON 列存。
+CREATE TABLE cipai_templates(cipai TEXT PRIMARY KEY, groups_json TEXT);
 """
 
 # Per-character space-split FTS over poem lines (carries poem/title/author for search).
@@ -226,6 +230,8 @@ def build(out_path):
     pingshui = load(os.path.join(DATA_DIR, "pingshui_rhyme.json"))
     cats    = load(os.path.join(SAMPLE_DIR, "semantic_categories.json"))
     wbank   = load(os.path.join(SAMPLE_DIR, "word_bank.json"))
+    ctpl_path = os.path.join(SAMPLE_DIR, "cipai_templates.json")
+    ctpl    = load(ctpl_path) if os.path.exists(ctpl_path) else {"templates": {}}
 
     if os.path.exists(out_path):
         os.remove(out_path)
@@ -326,6 +332,10 @@ def build(out_path):
     for ch, ids in pingshui.get("entries", {}).items():
         db.execute("INSERT OR IGNORE INTO pingshui_rhyme VALUES (?,?)", (ch, j(ids)))
 
+    # cipai 句组模板
+    for cipai, groups in ctpl.get("templates", {}).items():
+        db.execute("INSERT OR IGNORE INTO cipai_templates VALUES (?,?)", (cipai, j(groups)))
+
     db.executescript(INDEXES)
     db.commit()
     db.execute("VACUUM")
@@ -337,7 +347,8 @@ def verify(out_path):
     db = sqlite3.connect(out_path)
     tables = ["poems", "poem_lines", "clusters", "cluster_lines", "questions",
               "wordcloze_questions", "wordcloze_blanks", "word_bank",
-              "semantic_categories", "char_pinyin", "rhyme_groups", "pingshui_rhyme"]
+              "semantic_categories", "char_pinyin", "rhyme_groups", "pingshui_rhyme",
+              "cipai_templates"]
     if ENABLE_FTS:
         tables.append("poem_fts")
     counts = {t: db.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in tables}
@@ -350,13 +361,33 @@ def verify(out_path):
     return counts, meta, hit
 
 
+def content_hash():
+    """Stable digest of every source JSON build() reads, so the version sidecar changes whenever
+    the shipped data changes — the runtime then re-copies content.db automatically, with NO manual
+    CONTENT_VERSION bump required."""
+    files = [os.path.join(DATA_DIR, f) for f in (
+        "poems.json", "questions.json", "word_questions.json",
+        "char_pinyin.json", "rhyme_groups.json", "pingshui_rhyme.json")]
+    files += [os.path.join(SAMPLE_DIR, f) for f in
+              ("semantic_categories.json", "word_bank.json", "cipai_templates.json")]
+    h = hashlib.sha1()
+    for p in sorted(files):
+        if os.path.exists(p):
+            with open(p, "rb") as f:
+                h.update(f.read())
+    return h.hexdigest()[:12]
+
+
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_OUT
     build(out)
     # Sidecar version marker: lets the runtime decide whether to re-copy content.db out of the
-    # APK without opening the (Android-uncopyable) shipped DB. Mirrors meta.content_version.
+    # APK without opening the (Android-uncopyable) shipped DB. The "<version>-<hash>" form means a
+    # content change flips the marker even if CONTENT_VERSION wasn't bumped — so editing the data
+    # and re-running build_db.py is enough; the app/editor re-copies on its own.
+    marker = f"{CONTENT_VERSION}-{content_hash()}"
     with open(out + ".version", "w", encoding="utf-8") as vf:
-        vf.write(str(CONTENT_VERSION))
+        vf.write(marker)
     counts, meta, hit = verify(out)
     size = os.path.getsize(out)
     print(f"wrote {out}  ({size/1024:.0f} KB)")
