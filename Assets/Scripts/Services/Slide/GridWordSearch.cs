@@ -113,6 +113,7 @@ namespace PoemPoetry.Services
                             // Place so chars[j] sits on (fr,fcol): start j steps back along direction d.
                             var path = StraightFrom(fr - j * DR[d], fcol - j * DC[d], d, len);
                             if (path == null || !FitsAndFree(path, chars)) continue;
+                            if (HasAdjacentFilled(path)) continue;   // 只允许点交叉，禁止与已有诗句并行重叠
                             int cross = Crossings(path);
                             if (cross > bestCross) { bestCross = cross; best = path; }
                         }
@@ -126,6 +127,7 @@ namespace PoemPoetry.Services
                 var path = Snake ? RandomSnake(len) : RandomStraight(len);
                 if (path == null) continue;
                 if (!FitsAndFree(path, chars)) continue;
+                if (HasAdjacentFilled(path)) continue;   // 禁止与已有诗句并行重叠（相邻两格都已占用）
 
                 if (!AllowOverlap) { best = path; break; }
                 int cross = Crossings(path);                 // non-null cells == matching chars (FitsAndFree guaranteed)
@@ -151,6 +153,17 @@ namespace PoemPoetry.Services
             int n = 0;
             foreach (var idx in path) if (Cells[idx] != null) n++;
             return n;
+        }
+
+        // True if two consecutive cells of the path are both already filled. That means the new line
+        // would run *alongside* an existing one (sharing a 2+ char run, e.g. 黄鹤 / 明月) rather than
+        // crossing it at a single point — which looks like one block doing double duty. Reject those so
+        // overlaps are always clean point-crossings.
+        private bool HasAdjacentFilled(List<int> path)
+        {
+            for (int k = 1; k < path.Count; k++)
+                if (Cells[path[k]] != null && Cells[path[k - 1]] != null) return true;
+            return false;
         }
 
         public void FillEmpty(IList<string> pool)

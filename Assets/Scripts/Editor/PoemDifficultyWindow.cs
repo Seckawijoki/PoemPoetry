@@ -21,6 +21,8 @@ namespace PoemPoetry.Editor
         private JArray _poems;
         private Vector2 _scroll;
         private int _detailIndex = -1;   // >=0 → showing the per-line config panel for that poem
+        private bool _dirty;             // 有未保存改动 → 标题/保存按钮显示星号
+        private string _status = "";     // 「全部写入DB」结果（不弹框，显示在面板上）
 
         // List filters (index 0 = 全部). Arrays rebuilt on Load.
         private int _typeFilter;
@@ -81,6 +83,7 @@ namespace PoemPoetry.Editor
             _dynastyFilter = IndexOf(_dynastyOptions, selDynasty);
             _catFilter = 0; RebuildCatOptions();
             _catFilter = IndexOf(_catOptions, selCat);
+            _dirty = false; _status = "";
         }
 
         /// <summary>The value at <paramref name="index"/> (null for 全部/out-of-range).</summary>
@@ -188,7 +191,9 @@ namespace PoemPoetry.Editor
                 if (GUILayout.Button("重新加载")) Load();
                 return;
             }
+            titleContent.text = _dirty ? "诗词难度配置 *" : "诗词难度配置";
             HandleShortcuts();   // before any layout so the (possibly) new index draws consistently
+            if (!string.IsNullOrEmpty(_status)) EditorGUILayout.HelpBox(_status, MessageType.Info);
             if (_detailIndex >= 0 && _detailIndex < _poems.Count) DrawDetail();
             else DrawList();
         }
@@ -198,7 +203,11 @@ namespace PoemPoetry.Editor
         {
             var e = Event.current;
             if (e.type != EventType.KeyDown) return;
-            if (e.keyCode == KeyCode.S && (e.control || e.command)) { Save(); e.Use(); return; }
+            if (e.keyCode == KeyCode.S && (e.control || e.command))
+            {
+                if (e.shift) WriteAllToDb(); else Save();   // Ctrl+Shift+S = 全部写入DB；Ctrl+S = 仅存 seed
+                e.Use(); return;
+            }
             if (_detailIndex < 0 || EditorGUIUtility.editingTextField) return;
             if (e.keyCode == KeyCode.LeftArrow)
             {
@@ -219,9 +228,10 @@ namespace PoemPoetry.Editor
                 MessageType.Info);
             using (new EditorGUILayout.HorizontalScope())
             {
-                if (GUILayout.Button("按名气推断 0/1/2")) InferFromFame();
+                if (GUILayout.Button("按名气推断 0/1/2")) { InferFromFame(); _dirty = true; }
                 if (GUILayout.Button("重新加载")) Load();
-                if (GUILayout.Button("保存")) Save();
+                if (GUILayout.Button(_dirty ? "保存 *" : "保存")) Save();
+                if (GUILayout.Button("全部写入DB (Ctrl+Shift+S)")) WriteAllToDb();
             }
             int shown = 0;
             foreach (var item in _poems) if (PoemMatches((JObject)item)) shown++;
@@ -258,9 +268,9 @@ namespace PoemPoetry.Editor
                     EditorGUILayout.LabelField(
                         $"{(string)p["title"]}  ({(string)p["dynasty"]}·{(string)p["author"]})  [{(string)p["fame"]}]",
                         GUILayout.Width(340));
-                    if (GUILayout.Button("<", GUILayout.Width(26))) p["difficulty"] = PrevTier(diff);
+                    if (GUILayout.Button("<", GUILayout.Width(26))) { p["difficulty"] = PrevTier(diff); _dirty = true; }
                     EditorGUILayout.LabelField(TierLabel(diff), GUILayout.Width(78));
-                    if (GUILayout.Button(">", GUILayout.Width(26))) p["difficulty"] = NextTier(diff);
+                    if (GUILayout.Button(">", GUILayout.Width(26))) { p["difficulty"] = NextTier(diff); _dirty = true; }
                     EditorGUILayout.LabelField("均" + AvgDiff(p), GUILayout.Width(44));
                 }
             }
@@ -283,7 +293,8 @@ namespace PoemPoetry.Editor
                 using (new EditorGUI.DisabledScope(next < 0))
                     if (GUILayout.Button("下一首 →", GUILayout.Width(96))) { _detailIndex = next; _scroll = Vector2.zero; return; }
                 GUILayout.FlexibleSpace();
-                if (GUILayout.Button("保存 (Ctrl+S)", GUILayout.Width(120))) Save();
+                if (GUILayout.Button(_dirty ? "保存 * (Ctrl+S)" : "保存 (Ctrl+S)", GUILayout.Width(140))) Save();
+                if (GUILayout.Button("全部写入DB (Ctrl+Shift+S)", GUILayout.Width(190))) WriteAllToDb();
             }
             EditorGUILayout.LabelField(
                 $"{_detailIndex + 1}/{_poems.Count}   {(string)p["title"]}  ({(string)p["dynasty"]}·{(string)p["author"]})  [{(string)p["fame"]}]",
@@ -292,13 +303,13 @@ namespace PoemPoetry.Editor
             using (new EditorGUILayout.HorizontalScope())
             {
                 EditorGUILayout.LabelField("整首难度档", GUILayout.Width(80));
-                if (GUILayout.Button("<", GUILayout.Width(26))) p["difficulty"] = PrevTier(diff);
+                if (GUILayout.Button("<", GUILayout.Width(26))) { p["difficulty"] = PrevTier(diff); _dirty = true; }
                 EditorGUILayout.LabelField(TierLabel(diff), GUILayout.Width(90));
-                if (GUILayout.Button(">", GUILayout.Width(26))) p["difficulty"] = NextTier(diff);
+                if (GUILayout.Button(">", GUILayout.Width(26))) { p["difficulty"] = NextTier(diff); _dirty = true; }
                 EditorGUILayout.LabelField("平均难度 " + AvgDiff(p), GUILayout.Width(110));
             }
             EditorGUILayout.HelpBox(
-                "快捷键：← / → 切换上下一首，Ctrl+S 保存。\n"
+                "快捷键：← / → 切换上下一首，Ctrl+S 保存(仅 seed)，Ctrl+Shift+S 全部写入DB(seed→题库→content.db)。\n"
                 + "押韵：该句是否入韵(诗只考押韵句)。句组(group)：同一句号内的分句填相同号(出题时整句一起作上下文；单独成句则借相邻一句)；"
                 + "改某句组号并回车、或点 < / > 加减，会把该句及其后所有句子整体顺延相同差值(如改 1→2，其后 1,2,3,4 依次变 2,3,4,5)。"
                 + "名句：勾选则该句按低难度计(档1→1、档2→2)，其余更高(档1→2、档2→3)。"
@@ -321,18 +332,18 @@ namespace PoemPoetry.Editor
                         EditorGUILayout.LabelField("[" + i + "]", GUILayout.Width(26));
                         EditorGUILayout.LabelField((string)ln["text"], GUILayout.Width(180));
                         bool nrh = EditorGUILayout.ToggleLeft("押韵", rhyme, GUILayout.Width(56));
-                        if (nrh != rhyme) ln["isRhymeLine"] = nrh;
+                        if (nrh != rhyme) { ln["isRhymeLine"] = nrh; _dirty = true; }
                         EditorGUILayout.LabelField("句组", GUILayout.Width(30));
-                        if (GUILayout.Button("<", GUILayout.Width(22))) ShiftGroupsFrom(lines, i, -1);
+                        if (GUILayout.Button("<", GUILayout.Width(22))) { ShiftGroupsFrom(lines, i, -1); _dirty = true; }
                         int ng = EditorGUILayout.DelayedIntField(g, GUILayout.Width(34));
-                        if (ng != g) ShiftGroupsFrom(lines, i, ng - g);
-                        if (GUILayout.Button(">", GUILayout.Width(22))) ShiftGroupsFrom(lines, i, +1);
+                        if (ng != g) { ShiftGroupsFrom(lines, i, ng - g); _dirty = true; }
+                        if (GUILayout.Button(">", GUILayout.Width(22))) { ShiftGroupsFrom(lines, i, +1); _dirty = true; }
                         bool nf = EditorGUILayout.ToggleLeft("名句", fam, GUILayout.Width(52));
-                        if (nf != fam) { if (nf) ln["famous"] = true; else ln.Remove("famous"); }
+                        if (nf != fam) { if (nf) ln["famous"] = true; else ln.Remove("famous"); _dirty = true; }
                         EditorGUILayout.LabelField("难", GUILayout.Width(20));
-                        if (GUILayout.Button("-", GUILayout.Width(22))) SetLineDiff(ln, PrevLineTier(ov));
+                        if (GUILayout.Button("-", GUILayout.Width(22))) { SetLineDiff(ln, PrevLineTier(ov)); _dirty = true; }
                         EditorGUILayout.LabelField(ov < 0 ? "自" + eff : eff.ToString(), GUILayout.Width(42));
-                        if (GUILayout.Button("+", GUILayout.Width(22))) SetLineDiff(ln, NextLineTier(ov));
+                        if (GUILayout.Button("+", GUILayout.Width(22))) { SetLineDiff(ln, NextLineTier(ov)); _dirty = true; }
                     }
                 }
             }
@@ -445,8 +456,29 @@ namespace PoemPoetry.Editor
         {
             File.WriteAllText(SeedPath, _root.ToString(Formatting.Indented), new UTF8Encoding(false));
             AssetDatabase.Refresh();
-            EditorUtility.DisplayDialog("难度配置",
-                "已保存到 poems_seed.json。\n请到「唐诗宋词 ▸ 内容工具 ▸ ① 生成题库」重新生成。", "好");
+            _dirty = false;   // 不再弹框；星号消失即表示已保存
+            Debug.Log("[难度配置] 已保存 poems_seed.json（改完记得到「内容工具 ▸ ① 生成题库」重新生成）。");
+        }
+
+        /// <summary>全部写入DB：保存 seed → 生成题库(poems.json) → 重建 content.db。一步到位、进游戏即生效。</summary>
+        private void WriteAllToDb()
+        {
+            Save();   // 写 seed + 清星号
+            var sb = new StringBuilder();
+            if (ContentToolWindow.GenerateBank(out string gen))
+            {
+                sb.AppendLine("✓ 已生成题库 poems.json。");
+                if (ContentToolWindow.RunBuildDb(out string db))
+                    sb.AppendLine("✓ 已重建 content.db（版本标记已更新）。进游戏即可看到改动。");
+                else
+                    sb.AppendLine("✗ content.db 未重建，请手动运行：\n  python Tools/ChinesePoetryImport/build_db.py\n" + db);
+            }
+            else
+            {
+                sb.AppendLine("✗ 生成题库失败（poems.json 未更新）：\n" + gen);
+            }
+            _status = sb.ToString();
+            Debug.Log("[难度配置] " + _status);
         }
     }
 }

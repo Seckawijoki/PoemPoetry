@@ -20,7 +20,7 @@ namespace PoemPoetry.UI
             var poem = a != null ? Services.Content.GetPoem(a.PoemId) : null;
             var body = Design.Chrome(gameObject, () => Nav.Pop(), () => Nav.Push<SettingsScreen>(),
                 poem != null ? PoemFormat.DisplayTitle(poem.Title) : "诗词");
-            UiKit.VerticalGroup(body.gameObject, spacing: 12, padX: 28, padY: 16, align: TextAnchor.UpperCenter);
+            UiKit.VerticalGroup(body.gameObject, spacing: 12, padX: 18, padY: 16, align: TextAnchor.UpperCenter);
 
             // 标题上方显示「当前/总数」(仅在按列表浏览时)。
             if (a != null && a.Siblings != null && a.Siblings.Count > 1)
@@ -131,10 +131,12 @@ namespace PoemPoetry.UI
             var poemText = UiKit.Text("Poem", box.transform, body, 48, TextAlignmentOptions.Center, Design.Ink,
                 wrap: grouped); // grouped rows can be long → allow wrap
             poemText.lineSpacing = 18f; poemText.characterSpacing = 6f;
-            UiKit.StretchFull(poemText.gameObject, 36);
+            // Slim side inset so long grouped rows (e.g. 南村群童欺我老无力 忍能对面为盗贼) fit on one line.
+            UiKit.StretchFull(poemText.gameObject, 10);
             // Estimate height: unwrapped lines need no width bound; grouped rows can wrap, so bound to
-            // an approximate content width (canvas 1080 minus side margins) and add slack.
-            float poemH = poemText.GetPreferredValues(body, grouped ? 900f : 100000f, 0f).y + 100f;
+            // an approximate content width (slim margins) and add slack. Kept a touch under the real
+            // width so we over- (never under-) estimate height and never clip a wrapped row.
+            float poemH = poemText.GetPreferredValues(body, grouped ? 840f : 100000f, 0f).y + 100f;
             UiKit.Pref(box, minH: poemH);
             Design.Corners(box, Design.Alpha(Design.Primary, 0.3f), arm: 34, thick: 2, inset: 8);
         }

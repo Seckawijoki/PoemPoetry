@@ -53,6 +53,11 @@ namespace PoemPoetry.Editor
 
             if (GUILayout.Button("① 生成题库（标注 + 出题 + 写盘）", GUILayout.Height(40))) Generate();
             if (GUILayout.Button("② 校验现有题库", GUILayout.Height(30))) Validate();
+            if (GUILayout.Button("③ 重建数据库 content.db（运行 build_db.py）", GUILayout.Height(30)))
+            {
+                bool ok = RunBuildDb(out string dbOut);
+                _report = (ok ? "✓ content.db 已重建（版本标记已更新，游戏会自动重新拷贝）。\n\n" : "✗ content.db 重建失败：\n\n") + dbOut;
+            }
 
             EditorGUILayout.Space();
             _scroll = EditorGUILayout.BeginScrollView(_scroll);
@@ -63,6 +68,13 @@ namespace PoemPoetry.Editor
         private static IRawTextLoader Loader() => new FileRawTextLoader(Application.streamingAssetsPath);
 
         private void Generate()
+        {
+            GenerateBank(out _report);
+        }
+
+        /// <summary>Runs the seed→StreamingAssets/JSON pipeline (shared by 内容工具 and 词牌模板).
+        /// Writes poems/questions/rhyme_groups.json; returns success and a human-readable report.</summary>
+        public static bool GenerateBank(out string report)
         {
             var sb = new StringBuilder();
             bool ok = false;
@@ -75,7 +87,7 @@ namespace PoemPoetry.Editor
                 foreach (var kv in PinyinRhyme.DefaultGroupMap) rg.Groups[kv.Key] = kv.Value;
                 File.WriteAllText(Path.Combine(DataDir, "rhyme_groups.json"), PoemJson.Serialize(rg), Utf8);
 
-                if (!File.Exists(SeedPath)) { _report = "找不到种子文件：" + SeedPath; return; }
+                if (!File.Exists(SeedPath)) { report = "找不到种子文件：" + SeedPath; return false; }
                 var seed = PoemJson.Deserialize<PoemFile>(File.ReadAllText(SeedPath, Encoding.UTF8));
 
                 var source = new JsonContentSource(Loader());
@@ -121,9 +133,48 @@ namespace PoemPoetry.Editor
             {
                 sb.AppendLine("出错：" + e);
             }
-            _report = sb.ToString();
+            report = sb.ToString();
+            return ok;
             // 不再弹窗提示生成字体图集；后续两步（重烤图集 + 重建 content.db）已写在上方报告里，
             // 需要时手动跑 PoemPoetry ▸ 字体 ▸ ① 一键生成图集。
+        }
+
+        /// <summary>Runs Tools/ChinesePoetryImport/build_db.py to rebuild content.db from the JSON.
+        /// Tries python/py/python3; returns success and the process output (or how to run it manually).</summary>
+        public static bool RunBuildDb(out string output)
+        {
+            string root = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
+            const string script = "Tools/ChinesePoetryImport/build_db.py";
+            foreach (var exe in new[] { "python", "py", "python3" })
+            {
+                try
+                {
+                    var psi = new System.Diagnostics.ProcessStartInfo(exe, "\"" + script + "\"")
+                    {
+                        WorkingDirectory = root,
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                    };
+                    using (var p = System.Diagnostics.Process.Start(psi))
+                    {
+                        string so = p.StandardOutput.ReadToEnd();
+                        string se = p.StandardError.ReadToEnd();
+                        p.WaitForExit();
+                        output = (so + se).Trim();
+                        if (p.ExitCode == 0) { AssetDatabase.Refresh(); return true; }
+                        output = $"[{exe} 退出码 {p.ExitCode}]\n" + output;
+                        return false;   // python ran but the script failed — don't retry other launchers
+                    }
+                }
+                catch (System.Exception)
+                {
+                    // launcher not found on PATH → try the next one
+                }
+            }
+            output = "未找到 python，可手动运行：\n  python Tools/ChinesePoetryImport/build_db.py";
+            return false;
         }
 
         private void Validate()

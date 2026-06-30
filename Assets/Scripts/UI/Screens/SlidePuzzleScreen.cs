@@ -20,24 +20,21 @@ namespace PoemPoetry.UI
         private const float HeightBudget = 1400f;
         private const float Spacing = 6f;
         private static readonly Color RevealColor = new Color(0.92f, 0.74f, 0.30f);
-        // 滑动状态配色：已滑过的字 / 当前滑动位置 / 回看滑动头 / 重叠字滑过 / 重叠字匹配。
-        private static readonly Color SlidBodyColor = new Color(0.78f, 0.87f, 0.96f); // 已滑过的字（浅蓝）
-        private static readonly Color SlidHeadColor = new Color(0.20f, 0.52f, 0.82f); // 当前滑动位置（亮蓝）
-        private static readonly Color ReplayHeadColor = new Color(0.82f, 0.50f, 0.12f); // 回看时的当前位置（深琥珀）
-        private static readonly Color CrossPathColor = new Color(0.95f, 0.66f, 0.22f); // 滑过重叠字（琥珀）
-        private static readonly Color CrossFoundColor = new Color(0.16f, 0.58f, 0.56f); // 已匹配的重叠字（青）
+        private static readonly Color SlidBodyColor = new Color(0.78f, 0.87f, 0.96f); // 滑过普通字（统一浅蓝）
         private static readonly Color OverFoundColor = new Color(0.58f, 0.80f, 0.58f); // 划过已找到的字（浅绿）
         private static readonly Color HintFlashColor = new Color(0.98f, 0.85f, 0.32f); // 提示闪烁
-        // 重叠字提示关闭时，找到的诗句按句序循环取色，让不同句的重叠字一眼可辨。
-        private static readonly Color[] OverlapPalette =
+        // 按「该格被找到的交叉次数」着色：1 次=绿（默认最常见），2 次起依次取后续颜色。
+        private static readonly Color[] CountColors =
         {
-            new Color(0.16f, 0.58f, 0.56f), // 青
-            new Color(0.78f, 0.42f, 0.55f), // 玫
-            new Color(0.45f, 0.40f, 0.78f), // 紫
-            new Color(0.90f, 0.60f, 0.20f), // 橙
-            new Color(0.28f, 0.60f, 0.42f), // 绿
-            new Color(0.30f, 0.55f, 0.80f), // 蓝
+            UiKit.Good,                     // 1 次：绿
+            new Color(0.16f, 0.58f, 0.56f), // 2 次：青
+            new Color(0.78f, 0.42f, 0.55f), // 3 次：玫
+            new Color(0.45f, 0.40f, 0.78f), // 4 次：紫
+            new Color(0.90f, 0.60f, 0.20f), // 5 次：橙
+            new Color(0.30f, 0.55f, 0.80f), // 6 次：蓝
         };
+        private static Color CountColor(int n) => CountColors[Mathf.Clamp(n - 1, 0, CountColors.Length - 1)];
+        private static Color Lighten(Color c) => Color.Lerp(c, Color.white, 0.62f);
 
         private readonly System.Random _rng = new System.Random();
 
@@ -65,9 +62,9 @@ namespace PoemPoetry.UI
         private readonly List<int> _painted = new List<int>();      // 当前临时高亮的格子（用于复原）
         private readonly List<int> _paintedFound = new List<int>(); // 临时划过的已找到格子（复原回找到色）
         private readonly Dictionary<int, Color> _foundColor = new Dictionary<int, Color>(); // 找到格子的静息色
-        private readonly HashSet<int> _crossCells = new HashSet<int>(); // 被两句以上共用的重叠字格子
+        private readonly Dictionary<int, int> _crossCount = new Dictionary<int, int>(); // 每格被几句诗穿过（总交叉数）
+        private readonly Dictionary<int, int> _foundCount = new Dictionary<int, int>(); // 每格已被几句已找到的诗穿过
         private readonly HashSet<int> _revealedLines = new HashSet<int>(); // 已用「显示答案」揭晓的句序
-        private int _foundOrder;            // 已找到诗句计数（用于重叠字按句数着色）
         private int _startCell = -1;
 
         private float _endTime;
@@ -281,14 +278,13 @@ namespace PoemPoetry.UI
             UiKit.ClearChildren(_gridPanel);
             _cellBg.Clear(); _cellTxt.Clear(); _selector.Cells.Clear();
             _path.Clear(); _painted.Clear(); _paintedFound.Clear(); _foundCells.Clear();
-            _foundColor.Clear(); _revealedLines.Clear(); _foundOrder = 0; _startCell = -1;
+            _foundColor.Clear(); _foundCount.Clear(); _revealedLines.Clear(); _startCell = -1;
 
-            // 重叠字 = 被两句以上共用的格子（同一方块属于多句诗）。
-            _crossCells.Clear();
-            var seenCells = new HashSet<int>();
+            // 每格的交叉数 = 有几句诗穿过它（≥2 即重叠字）。
+            _crossCount.Clear();
             foreach (var tg in _game.Targets)
                 foreach (var idx in tg.Cells)
-                    if (!seenCells.Add(idx)) _crossCells.Add(idx);
+                    _crossCount[idx] = (_crossCount.TryGetValue(idx, out var c) ? c : 0) + 1;
 
             int fontSize = Mathf.RoundToInt(_cellSize * 0.5f);
             for (int i = 0; i < _game.Cells.Length; i++)
@@ -304,7 +300,7 @@ namespace PoemPoetry.UI
                 _selector.Cells.Add(cell.GetComponent<RectTransform>());
             }
             foreach (var tg in _game.Targets)
-                if (tg.Found) PaintFoundLine(tg, _foundOrder++);
+                if (tg.Found) PaintFoundLine(tg);
         }
 
         // ----- selection -----
@@ -351,7 +347,7 @@ namespace PoemPoetry.UI
             if (found != null)
             {
                 RestoreTransient();                 // drop the trace highlight; cells become "found"
-                PaintFoundLine(found, _foundOrder++);
+                PaintFoundLine(found);
                 _path.Clear();
                 if (AudioManager.Instance != null) AudioManager.Instance.PlayCorrect();
                 UpdateStatus();
@@ -362,8 +358,8 @@ namespace PoemPoetry.UI
             ClearPath();
         }
 
-        // Recolor the current trace: body = 已滑过的字, head = 当前滑动位置, crossing cells = 重叠字
-        // (回看时头部用琥珀色). 划过已找到的字用专色提示。重叠字提示关闭时拖动不预先揭晓重叠字。
+        // Recolor the current trace. 划过已找到的字 → 浅绿提示；其余普通字统一浅蓝。
+        // 重叠提示开时，划过尚未找到的重叠字额外预览为「最终重叠色的浅色版」。
         private void ShowPath()
         {
             RestoreTransient();
@@ -380,13 +376,10 @@ namespace PoemPoetry.UI
                     _paintedFound.Add(idx);
                     continue;
                 }
-                bool head = i == _path.Count - 1;
-                Color bg; Color fg = Design.Ink;
-                if (_overlapHint && _crossCells.Contains(idx)) bg = CrossPathColor; // 滑过重叠字（仅提示开时预览）
-                else if (head) { bg = _practice ? ReplayHeadColor : SlidHeadColor; fg = Color.white; } // 当前滑动位置
-                else bg = _practice ? RevealColor : SlidBodyColor;                 // 已滑过的字 / 回看滑动
+                int total = _crossCount.TryGetValue(idx, out var tc) ? tc : 1;
+                Color bg = (_overlapHint && total >= 2) ? Lighten(CountColor(total)) : SlidBodyColor;
                 _cellBg[idx].color = bg;
-                _cellTxt[idx].color = fg;
+                _cellTxt[idx].color = Design.Ink;
                 _painted.Add(idx);
             }
         }
@@ -402,19 +395,22 @@ namespace PoemPoetry.UI
             _paintedFound.Clear();
         }
 
-        // Lock in a found 诗句: 普通字用绿色；重叠字提示开 → 青色统一标记，关 → 按句序在调色板里取色，
-        // 让「找到后按句数显示不同颜色」一眼可辨（重叠字滑动匹配）。
-        private void PaintFoundLine(GridWordSearch.Target t, int order)
+        // Lock in a found 诗句, coloring each cell by crossing count:
+        //  · 重叠提示开 → 立即用「该格总交叉数」的颜色（找到一句即显示最终重叠色）；
+        //  · 重叠提示关 → 用「该格已找到的交叉数」着色（1 次绿，2 次起逐级换色，随后续诗句被找到而递进）。
+        // 普通字（仅 1 句穿过）两种模式下都是绿色。
+        private void PaintFoundLine(GridWordSearch.Target t)
         {
             foreach (var idx in t.Cells)
             {
                 if (idx < 0 || idx >= _cellBg.Count) continue;
-                Color c = !_crossCells.Contains(idx) ? UiKit.Good
-                        : _overlapHint ? CrossFoundColor
-                        : OverlapPalette[((order % OverlapPalette.Length) + OverlapPalette.Length) % OverlapPalette.Length];
+                int fc = (_foundCount.TryGetValue(idx, out var c) ? c : 0) + 1;
+                _foundCount[idx] = fc;
+                int total = _crossCount.TryGetValue(idx, out var tc) ? tc : 1;
+                Color col = CountColor(_overlapHint ? total : fc);
                 _foundCells.Add(idx);
-                _foundColor[idx] = c;
-                _cellBg[idx].color = c;
+                _foundColor[idx] = col;
+                _cellBg[idx].color = col;
                 _cellTxt[idx].color = Color.white;
             }
         }
@@ -527,7 +523,7 @@ namespace PoemPoetry.UI
             return true;
         }
 
-        // 提示：随机挑一句未划出的诗句，让它开头的几个字闪烁 2 次（不揭晓整句）。
+        // 提示：随机挑一句未划出的诗句，仅让其中一个尚未找到的字闪烁 2 次（不揭晓整句）。
         private void Hint()
         {
             if (isActiveAndEnabled) StartCoroutine(HintFlash());
@@ -540,20 +536,17 @@ namespace PoemPoetry.UI
             if (unfound.Count == 0) yield break;
             var tg = unfound[_rng.Next(unfound.Count)];
 
-            int k = Mathf.Min(3, tg.Cells.Count);   // 其中几个字
-            var cells = new List<int>();
-            var orig = new List<Color>();
-            for (int i = 0; i < k; i++)
-            {
-                int idx = tg.Cells[i];
-                if (_foundCells.Contains(idx)) continue;
-                cells.Add(idx); orig.Add(_cellBg[idx].color);
-            }
+            // 仅提示一个字：挑该句第一个尚未找到的格子。
+            int cell = -1;
+            foreach (var idx in tg.Cells)
+                if (!_foundCells.Contains(idx)) { cell = idx; break; }
+            if (cell < 0) yield break;
+            Color orig = _cellBg[cell].color;
             for (int blink = 0; blink < 2; blink++)
             {
-                foreach (var idx in cells) _cellBg[idx].color = HintFlashColor;
+                _cellBg[cell].color = HintFlashColor;
                 yield return new WaitForSecondsRealtime(0.32f);
-                for (int i = 0; i < cells.Count; i++) _cellBg[cells[i]].color = orig[i];
+                _cellBg[cell].color = orig;
                 yield return new WaitForSecondsRealtime(0.20f);
             }
         }

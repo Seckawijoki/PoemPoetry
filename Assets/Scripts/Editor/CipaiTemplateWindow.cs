@@ -26,6 +26,7 @@ namespace PoemPoetry.Editor
         private List<int> _groups = new List<int>();           // 正在编辑的句组模板
         private Vector2 _scroll;
         private string _status = "";
+        private bool _dirty;            // 有未写盘的模板改动 → 标题/全部保存按钮显示星号
 
         private static string SeedPath =>
             Path.GetFullPath(Path.Combine(Application.dataPath, "../Tools/SampleContent/poems_seed.json"));
@@ -65,6 +66,7 @@ namespace PoemPoetry.Editor
 
             _cipaiIndex = _cipaiList.Length > 0 ? 0 : -1;
             SelectCipai();
+            _dirty = false;
         }
 
         /// <summary>切换词牌：取首匹配词的句文本作参考，并载入其模板(无则从该词现有 group 推导)。</summary>
@@ -105,6 +107,7 @@ namespace PoemPoetry.Editor
                 if (GUILayout.Button("重新加载")) Load();
                 return;
             }
+            titleContent.text = _dirty ? "词牌分组模板 *" : "词牌分组模板";
             HandleShortcuts();   // before layout so the (possibly) new index draws consistently
             if (_cipaiList.Length == 0)
             {
@@ -115,8 +118,9 @@ namespace PoemPoetry.Editor
 
             EditorGUILayout.HelpBox(
                 "选择词牌(← / → 切换) → 用 < / > 调整每句的「句组」号(同号=同一句号，改某句会顺延其后)。\n"
-                + "「保存模板」写入 cipai_templates.json；「应用到全部」把模板句组写回所有同词牌的词(句数一致才写)，"
-                + "再到「内容工具 ▸ ① 生成题库」重新生成。模板文件在 Assets 之外，不进 APK。",
+                + "改动会即时记入内存(可跨词牌)，标题/按钮显示 * 表示未写盘；「全部保存」一次写入 cipai_templates.json。\n"
+                + "「应用到全部」只处理当前词牌；「全部写入DB」(Ctrl+Shift+S)把所有模板写回各自的词→生成题库→重建 content.db，进游戏即生效。"
+                + "Ctrl+S=全部保存(仅模板文件)。模板文件在 Assets 之外，不进 APK。",
                 MessageType.Info);
 
             using (new EditorGUILayout.HorizontalScope())
@@ -136,10 +140,11 @@ namespace PoemPoetry.Editor
 
             using (new EditorGUILayout.HorizontalScope())
             {
-                if (GUILayout.Button("从首词导入分组", GUILayout.Width(120))) { SelectCipaiFromPoem(); }
-                if (GUILayout.Button("保存模板", GUILayout.Width(90))) SaveTemplate();
-                if (GUILayout.Button($"应用到全部「{cipai}」", GUILayout.Width(180))) ApplyToAll();
-                if (GUILayout.Button("重新加载", GUILayout.Width(90))) Load();
+                if (GUILayout.Button("从首词导入分组", GUILayout.Width(120))) SelectCipaiFromPoem();
+                if (GUILayout.Button(_dirty ? "全部保存 *" : "全部保存", GUILayout.Width(100))) SaveAll();
+                if (GUILayout.Button($"应用到全部「{cipai}」", GUILayout.Width(170))) ApplyToAll();
+                if (GUILayout.Button("全部写入DB (Ctrl+Shift+S)", GUILayout.Width(190))) WriteAllToDb();
+                if (GUILayout.Button("重新加载", GUILayout.Width(80))) Load();
             }
             if (!string.IsNullOrEmpty(_status)) EditorGUILayout.HelpBox(_status, MessageType.Info);
 
@@ -165,7 +170,13 @@ namespace PoemPoetry.Editor
         private void HandleShortcuts()
         {
             var e = Event.current;
-            if (e.type != EventType.KeyDown || _cipaiList.Length == 0 || EditorGUIUtility.editingTextField) return;
+            if (e.type != EventType.KeyDown) return;
+            if (e.keyCode == KeyCode.S && (e.control || e.command))
+            {
+                if (e.shift) WriteAllToDb(); else SaveAll();   // Ctrl+Shift+S = 全部写入DB；Ctrl+S = 全部保存
+                e.Use(); return;
+            }
+            if (_cipaiList.Length == 0 || EditorGUIUtility.editingTextField) return;
             int dir = e.keyCode == KeyCode.LeftArrow ? -1 : (e.keyCode == KeyCode.RightArrow ? 1 : 0);
             if (dir == 0) return;
             int ni = Mathf.Clamp(_cipaiIndex + dir, 0, _cipaiList.Length - 1);
@@ -177,6 +188,78 @@ namespace PoemPoetry.Editor
         {
             if (delta == 0) return;
             for (int j = start; j < _groups.Count; j++) _groups[j] += delta;
+            CommitCurrent(); _dirty = true;   // 即时记入内存模板，跨词牌不丢；待「全部保存」写盘
+        }
+
+        /// <summary>把当前正在编辑的句组提交进内存模板表（不写盘）。</summary>
+        private void CommitCurrent()
+        {
+            if (_cipaiIndex >= 0 && _cipaiIndex < _cipaiList.Length)
+                _templates[_cipaiList[_cipaiIndex]] = new JArray(_groups.ToArray());
+        }
+
+        /// <summary>把内存模板表写入 cipai_templates.json。</summary>
+        private void WriteTemplatesFile()
+        {
+            var root = new JObject { ["schemaVersion"] = 1, ["templates"] = _templates };
+            File.WriteAllText(TemplatePath, root.ToString(Formatting.Indented), new UTF8Encoding(false));
+            AssetDatabase.Refresh();
+        }
+
+        /// <summary>全部保存：提交当前编辑并把所有词牌模板一次写盘。</summary>
+        private void SaveAll()
+        {
+            CommitCurrent();
+            WriteTemplatesFile();
+            _dirty = false;
+            _status = "已保存全部词牌模板到 cipai_templates.json。";
+        }
+
+        /// <summary>全部写入DB：保存所有模板 → 把每个模板句组写回同词牌的词(seed) → 生成题库 → 重建 content.db。</summary>
+        private void WriteAllToDb()
+        {
+            CommitCurrent();
+            WriteTemplatesFile();   // 落盘所有模板
+            _dirty = false;
+
+            var detail = new StringBuilder();
+            int totalApplied = 0, totalSkipped = 0;
+            foreach (var prop in _templates.Properties())
+            {
+                if (!(prop.Value is JArray arr)) continue;
+                string cp = prop.Name;
+                int applied = 0, skipped = 0;
+                foreach (var item in _poems)
+                {
+                    var p = (JObject)item;
+                    if ((string)p["type"] != "词" || (string)p["cipai"] != cp) continue;
+                    if (!(p["lines"] is JArray lines) || lines.Count != arr.Count) { skipped++; continue; }
+                    for (int i = 0; i < lines.Count; i++) ((JObject)lines[i])["group"] = (int)arr[i];
+                    applied++;
+                }
+                totalApplied += applied; totalSkipped += skipped;
+                if (applied > 0 || skipped > 0)
+                    detail.AppendLine($"  {cp}: 写回 {applied}{(skipped > 0 ? $"，跳过 {skipped}" : "")}");
+            }
+            File.WriteAllText(SeedPath, _seedRoot.ToString(Formatting.Indented), new UTF8Encoding(false));
+
+            var sb = new StringBuilder();
+            sb.AppendLine($"已应用 {_templates.Count} 个词牌模板：写回 {totalApplied} 首"
+                + (totalSkipped > 0 ? $"，{totalSkipped} 首句数不符跳过（变体）" : "") + "。");
+            sb.Append(detail);
+            if (ContentToolWindow.GenerateBank(out string gen))
+            {
+                sb.AppendLine("✓ 已生成题库 poems.json。");
+                if (ContentToolWindow.RunBuildDb(out string db))
+                    sb.AppendLine("✓ 已重建 content.db。进游戏即可看到全部新分组。");
+                else
+                    sb.AppendLine("✗ content.db 未重建，请手动运行：\n  python Tools/ChinesePoetryImport/build_db.py\n" + db);
+            }
+            else
+            {
+                sb.AppendLine("✗ 生成题库失败（poems.json 未更新）：\n" + gen);
+            }
+            _status = sb.ToString();
         }
 
         private string[] CipaiLabels()
@@ -219,17 +302,8 @@ namespace PoemPoetry.Editor
                 }
                 break;
             }
-            _status = "已从首词导入分组（未保存）。";
-        }
-
-        private void SaveTemplate()
-        {
-            string cipai = _cipaiList[_cipaiIndex];
-            _templates[cipai] = new JArray(_groups.ToArray());
-            var root = new JObject { ["schemaVersion"] = 1, ["templates"] = _templates };
-            File.WriteAllText(TemplatePath, root.ToString(Formatting.Indented), new UTF8Encoding(false));
-            AssetDatabase.Refresh();
-            _status = $"已保存「{cipai}」模板（{_groups.Count} 句）到 cipai_templates.json。";
+            CommitCurrent(); _dirty = true;
+            _status = "已从首词导入分组（未写盘，点「全部保存」保存）。";
         }
 
         /// <summary>把当前模板的句组写回所有同词牌且句数一致的词，并保存 poems_seed.json。</summary>
@@ -253,7 +327,7 @@ namespace PoemPoetry.Editor
             }
 
             File.WriteAllText(SeedPath, _seedRoot.ToString(Formatting.Indented), new UTF8Encoding(false));
-            SaveTemplate();   // 应用即视为该模板有效，一并存档
+            CommitCurrent(); WriteTemplatesFile(); _dirty = false;   // 应用即视为该模板有效，一并存档
             AssetDatabase.Refresh();
 
             var sb = new StringBuilder();
@@ -264,7 +338,21 @@ namespace PoemPoetry.Editor
                 if (skippedTitles.Count > 0) sb.Append("（" + string.Join("、", skippedTitles) + (skipped > skippedTitles.Count ? "…" : "") + "）");
                 sb.Append("——多为「又一体」变体，需单独建模板或手改。");
             }
-            sb.Append("\n已保存 poems_seed.json，请到「内容工具 ▸ ① 生成题库」重新生成。");
+            sb.AppendLine("。已保存 poems_seed.json。");
+
+            // 一条龙：① seed→poems.json(生成题库)  ② poems.json→content.db(build_db.py)
+            if (ContentToolWindow.GenerateBank(out string genReport))
+            {
+                sb.AppendLine("✓ 已重新生成题库 poems.json。");
+                if (ContentToolWindow.RunBuildDb(out string dbOut))
+                    sb.AppendLine("✓ 已重建 content.db，直接进游戏即可看到新分组。");
+                else
+                    sb.AppendLine("✗ content.db 未重建，请手动运行：\n  python Tools/ChinesePoetryImport/build_db.py\n" + dbOut);
+            }
+            else
+            {
+                sb.AppendLine("✗ 生成题库失败（poems.json 未更新）：\n" + genReport);
+            }
             _status = sb.ToString();
         }
     }

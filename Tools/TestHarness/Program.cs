@@ -765,6 +765,30 @@ internal static class Program
         }
         Check(sawCrossing, "overlap mode actually produces a shared-cell crossing");
 
+        // 重叠只允许「点交叉」：没有任意两句诗共用相邻两格（即同一对诗句不共享 2+ 连续格，避免 黄鹤/明月）。
+        // 注意：相邻两格各自被「不同」的诗句穿过是允许的（两处独立的点交叉恰好相邻）。
+        bool noParallelRun = true;
+        foreach (var level in new[] { 1, 2, 3, 4 })
+        {
+            var gx = new GridWordSearch(10, level, allowOverlap: true, rng: new SystemRandomSource(960 + level));
+            foreach (var line in crossLines) gx.TryPlace(line, SplitToChars(line), "t");
+            for (int ti = 0; ti < gx.Targets.Count; ti++)
+            {
+                var t = gx.Targets[ti];
+                for (int i = 1; i < t.Cells.Count; i++)
+                {
+                    int a = t.Cells[i - 1], b = t.Cells[i];
+                    for (int tj = 0; tj < gx.Targets.Count; tj++)
+                    {
+                        if (tj == ti) continue;
+                        var o = gx.Targets[tj];
+                        if (o.Cells.Contains(a) && o.Cells.Contains(b)) noParallelRun = false;
+                    }
+                }
+            }
+        }
+        Check(noParallelRun, "overlap crossings are single-point (no two lines share a 2+ run like 黄鹤/明月)");
+
         // 8x8 still出题: small square grid (maxLine=8) must place several 5~8 字诗句 on every level,
         // both with and without overlap (the slide config now allows tiny grids via the cols slider).
         string[] small8 = { "床前明月光", "疑是地上霜", "举头望明月", "低头思故乡", "春眠不觉晓", "夜来风雨声" };
